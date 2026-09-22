@@ -2144,23 +2144,23 @@ manual check.)
 **Files:**
 - Modify: any files flagged by lint/format
 
-- [ ] **Step 1: Run lint**
+- [x] **Step 1: Run lint**
 
 Run: `npm run lint`
 Expected: no errors. Fix any issues found (unused imports, etc.) and re-run
 until clean.
 
-- [ ] **Step 2: Run the full test suite one more time**
+- [x] **Step 2: Run the full test suite one more time**
 
 Run: `npm test`
 Expected: all test files pass, no skipped/todo tests.
 
-- [ ] **Step 3: Run a production build**
+- [x] **Step 3: Run a production build**
 
 Run: `npm run build`
 Expected: builds successfully into `dist/`, no errors.
 
-- [ ] **Step 4: Commit any lint fixes**
+- [x] **Step 4: Commit any lint fixes**
 
 ```bash
 git add -A
