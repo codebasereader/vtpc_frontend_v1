@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react'
 import { Helmet } from 'react-helmet-async'
 import { getHomepageContent } from '../../../api/homepageApi'
 import Hero from '../../../sections/Hero'
+import KarnatakaHighlights from '../../../sections/KarnatakaHighlights'
 
 export default function Home() {
   const [content, setContent] = useState(null)
@@ -39,6 +40,7 @@ export default function Home() {
         />
       </Helmet>
       <Hero title={content.hero.title} subtitle={content.hero.subtitle} />
+      <KarnatakaHighlights highlights={content.highlights} />
     </>
   )
 }
