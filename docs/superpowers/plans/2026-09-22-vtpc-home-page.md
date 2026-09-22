@@ -839,13 +839,13 @@ git commit -m "feat: add districtsApi and seed all 30 real district slugs"
   132–368. Extracted verbatim rather than redrawn (spec §9: "reuse the
   shapes... rather than redesigning the artwork from scratch").
 
-- [ ] **Step 1: Extract the SVG verbatim**
+- [x] **Step 1: Extract the SVG verbatim**
 
 ```bash
 sed -n '132,368p' "E:/vtpc.karnataka.gov.in Source Code/20241206_vtpckarnatakavisvesvarayatra_b7e51cdc9d06b88b9857_20250424100417_archive/wp-content/themes/VTPC/template/home.php" > src/assets/karnataka-districts-map.svg
 ```
 
-- [ ] **Step 2: Verify no PHP interpolation leaked into the extract**
+- [x] **Step 2: Verify no PHP interpolation leaked into the extract**
 
 ```bash
 grep -c '<?' src/assets/karnataka-districts-map.svg
@@ -855,7 +855,7 @@ and replace it with its resolved static value (there is no dynamic template
 directory URI needed inside path/mask data, so this is not expected to
 trigger, but must be verified rather than assumed).
 
-- [ ] **Step 3: Confirm the file is a well-formed, self-contained `<svg>`**
+- [x] **Step 3: Confirm the file is a well-formed, self-contained `<svg>`**
 
 ```bash
 head -c 200 src/assets/karnataka-districts-map.svg
@@ -865,7 +865,7 @@ Expected: starts with `<svg viewBox="0 0 422 538" ...>` and ends with
 `</svg>` (matching the `sed` range boundaries confirmed during plan
 research — line 132 is the opening tag, line 368 is `</svg>`).
 
-- [ ] **Step 4: Write the failing test**
+- [x] **Step 4: Write the failing test**
 
 ```jsx
 // src/sections/DistrictExplorer/KarnatakaMap/KarnatakaMap.test.jsx
@@ -898,12 +898,12 @@ describe('KarnatakaMap', () => {
 })
 ```
 
-- [ ] **Step 5: Run it, verify it fails**
+- [x] **Step 5: Run it, verify it fails**
 
 Run: `npm test -- KarnatakaMap`
 Expected: FAIL — module doesn't exist.
 
-- [ ] **Step 6: Implement `KarnatakaMap`**
+- [x] **Step 6: Implement `KarnatakaMap`**
 
 Rendered via `dangerouslySetInnerHTML` from the extracted static SVG (real
 markup, not JSX-authored — converting 30 `<a>` blocks' `class`/attribute
@@ -959,12 +959,12 @@ Tailwind class highlights whichever district is currently selected by
 overriding its path fill — the reference site's own per-district fill
 colors stay as the unselected baseline.
 
-- [ ] **Step 7: Run it, verify it passes**
+- [x] **Step 7: Run it, verify it passes**
 
 Run: `npm test -- KarnatakaMap`
 Expected: PASS, 3 tests.
 
-- [ ] **Step 8: Commit**
+- [x] **Step 8: Commit**
 
 ```bash
 git add src/assets/karnataka-districts-map.svg src/sections/DistrictExplorer/KarnatakaMap
@@ -995,7 +995,7 @@ git commit -m "feat: extract reference Karnataka SVG map and build KarnatakaMap 
   24px, weight 600), `.data-list li` (flex, `border-bottom: 1px solid
   #E7DBDB`), `.percentage` (`#C83744`).
 
-- [ ] **Step 1: Write the failing test for `DistrictPanel`**
+- [x] **Step 1: Write the failing test for `DistrictPanel`**
 
 ```jsx
 // src/sections/DistrictExplorer/DistrictPanel/DistrictPanel.test.jsx
@@ -1041,12 +1041,12 @@ describe('DistrictPanel', () => {
 })
 ```
 
-- [ ] **Step 2: Run it, verify it fails**
+- [x] **Step 2: Run it, verify it fails**
 
 Run: `npm test -- DistrictPanel`
 Expected: FAIL — module doesn't exist.
 
-- [ ] **Step 3: Implement `DistrictPanel`**
+- [x] **Step 3: Implement `DistrictPanel`**
 
 ```jsx
 // src/sections/DistrictExplorer/DistrictPanel/index.jsx
@@ -1106,12 +1106,12 @@ export default function DistrictPanel({ district }) {
 }
 ```
 
-- [ ] **Step 4: Run it, verify it passes**
+- [x] **Step 4: Run it, verify it passes**
 
 Run: `npm test -- DistrictPanel`
 Expected: PASS, 4 tests.
 
-- [ ] **Step 5: Write the failing test for `DistrictExplorer`**
+- [x] **Step 5: Write the failing test for `DistrictExplorer`**
 
 ```jsx
 // src/sections/DistrictExplorer/DistrictExplorer.test.jsx
@@ -1155,12 +1155,12 @@ describe('DistrictExplorer', () => {
 })
 ```
 
-- [ ] **Step 6: Run it, verify it fails**
+- [x] **Step 6: Run it, verify it fails**
 
 Run: `npm test -- DistrictExplorer`
 Expected: FAIL — module doesn't exist.
 
-- [ ] **Step 7: Implement `DistrictExplorer`**
+- [x] **Step 7: Implement `DistrictExplorer`**
 
 ```jsx
 // src/sections/DistrictExplorer/index.jsx
@@ -1220,12 +1220,12 @@ export default function DistrictExplorer() {
 }
 ```
 
-- [ ] **Step 8: Run it, verify it passes**
+- [x] **Step 8: Run it, verify it passes**
 
 Run: `npm test -- DistrictExplorer`
 Expected: PASS, 3 tests.
 
-- [ ] **Step 9: Commit**
+- [x] **Step 9: Commit**
 
 Not wired into `Home` yet, same reasoning as Task 3 — `DistrictExplorer`
 fetches on mount, and `Home.test.jsx` doesn't mock `districtsApi` until
