@@ -1992,41 +1992,55 @@ git commit -m "feat: assemble the full Home page from all sections"
 
 **Files:** none created — verification only.
 
-- [ ] **Step 1: Run lint**
+- [x] **Step 1: Run lint**
 
 Run: `npm run lint`
 Expected: no errors. Fix anything flagged (unused imports, etc.) and
 re-run until clean.
 
-- [ ] **Step 2: Run the full test suite**
+- [x] **Step 2: Run the full test suite**
 
 Run: `npm test`
 Expected: all tests pass, no skipped tests.
 
-- [ ] **Step 3: Run a production build**
+- [x] **Step 3: Run a production build**
 
 Run: `npm run build`
 Expected: builds successfully into `dist/`.
 
-- [ ] **Step 4: Manual verification in a real browser**
+- [x] **Step 4: Manual verification in a real browser**
 
-With `npm run mock-api` and `npm run dev` both running, open the app and
-confirm: the leadership carousel shows Siddaramaiah/Shivakumar/Patil and
-advances on click; the hero video autoplays muted with the real title/
-subtitle; the 4 highlight cards render; clicking different districts on the
-Karnataka map updates the data panel (Kalaburagi shows real figures, most
-others show the "not available yet" empty state); the 3 sector cards, 1
-event card, and newsletter form all render and the newsletter form shows a
-success message on submit.
+Confirmed via Playwright against `npm run mock-api` + `npm run dev`, at
+desktop (1280px) and mobile (375px) viewports: leadership carousel shows
+Siddaramaiah/Shivakumar/Patil and advances on click; hero video autoplays
+muted with the real title/subtitle; 4 highlight cards render; clicking
+different districts on the Karnataka map updates the panel (Kalaburagi
+shows real figures, Bidar and others correctly show the "not available
+yet" empty state); 3 sector cards, 1 event card, and the newsletter form
+all render, and the newsletter form shows a success message on a real
+round-trip POST to the mock API.
 
-- [ ] **Step 5: Commit any fixes found during manual verification**
+- [x] **Step 5: Commit fixes found during manual verification**
+
+Two real issues surfaced by mobile-viewport checking specifically (not
+covered by the desktop-only checks in earlier tasks):
+1. `Header` had no mobile nav collapse — 7 links + language toggle wrapped
+   to 5 lines (196px tall), which measurably overlapped the "Upcoming
+   Events" heading near the page bottom on a 375px viewport. Fixed with a
+   proper hamburger menu (see the `fix:` commit on `src/sections/Header`).
+2. That fix's toggle button initially did nothing when clicked — React
+   StrictMode double-invokes functional state updaters in dev
+   (`setX(prev => !prev)` cancels itself out for a boolean toggle); fixed
+   by switching to the direct-value form. Documented in project memory
+   since it'll recur on any future toggle button.
 
 ```bash
 git add -A
 git commit -m "fix: address issues found in manual Home page verification"
 ```
 
-(Skip if Step 4 found nothing to fix.)
+(Already committed as part of the Header fix commit above — nothing further
+to commit here.)
 
 ---
 
