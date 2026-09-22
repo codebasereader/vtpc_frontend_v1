@@ -1,0 +1,126 @@
+{
+  "homepageContent": {
+    "hero": {
+      "title": "Gateway to Global Markets: Exporters Guide",
+      "subtitle": "Explore Unlimited Trade Prospects Worldwide"
+    },
+    "highlights": [
+      { "title": "Diverse Economy", "description": "Karnataka's economy spans agriculture, industry, and services." },
+      { "title": "Innovation Hub", "description": "Home to India's leading technology and biotech clusters." },
+      { "title": "Agricultural Bounty", "description": "A major producer of coffee, spices, and horticultural crops." },
+      { "title": "Strategic Location", "description": "Well-connected ports and logistics corridors for exporters." }
+    ]
+  },
+  "districts": [
+    {
+      "id": "kalaburagi",
+      "name": "Kalaburagi",
+      "tagline": { "en": "Tur Bowl of Karnataka", "kn": "" },
+      "totalExportValueCr": 129.67,
+      "countries": [
+        { "name": "Indonesia", "percentage": 32.19 },
+        { "name": "Malaysia", "percentage": 10.96 },
+        { "name": "Bangladesh", "percentage": 9.03 },
+        { "name": "Tanzania", "percentage": 5.47 },
+        { "name": "Egypt", "percentage": 5.21 }
+      ],
+      "products": [
+        { "name": "Salt, Sulphur, Earths and Stone, Plastering Materials, LIM", "percentage": 32.19 },
+        { "name": "Sugars and Sugar Confectionery", "percentage": 22.80 },
+        { "name": "Miscellaneous Chemical Products", "percentage": 22.17 },
+        { "name": "Others", "percentage": 20.64 }
+      ],
+      "sectors": [
+        { "name": "Agriculture", "percentage": 25.9 },
+        { "name": "Industry (Secondary)", "percentage": 19.1 },
+        { "name": "Services (Tertiary)", "percentage": 55 }
+      ]
+    },
+    {
+      "id": "bengaluru-urban",
+      "name": "Bengaluru Urban",
+      "tagline": { "en": "IT capital of India", "kn": "" },
+      "totalExportValueCr": 0,
+      "countries": [],
+      "products": [],
+      "sectors": []
+    }
+  ],
+  "focusSectors": [
+    {
+      "id": "pharmaceutical-biotech",
+      "name": { "en": "Pharmaceutical & Biotech", "kn": "" },
+      "image": "/assets/sectors/pharma.jpg",
+      "description": {
+        "en": "Karnataka, India's biotechnology hub, houses a large number of biotech firms, research institutions, and startups. Major players like Biocon, Strides Pharma, Aurobindo Pharma, Novartis, AstraZeneca, and Merck have a strong presence in the state.",
+        "kn": ""
+      },
+      "statBoxes": [
+        { "value": "40%", "label": { "en": "of Pharma products exported overseas", "kn": "" } },
+        { "value": "~10%", "label": { "en": "of Export Revenues of Pharma products from Karnataka", "kn": "" } },
+        { "value": "02", "label": { "en": "Pharma parks located in Hassan and Bangalore", "kn": "" } }
+      ],
+      "yearlyChart": [
+        { "year": "FY-2020", "valueUsdMn": 846.58 },
+        { "year": "FY-2021", "valueUsdMn": 879.07 },
+        { "year": "FY-2022", "valueUsdMn": 859.57 },
+        { "year": "FY-2023", "valueUsdMn": 1039.27 }
+      ],
+      "topMarkets": [{ "country": "USA", "percentage": 31.93 }],
+      "keyInsights": { "en": "Sample seed content — replace once migrated via the CMS.", "kn": "" }
+    }
+  ],
+  "giProducts": [
+    {
+      "id": "bidriware",
+      "name": { "en": "Bidriware", "kn": "" },
+      "category": "Handicraft",
+      "image": "/assets/gi/bidriware.jpg",
+      "summary": {
+        "en": "Exclusive to Bidar, 15th century capital town of Bahamani Sultan, bidriware requires a special skill called damascening in silver.",
+        "kn": ""
+      },
+      "story": {
+        "en": "Bidriware, a unique metal craft exclusive to Bidar, traces its roots back to the 15th century during the reign of Ahmed Shah Bahamani. Made by inlaying silver on to a blackened alloy, its unique oxidation process uses soil from Bidar Fort.",
+        "kn": ""
+      }
+    },
+    {
+      "id": "mysore-silk",
+      "name": { "en": "Mysore Silk", "kn": "" },
+      "category": "Textile",
+      "image": "/assets/gi/mysore-silk.jpg",
+      "summary": {
+        "en": "Mysore Silk is renowned for its premium quality and lustrous texture, produced by the Karnataka Silk Industries Corporation (KSIC).",
+        "kn": ""
+      },
+      "story": {
+        "en": "The silk sarees are made from pure mulberry silk, produced by silkworms fed on mulberry leaves. The process involves intricate weaving techniques and often includes pure gold zari work.",
+        "kn": ""
+      }
+    }
+  ],
+  "pages": [
+    {
+      "slug": "privacy-policies",
+      "title": { "en": "Privacy Policy", "kn": "" },
+      "body": { "en": "Sample seed content — replace with the real policy text once migrated via the CMS.", "kn": "" }
+    }
+  ],
+  "leaders": [
+    { "id": "1", "name": "Sample Chief Minister", "designation": { "en": "Hon'ble Chief Minister of Karnataka", "kn": "" }, "photo": "", "order": 1 }
+  ],
+  "offices": [
+    { "id": "1", "name": "Head Office", "city": "Bengaluru", "address": { "en": "Sample address, Bengaluru", "kn": "" }, "phone": "", "email": "", "mapLink": "" }
+  ],
+  "staff": [
+    { "id": "1", "name": "Sample Chairman", "role": "Chairman", "group": "org-chart", "order": 1, "photo": "" }
+  ],
+  "events": [
+    { "id": "1", "title": { "en": "Sample Trade Expo", "kn": "" }, "date": "2026-11-01", "location": { "en": "Bengaluru", "kn": "" }, "description": { "en": "Sample seed content.", "kn": "" }, "registrationLink": "" }
+  ],
+  "downloads": [
+    { "id": "1", "title": { "en": "Industrial Policy 2025-2030", "kn": "" }, "category": "Policy", "fileUrl": "", "uploadedAt": "2025-06-01" }
+  ],
+  "authLogin": { "id": "1", "name": "Sample Editor", "role": "editor" }
+}
