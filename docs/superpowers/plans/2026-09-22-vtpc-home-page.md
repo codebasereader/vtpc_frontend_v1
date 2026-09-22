@@ -230,7 +230,7 @@ git commit -m "feat: add brand design tokens and retrofit Button/Header to use t
   import. Real sector photos in `src/assets/images/sectors/` for
   `SectorsTeaser` (Task 9) and the later Exporter Corner plan.
 
-- [ ] **Step 1: Install ffmpeg-static**
+- [x] **Step 1: Install ffmpeg-static**
 
 ```bash
 npm install -D ffmpeg-static
@@ -240,7 +240,7 @@ This downloads a portable ffmpeg binary as part of the package — no system
 install or PATH configuration needed, and it works the same on any
 developer's machine or CI.
 
-- [ ] **Step 2: Write the video re-encode script**
+- [x] **Step 2: Write the video re-encode script**
 
 ```js
 // scripts/optimize-videos.mjs
@@ -280,7 +280,7 @@ would be dead weight); `-crf 28` with `-preset slow` targets a substantially
 smaller file than the ~22MB source while keeping it watchable at 1280px
 wide, which is plenty for a background video element.
 
-- [ ] **Step 3: Add the npm script**
+- [x] **Step 3: Add the npm script**
 
 ```json
 {
@@ -290,7 +290,7 @@ wide, which is plenty for a background video element.
 }
 ```
 
-- [ ] **Step 4: Run it and verify the output size**
+- [x] **Step 4: Run it and verify the output size**
 
 Run: `npm run optimize-videos`
 Expected: `src/assets/videos/hero-banner.mp4` is created and noticeably
@@ -298,7 +298,7 @@ smaller than the ~22MB source (verify with `ls -lh src/assets/videos/`) —
 a few MB is the expectation at this bitrate/resolution, not a hard
 threshold, since content complexity affects final size.
 
-- [ ] **Step 5: Copy the sector images used by this plan's `SectorsTeaser`**
+- [x] **Step 5: Copy the sector images used by this plan's `SectorsTeaser`**
 
 ```bash
 mkdir -p src/assets/images/sectors
@@ -311,7 +311,7 @@ cp "E:/vtpc.karnataka.gov.in Source Code/20241206_vtpckarnatakavisvesvarayatra_b
 copied in their own plans' asset tasks — Task 9 here only needs the 3
 sectors shown in the Home teaser.)
 
-- [ ] **Step 6: Commit**
+- [x] **Step 6: Commit**
 
 ```bash
 git add scripts package.json package-lock.json src/assets
@@ -341,7 +341,7 @@ git commit -m "chore: add video optimization pipeline and copy real sector/hero 
   Patil (Minister for Large & Medium Industries and Infrastructure
   Development).
 
-- [ ] **Step 1: Update `mock/db.json`'s `leaders` array with real content**
+- [x] **Step 1: Update `mock/db.json`'s `leaders` array with real content**
 
 ```json
 "leaders": [
@@ -355,7 +355,7 @@ git commit -m "chore: add video optimization pipeline and copy real sector/hero 
 theme assets; `LeadershipCarousel` (Step 4) renders a text-only card when
 `photo` is falsy rather than a broken image.
 
-- [ ] **Step 2: Write `leadersApi.js`**
+- [x] **Step 2: Write `leadersApi.js`**
 
 ```js
 // src/api/leadersApi.js
@@ -366,7 +366,7 @@ export function getLeaders() {
 }
 ```
 
-- [ ] **Step 3: Write the failing test**
+- [x] **Step 3: Write the failing test**
 
 ```jsx
 // src/sections/LeadershipCarousel/LeadershipCarousel.test.jsx
@@ -413,12 +413,12 @@ describe('LeadershipCarousel', () => {
 })
 ```
 
-- [ ] **Step 4: Run it, verify it fails**
+- [x] **Step 4: Run it, verify it fails**
 
 Run: `npm test -- LeadershipCarousel`
 Expected: FAIL — module doesn't exist.
 
-- [ ] **Step 5: Implement `LeadershipCarousel`**
+- [x] **Step 5: Implement `LeadershipCarousel`**
 
 ```jsx
 // src/sections/LeadershipCarousel/index.jsx
@@ -474,12 +474,12 @@ export default function LeadershipCarousel() {
 }
 ```
 
-- [ ] **Step 6: Run it, verify it passes**
+- [x] **Step 6: Run it, verify it passes**
 
 Run: `npm test -- LeadershipCarousel`
 Expected: PASS, 3 tests.
 
-- [ ] **Step 7: Commit**
+- [x] **Step 7: Commit**
 
 `LeadershipCarousel` is not wired into `Home` yet — it has its own passing
 test suite, which is this task's complete deliverable. Wiring it in now
@@ -509,7 +509,7 @@ git commit -m "feat: add leadersApi and LeadershipCarousel section"
   background + heading text; `Home` passes `content.hero.title` /
   `content.hero.subtitle` into it instead of rendering them directly.
 
-- [ ] **Step 1: Write the failing test**
+- [x] **Step 1: Write the failing test**
 
 ```jsx
 // src/sections/Hero/Hero.test.jsx
@@ -525,12 +525,12 @@ describe('Hero', () => {
 })
 ```
 
-- [ ] **Step 2: Run it, verify it fails**
+- [x] **Step 2: Run it, verify it fails**
 
 Run: `npm test -- Hero`
 Expected: FAIL — module doesn't exist.
 
-- [ ] **Step 3: Implement `Hero`**
+- [x] **Step 3: Implement `Hero`**
 
 ```jsx
 // src/sections/Hero/index.jsx
@@ -562,12 +562,12 @@ custom `--color-brand-dark` token) keeps the white heading text readable
 over varying video brightness — the reference site uses a similar dark
 overlay on its hero.
 
-- [ ] **Step 4: Run it, verify it passes**
+- [x] **Step 4: Run it, verify it passes**
 
 Run: `npm test -- Hero`
 Expected: PASS, 1 test.
 
-- [ ] **Step 5: Wire it into `Home`, replacing the inline hero markup**
+- [x] **Step 5: Wire it into `Home`, replacing the inline hero markup**
 
 ```jsx
 // src/pages/public/Home/index.jsx (relevant excerpt — full file assembled in Task 10)
@@ -577,18 +577,18 @@ Expected: PASS, 1 test.
 Remove the old inline `<section className="px-4 py-12 text-center ...">`
 hero markup from `Home` — `Hero` replaces it.
 
-- [ ] **Step 6: Update `Home.test.jsx` for the new structure**
+- [x] **Step 6: Update `Home.test.jsx` for the new structure**
 
 The existing assertions (`screen.getByText('Gateway to Global Markets')`,
 etc.) still pass unchanged since `Hero` renders the same text content —
 verify with `npm test -- Home` rather than editing the test.
 
-- [ ] **Step 7: Run the full suite**
+- [x] **Step 7: Run the full suite**
 
 Run: `npm test`
 Expected: all tests pass.
 
-- [ ] **Step 8: Commit**
+- [x] **Step 8: Commit**
 
 ```bash
 git add src/sections/Hero src/pages/public/Home/index.jsx
@@ -611,7 +611,7 @@ git commit -m "feat: add Hero section with real video background"
 - Produces: `KarnatakaHighlights` — props `{ highlights }`, renders a
   responsive card grid.
 
-- [ ] **Step 1: Write the failing test**
+- [x] **Step 1: Write the failing test**
 
 ```jsx
 // src/sections/KarnatakaHighlights/KarnatakaHighlights.test.jsx
@@ -638,12 +638,12 @@ describe('KarnatakaHighlights', () => {
 })
 ```
 
-- [ ] **Step 2: Run it, verify it fails**
+- [x] **Step 2: Run it, verify it fails**
 
 Run: `npm test -- KarnatakaHighlights`
 Expected: FAIL — module doesn't exist.
 
-- [ ] **Step 3: Implement `KarnatakaHighlights`**
+- [x] **Step 3: Implement `KarnatakaHighlights`**
 
 ```jsx
 // src/sections/KarnatakaHighlights/index.jsx
@@ -673,18 +673,18 @@ matches the reference `.data-headContainer` card convention noted in Global
 Constraints — reused across every card-shaped element in this plan for
 consistency.
 
-- [ ] **Step 4: Run it, verify it passes**
+- [x] **Step 4: Run it, verify it passes**
 
 Run: `npm test -- KarnatakaHighlights`
 Expected: PASS, 2 tests.
 
-- [ ] **Step 5: Wire it into `Home`**
+- [x] **Step 5: Wire it into `Home`**
 
 ```jsx
 <KarnatakaHighlights highlights={content.highlights} />
 ```
 
-- [ ] **Step 6: Commit**
+- [x] **Step 6: Commit**
 
 ```bash
 git add src/sections/KarnatakaHighlights src/pages/public/Home/index.jsx
@@ -695,8 +695,19 @@ git commit -m "feat: add KarnatakaHighlights section"
 
 ## Task 6: `districtsApi` and mock data for all 30 districts
 
+> **Policy change mid-execution:** starting with this task, the user asked
+> that no new tests be written for this project (later formalized into the
+> `react-frontend-builder` skill as a durable default: no tests unless
+> explicitly requested). From here through the rest of this plan, every
+> task's `*.test.js`/`*.test.jsx` file and its "write failing test / verify
+> it fails / verify it passes" steps are **skipped** — components are
+> implemented directly and verified via `npm run lint`, `npm run build`,
+> and manual browser checks instead. Task checkboxes below are marked done
+> for the task's real deliverable even where a step describes a test that
+> wasn't written.
+
 **Files:**
-- Create: `src/api/districtsApi.js`, `src/api/districtsApi.test.js`
+- Create: `src/api/districtsApi.js`
 - Modify: `mock/db.json` (`districts` array — all 30 real district slugs)
 
 **Interfaces:**
@@ -712,7 +723,7 @@ git commit -m "feat: add KarnatakaHighlights section"
   `DistrictPanel` (Task 8) renders an explicit "not available yet" empty
   state for those rather than fabricating numbers.
 
-- [ ] **Step 1: Write the failing test**
+- [x] **Step 1: Write the failing test**
 
 ```js
 // src/api/districtsApi.test.js
@@ -734,12 +745,12 @@ describe('districtsApi', () => {
 })
 ```
 
-- [ ] **Step 2: Run it, verify it fails**
+- [x] **Step 2: Run it, verify it fails**
 
 Run: `npm test -- districtsApi`
 Expected: FAIL — module doesn't exist.
 
-- [ ] **Step 3: Implement `districtsApi.js`**
+- [x] **Step 3: Implement `districtsApi.js`**
 
 ```js
 // src/api/districtsApi.js
@@ -750,12 +761,12 @@ export function getDistricts() {
 }
 ```
 
-- [ ] **Step 4: Run it, verify it passes**
+- [x] **Step 4: Run it, verify it passes**
 
 Run: `npm test -- districtsApi`
 Expected: PASS, 1 test.
 
-- [ ] **Step 5: Replace `mock/db.json`'s `districts` array with all 30**
+- [x] **Step 5: Replace `mock/db.json`'s `districts` array with all 30**
 
 ```json
 "districts": [
@@ -792,7 +803,7 @@ Expected: PASS, 1 test.
 ]
 ```
 
-- [ ] **Step 6: Restart the mock server and verify all 30 come back**
+- [x] **Step 6: Restart the mock server and verify all 30 come back**
 
 Run: `npm run mock-api` (restart if already running), then:
 ```bash
@@ -800,7 +811,7 @@ curl -s http://localhost:4000/districts | grep -o '"id":"[a-z-]*"' | wc -l
 ```
 Expected: `30`.
 
-- [ ] **Step 7: Commit**
+- [x] **Step 7: Commit**
 
 ```bash
 git add src/api/districtsApi.js src/api/districtsApi.test.js mock/db.json
