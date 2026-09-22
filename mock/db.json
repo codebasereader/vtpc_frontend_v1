@@ -37,14 +37,36 @@
       ]
     },
     {
-      "id": "bengaluru-urban",
-      "name": "Bengaluru Urban",
-      "tagline": { "en": "IT capital of India", "kn": "" },
-      "totalExportValueCr": 0,
-      "countries": [],
-      "products": [],
-      "sectors": []
-    }
+      "id": "bagalkote", "name": "Bagalkote", "tagline": { "en": "", "kn": "" }, "totalExportValueCr": null, "countries": [], "products": [], "sectors": []
+    },
+    { "id": "ballari", "name": "Ballari", "tagline": { "en": "", "kn": "" }, "totalExportValueCr": null, "countries": [], "products": [], "sectors": [] },
+    { "id": "belagavi", "name": "Belagavi", "tagline": { "en": "", "kn": "" }, "totalExportValueCr": null, "countries": [], "products": [], "sectors": [] },
+    { "id": "bengaluru-rural", "name": "Bengaluru Rural", "tagline": { "en": "", "kn": "" }, "totalExportValueCr": null, "countries": [], "products": [], "sectors": [] },
+    { "id": "bengaluru-urban", "name": "Bengaluru Urban", "tagline": { "en": "IT capital of India", "kn": "" }, "totalExportValueCr": null, "countries": [], "products": [], "sectors": [] },
+    { "id": "bidar", "name": "Bidar", "tagline": { "en": "", "kn": "" }, "totalExportValueCr": null, "countries": [], "products": [], "sectors": [] },
+    { "id": "chamarajanagara", "name": "Chamarajanagara", "tagline": { "en": "", "kn": "" }, "totalExportValueCr": null, "countries": [], "products": [], "sectors": [] },
+    { "id": "chikkaballapura", "name": "Chikkaballapura", "tagline": { "en": "", "kn": "" }, "totalExportValueCr": null, "countries": [], "products": [], "sectors": [] },
+    { "id": "chikkamangaluru", "name": "Chikkamagaluru", "tagline": { "en": "", "kn": "" }, "totalExportValueCr": null, "countries": [], "products": [], "sectors": [] },
+    { "id": "chitradurga", "name": "Chitradurga", "tagline": { "en": "", "kn": "" }, "totalExportValueCr": null, "countries": [], "products": [], "sectors": [] },
+    { "id": "dakshina-kannada", "name": "Dakshina Kannada", "tagline": { "en": "", "kn": "" }, "totalExportValueCr": null, "countries": [], "products": [], "sectors": [] },
+    { "id": "davangere", "name": "Davanagere", "tagline": { "en": "", "kn": "" }, "totalExportValueCr": null, "countries": [], "products": [], "sectors": [] },
+    { "id": "dharwad", "name": "Dharwad", "tagline": { "en": "", "kn": "" }, "totalExportValueCr": null, "countries": [], "products": [], "sectors": [] },
+    { "id": "gadag", "name": "Gadag", "tagline": { "en": "", "kn": "" }, "totalExportValueCr": null, "countries": [], "products": [], "sectors": [] },
+    { "id": "hassan", "name": "Hassan", "tagline": { "en": "", "kn": "" }, "totalExportValueCr": null, "countries": [], "products": [], "sectors": [] },
+    { "id": "haveri", "name": "Haveri", "tagline": { "en": "", "kn": "" }, "totalExportValueCr": null, "countries": [], "products": [], "sectors": [] },
+    { "id": "kodagu", "name": "Kodagu", "tagline": { "en": "", "kn": "" }, "totalExportValueCr": null, "countries": [], "products": [], "sectors": [] },
+    { "id": "kolar", "name": "Kolara", "tagline": { "en": "", "kn": "" }, "totalExportValueCr": null, "countries": [], "products": [], "sectors": [] },
+    { "id": "koppal", "name": "Koppal", "tagline": { "en": "", "kn": "" }, "totalExportValueCr": null, "countries": [], "products": [], "sectors": [] },
+    { "id": "mandya", "name": "Mandya", "tagline": { "en": "", "kn": "" }, "totalExportValueCr": null, "countries": [], "products": [], "sectors": [] },
+    { "id": "mysuru", "name": "Mysuru", "tagline": { "en": "", "kn": "" }, "totalExportValueCr": null, "countries": [], "products": [], "sectors": [] },
+    { "id": "raichur", "name": "Raichur", "tagline": { "en": "", "kn": "" }, "totalExportValueCr": null, "countries": [], "products": [], "sectors": [] },
+    { "id": "ramanagara", "name": "Ramanagara", "tagline": { "en": "", "kn": "" }, "totalExportValueCr": null, "countries": [], "products": [], "sectors": [] },
+    { "id": "shivamogga", "name": "Shivamogga", "tagline": { "en": "", "kn": "" }, "totalExportValueCr": null, "countries": [], "products": [], "sectors": [] },
+    { "id": "tumakuru", "name": "Tumakuru", "tagline": { "en": "", "kn": "" }, "totalExportValueCr": null, "countries": [], "products": [], "sectors": [] },
+    { "id": "udupi", "name": "Udupi", "tagline": { "en": "", "kn": "" }, "totalExportValueCr": null, "countries": [], "products": [], "sectors": [] },
+    { "id": "uttara-kannada", "name": "Uttara Kannada", "tagline": { "en": "", "kn": "" }, "totalExportValueCr": null, "countries": [], "products": [], "sectors": [] },
+    { "id": "vijayapura", "name": "Vijayapura", "tagline": { "en": "", "kn": "" }, "totalExportValueCr": null, "countries": [], "products": [], "sectors": [] },
+    { "id": "yadgir", "name": "Yadgir", "tagline": { "en": "", "kn": "" }, "totalExportValueCr": null, "countries": [], "products": [], "sectors": [] }
   ],
   "focusSectors": [
     {
