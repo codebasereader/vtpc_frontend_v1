@@ -1,6 +1,6 @@
 const VARIANT_CLASSES = {
-  primary: 'bg-blue-700 text-white hover:bg-blue-800',
-  secondary: 'bg-white text-blue-700 border border-blue-700 hover:bg-blue-50',
+  primary: 'bg-brand-primary text-white hover:bg-brand-primary-dark',
+  secondary: 'bg-white text-brand-primary border border-brand-primary hover:bg-brand-surface',
 }
 
 export default function Button({ children, variant = 'primary', className = '', ...rest }) {

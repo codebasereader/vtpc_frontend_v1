@@ -22,7 +22,7 @@ export default function Header() {
         Skip to content
       </a>
       <nav className="flex flex-wrap items-center justify-between gap-4 px-4 py-3 md:px-8">
-        <NavLink to={ROUTES.HOME} className="text-lg font-bold text-blue-800">
+        <NavLink to={ROUTES.HOME} className="text-lg font-bold text-brand-primary">
           VTPC
         </NavLink>
         <ul className="flex flex-wrap gap-4 text-sm">
@@ -30,7 +30,7 @@ export default function Header() {
             <li key={item.key}>
               <NavLink
                 to={item.to}
-                className={({ isActive }) => (isActive ? 'font-semibold text-blue-800' : 'text-gray-700')}
+                className={({ isActive }) => (isActive ? 'font-semibold text-brand-primary' : 'text-gray-700')}
               >
                 {t(`nav.${item.key}`)}
               </NavLink>
