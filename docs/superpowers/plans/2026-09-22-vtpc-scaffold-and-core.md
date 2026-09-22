@@ -136,20 +136,20 @@ vtpc_frontend_v1/
 - Produces: a running `npm run dev` server and a running `npm test`
   command, both green, for every later task to build on.
 
-- [ ] **Step 1: Scaffold the Vite React template**
+- [x] **Step 1: Scaffold the Vite React template**
 
 ```bash
 npm create vite@latest . -- --template react
 ```
 
-- [ ] **Step 2: Install runtime dependencies**
+- [x] **Step 2: Install runtime dependencies**
 
 ```bash
 npm install @reduxjs/toolkit react-redux react-router-dom axios \
   react-i18next i18next react-helmet-async @sentry/react
 ```
 
-- [ ] **Step 3: Install dev dependencies (Tailwind, tests, lint/format, mock API)**
+- [x] **Step 3: Install dev dependencies (Tailwind, tests, lint/format, mock API)**
 
 ```bash
 npm install -D tailwindcss @tailwindcss/vite eslint-config-prettier prettier \
@@ -157,7 +157,7 @@ npm install -D tailwindcss @tailwindcss/vite eslint-config-prettier prettier \
   jsdom json-server
 ```
 
-- [ ] **Step 4: Wire up Tailwind in `vite.config.js`**
+- [x] **Step 4: Wire up Tailwind in `vite.config.js`**
 
 ```js
 // vite.config.js
@@ -175,7 +175,7 @@ export default defineConfig({
 })
 ```
 
-- [ ] **Step 5: Add the Tailwind import to `src/index.css`**
+- [x] **Step 5: Add the Tailwind import to `src/index.css`**
 
 ```css
 /* src/index.css */
@@ -186,14 +186,14 @@ Delete the Vite template's default `src/App.css` and any boilerplate styles
 in `src/index.css` it doesn't need — this file should contain only the
 Tailwind import.
 
-- [ ] **Step 6: Create the Vitest setup file**
+- [x] **Step 6: Create the Vitest setup file**
 
 ```js
 // src/test/setup.js
 import '@testing-library/jest-dom/vitest'
 ```
 
-- [ ] **Step 7: Add npm scripts**
+- [x] **Step 7: Add npm scripts**
 
 In `package.json`, ensure the `scripts` block contains:
 
@@ -211,7 +211,7 @@ In `package.json`, ensure the `scripts` block contains:
 }
 ```
 
-- [ ] **Step 8: Replace `src/App.jsx` with a minimal placeholder**
+- [x] **Step 8: Replace `src/App.jsx` with a minimal placeholder**
 
 ```jsx
 // src/App.jsx
@@ -222,7 +222,7 @@ function App() {
 export default App
 ```
 
-- [ ] **Step 9: Write the smoke test**
+- [x] **Step 9: Write the smoke test**
 
 ```jsx
 // src/App.test.jsx
@@ -237,18 +237,18 @@ describe('App', () => {
 })
 ```
 
-- [ ] **Step 10: Run the test suite and verify it passes**
+- [x] **Step 10: Run the test suite and verify it passes**
 
 Run: `npm test`
 Expected: 1 test file, 1 test, PASS.
 
-- [ ] **Step 11: Verify the dev server starts**
+- [x] **Step 11: Verify the dev server starts**
 
 Run: `npm run dev` (then stop it — this is a manual sanity check, not left
 running)
 Expected: Vite prints a local URL with no errors.
 
-- [ ] **Step 12: Add `.gitignore` and initialize git**
+- [x] **Step 12: Add `.gitignore` and initialize git**
 
 ```
 # .gitignore
