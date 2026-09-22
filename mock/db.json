@@ -108,7 +108,9 @@
     }
   ],
   "leaders": [
-    { "id": "1", "name": "Sample Chief Minister", "designation": { "en": "Hon'ble Chief Minister of Karnataka", "kn": "" }, "photo": "", "order": 1 }
+    { "id": "1", "name": "Shri Siddaramaiah", "designation": { "en": "Hon'ble Chief Minister of Karnataka", "kn": "" }, "photo": "", "order": 1 },
+    { "id": "2", "name": "Shri D.K. Shivakumar", "designation": { "en": "Hon'ble Deputy Chief Minister of Karnataka", "kn": "" }, "photo": "", "order": 2 },
+    { "id": "3", "name": "Shri M.B. Patil", "designation": { "en": "Hon'ble Minister for LMI and Infrastructure Development, Government of Karnataka", "kn": "" }, "photo": "", "order": 3 }
   ],
   "offices": [
     { "id": "1", "name": "Head Office", "city": "Bengaluru", "address": { "en": "Sample address, Bengaluru", "kn": "" }, "phone": "", "email": "", "mapLink": "" }
