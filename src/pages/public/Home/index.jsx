@@ -9,7 +9,6 @@ export default function Home() {
 
   useEffect(() => {
     let isMounted = true
-    setIsLoading(true)
     getHomepageContent()
       .then((data) => {
         if (isMounted) setContent(data)

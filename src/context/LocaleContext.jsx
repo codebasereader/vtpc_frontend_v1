@@ -34,6 +34,7 @@ export function LocaleProvider({ children }) {
   )
 }
 
+// eslint-disable-next-line react-refresh/only-export-components -- context + hook co-located by convention
 export function useLocale() {
   const context = useContext(LocaleContext)
   if (!context) {
