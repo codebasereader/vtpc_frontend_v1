@@ -1,8 +1,10 @@
 import { useEffect, useState } from 'react'
 import { Helmet } from 'react-helmet-async'
 import { getHomepageContent } from '../../../api/homepageApi'
+import LeadershipCarousel from '../../../sections/LeadershipCarousel'
 import Hero from '../../../sections/Hero'
 import KarnatakaHighlights from '../../../sections/KarnatakaHighlights'
+import DistrictExplorer from '../../../sections/DistrictExplorer'
 
 export default function Home() {
   const [content, setContent] = useState(null)
@@ -39,8 +41,10 @@ export default function Home() {
           content="Visvesvaraya Trade Promotion Centre — Karnataka's gateway to global trade, exporter resources, and district-wise export data."
         />
       </Helmet>
+      <LeadershipCarousel />
       <Hero title={content.hero.title} subtitle={content.hero.subtitle} />
       <KarnatakaHighlights highlights={content.highlights} />
+      <DistrictExplorer />
     </>
   )
 }
