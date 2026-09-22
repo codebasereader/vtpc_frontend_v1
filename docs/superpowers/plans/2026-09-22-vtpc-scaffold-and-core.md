@@ -18,7 +18,7 @@ Express/MongoDB backend being ready.
 
 **Tech Stack:** Vite, React 18 (JavaScript), React Router v6, Redux Toolkit,
 Axios, Tailwind CSS v4 (`@tailwindcss/vite`), react-i18next, react-helmet-async,
-@sentry/react, Vitest + @testing-library/react + jsdom, json-server (dev-only
+Vitest + @testing-library/react + jsdom, json-server (dev-only
 mock API), ESLint + Prettier, npm.
 
 **Spec:** `docs/superpowers/specs/2026-09-22-vtpc-frontend-design.md`
@@ -146,7 +146,7 @@ npm create vite@latest . -- --template react
 
 ```bash
 npm install @reduxjs/toolkit react-redux react-router-dom axios \
-  react-i18next i18next react-helmet-async @sentry/react
+  react-i18next i18next react-helmet-async
 ```
 
 - [x] **Step 3: Install dev dependencies (Tailwind, tests, lint/format, mock API)**
@@ -290,7 +290,6 @@ git commit -m "chore: scaffold Vite + React app with Tailwind and Vitest"
 ```bash
 # .env.example
 VITE_API_BASE_URL=http://localhost:4000
-VITE_SENTRY_DSN=
 ```
 
 Copy it to a local `.env` (gitignored) with the same values for development.
@@ -300,7 +299,6 @@ Copy it to a local `.env` (gitignored) with the same values for development.
 ```js
 // src/config/config.js
 export const API_BASE_URL = import.meta.env.VITE_API_BASE_URL ?? 'http://localhost:4000'
-export const SENTRY_DSN = import.meta.env.VITE_SENTRY_DSN ?? ''
 ```
 
 - [x] **Step 3: Create the remaining empty target folders**
@@ -1833,14 +1831,8 @@ export default App
 // src/main.jsx
 import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
-import * as Sentry from '@sentry/react'
-import { SENTRY_DSN } from './config/config'
 import App from './App.jsx'
 import './index.css'
-
-if (SENTRY_DSN) {
-  Sentry.init({ dsn: SENTRY_DSN })
-}
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
@@ -1848,6 +1840,13 @@ createRoot(document.getElementById('root')).render(
   </StrictMode>
 )
 ```
+
+> **Deviation found during execution:** the user asked to drop Sentry
+> mid-build. `@sentry/react` was removed from dependencies, `SENTRY_DSN` was
+> removed from `config.js` and `.env.example`, and `main.jsx` above no
+> longer initializes it — reflected in the snippets throughout this plan.
+> If error monitoring is wanted later, it's a separate ask, not part of this
+> plan.
 
 - [x] **Step 12: Update `src/App.test.jsx`** (it now needs the full provider
   tree, so replace the Task 1 smoke test with one appropriate for the wired
@@ -2180,7 +2179,7 @@ git commit -m "chore: lint fixes"
   + Task 4 (`authSlice` never stores a token) + Task 10 (`Login`). Narrow
   Context usage (locale only, so far) — Task 5. Public/admin route split —
   Task 12. i18n — Task 5 + Task 8. `react-helmet-async` per route — Task 12
-  (`Home`). Sentry gated on DSN — Task 12 (`main.jsx`). Content model /
+  (`Home`). Content model /
   API contract shape — Task 13 seed data mirrors spec §4 field names exactly.
   Remaining spec sections (full sitemap, admin CRUD, district map UI, sector
   charts, GI browser) are explicitly deferred to the two follow-up plans

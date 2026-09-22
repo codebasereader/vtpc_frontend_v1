@@ -47,7 +47,7 @@ the **data contract** the backend needs to satisfy.
 | i18n | English + Kannada, `react-i18next`, current language held in `LocaleContext` |
 | App structure | **One Vite app**, two route trees: `pages/public/*` (open) and `pages/admin/*` (CMS dashboard, behind `ProtectedRoute`, lazy-loaded) |
 | SEO | Deprioritized for this phase — reasonable basics only (semantic HTML, `react-helmet-async` per-route `<title>`/description, alt text). No SSR/prerendering, no rebuild-on-publish pipeline. Revisit later if needed. |
-| Error monitoring | `@sentry/react`, gated on a configured DSN |
+| Error monitoring | None — explicitly declined by the user during implementation (2026-09-22). Revisit only if asked. |
 | Hosting target | Undecided, likely NIC/state data centre — build output stays a portable static bundle regardless (a plain SPA build satisfies this without extra constraints, now that prerendering is off the table) |
 
 ## 3. Folder structure
