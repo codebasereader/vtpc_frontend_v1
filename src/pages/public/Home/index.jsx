@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react'
 import { Helmet } from 'react-helmet-async'
 import { getHomepageContent } from '../../../api/homepageApi'
+import Hero from '../../../sections/Hero'
 
 export default function Home() {
   const [content, setContent] = useState(null)
@@ -37,10 +38,7 @@ export default function Home() {
           content="Visvesvaraya Trade Promotion Centre — Karnataka's gateway to global trade, exporter resources, and district-wise export data."
         />
       </Helmet>
-      <section className="px-4 py-12 text-center md:px-8">
-        <h1 className="text-3xl font-bold text-blue-900">{content.hero.title}</h1>
-        <p className="mt-2 text-gray-600">{content.hero.subtitle}</p>
-      </section>
+      <Hero title={content.hero.title} subtitle={content.hero.subtitle} />
     </>
   )
 }
