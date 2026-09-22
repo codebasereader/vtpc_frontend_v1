@@ -90,7 +90,9 @@
       ],
       "topMarkets": [{ "country": "USA", "percentage": 31.93 }],
       "keyInsights": { "en": "Sample seed content — replace once migrated via the CMS.", "kn": "" }
-    }
+    },
+    { "id": "automobile", "name": { "en": "Automobile", "kn": "" }, "image": "/assets/sectors/automobile.jpg", "description": { "en": "", "kn": "" }, "statBoxes": [], "yearlyChart": [], "topMarkets": [], "keyInsights": { "en": "", "kn": "" } },
+    { "id": "agriculture", "name": { "en": "Agriculture", "kn": "" }, "image": "/assets/sectors/agriculture.png", "description": { "en": "", "kn": "" }, "statBoxes": [], "yearlyChart": [], "topMarkets": [], "keyInsights": { "en": "", "kn": "" } }
   ],
   "giProducts": [
     {

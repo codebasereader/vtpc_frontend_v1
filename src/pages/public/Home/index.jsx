@@ -5,6 +5,7 @@ import LeadershipCarousel from '../../../sections/LeadershipCarousel'
 import Hero from '../../../sections/Hero'
 import KarnatakaHighlights from '../../../sections/KarnatakaHighlights'
 import DistrictExplorer from '../../../sections/DistrictExplorer'
+import SectorsTeaser from '../../../sections/SectorsTeaser'
 
 export default function Home() {
   const [content, setContent] = useState(null)
@@ -45,6 +46,7 @@ export default function Home() {
       <Hero title={content.hero.title} subtitle={content.hero.subtitle} />
       <KarnatakaHighlights highlights={content.highlights} />
       <DistrictExplorer />
+      <SectorsTeaser />
     </>
   )
 }
