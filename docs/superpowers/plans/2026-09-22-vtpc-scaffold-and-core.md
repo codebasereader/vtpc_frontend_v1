@@ -154,11 +154,14 @@ npm install @reduxjs/toolkit react-redux react-router-dom axios \
 ```bash
 npm install -D tailwindcss @tailwindcss/vite eslint-config-prettier prettier \
   vitest @testing-library/react @testing-library/jest-dom @testing-library/user-event \
-  jsdom json-server cross-env
+  jsdom json-server@0.17.4 cross-env
 ```
 
 (`cross-env` sets `NODE_OPTIONS` portably in the `test` scripts below — see
-the deviation note after Task 5 for why it's needed on Node 25+.)
+the deviation note after Task 5 for why it's needed on Node 25+. `json-server`
+is pinned to `0.17.4` rather than `@latest` — see the deviation note in
+Task 13 for why the current `1.0.0-beta` release doesn't work for this mock
+setup.)
 
 - [x] **Step 4: Wire up Tailwind in `vite.config.js`**
 
@@ -749,7 +752,7 @@ git commit -m "feat: add i18n setup and LocaleContext"
   true, otherwise redirects to `ROUTES.ADMIN_LOGIN`. Later admin pages wrap
   themselves in this.
 
-- [ ] **Step 1: Write the failing test**
+- [x] **Step 1: Write the failing test**
 
 ```jsx
 // src/routes/ProtectedRoute.test.jsx
@@ -801,12 +804,12 @@ describe('ProtectedRoute', () => {
 })
 ```
 
-- [ ] **Step 2: Run the test to verify it fails**
+- [x] **Step 2: Run the test to verify it fails**
 
 Run: `npm test -- ProtectedRoute`
 Expected: FAIL — modules do not exist.
 
-- [ ] **Step 3: Implement `src/constants/routes.js`**
+- [x] **Step 3: Implement `src/constants/routes.js`**
 
 ```js
 // src/constants/routes.js
@@ -824,7 +827,7 @@ export const ROUTES = {
 }
 ```
 
-- [ ] **Step 4: Implement `ProtectedRoute.jsx`**
+- [x] **Step 4: Implement `ProtectedRoute.jsx`**
 
 ```jsx
 // src/routes/ProtectedRoute.jsx
@@ -844,12 +847,12 @@ export default function ProtectedRoute({ children }) {
 }
 ```
 
-- [ ] **Step 5: Run the test to verify it passes**
+- [x] **Step 5: Run the test to verify it passes**
 
 Run: `npm test -- ProtectedRoute`
 Expected: PASS, 2 tests.
 
-- [ ] **Step 6: Commit**
+- [x] **Step 6: Commit**
 
 ```bash
 git add src/constants src/routes/ProtectedRoute.jsx src/routes/ProtectedRoute.test.jsx
@@ -871,7 +874,7 @@ git commit -m "feat: add route constants and ProtectedRoute guard"
   `variant` = `'primary' | 'secondary'` default `'primary'`, `...rest`
   spread onto the native `<button>`).
 
-- [ ] **Step 1: Write the failing tests**
+- [x] **Step 1: Write the failing tests**
 
 ```jsx
 // src/components/ErrorBoundary/ErrorBoundary.test.jsx
@@ -930,12 +933,12 @@ describe('Button', () => {
 })
 ```
 
-- [ ] **Step 2: Run the tests to verify they fail**
+- [x] **Step 2: Run the tests to verify they fail**
 
 Run: `npm test -- ErrorBoundary Button`
 Expected: FAIL — modules do not exist.
 
-- [ ] **Step 3: Implement `ErrorBoundary`**
+- [x] **Step 3: Implement `ErrorBoundary`**
 
 ```jsx
 // src/components/ErrorBoundary/index.jsx
@@ -965,7 +968,7 @@ export default class ErrorBoundary extends Component {
 }
 ```
 
-- [ ] **Step 4: Implement `Button`**
+- [x] **Step 4: Implement `Button`**
 
 ```jsx
 // src/components/Button/index.jsx
@@ -986,12 +989,12 @@ export default function Button({ children, variant = 'primary', className = '', 
 }
 ```
 
-- [ ] **Step 5: Run the tests to verify they pass**
+- [x] **Step 5: Run the tests to verify they pass**
 
 Run: `npm test -- ErrorBoundary Button`
 Expected: PASS, 5 tests.
 
-- [ ] **Step 6: Commit**
+- [x] **Step 6: Commit**
 
 ```bash
 git add src/components
@@ -1013,7 +1016,7 @@ git commit -m "feat: add ErrorBoundary and Button shared components"
 - Produces: `Header` — the public-site nav bar rendered by `PublicLayout`
   (Task 9).
 
-- [ ] **Step 1: Write the failing test for `LanguageToggle`**
+- [x] **Step 1: Write the failing test for `LanguageToggle`**
 
 ```jsx
 // src/sections/LanguageToggle/LanguageToggle.test.jsx
@@ -1048,12 +1051,12 @@ describe('LanguageToggle', () => {
 })
 ```
 
-- [ ] **Step 2: Run it, verify it fails**
+- [x] **Step 2: Run it, verify it fails**
 
 Run: `npm test -- LanguageToggle`
 Expected: FAIL.
 
-- [ ] **Step 3: Implement `LanguageToggle`**
+- [x] **Step 3: Implement `LanguageToggle`**
 
 ```jsx
 // src/sections/LanguageToggle/index.jsx
@@ -1087,12 +1090,12 @@ export default function LanguageToggle() {
 }
 ```
 
-- [ ] **Step 4: Run it, verify it passes**
+- [x] **Step 4: Run it, verify it passes**
 
 Run: `npm test -- LanguageToggle`
 Expected: PASS, 2 tests.
 
-- [ ] **Step 5: Write the failing test for `Header`**
+- [x] **Step 5: Write the failing test for `Header`**
 
 ```jsx
 // src/sections/Header/Header.test.jsx
@@ -1121,12 +1124,12 @@ describe('Header', () => {
 })
 ```
 
-- [ ] **Step 6: Run it, verify it fails**
+- [x] **Step 6: Run it, verify it fails**
 
 Run: `npm test -- Header`
 Expected: FAIL.
 
-- [ ] **Step 7: Implement `Header`**
+- [x] **Step 7: Implement `Header`**
 
 ```jsx
 // src/sections/Header/index.jsx
@@ -1176,12 +1179,12 @@ export default function Header() {
 }
 ```
 
-- [ ] **Step 8: Run it, verify it passes**
+- [x] **Step 8: Run it, verify it passes**
 
 Run: `npm test -- Header`
 Expected: PASS, 1 test.
 
-- [ ] **Step 9: Commit**
+- [x] **Step 9: Commit**
 
 ```bash
 git add src/sections
@@ -1202,7 +1205,7 @@ git commit -m "feat: add LanguageToggle and Header sections"
   `ErrorBoundary` + `Footer`), `AdminLayout` (renders a minimal admin shell +
   `<Outlet/>`), `AuthLayout` (centered card shell for `/admin/login`).
 
-- [ ] **Step 1: Implement `Footer`** (static links only for now — real
+- [x] **Step 1: Implement `Footer`** (static links only for now — real
   `Page`-driven legal links arrive in the public-pages plan)
 
 ```jsx
@@ -1216,7 +1219,7 @@ export default function Footer() {
 }
 ```
 
-- [ ] **Step 2: Implement `PublicLayout`**
+- [x] **Step 2: Implement `PublicLayout`**
 
 ```jsx
 // src/layouts/PublicLayout/index.jsx
@@ -1240,7 +1243,7 @@ export default function PublicLayout() {
 }
 ```
 
-- [ ] **Step 3: Implement `AdminLayout`**
+- [x] **Step 3: Implement `AdminLayout`**
 
 ```jsx
 // src/layouts/AdminLayout/index.jsx
@@ -1263,7 +1266,7 @@ export default function AdminLayout() {
 }
 ```
 
-- [ ] **Step 4: Implement `AuthLayout`**
+- [x] **Step 4: Implement `AuthLayout`**
 
 ```jsx
 // src/layouts/AuthLayout/index.jsx
@@ -1280,7 +1283,7 @@ export default function AuthLayout() {
 }
 ```
 
-- [ ] **Step 5: Commit**
+- [x] **Step 5: Commit**
 
 (No new tests in this task — these are thin composition components already
 covered indirectly by the `AppRoutes` integration test in Task 12; adding
@@ -1307,7 +1310,7 @@ git commit -m "feat: add Footer section and Public/Admin/Auth layouts"
   invisible to JS). `Login` page dispatches `setUser` on success and
   navigates to `ROUTES.ADMIN_DASHBOARD`.
 
-- [ ] **Step 1: Implement `authApi.js`** (thin wrapper, no branching logic
+- [x] **Step 1: Implement `authApi.js`** (thin wrapper, no branching logic
   to unit-test in isolation — covered via the `Login` page test's mock)
 
 ```js
@@ -1319,7 +1322,7 @@ export function login({ email, password }) {
 }
 ```
 
-- [ ] **Step 2: Write the failing test for `Login`**
+- [x] **Step 2: Write the failing test for `Login`**
 
 ```jsx
 // src/pages/admin/Login/Login.test.jsx
@@ -1378,12 +1381,12 @@ describe('Login', () => {
 })
 ```
 
-- [ ] **Step 3: Run it, verify it fails**
+- [x] **Step 3: Run it, verify it fails**
 
 Run: `npm test -- Login`
 Expected: FAIL — `src/pages/admin/Login/index.jsx` does not exist.
 
-- [ ] **Step 4: Implement `Login`**
+- [x] **Step 4: Implement `Login`**
 
 ```jsx
 // src/pages/admin/Login/index.jsx
@@ -1454,12 +1457,12 @@ export default function Login() {
 }
 ```
 
-- [ ] **Step 5: Run it, verify it passes**
+- [x] **Step 5: Run it, verify it passes**
 
 Run: `npm test -- Login`
 Expected: PASS, 2 tests.
 
-- [ ] **Step 6: Commit**
+- [x] **Step 6: Commit**
 
 ```bash
 git add src/api/authApi.js src/pages/admin/Login
@@ -1477,7 +1480,7 @@ git commit -m "feat: add authApi and admin Login page"
 - Produces: minimal placeholder pages `AppRoutes` (Task 12) can route to;
   real dashboard content arrives in the admin-CRUD plan.
 
-- [ ] **Step 1: Implement `Dashboard`**
+- [x] **Step 1: Implement `Dashboard`**
 
 ```jsx
 // src/pages/admin/Dashboard/index.jsx
@@ -1486,7 +1489,7 @@ export default function Dashboard() {
 }
 ```
 
-- [ ] **Step 2: Implement `NotFound`**
+- [x] **Step 2: Implement `NotFound`**
 
 ```jsx
 // src/pages/public/NotFound/index.jsx
@@ -1500,7 +1503,7 @@ export default function NotFound() {
 }
 ```
 
-- [ ] **Step 3: Commit**
+- [x] **Step 3: Commit**
 
 ```bash
 git add src/pages/admin/Dashboard src/pages/public/NotFound
@@ -1526,7 +1529,7 @@ git commit -m "feat: add Dashboard and NotFound placeholder pages"
   → resolves the `HomepageContent` singleton shape from spec §4
   (`{ hero: { title, subtitle }, highlights: [...] }`).
 
-- [ ] **Step 1: Implement `homepageApi.js`**
+- [x] **Step 1: Implement `homepageApi.js`**
 
 ```js
 // src/api/homepageApi.js
@@ -1537,7 +1540,7 @@ export function getHomepageContent() {
 }
 ```
 
-- [ ] **Step 2: Write the failing test for `Home`**
+- [x] **Step 2: Write the failing test for `Home`**
 
 ```jsx
 // src/pages/public/Home/Home.test.jsx
@@ -1574,12 +1577,12 @@ describe('Home', () => {
 })
 ```
 
-- [ ] **Step 3: Run it, verify it fails**
+- [x] **Step 3: Run it, verify it fails**
 
 Run: `npm test -- Home`
 Expected: FAIL.
 
-- [ ] **Step 4: Implement `Home`**
+- [x] **Step 4: Implement `Home`**
 
 ```jsx
 // src/pages/public/Home/index.jsx
@@ -1632,12 +1635,12 @@ export default function Home() {
 }
 ```
 
-- [ ] **Step 5: Run it, verify it passes**
+- [x] **Step 5: Run it, verify it passes**
 
 Run: `npm test -- Home`
 Expected: PASS, 2 tests.
 
-- [ ] **Step 6: Implement `PublicRoutes.jsx`**
+- [x] **Step 6: Implement `PublicRoutes.jsx`**
 
 ```jsx
 // src/routes/PublicRoutes.jsx
@@ -1668,7 +1671,7 @@ Downloads, Events, Contact, legal `Page` slugs — are added in the
 public-pages plan; wiring the whole `PublicLayout`/routing pattern now means
 each later page is a one-line addition here.)
 
-- [ ] **Step 7: Implement `AdminRoutes.jsx`**
+- [x] **Step 7: Implement `AdminRoutes.jsx`**
 
 ```jsx
 // src/routes/AdminRoutes.jsx
@@ -1705,7 +1708,7 @@ export default function AdminRoutes() {
 }
 ```
 
-- [ ] **Step 8: Implement `AppRoutes.jsx`**
+- [x] **Step 8: Implement `AppRoutes.jsx`**
 
 ```jsx
 // src/routes/AppRoutes.jsx
@@ -1723,7 +1726,7 @@ export default function AppRoutes() {
 }
 ```
 
-- [ ] **Step 9: Write the integration test for `AppRoutes`**
+- [x] **Step 9: Write the integration test for `AppRoutes`**
 
 ```jsx
 // src/routes/AppRoutes.test.jsx
@@ -1789,12 +1792,12 @@ describe('AppRoutes', () => {
 })
 ```
 
-- [ ] **Step 10: Run it, verify it passes**
+- [x] **Step 10: Run it, verify it passes**
 
 Run: `npm test -- AppRoutes`
 Expected: PASS, 4 tests.
 
-- [ ] **Step 11: Wire `App.jsx` and `main.jsx`**
+- [x] **Step 11: Wire `App.jsx` and `main.jsx`**
 
 ```jsx
 // src/App.jsx
@@ -1846,7 +1849,7 @@ createRoot(document.getElementById('root')).render(
 )
 ```
 
-- [ ] **Step 12: Update `src/App.test.jsx`** (it now needs the full provider
+- [x] **Step 12: Update `src/App.test.jsx`** (it now needs the full provider
   tree, so replace the Task 1 smoke test with one appropriate for the wired
   app)
 
@@ -1870,18 +1873,18 @@ describe('App', () => {
 })
 ```
 
-- [ ] **Step 13: Run the full test suite**
+- [x] **Step 13: Run the full test suite**
 
 Run: `npm test`
 Expected: every test file passes.
 
-- [ ] **Step 14: Manual smoke check**
+- [x] **Step 14: Manual smoke check**
 
 Run: `npm run dev`, open the printed URL, confirm the header/nav/footer
 render and the Home hero shows a loading state (API not running yet — this
 is expected until Task 13).
 
-- [ ] **Step 15: Commit**
+- [x] **Step 15: Commit**
 
 ```bash
 git add src/api/homepageApi.js src/pages/public/Home src/routes src/App.jsx src/main.jsx src/App.test.jsx
@@ -1893,35 +1896,77 @@ git commit -m "feat: wire AppRoutes, Home page, and app providers"
 ## Task 13: Mock API server seeded with real reference data
 
 **Files:**
-- Create: `mock/db.json`, `mock/routes.json`
+- Create: `mock/db.json`, `mock/server.js`
 
 **Interfaces:**
-- Produces: a `json-server` REST API on `http://localhost:4000` whose shape
-  matches spec §4 exactly, so every `api/*.js` module written in this and
-  future plans works against real (if provisional) responses.
+- Produces: a REST API on `http://localhost:4000` whose shape matches spec
+  §4 exactly, so every `api/*.js` module written in this and future plans
+  works against real (if provisional) responses.
 
-- [ ] **Step 1: Create `mock/routes.json`** (maps our REST-ish paths onto
-  json-server's default `/collectionName` resources — mostly 1:1, but
-  `homepage-content` is a singleton)
+> **Deviation found during execution:** the plan originally called for
+> `json-server --routes mock/routes.json` (classic json-server 0.x CLI). The
+> `json-server` version that installs today is `1.0.0-beta.x`, a full
+> rewrite that dropped `--routes`, `--watch`, and all custom-route/middleware
+> support — it can only auto-serve `/collectionName` from `db.json` with no
+> rewriting and no way to mock the `/auth/login` POST at all. Fixed by
+> pinning `json-server@0.17.4` (the last stable 0.x release) and replacing
+> the planned `mock/routes.json` with a small `mock/server.js` that uses
+> json-server programmatically (`jsonServer.create/router/rewriter`) plus a
+> custom Express route for `/auth/login`. `package.json`'s `mock-api` script
+> is `node mock/server.js` rather than a bare `json-server` CLI invocation.
+> Anyone re-running this plan from scratch should install `json-server@0.17.4`
+> explicitly rather than `json-server@latest`.
 
-```json
-{
-  "/homepage-content": "/homepageContent",
-  "/districts": "/districts",
-  "/districts/:id": "/districts/:id",
-  "/focus-sectors": "/focusSectors",
-  "/gi-products": "/giProducts",
-  "/pages/:slug": "/pages?slug=:slug",
-  "/leaders": "/leaders",
-  "/offices": "/offices",
-  "/staff": "/staff",
-  "/events": "/events",
-  "/downloads": "/downloads",
-  "/auth/login": "/authLogin"
-}
+- [x] **Step 1: Create `mock/server.js`** (maps our REST-ish paths onto
+  json-server's default `/collectionName` resources via `jsonServer.rewriter`
+  — mostly 1:1, but `homepage-content` is a singleton — and adds a custom
+  `/auth/login` POST handler, since that's an action endpoint, not a CRUD
+  resource)
+
+```js
+// mock/server.js
+import jsonServer from 'json-server'
+import { fileURLToPath } from 'node:url'
+import path from 'node:path'
+
+const __dirname = path.dirname(fileURLToPath(import.meta.url))
+const dbPath = path.join(__dirname, 'db.json')
+
+const server = jsonServer.create()
+const router = jsonServer.router(dbPath)
+const middlewares = jsonServer.defaults()
+
+server.use(middlewares)
+server.use(jsonServer.bodyParser)
+
+server.use(
+  jsonServer.rewriter({
+    '/homepage-content': '/homepageContent',
+    '/focus-sectors': '/focusSectors',
+    '/focus-sectors/:id': '/focusSectors/:id',
+    '/gi-products': '/giProducts',
+    '/gi-products/:id': '/giProducts/:id',
+    '/pages/:slug': '/pages?slug=:slug',
+  })
+)
+
+server.post('/auth/login', (req, res) => {
+  const db = router.db
+  const user = db.get('authLogin').value()
+  res.status(200).json(user)
+})
+
+server.use(router)
+
+const PORT = 4000
+server.listen(PORT, () => {
+  console.log(`Mock API server running at http://localhost:${PORT}`)
+})
 ```
 
-- [ ] **Step 2: Create `mock/db.json`** with realistic seed data — district,
+Update `package.json`'s `mock-api` script to `"node mock/server.js"`.
+
+- [x] **Step 2: Create `mock/db.json`** with realistic seed data — district,
   sector, and GI product entries use the real figures captured from the
   live WordPress templates during spec research; other collections use
   clearly-generic placeholder entries to be replaced once real content is
@@ -2056,28 +2101,42 @@ git commit -m "feat: wire AppRoutes, Home page, and app providers"
 }
 ```
 
-- [ ] **Step 2: Run the mock server and verify a real response**
+- [x] **Step 3: Run the mock server and verify real responses**
 
 Run: `npm run mock-api` (in one terminal), then in another:
 
 ```bash
 curl http://localhost:4000/homepage-content
+curl http://localhost:4000/districts
+curl "http://localhost:4000/pages/privacy-policies"
+curl -X POST http://localhost:4000/auth/login -H "Content-Type: application/json" -d '{"email":"x","password":"y"}'
 ```
 
-Expected: the JSON `homepageContent` object from `db.json`.
+Expected: each returns the matching JSON from `db.json` (the login POST
+returns the `authLogin` fixture regardless of credentials — this is a local
+dev mock, not real auth).
 
-- [ ] **Step 3: Run the app against the mock API**
+- [x] **Step 4: Run the app against the mock API**
 
-With `npm run mock-api` still running, run `npm run dev` in another terminal,
-open the app, and confirm the Home page now renders "Gateway to Global
-Markets: Exporters Guide" instead of staying on the loading state.
+With `npm run mock-api` still running, run `npm run dev`, open the app, and
+confirm: the Home page renders "Gateway to Global Markets: Exporters Guide"
+instead of staying on the loading state; the language toggle switches the
+nav to Kannada; and logging in at `/admin/login` with any email/password
+reaches `/admin/dashboard`. Verified in a real browser (Playwright) — all
+three passed, including the Node-25 `localStorage` fix from Task 5 not
+regressing anything here.
 
-- [ ] **Step 4: Commit**
+- [x] **Step 5: Commit**
 
 ```bash
-git add mock
-git commit -m "chore: add json-server mock API seeded with reference site data"
+git add mock package.json package-lock.json index.html
+git commit -m "chore: add mock API server seeded with reference site data"
 ```
+
+(The `index.html` fix folded in here — its `<title>` was still the
+temp-scaffold-folder name `scaffold-tmp` left over from Task 1's move-out-of-
+subfolder trick; caught while eyeballing the browser tab during this step's
+manual check.)
 
 ---
 
