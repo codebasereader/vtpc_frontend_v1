@@ -114,7 +114,7 @@ mock/
   `bg-brand-page` (the `#F6F3F3` page background), `text-brand-dark`,
   available to every component from here on.
 
-- [ ] **Step 1: Add the `@theme` brand tokens to `src/index.css`**
+- [x] **Step 1: Add the `@theme` brand tokens to `src/index.css`**
 
 ```css
 /* src/index.css */
@@ -144,7 +144,7 @@ body {
 }
 ```
 
-- [ ] **Step 2: Load Inter from Google Fonts in `index.html`**
+- [x] **Step 2: Load Inter from Google Fonts in `index.html`**
 
 ```html
 <!-- index.html, inside <head>, after the existing meta tags -->
@@ -156,7 +156,7 @@ body {
 />
 ```
 
-- [ ] **Step 3: Retrofit `Button` to use the brand primary color**
+- [x] **Step 3: Retrofit `Button` to use the brand primary color**
 
 ```jsx
 // src/components/Button/index.jsx
@@ -177,7 +177,7 @@ export default function Button({ children, variant = 'primary', className = '', 
 }
 ```
 
-- [ ] **Step 4: Retrofit `Header`'s active-nav-link color**
+- [x] **Step 4: Retrofit `Header`'s active-nav-link color**
 
 In `src/sections/Header/index.jsx`, change the `NavLink` active-state class
 from `text-blue-800` to `text-brand-primary`, and the `VTPC` wordmark from
@@ -193,7 +193,7 @@ from `text-blue-800` to `text-brand-primary`, and the `VTPC` wordmark from
 className={({ isActive }) => (isActive ? 'font-semibold text-brand-primary' : 'text-gray-700')}
 ```
 
-- [ ] **Step 5: Run the existing test suite — confirm nothing broke**
+- [x] **Step 5: Run the existing test suite — confirm nothing broke**
 
 Run: `npm test`
 Expected: all previously-passing tests (31) still pass. `Button.test.jsx`'s
@@ -201,13 +201,13 @@ Expected: all previously-passing tests (31) still pass. `Button.test.jsx`'s
 `bg-white`). `Header.test.jsx` and `Home.test.jsx` assert on text/roles, not
 color classes, so they're unaffected.
 
-- [ ] **Step 6: Manually verify fonts/colors render**
+- [x] **Step 6: Manually verify fonts/colors render**
 
 Run: `npm run dev`, open the app, confirm (via browser dev tools or visual
 check) the page uses Inter and the nav/button use the crimson `#C83744`
 instead of the old default blue.
 
-- [ ] **Step 7: Commit**
+- [x] **Step 7: Commit**
 
 ```bash
 git add src/index.css index.html src/components/Button src/sections/Header

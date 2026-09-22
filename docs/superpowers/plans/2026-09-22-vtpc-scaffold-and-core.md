@@ -128,11 +128,13 @@ vtpc_frontend_v1/
 ## Task 1: Scaffold the Vite app and install the full dependency set
 
 **Files:**
+
 - Create: `package.json`, `vite.config.js`, `index.html`, `src/main.jsx`,
   `src/App.jsx`, `src/index.css`, `.gitignore`, `.eslintrc.*`, `.prettierrc`
 - Test: `src/App.test.jsx` (trivial smoke test proving Vitest works)
 
 **Interfaces:**
+
 - Produces: a running `npm run dev` server and a running `npm test`
   command, both green, for every later task to build on.
 
@@ -167,21 +169,21 @@ setup.)
 
 ```js
 // vite.config.js
-import { defineConfig } from 'vite'
-import react from '@vitejs/plugin-react'
-import tailwindcss from '@tailwindcss/vite'
+import { defineConfig } from "vite";
+import react from "@vitejs/plugin-react";
+import tailwindcss from "@tailwindcss/vite";
 
 export default defineConfig({
   plugins: [react(), tailwindcss()],
   test: {
-    environment: 'jsdom',
+    environment: "jsdom",
     environmentOptions: {
-      jsdom: { url: 'http://localhost/' },
+      jsdom: { url: "http://localhost/" },
     },
-    setupFiles: './src/test/setup.js',
+    setupFiles: "./src/test/setup.js",
     globals: true,
   },
-})
+});
 ```
 
 - [x] **Step 5: Add the Tailwind import to `src/index.css`**
@@ -199,7 +201,7 @@ Tailwind import.
 
 ```js
 // src/test/setup.js
-import '@testing-library/jest-dom/vitest'
+import "@testing-library/jest-dom/vitest";
 ```
 
 - [x] **Step 7: Add npm scripts**
@@ -225,25 +227,25 @@ In `package.json`, ensure the `scripts` block contains:
 ```jsx
 // src/App.jsx
 function App() {
-  return <div className="min-h-screen">VTPC</div>
+  return <div className="min-h-screen">VTPC</div>;
 }
 
-export default App
+export default App;
 ```
 
 - [x] **Step 9: Write the smoke test**
 
 ```jsx
 // src/App.test.jsx
-import { render, screen } from '@testing-library/react'
-import App from './App'
+import { render, screen } from "@testing-library/react";
+import App from "./App";
 
-describe('App', () => {
-  it('renders without crashing', () => {
-    render(<App />)
-    expect(screen.getByText('VTPC')).toBeInTheDocument()
-  })
-})
+describe("App", () => {
+  it("renders without crashing", () => {
+    render(<App />);
+    expect(screen.getByText("VTPC")).toBeInTheDocument();
+  });
+});
 ```
 
 - [x] **Step 10: Run the test suite and verify it passes**
@@ -278,10 +280,12 @@ git commit -m "chore: scaffold Vite + React app with Tailwind and Vitest"
 ## Task 2: Target folder skeleton, `config.js`, and environment files
 
 **Files:**
+
 - Create: `src/config/config.js`, `.env.example`
 - Modify: `.gitignore` (already ignores `.env`)
 
 **Interfaces:**
+
 - Produces: `API_BASE_URL` (string) — the single source of truth every API
   module in later tasks imports instead of hardcoding a URL.
 
@@ -298,7 +302,8 @@ Copy it to a local `.env` (gitignored) with the same values for development.
 
 ```js
 // src/config/config.js
-export const API_BASE_URL = import.meta.env.VITE_API_BASE_URL ?? 'http://localhost:4000'
+export const API_BASE_URL =
+  import.meta.env.VITE_API_BASE_URL ?? "http://localhost:4000";
 ```
 
 - [x] **Step 3: Create the remaining empty target folders**
@@ -321,10 +326,12 @@ git commit -m "chore: add config module, env template, and target folder structu
 ## Task 3: Axios client
 
 **Files:**
+
 - Create: `src/api/axiosClient.js`
 - Test: `src/api/axiosClient.test.js`
 
 **Interfaces:**
+
 - Consumes: `API_BASE_URL` from `src/config/config.js` (Task 2).
 - Produces: default-exported `axiosClient` instance with `baseURL` set from
   config, `withCredentials: true`, and a response interceptor that rejects
@@ -335,40 +342,40 @@ git commit -m "chore: add config module, env template, and target folder structu
 
 ```js
 // src/api/axiosClient.test.js
-import axiosClient from './axiosClient'
-import { API_BASE_URL } from '../config/config'
+import axiosClient from "./axiosClient";
+import { API_BASE_URL } from "../config/config";
 
-describe('axiosClient', () => {
-  it('is configured with the base URL from config', () => {
-    expect(axiosClient.defaults.baseURL).toBe(API_BASE_URL)
-  })
+describe("axiosClient", () => {
+  it("is configured with the base URL from config", () => {
+    expect(axiosClient.defaults.baseURL).toBe(API_BASE_URL);
+  });
 
-  it('sends credentials with every request', () => {
-    expect(axiosClient.defaults.withCredentials).toBe(true)
-  })
+  it("sends credentials with every request", () => {
+    expect(axiosClient.defaults.withCredentials).toBe(true);
+  });
 
-  it('normalizes a rejected response into { message, status }', async () => {
-    const handlers = axiosClient.interceptors.response.handlers
-    const onRejected = handlers[0].rejected
+  it("normalizes a rejected response into { message, status }", async () => {
+    const handlers = axiosClient.interceptors.response.handlers;
+    const onRejected = handlers[0].rejected;
     const fakeError = {
-      response: { status: 404, data: { message: 'Not found' } },
-    }
+      response: { status: 404, data: { message: "Not found" } },
+    };
     await expect(onRejected(fakeError)).rejects.toEqual({
-      message: 'Not found',
+      message: "Not found",
       status: 404,
-    })
-  })
+    });
+  });
 
-  it('falls back to a generic message when the server sends none', async () => {
-    const handlers = axiosClient.interceptors.response.handlers
-    const onRejected = handlers[0].rejected
-    const fakeError = { response: { status: 500, data: {} } }
+  it("falls back to a generic message when the server sends none", async () => {
+    const handlers = axiosClient.interceptors.response.handlers;
+    const onRejected = handlers[0].rejected;
+    const fakeError = { response: { status: 500, data: {} } };
     await expect(onRejected(fakeError)).rejects.toEqual({
-      message: 'Something went wrong. Please try again.',
+      message: "Something went wrong. Please try again.",
       status: 500,
-    })
-  })
-})
+    });
+  });
+});
 ```
 
 - [x] **Step 2: Run the test to verify it fails**
@@ -380,25 +387,26 @@ Expected: FAIL — `src/api/axiosClient.js` does not exist yet.
 
 ```js
 // src/api/axiosClient.js
-import axios from 'axios'
-import { API_BASE_URL } from '../config/config'
+import axios from "axios";
+import { API_BASE_URL } from "../config/config";
 
 const axiosClient = axios.create({
   baseURL: API_BASE_URL,
   withCredentials: true,
-})
+});
 
 axiosClient.interceptors.response.use(
   (response) => response,
   (error) => {
-    const status = error.response?.status
+    const status = error.response?.status;
     const message =
-      error.response?.data?.message || 'Something went wrong. Please try again.'
-    return Promise.reject({ message, status })
-  }
-)
+      error.response?.data?.message ||
+      "Something went wrong. Please try again.";
+    return Promise.reject({ message, status });
+  },
+);
 
-export default axiosClient
+export default axiosClient;
 ```
 
 - [x] **Step 4: Run the test to verify it passes**
@@ -418,10 +426,12 @@ git commit -m "feat: add shared Axios client with credential and error normaliza
 ## Task 4: Redux store and `authSlice`
 
 **Files:**
+
 - Create: `src/redux/store.js`, `src/redux/slices/authSlice.js`
 - Test: `src/redux/slices/authSlice.test.js`
 
 **Interfaces:**
+
 - Produces: `store` (default export of `store.js`); from `authSlice.js`:
   reducer actions `setUser(payload)` and `clearUser()`, selector
   `selectIsAuthenticated(state)`, selector `selectCurrentUser(state)`. Later
@@ -431,37 +441,45 @@ git commit -m "feat: add shared Axios client with credential and error normaliza
 
 ```js
 // src/redux/slices/authSlice.test.js
-import authReducer, { setUser, clearUser, selectIsAuthenticated, selectCurrentUser } from './authSlice'
+import authReducer, {
+  setUser,
+  clearUser,
+  selectIsAuthenticated,
+  selectCurrentUser,
+} from "./authSlice";
 
-describe('authSlice', () => {
-  const initialState = { user: null, isAuthenticated: false }
+describe("authSlice", () => {
+  const initialState = { user: null, isAuthenticated: false };
 
-  it('returns the initial state', () => {
-    expect(authReducer(undefined, { type: 'unknown' })).toEqual(initialState)
-  })
+  it("returns the initial state", () => {
+    expect(authReducer(undefined, { type: "unknown" })).toEqual(initialState);
+  });
 
-  it('setUser stores the user and flips isAuthenticated to true', () => {
-    const user = { id: '1', name: 'Editor', role: 'editor' }
-    const state = authReducer(initialState, setUser(user))
-    expect(state).toEqual({ user, isAuthenticated: true })
-  })
+  it("setUser stores the user and flips isAuthenticated to true", () => {
+    const user = { id: "1", name: "Editor", role: "editor" };
+    const state = authReducer(initialState, setUser(user));
+    expect(state).toEqual({ user, isAuthenticated: true });
+  });
 
-  it('clearUser resets to the initial state', () => {
-    const loggedIn = { user: { id: '1', name: 'Editor', role: 'editor' }, isAuthenticated: true }
-    expect(authReducer(loggedIn, clearUser())).toEqual(initialState)
-  })
+  it("clearUser resets to the initial state", () => {
+    const loggedIn = {
+      user: { id: "1", name: "Editor", role: "editor" },
+      isAuthenticated: true,
+    };
+    expect(authReducer(loggedIn, clearUser())).toEqual(initialState);
+  });
 
-  it('selectIsAuthenticated reads from state.auth', () => {
-    const state = { auth: { user: null, isAuthenticated: true } }
-    expect(selectIsAuthenticated(state)).toBe(true)
-  })
+  it("selectIsAuthenticated reads from state.auth", () => {
+    const state = { auth: { user: null, isAuthenticated: true } };
+    expect(selectIsAuthenticated(state)).toBe(true);
+  });
 
-  it('selectCurrentUser reads from state.auth', () => {
-    const user = { id: '1', name: 'Editor', role: 'editor' }
-    const state = { auth: { user, isAuthenticated: true } }
-    expect(selectCurrentUser(state)).toEqual(user)
-  })
-})
+  it("selectCurrentUser reads from state.auth", () => {
+    const user = { id: "1", name: "Editor", role: "editor" };
+    const state = { auth: { user, isAuthenticated: true } };
+    expect(selectCurrentUser(state)).toEqual(user);
+  });
+});
 ```
 
 - [x] **Step 2: Run the test to verify it fails**
@@ -473,43 +491,43 @@ Expected: FAIL — module does not exist.
 
 ```js
 // src/redux/slices/authSlice.js
-import { createSlice } from '@reduxjs/toolkit'
+import { createSlice } from "@reduxjs/toolkit";
 
-const initialState = { user: null, isAuthenticated: false }
+const initialState = { user: null, isAuthenticated: false };
 
 const authSlice = createSlice({
-  name: 'auth',
+  name: "auth",
   initialState,
   reducers: {
     setUser: (state, action) => {
-      state.user = action.payload
-      state.isAuthenticated = true
+      state.user = action.payload;
+      state.isAuthenticated = true;
     },
     clearUser: (state) => {
-      state.user = null
-      state.isAuthenticated = false
+      state.user = null;
+      state.isAuthenticated = false;
     },
   },
-})
+});
 
-export const { setUser, clearUser } = authSlice.actions
-export const selectIsAuthenticated = (state) => state.auth.isAuthenticated
-export const selectCurrentUser = (state) => state.auth.user
-export default authSlice.reducer
+export const { setUser, clearUser } = authSlice.actions;
+export const selectIsAuthenticated = (state) => state.auth.isAuthenticated;
+export const selectCurrentUser = (state) => state.auth.user;
+export default authSlice.reducer;
 ```
 
 - [x] **Step 4: Implement `store.js`**
 
 ```js
 // src/redux/store.js
-import { configureStore } from '@reduxjs/toolkit'
-import authReducer from './slices/authSlice'
+import { configureStore } from "@reduxjs/toolkit";
+import authReducer from "./slices/authSlice";
 
 export const store = configureStore({
   reducer: {
     auth: authReducer,
   },
-})
+});
 ```
 
 - [x] **Step 5: Run the test to verify it passes**
@@ -529,11 +547,13 @@ git commit -m "feat: add Redux store and authSlice"
 ## Task 5: `LocaleContext` and i18n setup
 
 **Files:**
+
 - Create: `src/i18n/index.js`, `src/i18n/locales/en/common.json`,
   `src/i18n/locales/kn/common.json`, `src/context/LocaleContext.jsx`
 - Test: `src/context/LocaleContext.test.jsx`
 
 **Interfaces:**
+
 - Produces: `LocaleProvider` (component), `useLocale()` hook returning
   `{ locale, setLocale }` where `locale` is `'en' | 'kn'`. Calling
   `setLocale('kn')` updates `i18next`'s active language and persists the
@@ -544,54 +564,54 @@ git commit -m "feat: add Redux store and authSlice"
 
 ```jsx
 // src/context/LocaleContext.test.jsx
-import { render, screen, fireEvent } from '@testing-library/react'
-import { LocaleProvider, useLocale } from './LocaleContext'
+import { render, screen, fireEvent } from "@testing-library/react";
+import { LocaleProvider, useLocale } from "./LocaleContext";
 
 function LocaleProbe() {
-  const { locale, setLocale } = useLocale()
+  const { locale, setLocale } = useLocale();
   return (
     <div>
       <span>{locale}</span>
-      <button onClick={() => setLocale('kn')}>switch</button>
+      <button onClick={() => setLocale("kn")}>switch</button>
     </div>
-  )
+  );
 }
 
-describe('LocaleContext', () => {
+describe("LocaleContext", () => {
   beforeEach(() => {
-    localStorage.clear()
-  })
+    localStorage.clear();
+  });
 
-  it('defaults to English', () => {
+  it("defaults to English", () => {
     render(
       <LocaleProvider>
         <LocaleProbe />
-      </LocaleProvider>
-    )
-    expect(screen.getByText('en')).toBeInTheDocument()
-  })
+      </LocaleProvider>,
+    );
+    expect(screen.getByText("en")).toBeInTheDocument();
+  });
 
-  it('switches locale and persists it to localStorage', () => {
+  it("switches locale and persists it to localStorage", () => {
     render(
       <LocaleProvider>
         <LocaleProbe />
-      </LocaleProvider>
-    )
-    fireEvent.click(screen.getByText('switch'))
-    expect(screen.getByText('kn')).toBeInTheDocument()
-    expect(localStorage.getItem('vtpc_locale')).toBe('kn')
-  })
+      </LocaleProvider>,
+    );
+    fireEvent.click(screen.getByText("switch"));
+    expect(screen.getByText("kn")).toBeInTheDocument();
+    expect(localStorage.getItem("vtpc_locale")).toBe("kn");
+  });
 
-  it('reads a persisted locale on mount', () => {
-    localStorage.setItem('vtpc_locale', 'kn')
+  it("reads a persisted locale on mount", () => {
+    localStorage.setItem("vtpc_locale", "kn");
     render(
       <LocaleProvider>
         <LocaleProbe />
-      </LocaleProvider>
-    )
-    expect(screen.getByText('kn')).toBeInTheDocument()
-  })
-})
+      </LocaleProvider>,
+    );
+    expect(screen.getByText("kn")).toBeInTheDocument();
+  });
+});
 ```
 
 - [x] **Step 2: Run the test to verify it fails**
@@ -643,71 +663,71 @@ Expected: FAIL — module does not exist.
 
 ```js
 // src/i18n/index.js
-import i18n from 'i18next'
-import { initReactI18next } from 'react-i18next'
-import en from './locales/en/common.json'
-import kn from './locales/kn/common.json'
+import i18n from "i18next";
+import { initReactI18next } from "react-i18next";
+import en from "./locales/en/common.json";
+import kn from "./locales/kn/common.json";
 
 i18n.use(initReactI18next).init({
   resources: {
     en: { common: en },
     kn: { common: kn },
   },
-  lng: 'en',
-  fallbackLng: 'en',
-  defaultNS: 'common',
+  lng: "en",
+  fallbackLng: "en",
+  defaultNS: "common",
   interpolation: { escapeValue: false },
-})
+});
 
-export default i18n
+export default i18n;
 ```
 
 - [x] **Step 5: Implement `LocaleContext.jsx`**
 
 ```jsx
 // src/context/LocaleContext.jsx
-import { createContext, useContext, useState, useCallback } from 'react'
-import i18n from '../i18n'
+import { createContext, useContext, useState, useCallback } from "react";
+import i18n from "../i18n";
 
-const STORAGE_KEY = 'vtpc_locale'
-const LocaleContext = createContext(null)
+const STORAGE_KEY = "vtpc_locale";
+const LocaleContext = createContext(null);
 
 function readPersistedLocale() {
   try {
-    const stored = localStorage.getItem(STORAGE_KEY)
-    return stored === 'kn' ? 'kn' : 'en'
+    const stored = localStorage.getItem(STORAGE_KEY);
+    return stored === "kn" ? "kn" : "en";
   } catch {
-    return 'en'
+    return "en";
   }
 }
 
 export function LocaleProvider({ children }) {
-  const [locale, setLocaleState] = useState(readPersistedLocale)
+  const [locale, setLocaleState] = useState(readPersistedLocale);
 
   const setLocale = useCallback((nextLocale) => {
-    setLocaleState(nextLocale)
-    i18n.changeLanguage(nextLocale)
+    setLocaleState(nextLocale);
+    i18n.changeLanguage(nextLocale);
     try {
-      localStorage.setItem(STORAGE_KEY, nextLocale)
+      localStorage.setItem(STORAGE_KEY, nextLocale);
     } catch {
       // localStorage unavailable (private browsing, etc.) — locale still
       // works for this session via React state.
     }
-  }, [])
+  }, []);
 
   return (
     <LocaleContext.Provider value={{ locale, setLocale }}>
       {children}
     </LocaleContext.Provider>
-  )
+  );
 }
 
 export function useLocale() {
-  const context = useContext(LocaleContext)
+  const context = useContext(LocaleContext);
   if (!context) {
-    throw new Error('useLocale must be used within a LocaleProvider')
+    throw new Error("useLocale must be used within a LocaleProvider");
   }
-  return context
+  return context;
 }
 ```
 
@@ -739,10 +759,12 @@ git commit -m "feat: add i18n setup and LocaleContext"
 ## Task 6: Route constants and `ProtectedRoute`
 
 **Files:**
+
 - Create: `src/constants/routes.js`, `src/routes/ProtectedRoute.jsx`
 - Test: `src/routes/ProtectedRoute.test.jsx`
 
 **Interfaces:**
+
 - Consumes: `selectIsAuthenticated` from `src/redux/slices/authSlice.js`
   (Task 4).
 - Produces: `ROUTES` object (string path constants); `ProtectedRoute`
@@ -754,24 +776,29 @@ git commit -m "feat: add i18n setup and LocaleContext"
 
 ```jsx
 // src/routes/ProtectedRoute.test.jsx
-import { render, screen } from '@testing-library/react'
-import { Provider } from 'react-redux'
-import { configureStore } from '@reduxjs/toolkit'
-import { MemoryRouter, Routes, Route } from 'react-router-dom'
-import authReducer from '../redux/slices/authSlice'
-import ProtectedRoute from './ProtectedRoute'
+import { render, screen } from "@testing-library/react";
+import { Provider } from "react-redux";
+import { configureStore } from "@reduxjs/toolkit";
+import { MemoryRouter, Routes, Route } from "react-router-dom";
+import authReducer from "../redux/slices/authSlice";
+import ProtectedRoute from "./ProtectedRoute";
 
 function renderWithAuth(isAuthenticated) {
   const store = configureStore({
     reducer: { auth: authReducer },
     preloadedState: {
-      auth: { user: isAuthenticated ? { id: '1', name: 'Editor', role: 'editor' } : null, isAuthenticated },
+      auth: {
+        user: isAuthenticated
+          ? { id: "1", name: "Editor", role: "editor" }
+          : null,
+        isAuthenticated,
+      },
     },
-  })
+  });
 
   return render(
     <Provider store={store}>
-      <MemoryRouter initialEntries={['/admin/dashboard']}>
+      <MemoryRouter initialEntries={["/admin/dashboard"]}>
         <Routes>
           <Route path="/admin/login" element={<div>Login Page</div>} />
           <Route
@@ -784,22 +811,22 @@ function renderWithAuth(isAuthenticated) {
           />
         </Routes>
       </MemoryRouter>
-    </Provider>
-  )
+    </Provider>,
+  );
 }
 
-describe('ProtectedRoute', () => {
-  it('renders the protected content when authenticated', () => {
-    renderWithAuth(true)
-    expect(screen.getByText('Dashboard Page')).toBeInTheDocument()
-  })
+describe("ProtectedRoute", () => {
+  it("renders the protected content when authenticated", () => {
+    renderWithAuth(true);
+    expect(screen.getByText("Dashboard Page")).toBeInTheDocument();
+  });
 
-  it('redirects to the login route when not authenticated', () => {
-    renderWithAuth(false)
-    expect(screen.getByText('Login Page')).toBeInTheDocument()
-    expect(screen.queryByText('Dashboard Page')).not.toBeInTheDocument()
-  })
-})
+  it("redirects to the login route when not authenticated", () => {
+    renderWithAuth(false);
+    expect(screen.getByText("Login Page")).toBeInTheDocument();
+    expect(screen.queryByText("Dashboard Page")).not.toBeInTheDocument();
+  });
+});
 ```
 
 - [x] **Step 2: Run the test to verify it fails**
@@ -812,36 +839,36 @@ Expected: FAIL — modules do not exist.
 ```js
 // src/constants/routes.js
 export const ROUTES = {
-  HOME: '/',
-  ABOUT_US: '/about-us',
-  EXPORTER_CORNER: '/exporter-corner',
-  GEOGRAPHICAL_INDICATIONS: '/geographical-indications',
-  DOWNLOADS: '/downloads',
-  EVENTS: '/events',
-  CONTACT: '/contact',
-  PAGE: '/:slug',
-  ADMIN_LOGIN: '/admin/login',
-  ADMIN_DASHBOARD: '/admin/dashboard',
-}
+  HOME: "/",
+  ABOUT_US: "/about-us",
+  EXPORTER_CORNER: "/exporter-corner",
+  GEOGRAPHICAL_INDICATIONS: "/geographical-indications",
+  DOWNLOADS: "/downloads",
+  EVENTS: "/events",
+  CONTACT: "/contact",
+  PAGE: "/:slug",
+  ADMIN_LOGIN: "/admin/login",
+  ADMIN_DASHBOARD: "/admin/dashboard",
+};
 ```
 
 - [x] **Step 4: Implement `ProtectedRoute.jsx`**
 
 ```jsx
 // src/routes/ProtectedRoute.jsx
-import { useSelector } from 'react-redux'
-import { Navigate } from 'react-router-dom'
-import { selectIsAuthenticated } from '../redux/slices/authSlice'
-import { ROUTES } from '../constants/routes'
+import { useSelector } from "react-redux";
+import { Navigate } from "react-router-dom";
+import { selectIsAuthenticated } from "../redux/slices/authSlice";
+import { ROUTES } from "../constants/routes";
 
 export default function ProtectedRoute({ children }) {
-  const isAuthenticated = useSelector(selectIsAuthenticated)
+  const isAuthenticated = useSelector(selectIsAuthenticated);
 
   if (!isAuthenticated) {
-    return <Navigate to={ROUTES.ADMIN_LOGIN} replace />
+    return <Navigate to={ROUTES.ADMIN_LOGIN} replace />;
   }
 
-  return children
+  return children;
 }
 ```
 
@@ -862,11 +889,13 @@ git commit -m "feat: add route constants and ProtectedRoute guard"
 ## Task 7: `ErrorBoundary` and `Button` (first shared components)
 
 **Files:**
+
 - Create: `src/components/ErrorBoundary/index.jsx`,
   `src/components/ErrorBoundary/ErrorBoundary.test.jsx`,
   `src/components/Button/index.jsx`, `src/components/Button/Button.test.jsx`
 
 **Interfaces:**
+
 - Produces: `ErrorBoundary` (class component, `children` prop, catches
   render errors, shows a fallback message); `Button` (props: `children`,
   `variant` = `'primary' | 'secondary'` default `'primary'`, `...rest`
@@ -876,59 +905,65 @@ git commit -m "feat: add route constants and ProtectedRoute guard"
 
 ```jsx
 // src/components/ErrorBoundary/ErrorBoundary.test.jsx
-import { render, screen } from '@testing-library/react'
-import ErrorBoundary from './index'
+import { render, screen } from "@testing-library/react";
+import ErrorBoundary from "./index";
 
 function Bomb() {
-  throw new Error('boom')
+  throw new Error("boom");
 }
 
-describe('ErrorBoundary', () => {
-  it('renders children when there is no error', () => {
+describe("ErrorBoundary", () => {
+  it("renders children when there is no error", () => {
     render(
       <ErrorBoundary>
         <div>safe content</div>
-      </ErrorBoundary>
-    )
-    expect(screen.getByText('safe content')).toBeInTheDocument()
-  })
+      </ErrorBoundary>,
+    );
+    expect(screen.getByText("safe content")).toBeInTheDocument();
+  });
 
-  it('renders a fallback message when a child throws', () => {
-    const consoleError = vi.spyOn(console, 'error').mockImplementation(() => {})
+  it("renders a fallback message when a child throws", () => {
+    const consoleError = vi
+      .spyOn(console, "error")
+      .mockImplementation(() => {});
     render(
       <ErrorBoundary>
         <Bomb />
-      </ErrorBoundary>
-    )
-    expect(screen.getByText(/something went wrong/i)).toBeInTheDocument()
-    consoleError.mockRestore()
-  })
-})
+      </ErrorBoundary>,
+    );
+    expect(screen.getByText(/something went wrong/i)).toBeInTheDocument();
+    consoleError.mockRestore();
+  });
+});
 ```
 
 ```jsx
 // src/components/Button/Button.test.jsx
-import { render, screen, fireEvent } from '@testing-library/react'
-import Button from './index'
+import { render, screen, fireEvent } from "@testing-library/react";
+import Button from "./index";
 
-describe('Button', () => {
-  it('renders its children', () => {
-    render(<Button>Click me</Button>)
-    expect(screen.getByRole('button', { name: 'Click me' })).toBeInTheDocument()
-  })
+describe("Button", () => {
+  it("renders its children", () => {
+    render(<Button>Click me</Button>);
+    expect(
+      screen.getByRole("button", { name: "Click me" }),
+    ).toBeInTheDocument();
+  });
 
-  it('calls onClick when clicked', () => {
-    const onClick = vi.fn()
-    render(<Button onClick={onClick}>Go</Button>)
-    fireEvent.click(screen.getByRole('button', { name: 'Go' }))
-    expect(onClick).toHaveBeenCalledTimes(1)
-  })
+  it("calls onClick when clicked", () => {
+    const onClick = vi.fn();
+    render(<Button onClick={onClick}>Go</Button>);
+    fireEvent.click(screen.getByRole("button", { name: "Go" }));
+    expect(onClick).toHaveBeenCalledTimes(1);
+  });
 
-  it('applies the secondary variant class when requested', () => {
-    render(<Button variant="secondary">Cancel</Button>)
-    expect(screen.getByRole('button', { name: 'Cancel' })).toHaveClass('bg-white')
-  })
-})
+  it("applies the secondary variant class when requested", () => {
+    render(<Button variant="secondary">Cancel</Button>);
+    expect(screen.getByRole("button", { name: "Cancel" })).toHaveClass(
+      "bg-white",
+    );
+  });
+});
 ```
 
 - [x] **Step 2: Run the tests to verify they fail**
@@ -940,17 +975,17 @@ Expected: FAIL — modules do not exist.
 
 ```jsx
 // src/components/ErrorBoundary/index.jsx
-import { Component } from 'react'
+import { Component } from "react";
 
 export default class ErrorBoundary extends Component {
-  state = { hasError: false }
+  state = { hasError: false };
 
   static getDerivedStateFromError() {
-    return { hasError: true }
+    return { hasError: true };
   }
 
   componentDidCatch(error, info) {
-    console.error(error, info)
+    console.error(error, info);
   }
 
   render() {
@@ -959,9 +994,9 @@ export default class ErrorBoundary extends Component {
         <div role="alert" className="p-6 text-center text-gray-700">
           Something went wrong. Please refresh the page.
         </div>
-      )
+      );
     }
-    return this.props.children
+    return this.props.children;
   }
 }
 ```
@@ -971,11 +1006,16 @@ export default class ErrorBoundary extends Component {
 ```jsx
 // src/components/Button/index.jsx
 const VARIANT_CLASSES = {
-  primary: 'bg-blue-700 text-white hover:bg-blue-800',
-  secondary: 'bg-white text-blue-700 border border-blue-700 hover:bg-blue-50',
-}
+  primary: "bg-blue-700 text-white hover:bg-blue-800",
+  secondary: "bg-white text-blue-700 border border-blue-700 hover:bg-blue-50",
+};
 
-export default function Button({ children, variant = 'primary', className = '', ...rest }) {
+export default function Button({
+  children,
+  variant = "primary",
+  className = "",
+  ...rest
+}) {
   return (
     <button
       className={`rounded-md px-4 py-2 font-medium transition-colors ${VARIANT_CLASSES[variant]} ${className}`}
@@ -983,7 +1023,7 @@ export default function Button({ children, variant = 'primary', className = '', 
     >
       {children}
     </button>
-  )
+  );
 }
 ```
 
@@ -1004,11 +1044,13 @@ git commit -m "feat: add ErrorBoundary and Button shared components"
 ## Task 8: `LanguageToggle` and `Header` sections
 
 **Files:**
+
 - Create: `src/sections/LanguageToggle/index.jsx`,
   `src/sections/LanguageToggle/LanguageToggle.test.jsx`,
   `src/sections/Header/index.jsx`, `src/sections/Header/Header.test.jsx`
 
 **Interfaces:**
+
 - Consumes: `useLocale` (Task 5), `useTranslation` from `react-i18next`,
   `ROUTES` (Task 6).
 - Produces: `Header` — the public-site nav bar rendered by `PublicLayout`
@@ -1018,11 +1060,11 @@ git commit -m "feat: add ErrorBoundary and Button shared components"
 
 ```jsx
 // src/sections/LanguageToggle/LanguageToggle.test.jsx
-import { render, screen, fireEvent } from '@testing-library/react'
-import { I18nextProvider } from 'react-i18next'
-import i18n from '../../i18n'
-import { LocaleProvider } from '../../context/LocaleContext'
-import LanguageToggle from './index'
+import { render, screen, fireEvent } from "@testing-library/react";
+import { I18nextProvider } from "react-i18next";
+import i18n from "../../i18n";
+import { LocaleProvider } from "../../context/LocaleContext";
+import LanguageToggle from "./index";
 
 function renderToggle() {
   return render(
@@ -1030,23 +1072,26 @@ function renderToggle() {
       <LocaleProvider>
         <LanguageToggle />
       </LocaleProvider>
-    </I18nextProvider>
-  )
+    </I18nextProvider>,
+  );
 }
 
-describe('LanguageToggle', () => {
-  it('shows both language options', () => {
-    renderToggle()
-    expect(screen.getByRole('button', { name: 'English' })).toBeInTheDocument()
-    expect(screen.getByRole('button', { name: 'ಕನ್ನಡ' })).toBeInTheDocument()
-  })
+describe("LanguageToggle", () => {
+  it("shows both language options", () => {
+    renderToggle();
+    expect(screen.getByRole("button", { name: "English" })).toBeInTheDocument();
+    expect(screen.getByRole("button", { name: "ಕನ್ನಡ" })).toBeInTheDocument();
+  });
 
-  it('switches the active language on click', () => {
-    renderToggle()
-    fireEvent.click(screen.getByRole('button', { name: 'ಕನ್ನಡ' }))
-    expect(screen.getByRole('button', { name: 'ಕನ್ನಡ' })).toHaveAttribute('aria-pressed', 'true')
-  })
-})
+  it("switches the active language on click", () => {
+    renderToggle();
+    fireEvent.click(screen.getByRole("button", { name: "ಕನ್ನಡ" }));
+    expect(screen.getByRole("button", { name: "ಕನ್ನಡ" })).toHaveAttribute(
+      "aria-pressed",
+      "true",
+    );
+  });
+});
 ```
 
 - [x] **Step 2: Run it, verify it fails**
@@ -1058,33 +1103,33 @@ Expected: FAIL.
 
 ```jsx
 // src/sections/LanguageToggle/index.jsx
-import { useTranslation } from 'react-i18next'
-import { useLocale } from '../../context/LocaleContext'
+import { useTranslation } from "react-i18next";
+import { useLocale } from "../../context/LocaleContext";
 
 export default function LanguageToggle() {
-  const { t } = useTranslation()
-  const { locale, setLocale } = useLocale()
+  const { t } = useTranslation();
+  const { locale, setLocale } = useLocale();
 
   return (
     <div className="flex gap-2" role="group" aria-label="Language">
       <button
         type="button"
-        aria-pressed={locale === 'en'}
-        onClick={() => setLocale('en')}
-        className={`text-sm ${locale === 'en' ? 'font-semibold underline' : ''}`}
+        aria-pressed={locale === "en"}
+        onClick={() => setLocale("en")}
+        className={`text-sm ${locale === "en" ? "font-semibold underline" : ""}`}
       >
-        {t('language.english')}
+        {t("language.english")}
       </button>
       <button
         type="button"
-        aria-pressed={locale === 'kn'}
-        onClick={() => setLocale('kn')}
-        className={`text-sm ${locale === 'kn' ? 'font-semibold underline' : ''}`}
+        aria-pressed={locale === "kn"}
+        onClick={() => setLocale("kn")}
+        className={`text-sm ${locale === "kn" ? "font-semibold underline" : ""}`}
       >
-        {t('language.kannada')}
+        {t("language.kannada")}
       </button>
     </div>
-  )
+  );
 }
 ```
 
@@ -1097,15 +1142,15 @@ Expected: PASS, 2 tests.
 
 ```jsx
 // src/sections/Header/Header.test.jsx
-import { render, screen } from '@testing-library/react'
-import { I18nextProvider } from 'react-i18next'
-import { MemoryRouter } from 'react-router-dom'
-import i18n from '../../i18n'
-import { LocaleProvider } from '../../context/LocaleContext'
-import Header from './index'
+import { render, screen } from "@testing-library/react";
+import { I18nextProvider } from "react-i18next";
+import { MemoryRouter } from "react-router-dom";
+import i18n from "../../i18n";
+import { LocaleProvider } from "../../context/LocaleContext";
+import Header from "./index";
 
-describe('Header', () => {
-  it('renders the primary nav links', () => {
+describe("Header", () => {
+  it("renders the primary nav links", () => {
     render(
       <I18nextProvider i18n={i18n}>
         <LocaleProvider>
@@ -1113,13 +1158,15 @@ describe('Header', () => {
             <Header />
           </MemoryRouter>
         </LocaleProvider>
-      </I18nextProvider>
-    )
-    expect(screen.getByRole('link', { name: 'Home' })).toBeInTheDocument()
-    expect(screen.getByRole('link', { name: 'About Us' })).toBeInTheDocument()
-    expect(screen.getByRole('link', { name: 'Exporter Corner' })).toBeInTheDocument()
-  })
-})
+      </I18nextProvider>,
+    );
+    expect(screen.getByRole("link", { name: "Home" })).toBeInTheDocument();
+    expect(screen.getByRole("link", { name: "About Us" })).toBeInTheDocument();
+    expect(
+      screen.getByRole("link", { name: "Exporter Corner" }),
+    ).toBeInTheDocument();
+  });
+});
 ```
 
 - [x] **Step 6: Run it, verify it fails**
@@ -1131,27 +1178,30 @@ Expected: FAIL.
 
 ```jsx
 // src/sections/Header/index.jsx
-import { NavLink } from 'react-router-dom'
-import { useTranslation } from 'react-i18next'
-import { ROUTES } from '../../constants/routes'
-import LanguageToggle from '../LanguageToggle'
+import { NavLink } from "react-router-dom";
+import { useTranslation } from "react-i18next";
+import { ROUTES } from "../../constants/routes";
+import LanguageToggle from "../LanguageToggle";
 
 const NAV_ITEMS = [
-  { key: 'home', to: ROUTES.HOME },
-  { key: 'aboutUs', to: ROUTES.ABOUT_US },
-  { key: 'exporterCorner', to: ROUTES.EXPORTER_CORNER },
-  { key: 'geographicalIndications', to: ROUTES.GEOGRAPHICAL_INDICATIONS },
-  { key: 'downloads', to: ROUTES.DOWNLOADS },
-  { key: 'events', to: ROUTES.EVENTS },
-  { key: 'contact', to: ROUTES.CONTACT },
-]
+  { key: "home", to: ROUTES.HOME },
+  { key: "aboutUs", to: ROUTES.ABOUT_US },
+  { key: "exporterCorner", to: ROUTES.EXPORTER_CORNER },
+  { key: "geographicalIndications", to: ROUTES.GEOGRAPHICAL_INDICATIONS },
+  { key: "downloads", to: ROUTES.DOWNLOADS },
+  { key: "events", to: ROUTES.EVENTS },
+  { key: "contact", to: ROUTES.CONTACT },
+];
 
 export default function Header() {
-  const { t } = useTranslation()
+  const { t } = useTranslation();
 
   return (
     <header className="sticky top-0 z-10 bg-white shadow-sm">
-      <a href="#main-content" className="sr-only focus:not-sr-only focus:absolute focus:p-2">
+      <a
+        href="#main-content"
+        className="sr-only focus:not-sr-only focus:absolute focus:p-2"
+      >
         Skip to content
       </a>
       <nav className="flex flex-wrap items-center justify-between gap-4 px-4 py-3 md:px-8">
@@ -1163,7 +1213,9 @@ export default function Header() {
             <li key={item.key}>
               <NavLink
                 to={item.to}
-                className={({ isActive }) => (isActive ? 'font-semibold text-blue-800' : 'text-gray-700')}
+                className={({ isActive }) =>
+                  isActive ? "font-semibold text-blue-800" : "text-gray-700"
+                }
               >
                 {t(`nav.${item.key}`)}
               </NavLink>
@@ -1173,7 +1225,7 @@ export default function Header() {
         <LanguageToggle />
       </nav>
     </header>
-  )
+  );
 }
 ```
 
@@ -1194,26 +1246,31 @@ git commit -m "feat: add LanguageToggle and Header sections"
 ## Task 9: `Footer` section and layouts
 
 **Files:**
+
 - Create: `src/sections/Footer/index.jsx`, `src/layouts/PublicLayout/index.jsx`,
   `src/layouts/AdminLayout/index.jsx`, `src/layouts/AuthLayout/index.jsx`
 
 **Interfaces:**
+
 - Consumes: `Header`, `Footer`, `ErrorBoundary`.
 - Produces: `PublicLayout` (renders `Header` + `<Outlet/>` wrapped in
   `ErrorBoundary` + `Footer`), `AdminLayout` (renders a minimal admin shell +
   `<Outlet/>`), `AuthLayout` (centered card shell for `/admin/login`).
 
 - [x] **Step 1: Implement `Footer`** (static links only for now — real
-  `Page`-driven legal links arrive in the public-pages plan)
+      `Page`-driven legal links arrive in the public-pages plan)
 
 ```jsx
 // src/sections/Footer/index.jsx
 export default function Footer() {
   return (
     <footer className="mt-12 border-t bg-gray-50 px-4 py-8 text-sm text-gray-600 md:px-8">
-      <p>&copy; {new Date().getFullYear()} Visvesvaraya Trade Promotion Centre, Government of Karnataka.</p>
+      <p>
+        &copy; {new Date().getFullYear()} Visvesvaraya Trade Promotion Centre,
+        Government of Karnataka.
+      </p>
     </footer>
-  )
+  );
 }
 ```
 
@@ -1221,10 +1278,10 @@ export default function Footer() {
 
 ```jsx
 // src/layouts/PublicLayout/index.jsx
-import { Outlet } from 'react-router-dom'
-import Header from '../../sections/Header'
-import Footer from '../../sections/Footer'
-import ErrorBoundary from '../../components/ErrorBoundary'
+import { Outlet } from "react-router-dom";
+import Header from "../../sections/Header";
+import Footer from "../../sections/Footer";
+import ErrorBoundary from "../../components/ErrorBoundary";
 
 export default function PublicLayout() {
   return (
@@ -1237,7 +1294,7 @@ export default function PublicLayout() {
       </main>
       <Footer />
     </div>
-  )
+  );
 }
 ```
 
@@ -1245,8 +1302,8 @@ export default function PublicLayout() {
 
 ```jsx
 // src/layouts/AdminLayout/index.jsx
-import { Outlet } from 'react-router-dom'
-import ErrorBoundary from '../../components/ErrorBoundary'
+import { Outlet } from "react-router-dom";
+import ErrorBoundary from "../../components/ErrorBoundary";
 
 export default function AdminLayout() {
   return (
@@ -1260,7 +1317,7 @@ export default function AdminLayout() {
         </ErrorBoundary>
       </main>
     </div>
-  )
+  );
 }
 ```
 
@@ -1268,7 +1325,7 @@ export default function AdminLayout() {
 
 ```jsx
 // src/layouts/AuthLayout/index.jsx
-import { Outlet } from 'react-router-dom'
+import { Outlet } from "react-router-dom";
 
 export default function AuthLayout() {
   return (
@@ -1277,7 +1334,7 @@ export default function AuthLayout() {
         <Outlet />
       </div>
     </div>
-  )
+  );
 }
 ```
 
@@ -1298,10 +1355,12 @@ git commit -m "feat: add Footer section and Public/Admin/Auth layouts"
 ## Task 10: `authApi` and admin `Login` page
 
 **Files:**
+
 - Create: `src/api/authApi.js`, `src/pages/admin/Login/index.jsx`
 - Test: `src/pages/admin/Login/Login.test.jsx`
 
 **Interfaces:**
+
 - Consumes: `axiosClient` (Task 3), `setUser` action (Task 4).
 - Produces: `authApi.login({ email, password })` → resolves with
   `{ id, name, role }` (the cookie itself is set by the backend response,
@@ -1309,14 +1368,16 @@ git commit -m "feat: add Footer section and Public/Admin/Auth layouts"
   navigates to `ROUTES.ADMIN_DASHBOARD`.
 
 - [x] **Step 1: Implement `authApi.js`** (thin wrapper, no branching logic
-  to unit-test in isolation — covered via the `Login` page test's mock)
+      to unit-test in isolation — covered via the `Login` page test's mock)
 
 ```js
 // src/api/authApi.js
-import axiosClient from './axiosClient'
+import axiosClient from "./axiosClient";
 
 export function login({ email, password }) {
-  return axiosClient.post('/auth/login', { email, password }).then((res) => res.data)
+  return axiosClient
+    .post("/auth/login", { email, password })
+    .then((res) => res.data);
 }
 ```
 
@@ -1324,59 +1385,78 @@ export function login({ email, password }) {
 
 ```jsx
 // src/pages/admin/Login/Login.test.jsx
-import { render, screen, fireEvent, waitFor } from '@testing-library/react'
-import { Provider } from 'react-redux'
-import { configureStore } from '@reduxjs/toolkit'
-import { MemoryRouter, Routes, Route } from 'react-router-dom'
-import authReducer from '../../../redux/slices/authSlice'
-import * as authApi from '../../../api/authApi'
-import Login from './index'
+import { render, screen, fireEvent, waitFor } from "@testing-library/react";
+import { Provider } from "react-redux";
+import { configureStore } from "@reduxjs/toolkit";
+import { MemoryRouter, Routes, Route } from "react-router-dom";
+import authReducer from "../../../redux/slices/authSlice";
+import * as authApi from "../../../api/authApi";
+import Login from "./index";
 
-vi.mock('../../../api/authApi')
+vi.mock("../../../api/authApi");
 
 function renderLogin() {
-  const store = configureStore({ reducer: { auth: authReducer } })
+  const store = configureStore({ reducer: { auth: authReducer } });
   render(
     <Provider store={store}>
-      <MemoryRouter initialEntries={['/admin/login']}>
+      <MemoryRouter initialEntries={["/admin/login"]}>
         <Routes>
           <Route path="/admin/login" element={<Login />} />
           <Route path="/admin/dashboard" element={<div>Dashboard Page</div>} />
         </Routes>
       </MemoryRouter>
-    </Provider>
-  )
-  return store
+    </Provider>,
+  );
+  return store;
 }
 
-describe('Login', () => {
+describe("Login", () => {
   beforeEach(() => {
-    vi.resetAllMocks()
-  })
+    vi.resetAllMocks();
+  });
 
-  it('logs in and navigates to the dashboard on success', async () => {
-    authApi.login.mockResolvedValue({ id: '1', name: 'Editor', role: 'editor' })
-    const store = renderLogin()
+  it("logs in and navigates to the dashboard on success", async () => {
+    authApi.login.mockResolvedValue({
+      id: "1",
+      name: "Editor",
+      role: "editor",
+    });
+    const store = renderLogin();
 
-    fireEvent.change(screen.getByLabelText(/email/i), { target: { value: 'editor@vtpc.gov.in' } })
-    fireEvent.change(screen.getByLabelText(/password/i), { target: { value: 'secret123' } })
-    fireEvent.click(screen.getByRole('button', { name: /log in/i }))
+    fireEvent.change(screen.getByLabelText(/email/i), {
+      target: { value: "editor@vtpc.gov.in" },
+    });
+    fireEvent.change(screen.getByLabelText(/password/i), {
+      target: { value: "secret123" },
+    });
+    fireEvent.click(screen.getByRole("button", { name: /log in/i }));
 
-    await waitFor(() => expect(screen.getByText('Dashboard Page')).toBeInTheDocument())
-    expect(store.getState().auth.isAuthenticated).toBe(true)
-  })
+    await waitFor(() =>
+      expect(screen.getByText("Dashboard Page")).toBeInTheDocument(),
+    );
+    expect(store.getState().auth.isAuthenticated).toBe(true);
+  });
 
-  it('shows an error message on failed login', async () => {
-    authApi.login.mockRejectedValue({ message: 'Invalid credentials', status: 401 })
-    renderLogin()
+  it("shows an error message on failed login", async () => {
+    authApi.login.mockRejectedValue({
+      message: "Invalid credentials",
+      status: 401,
+    });
+    renderLogin();
 
-    fireEvent.change(screen.getByLabelText(/email/i), { target: { value: 'editor@vtpc.gov.in' } })
-    fireEvent.change(screen.getByLabelText(/password/i), { target: { value: 'wrong' } })
-    fireEvent.click(screen.getByRole('button', { name: /log in/i }))
+    fireEvent.change(screen.getByLabelText(/email/i), {
+      target: { value: "editor@vtpc.gov.in" },
+    });
+    fireEvent.change(screen.getByLabelText(/password/i), {
+      target: { value: "wrong" },
+    });
+    fireEvent.click(screen.getByRole("button", { name: /log in/i }));
 
-    await waitFor(() => expect(screen.getByText('Invalid credentials')).toBeInTheDocument())
-  })
-})
+    await waitFor(() =>
+      expect(screen.getByText("Invalid credentials")).toBeInTheDocument(),
+    );
+  });
+});
 ```
 
 - [x] **Step 3: Run it, verify it fails**
@@ -1388,34 +1468,34 @@ Expected: FAIL — `src/pages/admin/Login/index.jsx` does not exist.
 
 ```jsx
 // src/pages/admin/Login/index.jsx
-import { useState } from 'react'
-import { useDispatch } from 'react-redux'
-import { useNavigate } from 'react-router-dom'
-import { login } from '../../../api/authApi'
-import { setUser } from '../../../redux/slices/authSlice'
-import { ROUTES } from '../../../constants/routes'
-import Button from '../../../components/Button'
+import { useState } from "react";
+import { useDispatch } from "react-redux";
+import { useNavigate } from "react-router-dom";
+import { login } from "../../../api/authApi";
+import { setUser } from "../../../redux/slices/authSlice";
+import { ROUTES } from "../../../constants/routes";
+import Button from "../../../components/Button";
 
 export default function Login() {
-  const [email, setEmail] = useState('')
-  const [password, setPassword] = useState('')
-  const [error, setError] = useState('')
-  const [isSubmitting, setIsSubmitting] = useState(false)
-  const dispatch = useDispatch()
-  const navigate = useNavigate()
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [error, setError] = useState("");
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
 
   async function handleSubmit(event) {
-    event.preventDefault()
-    setError('')
-    setIsSubmitting(true)
+    event.preventDefault();
+    setError("");
+    setIsSubmitting(true);
     try {
-      const user = await login({ email, password })
-      dispatch(setUser(user))
-      navigate(ROUTES.ADMIN_DASHBOARD)
+      const user = await login({ email, password });
+      dispatch(setUser(user));
+      navigate(ROUTES.ADMIN_DASHBOARD);
     } catch (err) {
-      setError(err.message || 'Login failed. Please try again.')
+      setError(err.message || "Login failed. Please try again.");
     } finally {
-      setIsSubmitting(false)
+      setIsSubmitting(false);
     }
   }
 
@@ -1448,10 +1528,10 @@ export default function Login() {
         />
       </label>
       <Button type="submit" disabled={isSubmitting}>
-        {isSubmitting ? 'Logging in…' : 'Log In'}
+        {isSubmitting ? "Logging in…" : "Log In"}
       </Button>
     </form>
-  )
+  );
 }
 ```
 
@@ -1472,9 +1552,11 @@ git commit -m "feat: add authApi and admin Login page"
 ## Task 11: `Dashboard` and `NotFound` placeholders
 
 **Files:**
+
 - Create: `src/pages/admin/Dashboard/index.jsx`, `src/pages/public/NotFound/index.jsx`
 
 **Interfaces:**
+
 - Produces: minimal placeholder pages `AppRoutes` (Task 12) can route to;
   real dashboard content arrives in the admin-CRUD plan.
 
@@ -1483,7 +1565,7 @@ git commit -m "feat: add authApi and admin Login page"
 ```jsx
 // src/pages/admin/Dashboard/index.jsx
 export default function Dashboard() {
-  return <h1 className="text-xl font-semibold">Dashboard</h1>
+  return <h1 className="text-xl font-semibold">Dashboard</h1>;
 }
 ```
 
@@ -1495,9 +1577,11 @@ export default function NotFound() {
   return (
     <div className="flex min-h-[50vh] flex-col items-center justify-center gap-2 text-center">
       <h1 className="text-2xl font-semibold">Page not found</h1>
-      <p className="text-gray-600">The page you're looking for doesn't exist.</p>
+      <p className="text-gray-600">
+        The page you're looking for doesn't exist.
+      </p>
     </div>
-  )
+  );
 }
 ```
 
@@ -1513,6 +1597,7 @@ git commit -m "feat: add Dashboard and NotFound placeholder pages"
 ## Task 12: `homepageApi`, `Home` placeholder page, and `AppRoutes` wiring
 
 **Files:**
+
 - Create: `src/api/homepageApi.js`, `src/pages/public/Home/index.jsx`,
   `src/pages/public/Home/Home.test.jsx`, `src/routes/PublicRoutes.jsx`,
   `src/routes/AdminRoutes.jsx`, `src/routes/AppRoutes.jsx`,
@@ -1520,6 +1605,7 @@ git commit -m "feat: add Dashboard and NotFound placeholder pages"
 - Modify: `src/App.jsx`, `src/main.jsx`
 
 **Interfaces:**
+
 - Consumes: `axiosClient` (Task 3), `ProtectedRoute` (Task 6), `PublicLayout`/
   `AdminLayout`/`AuthLayout` (Task 9), `Login`/`Dashboard`/`NotFound`
   (Tasks 10–11).
@@ -1531,10 +1617,10 @@ git commit -m "feat: add Dashboard and NotFound placeholder pages"
 
 ```js
 // src/api/homepageApi.js
-import axiosClient from './axiosClient'
+import axiosClient from "./axiosClient";
 
 export function getHomepageContent() {
-  return axiosClient.get('/homepage-content').then((res) => res.data)
+  return axiosClient.get("/homepage-content").then((res) => res.data);
 }
 ```
 
@@ -1542,37 +1628,49 @@ export function getHomepageContent() {
 
 ```jsx
 // src/pages/public/Home/Home.test.jsx
-import { render, screen, waitFor } from '@testing-library/react'
-import * as homepageApi from '../../../api/homepageApi'
-import Home from './index'
+import { render, screen, waitFor } from "@testing-library/react";
+import * as homepageApi from "../../../api/homepageApi";
+import Home from "./index";
 
-vi.mock('../../../api/homepageApi')
+vi.mock("../../../api/homepageApi");
 
-describe('Home', () => {
+describe("Home", () => {
   beforeEach(() => {
-    vi.resetAllMocks()
-  })
+    vi.resetAllMocks();
+  });
 
-  it('shows a loading state, then the fetched hero content', async () => {
+  it("shows a loading state, then the fetched hero content", async () => {
     homepageApi.getHomepageContent.mockResolvedValue({
-      hero: { title: 'Gateway to Global Markets', subtitle: 'Explore Unlimited Trade Prospects Worldwide' },
+      hero: {
+        title: "Gateway to Global Markets",
+        subtitle: "Explore Unlimited Trade Prospects Worldwide",
+      },
       highlights: [],
-    })
+    });
 
-    render(<Home />)
-    expect(screen.getByText(/loading/i)).toBeInTheDocument()
+    render(<Home />);
+    expect(screen.getByText(/loading/i)).toBeInTheDocument();
 
-    await waitFor(() => expect(screen.getByText('Gateway to Global Markets')).toBeInTheDocument())
-    expect(screen.getByText('Explore Unlimited Trade Prospects Worldwide')).toBeInTheDocument()
-  })
+    await waitFor(() =>
+      expect(screen.getByText("Gateway to Global Markets")).toBeInTheDocument(),
+    );
+    expect(
+      screen.getByText("Explore Unlimited Trade Prospects Worldwide"),
+    ).toBeInTheDocument();
+  });
 
-  it('shows an error message when the fetch fails', async () => {
-    homepageApi.getHomepageContent.mockRejectedValue({ message: 'Network error', status: 0 })
+  it("shows an error message when the fetch fails", async () => {
+    homepageApi.getHomepageContent.mockRejectedValue({
+      message: "Network error",
+      status: 0,
+    });
 
-    render(<Home />)
-    await waitFor(() => expect(screen.getByText('Network error')).toBeInTheDocument())
-  })
-})
+    render(<Home />);
+    await waitFor(() =>
+      expect(screen.getByText("Network error")).toBeInTheDocument(),
+    );
+  });
+});
 ```
 
 - [x] **Step 3: Run it, verify it fails**
@@ -1584,36 +1682,37 @@ Expected: FAIL.
 
 ```jsx
 // src/pages/public/Home/index.jsx
-import { useEffect, useState } from 'react'
-import { Helmet } from 'react-helmet-async'
-import { getHomepageContent } from '../../../api/homepageApi'
+import { useEffect, useState } from "react";
+import { Helmet } from "react-helmet-async";
+import { getHomepageContent } from "../../../api/homepageApi";
 
 export default function Home() {
-  const [content, setContent] = useState(null)
-  const [error, setError] = useState('')
-  const [isLoading, setIsLoading] = useState(true)
+  const [content, setContent] = useState(null);
+  const [error, setError] = useState("");
+  const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
-    let isMounted = true
-    setIsLoading(true)
+    let isMounted = true;
+    setIsLoading(true);
     getHomepageContent()
       .then((data) => {
-        if (isMounted) setContent(data)
+        if (isMounted) setContent(data);
       })
       .catch((err) => {
-        if (isMounted) setError(err.message || 'Failed to load homepage content.')
+        if (isMounted)
+          setError(err.message || "Failed to load homepage content.");
       })
       .finally(() => {
-        if (isMounted) setIsLoading(false)
-      })
+        if (isMounted) setIsLoading(false);
+      });
     return () => {
-      isMounted = false
-    }
-  }, [])
+      isMounted = false;
+    };
+  }, []);
 
-  if (isLoading) return <p className="p-8 text-center">Loading…</p>
-  if (error) return <p className="p-8 text-center text-red-600">{error}</p>
-  if (!content) return null
+  if (isLoading) return <p className="p-8 text-center">Loading…</p>;
+  if (error) return <p className="p-8 text-center text-red-600">{error}</p>;
+  if (!content) return null;
 
   return (
     <>
@@ -1625,11 +1724,13 @@ export default function Home() {
         />
       </Helmet>
       <section className="px-4 py-12 text-center md:px-8">
-        <h1 className="text-3xl font-bold text-blue-900">{content.hero.title}</h1>
+        <h1 className="text-3xl font-bold text-blue-900">
+          {content.hero.title}
+        </h1>
         <p className="mt-2 text-gray-600">{content.hero.subtitle}</p>
       </section>
     </>
-  )
+  );
 }
 ```
 
@@ -1642,13 +1743,13 @@ Expected: PASS, 2 tests.
 
 ```jsx
 // src/routes/PublicRoutes.jsx
-import { lazy, Suspense } from 'react'
-import { Routes, Route } from 'react-router-dom'
-import PublicLayout from '../layouts/PublicLayout'
-import { ROUTES } from '../constants/routes'
+import { lazy, Suspense } from "react";
+import { Routes, Route } from "react-router-dom";
+import PublicLayout from "../layouts/PublicLayout";
+import { ROUTES } from "../constants/routes";
 
-const Home = lazy(() => import('../pages/public/Home'))
-const NotFound = lazy(() => import('../pages/public/NotFound'))
+const Home = lazy(() => import("../pages/public/Home"));
+const NotFound = lazy(() => import("../pages/public/NotFound"));
 
 export default function PublicRoutes() {
   return (
@@ -1660,7 +1761,7 @@ export default function PublicRoutes() {
         </Route>
       </Routes>
     </Suspense>
-  )
+  );
 }
 ```
 
@@ -1673,15 +1774,15 @@ each later page is a one-line addition here.)
 
 ```jsx
 // src/routes/AdminRoutes.jsx
-import { lazy, Suspense } from 'react'
-import { Routes, Route } from 'react-router-dom'
-import AdminLayout from '../layouts/AdminLayout'
-import AuthLayout from '../layouts/AuthLayout'
-import ProtectedRoute from './ProtectedRoute'
-import { ROUTES } from '../constants/routes'
+import { lazy, Suspense } from "react";
+import { Routes, Route } from "react-router-dom";
+import AdminLayout from "../layouts/AdminLayout";
+import AuthLayout from "../layouts/AuthLayout";
+import ProtectedRoute from "./ProtectedRoute";
+import { ROUTES } from "../constants/routes";
 
-const Login = lazy(() => import('../pages/admin/Login'))
-const Dashboard = lazy(() => import('../pages/admin/Dashboard'))
+const Login = lazy(() => import("../pages/admin/Login"));
+const Dashboard = lazy(() => import("../pages/admin/Dashboard"));
 
 export default function AdminRoutes() {
   return (
@@ -1702,7 +1803,7 @@ export default function AdminRoutes() {
         </Route>
       </Routes>
     </Suspense>
-  )
+  );
 }
 ```
 
@@ -1710,9 +1811,9 @@ export default function AdminRoutes() {
 
 ```jsx
 // src/routes/AppRoutes.jsx
-import { Routes, Route } from 'react-router-dom'
-import PublicRoutes from './PublicRoutes'
-import AdminRoutes from './AdminRoutes'
+import { Routes, Route } from "react-router-dom";
+import PublicRoutes from "./PublicRoutes";
+import AdminRoutes from "./AdminRoutes";
 
 export default function AppRoutes() {
   return (
@@ -1720,7 +1821,7 @@ export default function AppRoutes() {
       <Route path="/admin/*" element={<AdminRoutes />} />
       <Route path="/*" element={<PublicRoutes />} />
     </Routes>
-  )
+  );
 }
 ```
 
@@ -1728,24 +1829,24 @@ export default function AppRoutes() {
 
 ```jsx
 // src/routes/AppRoutes.test.jsx
-import { render, screen, waitFor } from '@testing-library/react'
-import { Provider } from 'react-redux'
-import { configureStore } from '@reduxjs/toolkit'
-import { MemoryRouter } from 'react-router-dom'
-import { I18nextProvider } from 'react-i18next'
-import i18n from '../i18n'
-import { LocaleProvider } from '../context/LocaleContext'
-import authReducer from '../redux/slices/authSlice'
-import * as homepageApi from '../api/homepageApi'
-import AppRoutes from './AppRoutes'
+import { render, screen, waitFor } from "@testing-library/react";
+import { Provider } from "react-redux";
+import { configureStore } from "@reduxjs/toolkit";
+import { MemoryRouter } from "react-router-dom";
+import { I18nextProvider } from "react-i18next";
+import i18n from "../i18n";
+import { LocaleProvider } from "../context/LocaleContext";
+import authReducer from "../redux/slices/authSlice";
+import * as homepageApi from "../api/homepageApi";
+import AppRoutes from "./AppRoutes";
 
-vi.mock('../api/homepageApi')
+vi.mock("../api/homepageApi");
 
 function renderAt(path, isAuthenticated = false) {
   const store = configureStore({
     reducer: { auth: authReducer },
     preloadedState: { auth: { user: null, isAuthenticated } },
-  })
+  });
   return render(
     <Provider store={store}>
       <I18nextProvider i18n={i18n}>
@@ -1755,39 +1856,47 @@ function renderAt(path, isAuthenticated = false) {
           </MemoryRouter>
         </LocaleProvider>
       </I18nextProvider>
-    </Provider>
-  )
+    </Provider>,
+  );
 }
 
-describe('AppRoutes', () => {
+describe("AppRoutes", () => {
   beforeEach(() => {
-    vi.resetAllMocks()
+    vi.resetAllMocks();
     homepageApi.getHomepageContent.mockResolvedValue({
-      hero: { title: 'Gateway to Global Markets', subtitle: 'Sub' },
+      hero: { title: "Gateway to Global Markets", subtitle: "Sub" },
       highlights: [],
-    })
-  })
+    });
+  });
 
-  it('renders Home at /', async () => {
-    renderAt('/')
-    await waitFor(() => expect(screen.getByText('Gateway to Global Markets')).toBeInTheDocument())
-  })
+  it("renders Home at /", async () => {
+    renderAt("/");
+    await waitFor(() =>
+      expect(screen.getByText("Gateway to Global Markets")).toBeInTheDocument(),
+    );
+  });
 
-  it('renders NotFound for an unknown public path', async () => {
-    renderAt('/nope')
-    await waitFor(() => expect(screen.getByText('Page not found')).toBeInTheDocument())
-  })
+  it("renders NotFound for an unknown public path", async () => {
+    renderAt("/nope");
+    await waitFor(() =>
+      expect(screen.getByText("Page not found")).toBeInTheDocument(),
+    );
+  });
 
-  it('redirects /admin/dashboard to /admin/login when unauthenticated', async () => {
-    renderAt('/admin/dashboard', false)
-    await waitFor(() => expect(screen.getByText('Admin Login')).toBeInTheDocument())
-  })
+  it("redirects /admin/dashboard to /admin/login when unauthenticated", async () => {
+    renderAt("/admin/dashboard", false);
+    await waitFor(() =>
+      expect(screen.getByText("Admin Login")).toBeInTheDocument(),
+    );
+  });
 
-  it('renders the admin dashboard when authenticated', async () => {
-    renderAt('/admin/dashboard', true)
-    await waitFor(() => expect(screen.getByText('Dashboard')).toBeInTheDocument())
-  })
-})
+  it("renders the admin dashboard when authenticated", async () => {
+    renderAt("/admin/dashboard", true);
+    await waitFor(() =>
+      expect(screen.getByText("Dashboard")).toBeInTheDocument(),
+    );
+  });
+});
 ```
 
 - [x] **Step 10: Run it, verify it passes**
@@ -1799,14 +1908,14 @@ Expected: PASS, 4 tests.
 
 ```jsx
 // src/App.jsx
-import { BrowserRouter } from 'react-router-dom'
-import { HelmetProvider } from 'react-helmet-async'
-import { Provider } from 'react-redux'
-import { I18nextProvider } from 'react-i18next'
-import { store } from './redux/store'
-import i18n from './i18n'
-import { LocaleProvider } from './context/LocaleContext'
-import AppRoutes from './routes/AppRoutes'
+import { BrowserRouter } from "react-router-dom";
+import { HelmetProvider } from "react-helmet-async";
+import { Provider } from "react-redux";
+import { I18nextProvider } from "react-i18next";
+import { store } from "./redux/store";
+import i18n from "./i18n";
+import { LocaleProvider } from "./context/LocaleContext";
+import AppRoutes from "./routes/AppRoutes";
 
 function App() {
   return (
@@ -1821,24 +1930,24 @@ function App() {
         </LocaleProvider>
       </I18nextProvider>
     </Provider>
-  )
+  );
 }
 
-export default App
+export default App;
 ```
 
 ```jsx
 // src/main.jsx
-import { StrictMode } from 'react'
-import { createRoot } from 'react-dom/client'
-import App from './App.jsx'
-import './index.css'
+import { StrictMode } from "react";
+import { createRoot } from "react-dom/client";
+import App from "./App.jsx";
+import "./index.css";
 
-createRoot(document.getElementById('root')).render(
+createRoot(document.getElementById("root")).render(
   <StrictMode>
     <App />
-  </StrictMode>
-)
+  </StrictMode>,
+);
 ```
 
 > **Deviation found during execution:** the user asked to drop Sentry
@@ -1849,27 +1958,29 @@ createRoot(document.getElementById('root')).render(
 > plan.
 
 - [x] **Step 12: Update `src/App.test.jsx`** (it now needs the full provider
-  tree, so replace the Task 1 smoke test with one appropriate for the wired
-  app)
+      tree, so replace the Task 1 smoke test with one appropriate for the wired
+      app)
 
 ```jsx
 // src/App.test.jsx
-import { render, screen, waitFor } from '@testing-library/react'
-import * as homepageApi from './api/homepageApi'
-import App from './App'
+import { render, screen, waitFor } from "@testing-library/react";
+import * as homepageApi from "./api/homepageApi";
+import App from "./App";
 
-vi.mock('./api/homepageApi')
+vi.mock("./api/homepageApi");
 
-describe('App', () => {
-  it('renders the Home page hero at the root path', async () => {
+describe("App", () => {
+  it("renders the Home page hero at the root path", async () => {
     homepageApi.getHomepageContent.mockResolvedValue({
-      hero: { title: 'Gateway to Global Markets', subtitle: 'Sub' },
+      hero: { title: "Gateway to Global Markets", subtitle: "Sub" },
       highlights: [],
-    })
-    render(<App />)
-    await waitFor(() => expect(screen.getByText('Gateway to Global Markets')).toBeInTheDocument())
-  })
-})
+    });
+    render(<App />);
+    await waitFor(() =>
+      expect(screen.getByText("Gateway to Global Markets")).toBeInTheDocument(),
+    );
+  });
+});
 ```
 
 - [x] **Step 13: Run the full test suite**
@@ -1895,9 +2006,11 @@ git commit -m "feat: wire AppRoutes, Home page, and app providers"
 ## Task 13: Mock API server seeded with real reference data
 
 **Files:**
+
 - Create: `mock/db.json`, `mock/server.js`
 
 **Interfaces:**
+
 - Produces: a REST API on `http://localhost:4000` whose shape matches spec
   §4 exactly, so every `api/*.js` module written in this and future plans
   works against real (if provisional) responses.
@@ -1917,59 +2030,59 @@ git commit -m "feat: wire AppRoutes, Home page, and app providers"
 > explicitly rather than `json-server@latest`.
 
 - [x] **Step 1: Create `mock/server.js`** (maps our REST-ish paths onto
-  json-server's default `/collectionName` resources via `jsonServer.rewriter`
-  — mostly 1:1, but `homepage-content` is a singleton — and adds a custom
-  `/auth/login` POST handler, since that's an action endpoint, not a CRUD
-  resource)
+      json-server's default `/collectionName` resources via `jsonServer.rewriter`
+      — mostly 1:1, but `homepage-content` is a singleton — and adds a custom
+      `/auth/login` POST handler, since that's an action endpoint, not a CRUD
+      resource)
 
 ```js
 // mock/server.js
-import jsonServer from 'json-server'
-import { fileURLToPath } from 'node:url'
-import path from 'node:path'
+import jsonServer from "json-server";
+import { fileURLToPath } from "node:url";
+import path from "node:path";
 
-const __dirname = path.dirname(fileURLToPath(import.meta.url))
-const dbPath = path.join(__dirname, 'db.json')
+const __dirname = path.dirname(fileURLToPath(import.meta.url));
+const dbPath = path.join(__dirname, "db.json");
 
-const server = jsonServer.create()
-const router = jsonServer.router(dbPath)
-const middlewares = jsonServer.defaults()
+const server = jsonServer.create();
+const router = jsonServer.router(dbPath);
+const middlewares = jsonServer.defaults();
 
-server.use(middlewares)
-server.use(jsonServer.bodyParser)
+server.use(middlewares);
+server.use(jsonServer.bodyParser);
 
 server.use(
   jsonServer.rewriter({
-    '/homepage-content': '/homepageContent',
-    '/focus-sectors': '/focusSectors',
-    '/focus-sectors/:id': '/focusSectors/:id',
-    '/gi-products': '/giProducts',
-    '/gi-products/:id': '/giProducts/:id',
-    '/pages/:slug': '/pages?slug=:slug',
-  })
-)
+    "/homepage-content": "/homepageContent",
+    "/focus-sectors": "/focusSectors",
+    "/focus-sectors/:id": "/focusSectors/:id",
+    "/gi-products": "/giProducts",
+    "/gi-products/:id": "/giProducts/:id",
+    "/pages/:slug": "/pages?slug=:slug",
+  }),
+);
 
-server.post('/auth/login', (req, res) => {
-  const db = router.db
-  const user = db.get('authLogin').value()
-  res.status(200).json(user)
-})
+server.post("/auth/login", (req, res) => {
+  const db = router.db;
+  const user = db.get("authLogin").value();
+  res.status(200).json(user);
+});
 
-server.use(router)
+server.use(router);
 
-const PORT = 4000
+const PORT = 4000;
 server.listen(PORT, () => {
-  console.log(`Mock API server running at http://localhost:${PORT}`)
-})
+  console.log(`Mock API server running at http://localhost:${PORT}`);
+});
 ```
 
 Update `package.json`'s `mock-api` script to `"node mock/server.js"`.
 
 - [x] **Step 2: Create `mock/db.json`** with realistic seed data — district,
-  sector, and GI product entries use the real figures captured from the
-  live WordPress templates during spec research; other collections use
-  clearly-generic placeholder entries to be replaced once real content is
-  migrated.
+      sector, and GI product entries use the real figures captured from the
+      live WordPress templates during spec research; other collections use
+      clearly-generic placeholder entries to be replaced once real content is
+      migrated.
 
 ```json
 {
@@ -1979,10 +2092,22 @@ Update `package.json`'s `mock-api` script to `"node mock/server.js"`.
       "subtitle": "Explore Unlimited Trade Prospects Worldwide"
     },
     "highlights": [
-      { "title": "Diverse Economy", "description": "Karnataka's economy spans agriculture, industry, and services." },
-      { "title": "Innovation Hub", "description": "Home to India's leading technology and biotech clusters." },
-      { "title": "Agricultural Bounty", "description": "A major producer of coffee, spices, and horticultural crops." },
-      { "title": "Strategic Location", "description": "Well-connected ports and logistics corridors for exporters." }
+      {
+        "title": "Diverse Economy",
+        "description": "Karnataka's economy spans agriculture, industry, and services."
+      },
+      {
+        "title": "Innovation Hub",
+        "description": "Home to India's leading technology and biotech clusters."
+      },
+      {
+        "title": "Agricultural Bounty",
+        "description": "A major producer of coffee, spices, and horticultural crops."
+      },
+      {
+        "title": "Strategic Location",
+        "description": "Well-connected ports and logistics corridors for exporters."
+      }
     ]
   },
   "districts": [
@@ -1999,8 +2124,11 @@ Update `package.json`'s `mock-api` script to `"node mock/server.js"`.
         { "name": "Egypt", "percentage": 5.21 }
       ],
       "products": [
-        { "name": "Salt, Sulphur, Earths and Stone, Plastering Materials, LIM", "percentage": 32.19 },
-        { "name": "Sugars and Sugar Confectionery", "percentage": 22.80 },
+        {
+          "name": "Salt, Sulphur, Earths and Stone, Plastering Materials, LIM",
+          "percentage": 32.19
+        },
+        { "name": "Sugars and Sugar Confectionery", "percentage": 22.8 },
         { "name": "Miscellaneous Chemical Products", "percentage": 22.17 },
         { "name": "Others", "percentage": 20.64 }
       ],
@@ -2030,9 +2158,24 @@ Update `package.json`'s `mock-api` script to `"node mock/server.js"`.
         "kn": ""
       },
       "statBoxes": [
-        { "value": "40%", "label": { "en": "of Pharma products exported overseas", "kn": "" } },
-        { "value": "~10%", "label": { "en": "of Export Revenues of Pharma products from Karnataka", "kn": "" } },
-        { "value": "02", "label": { "en": "Pharma parks located in Hassan and Bangalore", "kn": "" } }
+        {
+          "value": "40%",
+          "label": { "en": "of Pharma products exported overseas", "kn": "" }
+        },
+        {
+          "value": "~10%",
+          "label": {
+            "en": "of Export Revenues of Pharma products from Karnataka",
+            "kn": ""
+          }
+        },
+        {
+          "value": "02",
+          "label": {
+            "en": "Pharma parks located in Hassan and Bangalore",
+            "kn": ""
+          }
+        }
       ],
       "yearlyChart": [
         { "year": "FY-2020", "valueUsdMn": 846.58 },
@@ -2041,7 +2184,10 @@ Update `package.json`'s `mock-api` script to `"node mock/server.js"`.
         { "year": "FY-2023", "valueUsdMn": 1039.27 }
       ],
       "topMarkets": [{ "country": "USA", "percentage": 31.93 }],
-      "keyInsights": { "en": "Sample seed content — replace once migrated via the CMS.", "kn": "" }
+      "keyInsights": {
+        "en": "Sample seed content — replace once migrated via the CMS.",
+        "kn": ""
+      }
     }
   ],
   "giProducts": [
@@ -2078,23 +2224,60 @@ Update `package.json`'s `mock-api` script to `"node mock/server.js"`.
     {
       "slug": "privacy-policies",
       "title": { "en": "Privacy Policy", "kn": "" },
-      "body": { "en": "Sample seed content — replace with the real policy text once migrated via the CMS.", "kn": "" }
+      "body": {
+        "en": "Sample seed content — replace with the real policy text once migrated via the CMS.",
+        "kn": ""
+      }
     }
   ],
   "leaders": [
-    { "id": "1", "name": "Sample Chief Minister", "designation": { "en": "Hon'ble Chief Minister of Karnataka", "kn": "" }, "photo": "", "order": 1 }
+    {
+      "id": "1",
+      "name": "Sample Chief Minister",
+      "designation": { "en": "Hon'ble Chief Minister of Karnataka", "kn": "" },
+      "photo": "",
+      "order": 1
+    }
   ],
   "offices": [
-    { "id": "1", "name": "Head Office", "city": "Bengaluru", "address": { "en": "Sample address, Bengaluru", "kn": "" }, "phone": "", "email": "", "mapLink": "" }
+    {
+      "id": "1",
+      "name": "Head Office",
+      "city": "Bengaluru",
+      "address": { "en": "Sample address, Bengaluru", "kn": "" },
+      "phone": "",
+      "email": "",
+      "mapLink": ""
+    }
   ],
   "staff": [
-    { "id": "1", "name": "Sample Chairman", "role": "Chairman", "group": "org-chart", "order": 1, "photo": "" }
+    {
+      "id": "1",
+      "name": "Sample Chairman",
+      "role": "Chairman",
+      "group": "org-chart",
+      "order": 1,
+      "photo": ""
+    }
   ],
   "events": [
-    { "id": "1", "title": { "en": "Sample Trade Expo", "kn": "" }, "date": "2026-11-01", "location": { "en": "Bengaluru", "kn": "" }, "description": { "en": "Sample seed content.", "kn": "" }, "registrationLink": "" }
+    {
+      "id": "1",
+      "title": { "en": "Sample Trade Expo", "kn": "" },
+      "date": "2026-11-01",
+      "location": { "en": "Bengaluru", "kn": "" },
+      "description": { "en": "Sample seed content.", "kn": "" },
+      "registrationLink": ""
+    }
   ],
   "downloads": [
-    { "id": "1", "title": { "en": "Industrial Policy 2025-2030", "kn": "" }, "category": "Policy", "fileUrl": "", "uploadedAt": "2025-06-01" }
+    {
+      "id": "1",
+      "title": { "en": "Industrial Policy 2025-2030", "kn": "" },
+      "category": "Policy",
+      "fileUrl": "",
+      "uploadedAt": "2025-06-01"
+    }
   ],
   "authLogin": { "id": "1", "name": "Sample Editor", "role": "editor" }
 }
@@ -2142,6 +2325,7 @@ manual check.)
 ## Task 14: Lint/format pass and final verification
 
 **Files:**
+
 - Modify: any files flagged by lint/format
 
 - [x] **Step 1: Run lint**
@@ -2176,14 +2360,14 @@ git commit -m "chore: lint fixes"
 - **Spec coverage:** house stack (Vite/JS/Tailwind/Redux Toolkit/React
   Router/Axios/npm) — Task 1. Folder structure — Tasks 1–12 build it
   incrementally per spec §3. httpOnly-cookie auth pattern — Task 3 (`withCredentials`)
-  + Task 4 (`authSlice` never stores a token) + Task 10 (`Login`). Narrow
-  Context usage (locale only, so far) — Task 5. Public/admin route split —
-  Task 12. i18n — Task 5 + Task 8. `react-helmet-async` per route — Task 12
-  (`Home`). Content model /
-  API contract shape — Task 13 seed data mirrors spec §4 field names exactly.
-  Remaining spec sections (full sitemap, admin CRUD, district map UI, sector
-  charts, GI browser) are explicitly deferred to the two follow-up plans
-  named in this plan's intro — not gaps, by design.
+  - Task 4 (`authSlice` never stores a token) + Task 10 (`Login`). Narrow
+    Context usage (locale only, so far) — Task 5. Public/admin route split —
+    Task 12. i18n — Task 5 + Task 8. `react-helmet-async` per route — Task 12
+    (`Home`). Content model /
+    API contract shape — Task 13 seed data mirrors spec §4 field names exactly.
+    Remaining spec sections (full sitemap, admin CRUD, district map UI, sector
+    charts, GI browser) are explicitly deferred to the two follow-up plans
+    named in this plan's intro — not gaps, by design.
 - **Placeholder scan:** no "TBD"/"TODO" in any step; seed-data placeholders
   in Task 13 are clearly labeled as sample content for local dev, not
   implementation stubs.
