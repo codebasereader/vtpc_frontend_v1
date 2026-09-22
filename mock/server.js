@@ -33,6 +33,19 @@ server.post('/auth/login', (req, res) => {
   res.status(200).json(user)
 })
 
+server.post('/newsletter/subscribe', (req, res) => {
+  const db = router.db
+  const email = req.body?.email
+  if (!email) {
+    res.status(400).json({ message: 'Email is required' })
+    return
+  }
+  db.get('newsletterSubscribers')
+    .push({ id: Date.now().toString(), email, subscribedAt: new Date().toISOString() })
+    .write()
+  res.status(201).json({ message: 'Subscribed' })
+})
+
 server.use(router)
 
 const PORT = 4000

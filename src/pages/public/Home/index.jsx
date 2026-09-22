@@ -7,6 +7,7 @@ import KarnatakaHighlights from '../../../sections/KarnatakaHighlights'
 import DistrictExplorer from '../../../sections/DistrictExplorer'
 import SectorsTeaser from '../../../sections/SectorsTeaser'
 import EventsTeaser from '../../../sections/EventsTeaser'
+import NewsletterSignup from '../../../sections/NewsletterSignup'
 
 export default function Home() {
   const [content, setContent] = useState(null)
@@ -49,6 +50,7 @@ export default function Home() {
       <DistrictExplorer />
       <SectorsTeaser />
       <EventsTeaser />
+      <NewsletterSignup />
     </>
   )
 }

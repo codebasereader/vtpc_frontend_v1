@@ -5,99 +5,547 @@
       "subtitle": "Explore Unlimited Trade Prospects Worldwide"
     },
     "highlights": [
-      { "title": "Diverse Economy", "description": "Karnataka's economy spans agriculture, industry, and services." },
-      { "title": "Innovation Hub", "description": "Home to India's leading technology and biotech clusters." },
-      { "title": "Agricultural Bounty", "description": "A major producer of coffee, spices, and horticultural crops." },
-      { "title": "Strategic Location", "description": "Well-connected ports and logistics corridors for exporters." }
+      {
+        "title": "Diverse Economy",
+        "description": "Karnataka's economy spans agriculture, industry, and services."
+      },
+      {
+        "title": "Innovation Hub",
+        "description": "Home to India's leading technology and biotech clusters."
+      },
+      {
+        "title": "Agricultural Bounty",
+        "description": "A major producer of coffee, spices, and horticultural crops."
+      },
+      {
+        "title": "Strategic Location",
+        "description": "Well-connected ports and logistics corridors for exporters."
+      }
     ]
   },
   "districts": [
     {
       "id": "kalaburagi",
       "name": "Kalaburagi",
-      "tagline": { "en": "Tur Bowl of Karnataka", "kn": "" },
+      "tagline": {
+        "en": "Tur Bowl of Karnataka",
+        "kn": ""
+      },
       "totalExportValueCr": 129.67,
       "countries": [
-        { "name": "Indonesia", "percentage": 32.19 },
-        { "name": "Malaysia", "percentage": 10.96 },
-        { "name": "Bangladesh", "percentage": 9.03 },
-        { "name": "Tanzania", "percentage": 5.47 },
-        { "name": "Egypt", "percentage": 5.21 }
+        {
+          "name": "Indonesia",
+          "percentage": 32.19
+        },
+        {
+          "name": "Malaysia",
+          "percentage": 10.96
+        },
+        {
+          "name": "Bangladesh",
+          "percentage": 9.03
+        },
+        {
+          "name": "Tanzania",
+          "percentage": 5.47
+        },
+        {
+          "name": "Egypt",
+          "percentage": 5.21
+        }
       ],
       "products": [
-        { "name": "Salt, Sulphur, Earths and Stone, Plastering Materials, LIM", "percentage": 32.19 },
-        { "name": "Sugars and Sugar Confectionery", "percentage": 22.80 },
-        { "name": "Miscellaneous Chemical Products", "percentage": 22.17 },
-        { "name": "Others", "percentage": 20.64 }
+        {
+          "name": "Salt, Sulphur, Earths and Stone, Plastering Materials, LIM",
+          "percentage": 32.19
+        },
+        {
+          "name": "Sugars and Sugar Confectionery",
+          "percentage": 22.8
+        },
+        {
+          "name": "Miscellaneous Chemical Products",
+          "percentage": 22.17
+        },
+        {
+          "name": "Others",
+          "percentage": 20.64
+        }
       ],
       "sectors": [
-        { "name": "Agriculture", "percentage": 25.9 },
-        { "name": "Industry (Secondary)", "percentage": 19.1 },
-        { "name": "Services (Tertiary)", "percentage": 55 }
+        {
+          "name": "Agriculture",
+          "percentage": 25.9
+        },
+        {
+          "name": "Industry (Secondary)",
+          "percentage": 19.1
+        },
+        {
+          "name": "Services (Tertiary)",
+          "percentage": 55
+        }
       ]
     },
     {
-      "id": "bagalkote", "name": "Bagalkote", "tagline": { "en": "", "kn": "" }, "totalExportValueCr": null, "countries": [], "products": [], "sectors": []
+      "id": "bagalkote",
+      "name": "Bagalkote",
+      "tagline": {
+        "en": "",
+        "kn": ""
+      },
+      "totalExportValueCr": null,
+      "countries": [],
+      "products": [],
+      "sectors": []
     },
-    { "id": "ballari", "name": "Ballari", "tagline": { "en": "", "kn": "" }, "totalExportValueCr": null, "countries": [], "products": [], "sectors": [] },
-    { "id": "belagavi", "name": "Belagavi", "tagline": { "en": "", "kn": "" }, "totalExportValueCr": null, "countries": [], "products": [], "sectors": [] },
-    { "id": "bengaluru-rural", "name": "Bengaluru Rural", "tagline": { "en": "", "kn": "" }, "totalExportValueCr": null, "countries": [], "products": [], "sectors": [] },
-    { "id": "bengaluru-urban", "name": "Bengaluru Urban", "tagline": { "en": "IT capital of India", "kn": "" }, "totalExportValueCr": null, "countries": [], "products": [], "sectors": [] },
-    { "id": "bidar", "name": "Bidar", "tagline": { "en": "", "kn": "" }, "totalExportValueCr": null, "countries": [], "products": [], "sectors": [] },
-    { "id": "chamarajanagara", "name": "Chamarajanagara", "tagline": { "en": "", "kn": "" }, "totalExportValueCr": null, "countries": [], "products": [], "sectors": [] },
-    { "id": "chikkaballapura", "name": "Chikkaballapura", "tagline": { "en": "", "kn": "" }, "totalExportValueCr": null, "countries": [], "products": [], "sectors": [] },
-    { "id": "chikkamangaluru", "name": "Chikkamagaluru", "tagline": { "en": "", "kn": "" }, "totalExportValueCr": null, "countries": [], "products": [], "sectors": [] },
-    { "id": "chitradurga", "name": "Chitradurga", "tagline": { "en": "", "kn": "" }, "totalExportValueCr": null, "countries": [], "products": [], "sectors": [] },
-    { "id": "dakshina-kannada", "name": "Dakshina Kannada", "tagline": { "en": "", "kn": "" }, "totalExportValueCr": null, "countries": [], "products": [], "sectors": [] },
-    { "id": "davangere", "name": "Davanagere", "tagline": { "en": "", "kn": "" }, "totalExportValueCr": null, "countries": [], "products": [], "sectors": [] },
-    { "id": "dharwad", "name": "Dharwad", "tagline": { "en": "", "kn": "" }, "totalExportValueCr": null, "countries": [], "products": [], "sectors": [] },
-    { "id": "gadag", "name": "Gadag", "tagline": { "en": "", "kn": "" }, "totalExportValueCr": null, "countries": [], "products": [], "sectors": [] },
-    { "id": "hassan", "name": "Hassan", "tagline": { "en": "", "kn": "" }, "totalExportValueCr": null, "countries": [], "products": [], "sectors": [] },
-    { "id": "haveri", "name": "Haveri", "tagline": { "en": "", "kn": "" }, "totalExportValueCr": null, "countries": [], "products": [], "sectors": [] },
-    { "id": "kodagu", "name": "Kodagu", "tagline": { "en": "", "kn": "" }, "totalExportValueCr": null, "countries": [], "products": [], "sectors": [] },
-    { "id": "kolar", "name": "Kolara", "tagline": { "en": "", "kn": "" }, "totalExportValueCr": null, "countries": [], "products": [], "sectors": [] },
-    { "id": "koppal", "name": "Koppal", "tagline": { "en": "", "kn": "" }, "totalExportValueCr": null, "countries": [], "products": [], "sectors": [] },
-    { "id": "mandya", "name": "Mandya", "tagline": { "en": "", "kn": "" }, "totalExportValueCr": null, "countries": [], "products": [], "sectors": [] },
-    { "id": "mysuru", "name": "Mysuru", "tagline": { "en": "", "kn": "" }, "totalExportValueCr": null, "countries": [], "products": [], "sectors": [] },
-    { "id": "raichur", "name": "Raichur", "tagline": { "en": "", "kn": "" }, "totalExportValueCr": null, "countries": [], "products": [], "sectors": [] },
-    { "id": "ramanagara", "name": "Ramanagara", "tagline": { "en": "", "kn": "" }, "totalExportValueCr": null, "countries": [], "products": [], "sectors": [] },
-    { "id": "shivamogga", "name": "Shivamogga", "tagline": { "en": "", "kn": "" }, "totalExportValueCr": null, "countries": [], "products": [], "sectors": [] },
-    { "id": "tumakuru", "name": "Tumakuru", "tagline": { "en": "", "kn": "" }, "totalExportValueCr": null, "countries": [], "products": [], "sectors": [] },
-    { "id": "udupi", "name": "Udupi", "tagline": { "en": "", "kn": "" }, "totalExportValueCr": null, "countries": [], "products": [], "sectors": [] },
-    { "id": "uttara-kannada", "name": "Uttara Kannada", "tagline": { "en": "", "kn": "" }, "totalExportValueCr": null, "countries": [], "products": [], "sectors": [] },
-    { "id": "vijayapura", "name": "Vijayapura", "tagline": { "en": "", "kn": "" }, "totalExportValueCr": null, "countries": [], "products": [], "sectors": [] },
-    { "id": "yadgir", "name": "Yadgir", "tagline": { "en": "", "kn": "" }, "totalExportValueCr": null, "countries": [], "products": [], "sectors": [] }
+    {
+      "id": "ballari",
+      "name": "Ballari",
+      "tagline": {
+        "en": "",
+        "kn": ""
+      },
+      "totalExportValueCr": null,
+      "countries": [],
+      "products": [],
+      "sectors": []
+    },
+    {
+      "id": "belagavi",
+      "name": "Belagavi",
+      "tagline": {
+        "en": "",
+        "kn": ""
+      },
+      "totalExportValueCr": null,
+      "countries": [],
+      "products": [],
+      "sectors": []
+    },
+    {
+      "id": "bengaluru-rural",
+      "name": "Bengaluru Rural",
+      "tagline": {
+        "en": "",
+        "kn": ""
+      },
+      "totalExportValueCr": null,
+      "countries": [],
+      "products": [],
+      "sectors": []
+    },
+    {
+      "id": "bengaluru-urban",
+      "name": "Bengaluru Urban",
+      "tagline": {
+        "en": "IT capital of India",
+        "kn": ""
+      },
+      "totalExportValueCr": null,
+      "countries": [],
+      "products": [],
+      "sectors": []
+    },
+    {
+      "id": "bidar",
+      "name": "Bidar",
+      "tagline": {
+        "en": "",
+        "kn": ""
+      },
+      "totalExportValueCr": null,
+      "countries": [],
+      "products": [],
+      "sectors": []
+    },
+    {
+      "id": "chamarajanagara",
+      "name": "Chamarajanagara",
+      "tagline": {
+        "en": "",
+        "kn": ""
+      },
+      "totalExportValueCr": null,
+      "countries": [],
+      "products": [],
+      "sectors": []
+    },
+    {
+      "id": "chikkaballapura",
+      "name": "Chikkaballapura",
+      "tagline": {
+        "en": "",
+        "kn": ""
+      },
+      "totalExportValueCr": null,
+      "countries": [],
+      "products": [],
+      "sectors": []
+    },
+    {
+      "id": "chikkamangaluru",
+      "name": "Chikkamagaluru",
+      "tagline": {
+        "en": "",
+        "kn": ""
+      },
+      "totalExportValueCr": null,
+      "countries": [],
+      "products": [],
+      "sectors": []
+    },
+    {
+      "id": "chitradurga",
+      "name": "Chitradurga",
+      "tagline": {
+        "en": "",
+        "kn": ""
+      },
+      "totalExportValueCr": null,
+      "countries": [],
+      "products": [],
+      "sectors": []
+    },
+    {
+      "id": "dakshina-kannada",
+      "name": "Dakshina Kannada",
+      "tagline": {
+        "en": "",
+        "kn": ""
+      },
+      "totalExportValueCr": null,
+      "countries": [],
+      "products": [],
+      "sectors": []
+    },
+    {
+      "id": "davangere",
+      "name": "Davanagere",
+      "tagline": {
+        "en": "",
+        "kn": ""
+      },
+      "totalExportValueCr": null,
+      "countries": [],
+      "products": [],
+      "sectors": []
+    },
+    {
+      "id": "dharwad",
+      "name": "Dharwad",
+      "tagline": {
+        "en": "",
+        "kn": ""
+      },
+      "totalExportValueCr": null,
+      "countries": [],
+      "products": [],
+      "sectors": []
+    },
+    {
+      "id": "gadag",
+      "name": "Gadag",
+      "tagline": {
+        "en": "",
+        "kn": ""
+      },
+      "totalExportValueCr": null,
+      "countries": [],
+      "products": [],
+      "sectors": []
+    },
+    {
+      "id": "hassan",
+      "name": "Hassan",
+      "tagline": {
+        "en": "",
+        "kn": ""
+      },
+      "totalExportValueCr": null,
+      "countries": [],
+      "products": [],
+      "sectors": []
+    },
+    {
+      "id": "haveri",
+      "name": "Haveri",
+      "tagline": {
+        "en": "",
+        "kn": ""
+      },
+      "totalExportValueCr": null,
+      "countries": [],
+      "products": [],
+      "sectors": []
+    },
+    {
+      "id": "kodagu",
+      "name": "Kodagu",
+      "tagline": {
+        "en": "",
+        "kn": ""
+      },
+      "totalExportValueCr": null,
+      "countries": [],
+      "products": [],
+      "sectors": []
+    },
+    {
+      "id": "kolar",
+      "name": "Kolara",
+      "tagline": {
+        "en": "",
+        "kn": ""
+      },
+      "totalExportValueCr": null,
+      "countries": [],
+      "products": [],
+      "sectors": []
+    },
+    {
+      "id": "koppal",
+      "name": "Koppal",
+      "tagline": {
+        "en": "",
+        "kn": ""
+      },
+      "totalExportValueCr": null,
+      "countries": [],
+      "products": [],
+      "sectors": []
+    },
+    {
+      "id": "mandya",
+      "name": "Mandya",
+      "tagline": {
+        "en": "",
+        "kn": ""
+      },
+      "totalExportValueCr": null,
+      "countries": [],
+      "products": [],
+      "sectors": []
+    },
+    {
+      "id": "mysuru",
+      "name": "Mysuru",
+      "tagline": {
+        "en": "",
+        "kn": ""
+      },
+      "totalExportValueCr": null,
+      "countries": [],
+      "products": [],
+      "sectors": []
+    },
+    {
+      "id": "raichur",
+      "name": "Raichur",
+      "tagline": {
+        "en": "",
+        "kn": ""
+      },
+      "totalExportValueCr": null,
+      "countries": [],
+      "products": [],
+      "sectors": []
+    },
+    {
+      "id": "ramanagara",
+      "name": "Ramanagara",
+      "tagline": {
+        "en": "",
+        "kn": ""
+      },
+      "totalExportValueCr": null,
+      "countries": [],
+      "products": [],
+      "sectors": []
+    },
+    {
+      "id": "shivamogga",
+      "name": "Shivamogga",
+      "tagline": {
+        "en": "",
+        "kn": ""
+      },
+      "totalExportValueCr": null,
+      "countries": [],
+      "products": [],
+      "sectors": []
+    },
+    {
+      "id": "tumakuru",
+      "name": "Tumakuru",
+      "tagline": {
+        "en": "",
+        "kn": ""
+      },
+      "totalExportValueCr": null,
+      "countries": [],
+      "products": [],
+      "sectors": []
+    },
+    {
+      "id": "udupi",
+      "name": "Udupi",
+      "tagline": {
+        "en": "",
+        "kn": ""
+      },
+      "totalExportValueCr": null,
+      "countries": [],
+      "products": [],
+      "sectors": []
+    },
+    {
+      "id": "uttara-kannada",
+      "name": "Uttara Kannada",
+      "tagline": {
+        "en": "",
+        "kn": ""
+      },
+      "totalExportValueCr": null,
+      "countries": [],
+      "products": [],
+      "sectors": []
+    },
+    {
+      "id": "vijayapura",
+      "name": "Vijayapura",
+      "tagline": {
+        "en": "",
+        "kn": ""
+      },
+      "totalExportValueCr": null,
+      "countries": [],
+      "products": [],
+      "sectors": []
+    },
+    {
+      "id": "yadgir",
+      "name": "Yadgir",
+      "tagline": {
+        "en": "",
+        "kn": ""
+      },
+      "totalExportValueCr": null,
+      "countries": [],
+      "products": [],
+      "sectors": []
+    }
   ],
   "focusSectors": [
     {
       "id": "pharmaceutical-biotech",
-      "name": { "en": "Pharmaceutical & Biotech", "kn": "" },
+      "name": {
+        "en": "Pharmaceutical & Biotech",
+        "kn": ""
+      },
       "image": "/assets/sectors/pharma.jpg",
       "description": {
         "en": "Karnataka, India's biotechnology hub, houses a large number of biotech firms, research institutions, and startups. Major players like Biocon, Strides Pharma, Aurobindo Pharma, Novartis, AstraZeneca, and Merck have a strong presence in the state.",
         "kn": ""
       },
       "statBoxes": [
-        { "value": "40%", "label": { "en": "of Pharma products exported overseas", "kn": "" } },
-        { "value": "~10%", "label": { "en": "of Export Revenues of Pharma products from Karnataka", "kn": "" } },
-        { "value": "02", "label": { "en": "Pharma parks located in Hassan and Bangalore", "kn": "" } }
+        {
+          "value": "40%",
+          "label": {
+            "en": "of Pharma products exported overseas",
+            "kn": ""
+          }
+        },
+        {
+          "value": "~10%",
+          "label": {
+            "en": "of Export Revenues of Pharma products from Karnataka",
+            "kn": ""
+          }
+        },
+        {
+          "value": "02",
+          "label": {
+            "en": "Pharma parks located in Hassan and Bangalore",
+            "kn": ""
+          }
+        }
       ],
       "yearlyChart": [
-        { "year": "FY-2020", "valueUsdMn": 846.58 },
-        { "year": "FY-2021", "valueUsdMn": 879.07 },
-        { "year": "FY-2022", "valueUsdMn": 859.57 },
-        { "year": "FY-2023", "valueUsdMn": 1039.27 }
+        {
+          "year": "FY-2020",
+          "valueUsdMn": 846.58
+        },
+        {
+          "year": "FY-2021",
+          "valueUsdMn": 879.07
+        },
+        {
+          "year": "FY-2022",
+          "valueUsdMn": 859.57
+        },
+        {
+          "year": "FY-2023",
+          "valueUsdMn": 1039.27
+        }
       ],
-      "topMarkets": [{ "country": "USA", "percentage": 31.93 }],
-      "keyInsights": { "en": "Sample seed content — replace once migrated via the CMS.", "kn": "" }
+      "topMarkets": [
+        {
+          "country": "USA",
+          "percentage": 31.93
+        }
+      ],
+      "keyInsights": {
+        "en": "Sample seed content — replace once migrated via the CMS.",
+        "kn": ""
+      }
     },
-    { "id": "automobile", "name": { "en": "Automobile", "kn": "" }, "image": "/assets/sectors/automobile.jpg", "description": { "en": "", "kn": "" }, "statBoxes": [], "yearlyChart": [], "topMarkets": [], "keyInsights": { "en": "", "kn": "" } },
-    { "id": "agriculture", "name": { "en": "Agriculture", "kn": "" }, "image": "/assets/sectors/agriculture.png", "description": { "en": "", "kn": "" }, "statBoxes": [], "yearlyChart": [], "topMarkets": [], "keyInsights": { "en": "", "kn": "" } }
+    {
+      "id": "automobile",
+      "name": {
+        "en": "Automobile",
+        "kn": ""
+      },
+      "image": "/assets/sectors/automobile.jpg",
+      "description": {
+        "en": "",
+        "kn": ""
+      },
+      "statBoxes": [],
+      "yearlyChart": [],
+      "topMarkets": [],
+      "keyInsights": {
+        "en": "",
+        "kn": ""
+      }
+    },
+    {
+      "id": "agriculture",
+      "name": {
+        "en": "Agriculture",
+        "kn": ""
+      },
+      "image": "/assets/sectors/agriculture.png",
+      "description": {
+        "en": "",
+        "kn": ""
+      },
+      "statBoxes": [],
+      "yearlyChart": [],
+      "topMarkets": [],
+      "keyInsights": {
+        "en": "",
+        "kn": ""
+      }
+    }
   ],
   "giProducts": [
     {
       "id": "bidriware",
-      "name": { "en": "Bidriware", "kn": "" },
+      "name": {
+        "en": "Bidriware",
+        "kn": ""
+      },
       "category": "Handicraft",
       "image": "/assets/gi/bidriware.jpg",
       "summary": {
@@ -111,7 +559,10 @@
     },
     {
       "id": "mysore-silk",
-      "name": { "en": "Mysore Silk", "kn": "" },
+      "name": {
+        "en": "Mysore Silk",
+        "kn": ""
+      },
       "category": "Textile",
       "image": "/assets/gi/mysore-silk.jpg",
       "summary": {
@@ -127,26 +578,107 @@
   "pages": [
     {
       "slug": "privacy-policies",
-      "title": { "en": "Privacy Policy", "kn": "" },
-      "body": { "en": "Sample seed content — replace with the real policy text once migrated via the CMS.", "kn": "" }
+      "title": {
+        "en": "Privacy Policy",
+        "kn": ""
+      },
+      "body": {
+        "en": "Sample seed content — replace with the real policy text once migrated via the CMS.",
+        "kn": ""
+      }
     }
   ],
   "leaders": [
-    { "id": "1", "name": "Shri Siddaramaiah", "designation": { "en": "Hon'ble Chief Minister of Karnataka", "kn": "" }, "photo": "", "order": 1 },
-    { "id": "2", "name": "Shri D.K. Shivakumar", "designation": { "en": "Hon'ble Deputy Chief Minister of Karnataka", "kn": "" }, "photo": "", "order": 2 },
-    { "id": "3", "name": "Shri M.B. Patil", "designation": { "en": "Hon'ble Minister for LMI and Infrastructure Development, Government of Karnataka", "kn": "" }, "photo": "", "order": 3 }
+    {
+      "id": "1",
+      "name": "Shri Siddaramaiah",
+      "designation": {
+        "en": "Hon'ble Chief Minister of Karnataka",
+        "kn": ""
+      },
+      "photo": "",
+      "order": 1
+    },
+    {
+      "id": "2",
+      "name": "Shri D.K. Shivakumar",
+      "designation": {
+        "en": "Hon'ble Deputy Chief Minister of Karnataka",
+        "kn": ""
+      },
+      "photo": "",
+      "order": 2
+    },
+    {
+      "id": "3",
+      "name": "Shri M.B. Patil",
+      "designation": {
+        "en": "Hon'ble Minister for LMI and Infrastructure Development, Government of Karnataka",
+        "kn": ""
+      },
+      "photo": "",
+      "order": 3
+    }
   ],
   "offices": [
-    { "id": "1", "name": "Head Office", "city": "Bengaluru", "address": { "en": "Sample address, Bengaluru", "kn": "" }, "phone": "", "email": "", "mapLink": "" }
+    {
+      "id": "1",
+      "name": "Head Office",
+      "city": "Bengaluru",
+      "address": {
+        "en": "Sample address, Bengaluru",
+        "kn": ""
+      },
+      "phone": "",
+      "email": "",
+      "mapLink": ""
+    }
   ],
   "staff": [
-    { "id": "1", "name": "Sample Chairman", "role": "Chairman", "group": "org-chart", "order": 1, "photo": "" }
+    {
+      "id": "1",
+      "name": "Sample Chairman",
+      "role": "Chairman",
+      "group": "org-chart",
+      "order": 1,
+      "photo": ""
+    }
   ],
   "events": [
-    { "id": "1", "title": { "en": "Sample Trade Expo", "kn": "" }, "date": "2026-11-01", "location": { "en": "Bengaluru", "kn": "" }, "description": { "en": "Sample seed content.", "kn": "" }, "registrationLink": "" }
+    {
+      "id": "1",
+      "title": {
+        "en": "Sample Trade Expo",
+        "kn": ""
+      },
+      "date": "2026-11-01",
+      "location": {
+        "en": "Bengaluru",
+        "kn": ""
+      },
+      "description": {
+        "en": "Sample seed content.",
+        "kn": ""
+      },
+      "registrationLink": ""
+    }
   ],
   "downloads": [
-    { "id": "1", "title": { "en": "Industrial Policy 2025-2030", "kn": "" }, "category": "Policy", "fileUrl": "", "uploadedAt": "2025-06-01" }
+    {
+      "id": "1",
+      "title": {
+        "en": "Industrial Policy 2025-2030",
+        "kn": ""
+      },
+      "category": "Policy",
+      "fileUrl": "",
+      "uploadedAt": "2025-06-01"
+    }
   ],
-  "authLogin": { "id": "1", "name": "Sample Editor", "role": "editor" }
+  "authLogin": {
+    "id": "1",
+    "name": "Sample Editor",
+    "role": "editor"
+  },
+  "newsletterSubscribers": []
 }
