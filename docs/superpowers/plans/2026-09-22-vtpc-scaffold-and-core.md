@@ -154,8 +154,11 @@ npm install @reduxjs/toolkit react-redux react-router-dom axios \
 ```bash
 npm install -D tailwindcss @tailwindcss/vite eslint-config-prettier prettier \
   vitest @testing-library/react @testing-library/jest-dom @testing-library/user-event \
-  jsdom json-server
+  jsdom json-server cross-env
 ```
+
+(`cross-env` sets `NODE_OPTIONS` portably in the `test` scripts below — see
+the deviation note after Task 5 for why it's needed on Node 25+.)
 
 - [x] **Step 4: Wire up Tailwind in `vite.config.js`**
 
@@ -169,6 +172,9 @@ export default defineConfig({
   plugins: [react(), tailwindcss()],
   test: {
     environment: 'jsdom',
+    environmentOptions: {
+      jsdom: { url: 'http://localhost/' },
+    },
     setupFiles: './src/test/setup.js',
     globals: true,
   },
@@ -203,8 +209,8 @@ In `package.json`, ensure the `scripts` block contains:
     "dev": "vite",
     "build": "vite build",
     "preview": "vite preview",
-    "test": "vitest run",
-    "test:watch": "vitest",
+    "test": "cross-env NODE_OPTIONS=--no-experimental-webstorage vitest run",
+    "test:watch": "cross-env NODE_OPTIONS=--no-experimental-webstorage vitest",
     "lint": "eslint .",
     "mock-api": "json-server --watch mock/db.json --routes mock/routes.json --port 4000"
   }
@@ -533,7 +539,7 @@ git commit -m "feat: add Redux store and authSlice"
   choice to `localStorage` under the key `vtpc_locale`. Later tasks
   (`LanguageToggle`, `Header`) depend on this exact hook shape.
 
-- [ ] **Step 1: Write the failing test**
+- [x] **Step 1: Write the failing test**
 
 ```jsx
 // src/context/LocaleContext.test.jsx
@@ -587,12 +593,12 @@ describe('LocaleContext', () => {
 })
 ```
 
-- [ ] **Step 2: Run the test to verify it fails**
+- [x] **Step 2: Run the test to verify it fails**
 
 Run: `npm test -- LocaleContext`
 Expected: FAIL — module does not exist.
 
-- [ ] **Step 3: Create the seed translation files**
+- [x] **Step 3: Create the seed translation files**
 
 ```json
 // src/i18n/locales/en/common.json
@@ -632,7 +638,7 @@ Expected: FAIL — module does not exist.
 }
 ```
 
-- [ ] **Step 4: Implement `src/i18n/index.js`**
+- [x] **Step 4: Implement `src/i18n/index.js`**
 
 ```js
 // src/i18n/index.js
@@ -655,7 +661,7 @@ i18n.use(initReactI18next).init({
 export default i18n
 ```
 
-- [ ] **Step 5: Implement `LocaleContext.jsx`**
+- [x] **Step 5: Implement `LocaleContext.jsx`**
 
 ```jsx
 // src/context/LocaleContext.jsx
@@ -704,17 +710,28 @@ export function useLocale() {
 }
 ```
 
-- [ ] **Step 6: Run the test to verify it passes**
+- [x] **Step 6: Run the test to verify it passes**
 
 Run: `npm test -- LocaleContext`
 Expected: PASS, 3 tests.
 
-- [ ] **Step 7: Commit**
+- [x] **Step 7: Commit**
 
 ```bash
 git add src/i18n src/context
 git commit -m "feat: add i18n setup and LocaleContext"
 ```
+
+> **Deviation found during execution:** on Node 25, `localStorage` is a
+> native global (`--webstorage`, on by default) that shadows jsdom's working
+> implementation inside Vitest's jsdom environment, leaving `localStorage`
+> present but with no methods (`.clear is not a function`). Fixed by adding
+> `cross-env` as a dev dependency and running `test`/`test:watch` as
+> `cross-env NODE_OPTIONS=--no-experimental-webstorage vitest ...`, plus
+> `environmentOptions: { jsdom: { url: 'http://localhost/' } }` in
+> `vite.config.js`'s `test` block. Both are already reflected in Task 1's
+> dependency list and `vite.config.js` snippet for anyone re-running this
+> plan from scratch.
 
 ---
 
