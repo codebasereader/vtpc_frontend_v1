@@ -276,7 +276,7 @@ git commit -m "chore: scaffold Vite + React app with Tailwind and Vitest"
 - Produces: `API_BASE_URL` (string) — the single source of truth every API
   module in later tasks imports instead of hardcoding a URL.
 
-- [ ] **Step 1: Create `.env.example`**
+- [x] **Step 1: Create `.env.example`**
 
 ```bash
 # .env.example
@@ -286,7 +286,7 @@ VITE_SENTRY_DSN=
 
 Copy it to a local `.env` (gitignored) with the same values for development.
 
-- [ ] **Step 2: Create `src/config/config.js`**
+- [x] **Step 2: Create `src/config/config.js`**
 
 ```js
 // src/config/config.js
@@ -294,7 +294,7 @@ export const API_BASE_URL = import.meta.env.VITE_API_BASE_URL ?? 'http://localho
 export const SENTRY_DSN = import.meta.env.VITE_SENTRY_DSN ?? ''
 ```
 
-- [ ] **Step 3: Create the remaining empty target folders**
+- [x] **Step 3: Create the remaining empty target folders**
 
 ```bash
 mkdir -p src/api src/redux/slices src/context src/i18n/locales/en src/i18n/locales/kn \
@@ -302,7 +302,7 @@ mkdir -p src/api src/redux/slices src/context src/i18n/locales/en src/i18n/local
   src/pages/public src/pages/admin
 ```
 
-- [ ] **Step 4: Commit**
+- [x] **Step 4: Commit**
 
 ```bash
 git add -A
@@ -324,7 +324,7 @@ git commit -m "chore: add config module, env template, and target folder structu
   with a normalized `{ message, status }` error shape — every `api/*.js`
   module in later plans imports this instead of calling `axios` directly.
 
-- [ ] **Step 1: Write the failing test**
+- [x] **Step 1: Write the failing test**
 
 ```js
 // src/api/axiosClient.test.js
@@ -364,12 +364,12 @@ describe('axiosClient', () => {
 })
 ```
 
-- [ ] **Step 2: Run the test to verify it fails**
+- [x] **Step 2: Run the test to verify it fails**
 
 Run: `npm test -- axiosClient`
 Expected: FAIL — `src/api/axiosClient.js` does not exist yet.
 
-- [ ] **Step 3: Implement `axiosClient.js`**
+- [x] **Step 3: Implement `axiosClient.js`**
 
 ```js
 // src/api/axiosClient.js
@@ -394,12 +394,12 @@ axiosClient.interceptors.response.use(
 export default axiosClient
 ```
 
-- [ ] **Step 4: Run the test to verify it passes**
+- [x] **Step 4: Run the test to verify it passes**
 
 Run: `npm test -- axiosClient`
 Expected: PASS, 4 tests.
 
-- [ ] **Step 5: Commit**
+- [x] **Step 5: Commit**
 
 ```bash
 git add src/api/axiosClient.js src/api/axiosClient.test.js
@@ -420,7 +420,7 @@ git commit -m "feat: add shared Axios client with credential and error normaliza
   `selectIsAuthenticated(state)`, selector `selectCurrentUser(state)`. Later
   tasks (`ProtectedRoute`, `Login` page) depend on these exact names.
 
-- [ ] **Step 1: Write the failing test**
+- [x] **Step 1: Write the failing test**
 
 ```js
 // src/redux/slices/authSlice.test.js
@@ -457,12 +457,12 @@ describe('authSlice', () => {
 })
 ```
 
-- [ ] **Step 2: Run the test to verify it fails**
+- [x] **Step 2: Run the test to verify it fails**
 
 Run: `npm test -- authSlice`
 Expected: FAIL — module does not exist.
 
-- [ ] **Step 3: Implement `authSlice.js`**
+- [x] **Step 3: Implement `authSlice.js`**
 
 ```js
 // src/redux/slices/authSlice.js
@@ -491,7 +491,7 @@ export const selectCurrentUser = (state) => state.auth.user
 export default authSlice.reducer
 ```
 
-- [ ] **Step 4: Implement `store.js`**
+- [x] **Step 4: Implement `store.js`**
 
 ```js
 // src/redux/store.js
@@ -505,12 +505,12 @@ export const store = configureStore({
 })
 ```
 
-- [ ] **Step 5: Run the test to verify it passes**
+- [x] **Step 5: Run the test to verify it passes**
 
 Run: `npm test -- authSlice`
 Expected: PASS, 5 tests.
 
-- [ ] **Step 6: Commit**
+- [x] **Step 6: Commit**
 
 ```bash
 git add src/redux

@@ -1,0 +1,15 @@
+{
+  "nav": {
+    "home": "Home",
+    "aboutUs": "About Us",
+    "exporterCorner": "Exporter Corner",
+    "geographicalIndications": "Geographical Indications",
+    "downloads": "Downloads",
+    "events": "Events",
+    "contact": "Contact Us"
+  },
+  "language": {
+    "english": "English",
+    "kannada": "ಕನ್ನಡ"
+  }
+}
