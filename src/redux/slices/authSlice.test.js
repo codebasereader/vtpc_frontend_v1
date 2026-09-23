@@ -1,7 +1,7 @@
 import authReducer, { setUser, clearUser, selectIsAuthenticated, selectCurrentUser } from './authSlice'
 
 describe('authSlice', () => {
-  const initialState = { user: null, isAuthenticated: false }
+  const initialState = { user: null, isAuthenticated: false, status: 'idle' }
 
   it('returns the initial state', () => {
     expect(authReducer(undefined, { type: 'unknown' })).toEqual(initialState)
@@ -10,12 +10,12 @@ describe('authSlice', () => {
   it('setUser stores the user and flips isAuthenticated to true', () => {
     const user = { id: '1', name: 'Editor', role: 'editor' }
     const state = authReducer(initialState, setUser(user))
-    expect(state).toEqual({ user, isAuthenticated: true })
+    expect(state).toEqual({ user, isAuthenticated: true, status: 'authenticated' })
   })
 
   it('clearUser resets to the initial state', () => {
-    const loggedIn = { user: { id: '1', name: 'Editor', role: 'editor' }, isAuthenticated: true }
-    expect(authReducer(loggedIn, clearUser())).toEqual(initialState)
+    const loggedIn = { user: { id: '1', name: 'Editor', role: 'editor' }, isAuthenticated: true, status: 'authenticated' }
+    expect(authReducer(loggedIn, clearUser())).toEqual({ user: null, isAuthenticated: false, status: 'unauthenticated' })
   })
 
   it('selectIsAuthenticated reads from state.auth', () => {
