@@ -6,20 +6,21 @@ export default function LanguageToggle() {
   const { locale, setLocale } = useLocale()
 
   return (
-    <div className="flex gap-2" role="group" aria-label="Language">
+    <div className="flex items-center gap-2 text-sm" role="group" aria-label="Language">
       <button
         type="button"
         aria-pressed={locale === 'en'}
         onClick={() => setLocale('en')}
-        className={`text-sm ${locale === 'en' ? 'font-semibold underline' : ''}`}
+        className={locale === 'en' ? 'font-semibold text-white' : 'text-white/70 hover:text-white'}
       >
         {t('language.english')}
       </button>
+      <span className="text-white/40">|</span>
       <button
         type="button"
         aria-pressed={locale === 'kn'}
         onClick={() => setLocale('kn')}
-        className={`text-sm ${locale === 'kn' ? 'font-semibold underline' : ''}`}
+        className={locale === 'kn' ? 'font-semibold text-white' : 'text-white/70 hover:text-white'}
       >
         {t('language.kannada')}
       </button>

@@ -2,6 +2,7 @@ import { Outlet } from 'react-router-dom'
 import Header from '../../sections/Header'
 import Footer from '../../sections/Footer'
 import ErrorBoundary from '../../components/ErrorBoundary'
+import FloatingContactButton from '../../components/FloatingContactButton'
 
 export default function PublicLayout() {
   return (
@@ -13,6 +14,7 @@ export default function PublicLayout() {
         </ErrorBoundary>
       </main>
       <Footer />
+      <FloatingContactButton />
     </div>
   )
 }
