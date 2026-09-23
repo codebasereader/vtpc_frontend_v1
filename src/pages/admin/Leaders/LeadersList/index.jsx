@@ -3,9 +3,10 @@ import { Link } from 'react-router-dom'
 import { Plus, Pencil, Trash2, Check, X } from 'lucide-react'
 import { getLeaders, deleteLeader } from '../../../../api/leadersApi'
 import { ROUTES } from '../../../../constants/routes'
+import { getBilingualText } from '../../../../lib/bilingual'
 
-function initialsFor(name) {
-  return name
+function initialsFor(nameEn) {
+  return nameEn
     .split(' ')
     .map((part) => part[0])
     .slice(0, 2)
@@ -82,76 +83,78 @@ export default function LeadersList() {
 
       {!isLoading && leaders.length > 0 && (
         <ul className="mt-6 flex flex-col gap-3">
-          {leaders.map((leader) => (
-            <li
-              key={leader.id}
-              className="flex items-center gap-4 rounded-xl border border-brand-divider bg-white p-4"
-            >
-              {leader.photo ? (
-                <img
-                  src={leader.photo}
-                  alt=""
-                  className="h-12 w-12 shrink-0 rounded-full object-cover"
-                />
-              ) : (
-                <span className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-brand-page text-sm font-semibold text-brand-navy">
-                  {initialsFor(leader.name)}
-                </span>
-              )}
+          {leaders.map((leader) => {
+            const nameEn = getBilingualText(leader.name, 'en')
+            const nameKn = getBilingualText(leader.name, 'kn')
 
-              <div className="min-w-0 flex-1">
-                <p className="font-semibold text-brand-dark">{leader.name}</p>
-                <p className="truncate text-sm text-gray-600">{leader.designation?.en}</p>
-                {leader.designation?.kn && (
-                  <p className="truncate text-sm text-gray-400">{leader.designation.kn}</p>
+            return (
+              <li
+                key={leader.id}
+                className="flex items-center gap-4 rounded-xl border border-brand-divider bg-white p-4"
+              >
+                {leader.photo ? (
+                  <img src={leader.photo} alt="" className="h-12 w-12 shrink-0 rounded-full object-cover" />
+                ) : (
+                  <span className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-brand-page text-sm font-semibold text-brand-navy">
+                    {initialsFor(nameEn)}
+                  </span>
                 )}
-              </div>
 
-              <span className="shrink-0 text-xs text-gray-400">Order {leader.order}</span>
+                <div className="min-w-0 flex-1">
+                  <p className="font-semibold text-brand-dark">
+                    {nameEn}
+                    {nameKn && <span className="ml-2 font-normal text-gray-500">{nameKn}</span>}
+                  </p>
+                  <p className="truncate text-sm text-gray-600">{leader.designation?.en}</p>
+                  {leader.designation?.kn && <p className="truncate text-sm text-gray-400">{leader.designation.kn}</p>}
+                </div>
 
-              {pendingDeleteId === leader.id ? (
-                <div className="flex shrink-0 items-center gap-2">
-                  <span className="text-sm text-gray-600">Delete?</span>
-                  <button
-                    type="button"
-                    onClick={() => handleConfirmDelete(leader.id)}
-                    disabled={isDeleting}
-                    aria-label={`Confirm delete ${leader.name}`}
-                    className="rounded-md bg-red-600 p-1.5 text-white hover:bg-red-700"
-                  >
-                    <Check size={16} />
-                  </button>
-                  <button
-                    type="button"
-                    onClick={() => setPendingDeleteId(null)}
-                    disabled={isDeleting}
-                    aria-label="Cancel delete"
-                    className="rounded-md border border-brand-divider p-1.5 text-gray-600 hover:bg-gray-50"
-                  >
-                    <X size={16} />
-                  </button>
-                </div>
-              ) : (
-                <div className="flex shrink-0 items-center gap-1">
-                  <Link
-                    to={`${ROUTES.ADMIN_LEADERS}/${leader.id}/edit`}
-                    aria-label={`Edit ${leader.name}`}
-                    className="rounded-md p-2 text-gray-500 hover:bg-brand-page hover:text-brand-navy"
-                  >
-                    <Pencil size={16} />
-                  </Link>
-                  <button
-                    type="button"
-                    onClick={() => setPendingDeleteId(leader.id)}
-                    aria-label={`Delete ${leader.name}`}
-                    className="rounded-md p-2 text-gray-500 hover:bg-red-50 hover:text-red-600"
-                  >
-                    <Trash2 size={16} />
-                  </button>
-                </div>
-              )}
-            </li>
-          ))}
+                <span className="shrink-0 text-xs text-gray-400">Order {leader.order}</span>
+
+                {pendingDeleteId === leader.id ? (
+                  <div className="flex shrink-0 items-center gap-2">
+                    <span className="text-sm text-gray-600">Delete?</span>
+                    <button
+                      type="button"
+                      onClick={() => handleConfirmDelete(leader.id)}
+                      disabled={isDeleting}
+                      aria-label={`Confirm delete ${nameEn}`}
+                      className="rounded-md bg-red-600 p-1.5 text-white hover:bg-red-700"
+                    >
+                      <Check size={16} />
+                    </button>
+                    <button
+                      type="button"
+                      onClick={() => setPendingDeleteId(null)}
+                      disabled={isDeleting}
+                      aria-label="Cancel delete"
+                      className="rounded-md border border-brand-divider p-1.5 text-gray-600 hover:bg-gray-50"
+                    >
+                      <X size={16} />
+                    </button>
+                  </div>
+                ) : (
+                  <div className="flex shrink-0 items-center gap-1">
+                    <Link
+                      to={`${ROUTES.ADMIN_LEADERS}/${leader.id}/edit`}
+                      aria-label={`Edit ${nameEn}`}
+                      className="rounded-md p-2 text-gray-500 hover:bg-brand-page hover:text-brand-navy"
+                    >
+                      <Pencil size={16} />
+                    </Link>
+                    <button
+                      type="button"
+                      onClick={() => setPendingDeleteId(leader.id)}
+                      aria-label={`Delete ${nameEn}`}
+                      className="rounded-md p-2 text-gray-500 hover:bg-red-50 hover:text-red-600"
+                    >
+                      <Trash2 size={16} />
+                    </button>
+                  </div>
+                )}
+              </li>
+            )
+          })}
         </ul>
       )}
     </div>

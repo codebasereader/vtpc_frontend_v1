@@ -3,6 +3,7 @@ import { useNavigate, useParams, Link } from 'react-router-dom'
 import { ArrowLeft } from 'lucide-react'
 import { getLeaders, createLeader, updateLeader } from '../../../../api/leadersApi'
 import { ROUTES } from '../../../../constants/routes'
+import { getBilingualText } from '../../../../lib/bilingual'
 import Button from '../../../../components/Button'
 
 const inputClass =
@@ -13,7 +14,8 @@ export default function LeaderForm() {
   const isEditMode = Boolean(id)
   const navigate = useNavigate()
 
-  const [name, setName] = useState('')
+  const [nameEn, setNameEn] = useState('')
+  const [nameKn, setNameKn] = useState('')
   const [designationEn, setDesignationEn] = useState('')
   const [designationKn, setDesignationKn] = useState('')
   const [order, setOrder] = useState(0)
@@ -35,7 +37,8 @@ export default function LeaderForm() {
           setError('Leader not found.')
           return
         }
-        setName(leader.name)
+        setNameEn(getBilingualText(leader.name, 'en'))
+        setNameKn(getBilingualText(leader.name, 'kn'))
         setDesignationEn(leader.designation?.en || '')
         setDesignationKn(leader.designation?.kn || '')
         setOrder(leader.order ?? 0)
@@ -57,7 +60,7 @@ export default function LeaderForm() {
     setError('')
     setIsSubmitting(true)
     try {
-      const payload = { name, designationEn, designationKn, order, photoFile }
+      const payload = { nameEn, nameKn, designationEn, designationKn, order, photoFile }
       if (isEditMode) {
         await updateLeader(id, payload)
       } else {
@@ -95,8 +98,27 @@ export default function LeaderForm() {
         )}
 
         <label className="flex flex-col gap-1.5 text-sm font-medium text-brand-dark">
-          Name
-          <input type="text" value={name} onChange={(e) => setName(e.target.value)} required className={inputClass} />
+          Name (English)
+          <input
+            type="text"
+            value={nameEn}
+            onChange={(e) => setNameEn(e.target.value)}
+            required
+            placeholder="e.g. Shri Siddaramaiah"
+            className={inputClass}
+          />
+        </label>
+
+        <label className="flex flex-col gap-1.5 text-sm font-medium text-brand-dark">
+          Name (Kannada)
+          <input
+            type="text"
+            value={nameKn}
+            onChange={(e) => setNameKn(e.target.value)}
+            required
+            placeholder="ಕನ್ನಡದಲ್ಲಿ ಹೆಸರು"
+            className={inputClass}
+          />
         </label>
 
         <label className="flex flex-col gap-1.5 text-sm font-medium text-brand-dark">

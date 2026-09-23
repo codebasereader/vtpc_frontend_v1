@@ -3,7 +3,7 @@
 Admin CRUD for the homepage's CM/Dy. CM/Minister carousel. Built and
 verified against the real API (`vtpc_backend_v1`, read-only reference —
 everything below documents what's already confirmed working, plus one
-open question).
+schema change needed for `name`, see below).
 
 ## Confirmed working as-is
 
@@ -17,12 +17,13 @@ PUT    /admin/leaders/:id    auth required, multipart/form-data
 DELETE /admin/leaders/:id    auth required
 ```
 
-Schema:
+Schema (target shape — `name` is still a plain string on the live backend
+today; see the 🔴 request below for the change needed):
 
 ```js
 {
   id: string,               // Mongo _id
-  name: string,              // plain string — see open question below
+  name: { en: string, kn: string },
   designation: { en: string, kn: string },
   photo: string,              // absolute URL once PUBLIC_BASE_URL is fixed (see 00-shared-infra.md)
   order: number,
@@ -39,14 +40,34 @@ Schema:
 the parsed body). The admin form relies on this: editing a leader without
 picking a new photo sends no `photo` field at all.
 
-## 🟡 Open question: should `name` be bilingual too?
+## 🔴 `name` needs to become bilingual, matching `designation`
 
-Every other text field on `Leader` is `{en, kn}`, but `name` is a plain
-string. For a fully bilingual site, a leader's name likely needs a Kannada
-rendering too (e.g. "ಸಿದ್ದರಾಮಯ್ಯ" for Siddaramaiah), not just their title.
+Confirmed requirement (not just a question anymore): leaders need a
+Kannada name too (e.g. "ಸಿದ್ದರಾಮಯ್ಯ" for Siddaramaiah), not just a Kannada
+title. **The frontend has already been updated** to send/expect
+`name: { en, kn }` — the admin form now has separate "Name (English)" and
+"Name (Kannada)" fields, both required, and `POST`/`PUT /admin/leaders`
+now send `name[en]` / `name[kn]` instead of a plain `name` field.
 
-**Ask:** confirm whether `name` should become `{ en: String, kn: String }`
-to match `designation`. If yes, the frontend form and API payload will
-need `name[en]`/`name[kn]` fields added — a small, contained change on
-both sides. Not blocking — the current CRUD works fully against the
-existing schema; this is a content-completeness question, not a bug.
+**This means creating/editing a leader will currently fail** against the
+live backend — `Leader.name` is still `{ type: String }`, so Mongoose will
+reject (or mis-cast) the incoming object. **Ask:** update
+`src/models/Leader.js`:
+
+```diff
+  const leaderSchema = new mongoose.Schema(
+    {
+-     name: { type: String, required: true, trim: true },
++     name: { type: bilingualSchema, default: () => ({}) },
+      designation: { type: bilingualSchema, default: () => ({}) },
+```
+
+**Existing seeded leaders** (Siddaramaiah/Shivakumar/Patil) have `name` as
+a plain string today — those documents will need a one-time data fix to
+`{ en: "<existing value>", kn: "" }` once the schema changes, or `GET
+/leaders` will return the old string shape mixed with the new object shape
+depending on which record. The frontend list view already handles both
+shapes defensively in the meantime (reads `.en` if `name` is an object,
+falls back to the raw string otherwise) so nothing breaks while this is in
+flight — but please schedule the data migration alongside the schema
+change, not as an afterthought.
