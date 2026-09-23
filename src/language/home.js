@@ -173,6 +173,10 @@ export const home = {
       en: "Spotlight on Karnataka's District Exports",
       kn: 'ಕರ್ನಾಟಕದ ಜಿಲ್ಲಾ ರಫ್ತುಗಳ ಮೇಲೆ ಬೆಳಕು',
     },
+    description: {
+      en: 'Every district contributes its own strengths to the state’s export story. Select a district on the map to see what it trades, and with whom.',
+      kn: 'ಪ್ರತಿ ಜಿಲ್ಲೆಯೂ ರಾಜ್ಯದ ರಫ್ತು ಕಥೆಗೆ ತನ್ನದೇ ಆದ ಕೊಡುಗೆ ನೀಡುತ್ತದೆ. ಅದು ಏನನ್ನು ಮತ್ತು ಯಾರೊಂದಿಗೆ ವ್ಯಾಪಾರ ಮಾಡುತ್ತದೆ ಎಂಬುದನ್ನು ನೋಡಲು ನಕ್ಷೆಯಲ್ಲಿ ಜಿಲ್ಲೆಯನ್ನು ಆಯ್ಕೆಮಾಡಿ.',
+    },
     loading: { en: 'Loading district data…', kn: 'ಜಿಲ್ಲಾ ಮಾಹಿತಿ ಲೋಡ್ ಆಗುತ್ತಿದೆ…' },
     loadingMap: { en: 'Loading map…', kn: 'ನಕ್ಷೆ ಲೋಡ್ ಆಗುತ್ತಿದೆ…' },
     loadFailed: {

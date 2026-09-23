@@ -10,8 +10,11 @@ const Login = lazy(() => import('../pages/admin/Login'))
 const Dashboard = lazy(() => import('../pages/admin/Dashboard'))
 const LeadersList = lazy(() => import('../pages/admin/Leaders/LeadersList'))
 const LeaderForm = lazy(() => import('../pages/admin/Leaders/LeaderForm'))
+const DistrictsList = lazy(() => import('../pages/admin/Districts/DistrictsList'))
+const DistrictForm = lazy(() => import('../pages/admin/Districts/DistrictForm'))
 
-const COMING_SOON_SECTIONS = ADMIN_SECTIONS.filter((section) => section.key !== 'leaders')
+const BUILT_SECTIONS = ['leaders', 'districts']
+const COMING_SOON_SECTIONS = ADMIN_SECTIONS.filter((section) => !BUILT_SECTIONS.includes(section.key))
 
 export default function AdminRoutes() {
   return (
@@ -50,6 +53,30 @@ export default function AdminRoutes() {
             element={
               <ProtectedRoute>
                 <LeaderForm />
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path="districts"
+            element={
+              <ProtectedRoute>
+                <DistrictsList />
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path="districts/new"
+            element={
+              <ProtectedRoute>
+                <DistrictForm />
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path="districts/:id/edit"
+            element={
+              <ProtectedRoute>
+                <DistrictForm />
               </ProtectedRoute>
             }
           />
