@@ -65,7 +65,6 @@ export default function DistrictForm() {
   const [slug, setSlug] = useState('')
   const [name, setName] = useState('')
   const [taglineEn, setTaglineEn] = useState('')
-  const [taglineKn, setTaglineKn] = useState('')
   const [totalExportValueCr, setTotalExportValueCr] = useState('')
   const [countries, setCountries] = useState([])
   const [products, setProducts] = useState([])
@@ -89,7 +88,6 @@ export default function DistrictForm() {
         setSlug(district.id)
         setName(district.name || '')
         setTaglineEn(district.tagline?.en || '')
-        setTaglineKn(district.tagline?.kn || '')
         setTotalExportValueCr(district.totalExportValueCr ?? '')
         setCountries(district.countries?.length ? district.countries : [])
         setProducts(district.products?.length ? district.products : [])
@@ -117,7 +115,7 @@ export default function DistrictForm() {
     setError('')
     setIsSubmitting(true)
     try {
-      const payload = { slug, name, taglineEn, taglineKn, totalExportValueCr, countries, products, sectors }
+      const payload = { slug, name, taglineEn, totalExportValueCr, countries, products, sectors }
       if (isEditMode) {
         await updateDistrict(id, payload)
       } else {
@@ -181,17 +179,6 @@ export default function DistrictForm() {
             value={taglineEn}
             onChange={(e) => setTaglineEn(e.target.value)}
             placeholder="e.g. Lime and heritage crafts"
-            className={inputClass}
-          />
-        </label>
-
-        <label className="flex flex-col gap-1.5 text-sm font-medium text-brand-dark">
-          Tagline (Kannada)
-          <input
-            type="text"
-            value={taglineKn}
-            onChange={(e) => setTaglineKn(e.target.value)}
-            placeholder="ಕನ್ನಡದಲ್ಲಿ ಟ್ಯಾಗ್‌ಲೈನ್"
             className={inputClass}
           />
         </label>

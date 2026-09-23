@@ -1,15 +1,17 @@
 // The slugs here must exactly match the `data-district` values baked into
 // src/assets/karnataka-districts-map.svg — that's how map clicks and admin
-// records line up. Names are the SVG's own `title` attributes.
+// records line up. Names match the real site's district-panel headings
+// (which occasionally differ from the SVG's own `title` attribute spelling
+// — e.g. "Kalaburagi" vs the SVG title "Kalburgi").
 export const KARNATAKA_DISTRICTS = [
   { slug: 'bidar', name: 'Bidar' },
   { slug: 'yadgir', name: 'Yadgir' },
-  { slug: 'kalaburagi', name: 'Kalburgi' },
+  { slug: 'kalaburagi', name: 'Kalaburagi' },
   { slug: 'belagavi', name: 'Belagavi' },
   { slug: 'ballari', name: 'Ballari' },
   { slug: 'chikkaballapura', name: 'Chikkaballapura' },
-  { slug: 'kolar', name: 'Kolara' },
-  { slug: 'chikkamangaluru', name: 'Chikkamagaluru' },
+  { slug: 'kolar', name: 'Kolar' },
+  { slug: 'chikkamangaluru', name: 'Chikkamangaluru' },
   { slug: 'hassan', name: 'Hassan' },
   { slug: 'ramanagara', name: 'Ramanagara' },
   { slug: 'bengaluru-rural', name: 'Bengaluru Rural' },
@@ -26,7 +28,7 @@ export const KARNATAKA_DISTRICTS = [
   { slug: 'mysuru', name: 'Mysuru' },
   { slug: 'chamarajanagara', name: 'Chamarajanagara' },
   { slug: 'shivamogga', name: 'Shivamogga' },
-  { slug: 'davangere', name: 'Davanagere' },
+  { slug: 'davangere', name: 'Davangere' },
   { slug: 'chitradurga', name: 'Chitradurga' },
   { slug: 'dakshina-kannada', name: 'Dakshina Kannada' },
   { slug: 'udupi', name: 'Udupi' },

@@ -38,7 +38,7 @@ export default function DistrictPanel({ district }) {
   const tagline = getBilingualText(district.tagline, language) || getBilingualText(district.tagline, 'en')
 
   return (
-    <div className="flex max-h-119 flex-col gap-4 overflow-y-auto rounded-2xl bg-white p-5.75 shadow-[0_8px_24px_rgba(15,40,80,0.06)] md:p-6">
+    <div className="flex flex-col gap-4 overflow-y-auto rounded-2xl bg-white p-5.75 shadow-[0_8px_24px_rgba(15,40,80,0.06)] md:p-6">
       <div>
         <h3 className="text-2xl font-bold text-brand-navy-dark">{district.name}</h3>
         {tagline && <p className="mt-1 text-sm text-gray-600">{tagline}</p>}

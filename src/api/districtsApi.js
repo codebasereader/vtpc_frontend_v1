@@ -4,7 +4,7 @@ export function getDistricts() {
   return axiosClient.get('/districts').then((res) => res.data)
 }
 
-function buildDistrictPayload({ slug, name, taglineEn, taglineKn, totalExportValueCr, countries, products, sectors }) {
+function buildDistrictPayload({ slug, name, taglineEn, totalExportValueCr, countries, products, sectors }) {
   return {
     // Sent explicitly rather than left for the backend to derive from
     // `name` — a couple of the map SVG's data-district values don't match
@@ -13,7 +13,8 @@ function buildDistrictPayload({ slug, name, taglineEn, taglineKn, totalExportVal
     // silently break for those districts if we let it guess.
     slug,
     name,
-    tagline: { en: taglineEn, kn: taglineKn },
+    // Districts don't need a bilingual tagline — English only.
+    tagline: { en: taglineEn, kn: '' },
     totalExportValueCr: Number(totalExportValueCr) || 0,
     countries: countries.map((row) => ({ name: row.name, percentage: Number(row.percentage) || 0 })),
     products: products.map((row) => ({ name: row.name, percentage: Number(row.percentage) || 0 })),
