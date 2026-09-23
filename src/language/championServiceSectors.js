@@ -13,6 +13,10 @@ export const championServiceSectors = {
     en: 'Delve into the Champion Service Sectors',
     kn: 'ಪ್ರಮುಖ ಸೇವಾ ವಲಯಗಳನ್ನು ಅನ್ವೇಷಿಸಿ',
   },
+  titleHighlight: {
+    en: 'Champion Service Sectors',
+    kn: 'ಸೇವಾ ವಲಯಗಳನ್ನು',
+  },
   paragraphs: [
     {
       en: 'The Champion Services Sectors are the six key areas that have been identified by the government for focused development, with the goal of driving economic growth and enhancing the nation’s global competitiveness.',

@@ -3,6 +3,7 @@ import { useSelector } from 'react-redux'
 import { SECTORS, PILLAR_META } from './data'
 import { selectLanguage } from '../../redux/slices/localeSlice'
 import { championServiceSectors as t } from '../../language/championServiceSectors'
+import { splitHighlight } from '../../lib/text'
 
 export default function ChampionServiceSectors() {
   const language = useSelector(selectLanguage)
@@ -10,11 +11,22 @@ export default function ChampionServiceSectors() {
   const activeSector = SECTORS.find((sector) => sector.id === activeId) ?? SECTORS[0]
   const activeContent = t.sectors[activeSector.id]
 
+  const [titleBefore, titleHighlight, titleAfter] = splitHighlight(
+    t.title[language],
+    t.titleHighlight[language]
+  )
+
   return (
     <section className="bg-[#eef3f8] px-4 py-14 md:px-8 md:py-16">
       <div className="mx-auto max-w-6xl">
         <h2 className="text-center text-3xl font-bold text-brand-navy-dark md:text-4xl lg:text-[2.75rem] lg:leading-tight">
-          {t.title[language]}
+          {titleBefore}
+          {titleHighlight && (
+            <span className="bg-gradient-to-r from-brand-primary to-brand-orange bg-clip-text text-transparent">
+              {titleHighlight}
+            </span>
+          )}
+          {titleAfter}
         </h2>
         <div className="mx-auto mt-4 max-w-3xl space-y-3 text-center text-base leading-relaxed text-gray-600 md:text-lg md:leading-8">
           {t.paragraphs.map((paragraph) => (
@@ -25,7 +37,7 @@ export default function ChampionServiceSectors() {
         </div>
 
         <div
-          className="relative z-10 mt-8 rounded-xl border border-brand-divider bg-white shadow-[0_8px_24px_rgba(15,40,80,0.06)]"
+          className="relative z-10 mt-10 overflow-hidden rounded-2xl border border-brand-divider bg-white shadow-[0_8px_24px_rgba(15,40,80,0.06)]"
           role="tablist"
           aria-label={t.tablistLabel[language]}
         >
@@ -40,17 +52,23 @@ export default function ChampionServiceSectors() {
                   role="tab"
                   aria-selected={isActive}
                   onClick={() => setActiveId(sector.id)}
-                  className={`relative flex min-h-[5.5rem] flex-col items-center justify-center gap-2 px-3 py-4 text-center text-sm font-semibold transition-colors sm:text-base ${
+                  className={`group relative flex min-h-[6.5rem] flex-col items-center justify-center gap-2.5 px-3 py-4 text-center text-sm font-semibold transition-all duration-200 sm:text-base ${
                     isActive
                       ? 'bg-brand-primary text-white'
                       : 'bg-white text-brand-dark hover:bg-brand-page'
                   }`}
                 >
-                  <Icon
-                    size={22}
-                    className={isActive ? 'text-white' : 'text-brand-navy'}
-                    aria-hidden="true"
-                  />
+                  <span
+                    className={`flex h-11 w-11 items-center justify-center rounded-full transition-transform duration-200 group-hover:scale-105 ${
+                      isActive ? 'bg-white/15' : sector.badge
+                    }`}
+                  >
+                    <Icon
+                      size={22}
+                      className={isActive ? 'text-white' : sector.accentText}
+                      aria-hidden="true"
+                    />
+                  </span>
                   <span className="leading-snug">{t.sectors[sector.id].label[language]}</span>
                   {isActive ? (
                     <span
@@ -74,8 +92,8 @@ export default function ChampionServiceSectors() {
               return (
                 <article
                   key={pillar.key}
-                  className={`flex flex-col rounded-xl border border-brand-divider bg-white p-4 lg:rounded-none lg:border-0 lg:px-4 lg:py-2 ${
-                    index > 0 ? 'lg:border-l lg:border-brand-divider' : ''
+                  className={`flex flex-col rounded-xl border border-t-4 border-brand-divider bg-white p-4 transition-all duration-200 hover:-translate-y-0.5 hover:shadow-[0_8px_20px_rgba(15,40,80,0.08)] lg:rounded-none lg:border-0 lg:border-t-4 lg:px-4 lg:py-3 lg:hover:translate-y-0 lg:hover:shadow-none ${pillar.accentBorder} ${
+                    index > 0 ? 'lg:border-l lg:border-l-brand-divider' : ''
                   }`}
                 >
                   <span
@@ -83,7 +101,9 @@ export default function ChampionServiceSectors() {
                   >
                     <img src={pillar.image} alt="" className="h-7 w-7 object-contain" />
                   </span>
-                  <h3 className="text-lg font-bold text-brand-dark">{t.pillarTitles[pillar.key][language]}</h3>
+                  <h3 className={`text-lg font-bold ${pillar.accentText}`}>
+                    {t.pillarTitles[pillar.key][language]}
+                  </h3>
                   {content.summary ? (
                     <p className="mt-2 text-sm font-semibold leading-relaxed text-brand-dark">
                       {content.summary[language]}
@@ -94,7 +114,7 @@ export default function ChampionServiceSectors() {
                       entry.text ? (
                         <li key={entry.text.en} className="flex flex-col gap-1.5">
                           <span className="flex gap-2">
-                            <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-brand-primary" />
+                            <span className={`mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full ${pillar.accentDot}`} />
                             <span>{entry.text[language]}</span>
                           </span>
                           <ul className="ml-4 space-y-1">
@@ -108,7 +128,7 @@ export default function ChampionServiceSectors() {
                         </li>
                       ) : (
                         <li key={entry.en} className="flex gap-2">
-                          <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-brand-primary" />
+                          <span className={`mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full ${pillar.accentDot}`} />
                           <span>{entry[language]}</span>
                         </li>
                       ),
