@@ -14,5 +14,6 @@ general reference.
 | File | Covers |
 |---|---|
 | [`00-shared-infra.md`](./00-shared-infra.md) | Auth/session, CORS, env config — things every page depends on |
+| [`01-leaders.md`](./01-leaders.md) | Leaders CRUD — confirmed schema/contract, one open question (should `name` be bilingual?) |
 
 Status legend: 🔴 blocking · 🟡 should fix · 🟢 fixed / confirmed working
