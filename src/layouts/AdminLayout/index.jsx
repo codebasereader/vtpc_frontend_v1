@@ -102,9 +102,7 @@ export default function AdminLayout() {
   return (
     <div className="font-admin flex min-h-dvh flex-col bg-brand-page md:h-dvh md:flex-row md:overflow-hidden">
       <header className="flex shrink-0 items-center justify-between bg-brand-navy px-4 py-3 text-white md:hidden">
-        <div className="rounded-md bg-white px-2.5 py-1.5">
-          <img src="/assets/Logo.png" alt="VTPC Karnataka" className="h-6 w-auto" />
-        </div>
+        <span className="text-lg font-bold tracking-tight">VTPC Admin</span>
         <button
           type="button"
           onClick={() => setIsMobileOpen(!isMobileOpen)}
@@ -126,9 +124,9 @@ export default function AdminLayout() {
             isCollapsed ? 'md:justify-center md:px-0' : 'justify-between'
           }`}
         >
-          <div className={`rounded-md bg-white px-2.5 py-1.5 ${isCollapsed ? 'md:hidden' : ''}`}>
-            <img src="/assets/Logo.png" alt="VTPC Karnataka" className="h-7 w-auto" />
-          </div>
+          <span className={`text-lg font-bold tracking-tight text-white ${isCollapsed ? 'md:hidden' : ''}`}>
+            VTPC Admin
+          </span>
           <button
             type="button"
             onClick={toggleCollapsed}
