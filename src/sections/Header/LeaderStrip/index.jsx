@@ -1,9 +1,11 @@
 import { useEffect, useState } from 'react'
 import { getLeaders } from '../../../api/leadersApi'
 import { getBilingualText } from '../../../lib/bilingual'
+import { useLocale } from '../../../context/LocaleContext'
 
 export default function LeaderStrip() {
   const [leaders, setLeaders] = useState([])
+  const { locale } = useLocale()
 
   useEffect(() => {
     let isMounted = true
@@ -24,16 +26,15 @@ export default function LeaderStrip() {
   return (
     <div className="flex gap-4 overflow-x-auto sm:gap-6">
       {leaders.map((leader) => {
-        const name = getBilingualText(leader.name, 'en')
-        const designation = getBilingualText(leader.designation, 'en')
+        // Falls back to English whenever a record's Kannada text hasn't
+        // been filled in yet, rather than showing blank.
+        const name = getBilingualText(leader.name, locale) || getBilingualText(leader.name, 'en')
+        const designation =
+          getBilingualText(leader.designation, locale) || getBilingualText(leader.designation, 'en')
         return (
           <div key={leader.id} className="flex shrink-0 items-center gap-3">
             {leader.photo ? (
-              <img
-                src={leader.photo}
-                alt={name}
-                className="h-14 w-14 shrink-0 rounded-full object-cover"
-              />
+              <img src={leader.photo} alt={name} className="h-14 w-14 shrink-0 rounded-full object-cover" />
             ) : (
               <span className="flex h-14 w-14 shrink-0 items-center justify-center rounded-full bg-brand-page text-sm font-semibold text-brand-navy">
                 {name.charAt(0)}
