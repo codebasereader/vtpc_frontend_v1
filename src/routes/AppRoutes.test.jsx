@@ -55,6 +55,6 @@ describe('AppRoutes', () => {
 
   it('renders the admin dashboard when authenticated', async () => {
     renderAt('/admin/dashboard', true)
-    await waitFor(() => expect(screen.getByText('Dashboard')).toBeInTheDocument())
+    await waitFor(() => expect(screen.getByRole('heading', { name: 'Dashboard' })).toBeInTheDocument())
   })
 })
