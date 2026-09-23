@@ -6,7 +6,7 @@ import ErrorBoundary from '../../components/ErrorBoundary'
 import { logout } from '../../api/authApi'
 import { clearUser, selectCurrentUser } from '../../redux/slices/authSlice'
 import { ROUTES } from '../../constants/routes'
-import { ADMIN_SECTIONS } from '../../constants/adminSections'
+import { ADMIN_NAV_GROUPS } from '../../constants/adminSections'
 
 const SIDEBAR_COLLAPSED_KEY = 'vtpc_admin_sidebar_collapsed'
 
@@ -47,6 +47,17 @@ function NavItem({ to, icon: Icon, label, collapsed, onClick }) {
   )
 }
 
+function NavGroupLabel({ label, collapsed }) {
+  if (collapsed) {
+    return <div className="mx-auto my-2 hidden h-px w-6 bg-white/15 md:block" aria-hidden="true" />
+  }
+  return (
+    <p className="mt-4 mb-1 px-3 text-[11px] font-semibold tracking-[0.12em] text-white/40 uppercase first:mt-1">
+      {label}
+    </p>
+  )
+}
+
 export default function AdminLayout() {
   const [isMobileOpen, setIsMobileOpen] = useState(false)
   const [isCollapsed, setIsCollapsed] = useState(readPersistedCollapsed)
@@ -60,8 +71,7 @@ export default function AdminLayout() {
     try {
       localStorage.setItem(SIDEBAR_COLLAPSED_KEY, String(next))
     } catch {
-      // localStorage unavailable (private browsing, etc.) — the toggle
-      // still works for this session via React state.
+      // localStorage unavailable — toggle still works for this session.
     }
   }
 
@@ -90,9 +100,11 @@ export default function AdminLayout() {
     : '?'
 
   return (
-    <div className="font-admin min-h-screen bg-brand-page md:flex">
-      <header className="flex items-center justify-between bg-brand-navy px-4 py-3 text-white md:hidden">
-        <span className="text-lg font-bold tracking-tight">VTPC Admin</span>
+    <div className="font-admin flex min-h-dvh flex-col bg-brand-page md:h-dvh md:flex-row md:overflow-hidden">
+      <header className="flex shrink-0 items-center justify-between bg-brand-navy px-4 py-3 text-white md:hidden">
+        <div className="rounded-md bg-white px-2.5 py-1.5">
+          <img src="/assets/Logo.png" alt="VTPC Karnataka" className="h-6 w-auto" />
+        </div>
         <button
           type="button"
           onClick={() => setIsMobileOpen(!isMobileOpen)}
@@ -105,18 +117,18 @@ export default function AdminLayout() {
       </header>
 
       <aside
-        className={`${isMobileOpen ? 'flex' : 'hidden'} w-full shrink-0 flex-col bg-brand-navy transition-[width] duration-200 md:flex ${
+        className={`${isMobileOpen ? 'flex' : 'hidden'} w-full shrink-0 flex-col bg-brand-navy md:flex ${
           isCollapsed ? 'md:w-[72px]' : 'md:w-64'
-        }`}
+        } md:h-full`}
       >
         <div
-          className={`hidden items-center border-b border-white/10 px-4 py-5 md:flex ${
+          className={`hidden shrink-0 items-center border-b border-white/10 px-4 py-5 md:flex ${
             isCollapsed ? 'md:justify-center md:px-0' : 'justify-between'
           }`}
         >
-          <span className={`text-lg font-bold tracking-tight text-white ${isCollapsed ? 'md:hidden' : ''}`}>
-            VTPC Admin
-          </span>
+          <div className={`rounded-md bg-white px-2.5 py-1.5 ${isCollapsed ? 'md:hidden' : ''}`}>
+            <img src="/assets/Logo.png" alt="VTPC Karnataka" className="h-7 w-auto" />
+          </div>
           <button
             type="button"
             onClick={toggleCollapsed}
@@ -127,7 +139,8 @@ export default function AdminLayout() {
           </button>
         </div>
 
-        <nav className="flex flex-1 flex-col gap-1 overflow-y-auto p-3">
+        {/* Nav scrolls on its own; user + logout stay pinned below */}
+        <nav className="admin-sidebar-scroll flex min-h-0 flex-1 flex-col gap-0.5 overflow-y-auto overscroll-contain p-3">
           <NavItem
             to={ROUTES.ADMIN_DASHBOARD}
             icon={LayoutDashboard}
@@ -135,19 +148,26 @@ export default function AdminLayout() {
             collapsed={isCollapsed}
             onClick={closeMobileMenu}
           />
-          {ADMIN_SECTIONS.map((section) => (
-            <NavItem
-              key={section.key}
-              to={section.path}
-              icon={section.icon}
-              label={section.title}
-              collapsed={isCollapsed}
-              onClick={closeMobileMenu}
-            />
+          {ADMIN_NAV_GROUPS.map((group) => (
+            <div key={group.id}>
+              <NavGroupLabel label={group.label} collapsed={isCollapsed} />
+              <div className="flex flex-col gap-0.5">
+                {group.items.map((section) => (
+                  <NavItem
+                    key={section.key}
+                    to={section.path}
+                    icon={section.icon}
+                    label={section.title}
+                    collapsed={isCollapsed}
+                    onClick={closeMobileMenu}
+                  />
+                ))}
+              </div>
+            </div>
           ))}
         </nav>
 
-        <div className="border-t border-white/10 p-3">
+        <div className="shrink-0 border-t border-white/10 p-3">
           <div className={`flex items-center gap-3 rounded-lg p-2 ${isCollapsed ? 'md:justify-center' : ''}`}>
             <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-brand-primary text-xs font-semibold text-white">
               {initials}
@@ -173,7 +193,7 @@ export default function AdminLayout() {
         </div>
       </aside>
 
-      <main className="flex-1 p-4 md:p-8">
+      <main className="min-h-0 min-w-0 flex-1 overflow-y-auto p-4 md:p-8">
         <ErrorBoundary>
           <Outlet />
         </ErrorBoundary>
