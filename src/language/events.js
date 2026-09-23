@@ -9,6 +9,7 @@ export const events = {
   typeInternational: { en: 'International Trade Fairs', kn: 'ಅಂತಾರಾಷ್ಟ್ರೀಯ ವ್ಯಾಪಾರ ಮೇಳಗಳು' },
 
   filters: {
+    heading: { en: 'Filter Events', kn: 'ಕಾರ್ಯಕ್ರಮಗಳನ್ನು ಫಿಲ್ಟರ್ ಮಾಡಿ' },
     city: { en: 'Select a City', kn: 'ನಗರ ಆಯ್ಕೆಮಾಡಿ' },
     allCities: { en: 'All Cities', kn: 'ಎಲ್ಲಾ ನಗರಗಳು' },
     search: { en: 'Search events', kn: 'ಕಾರ್ಯಕ್ರಮಗಳನ್ನು ಹುಡುಕಿ' },
@@ -23,9 +24,14 @@ export const events = {
 
   sectorLabel: { en: 'Sector', kn: 'ವಲಯ' },
   registerLink: { en: 'Registration details', kn: 'ನೋಂದಣಿ ವಿವರಗಳು' },
+  loading: { en: 'Loading events…', kn: 'ಕಾರ್ಯಕ್ರಮಗಳು ಲೋಡ್ ಆಗುತ್ತಿವೆ…' },
   noResults: {
     en: 'No events match these filters — try widening your search.',
     kn: 'ಈ ಫಿಲ್ಟರ್‌ಗಳಿಗೆ ಹೊಂದಿಕೆಯಾಗುವ ಕಾರ್ಯಕ್ರಮಗಳಿಲ್ಲ — ಹುಡುಕಾಟವನ್ನು ವಿಸ್ತರಿಸಿ.',
+  },
+  resultsCount: {
+    en: '{count} events found',
+    kn: '{count} ಕಾರ್ಯಕ್ರಮಗಳು ಕಂಡುಬಂದಿವೆ',
   },
 
   teaserEmpty: {
