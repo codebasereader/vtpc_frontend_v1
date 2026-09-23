@@ -8,6 +8,10 @@ import { ADMIN_SECTIONS } from '../constants/adminSections'
 
 const Login = lazy(() => import('../pages/admin/Login'))
 const Dashboard = lazy(() => import('../pages/admin/Dashboard'))
+const LeadersList = lazy(() => import('../pages/admin/Leaders/LeadersList'))
+const LeaderForm = lazy(() => import('../pages/admin/Leaders/LeaderForm'))
+
+const COMING_SOON_SECTIONS = ADMIN_SECTIONS.filter((section) => section.key !== 'leaders')
 
 export default function AdminRoutes() {
   return (
@@ -25,7 +29,31 @@ export default function AdminRoutes() {
               </ProtectedRoute>
             }
           />
-          {ADMIN_SECTIONS.map((section) => (
+          <Route
+            path="leaders"
+            element={
+              <ProtectedRoute>
+                <LeadersList />
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path="leaders/new"
+            element={
+              <ProtectedRoute>
+                <LeaderForm />
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path="leaders/:id/edit"
+            element={
+              <ProtectedRoute>
+                <LeaderForm />
+              </ProtectedRoute>
+            }
+          />
+          {COMING_SOON_SECTIONS.map((section) => (
             <Route
               key={section.key}
               path={section.path.replace('/admin/', '')}
