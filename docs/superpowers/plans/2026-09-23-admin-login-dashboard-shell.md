@@ -94,7 +94,7 @@ src/
   `authApi.getMe()` → resolves `{id, name, role}` or rejects `{message,
   status}` (401). `authApi.logout()` → resolves `{message}`.
 
-- [ ] **Step 1: Update `authSlice.js`**
+- [x] **Step 1: Update `authSlice.js`**
 
 ```js
 // src/redux/slices/authSlice.js
@@ -129,7 +129,7 @@ export const selectAuthStatus = (state) => state.auth.status
 export default authSlice.reducer
 ```
 
-- [ ] **Step 2: Add `getMe`/`logout` to `authApi.js`**
+- [x] **Step 2: Add `getMe`/`logout` to `authApi.js`**
 
 ```js
 // src/api/authApi.js
@@ -148,12 +148,12 @@ export function logout() {
 }
 ```
 
-- [ ] **Step 3: Run lint**
+- [x] **Step 3: Run lint**
 
 Run: `npm run lint`
 Expected: no errors.
 
-- [ ] **Step 4: Commit**
+- [x] **Step 4: Commit**
 
 ```bash
 git add src/redux/slices/authSlice.js src/api/authApi.js
@@ -174,7 +174,7 @@ git commit -m "feat: add session status tracking and getMe/logout to auth"
   the real session state into Redux before `ProtectedRoute` makes any
   redirect decision.
 
-- [ ] **Step 1: Add `SessionBootstrap` and mount it in `App.jsx`**
+- [x] **Step 1: Add `SessionBootstrap` and mount it in `App.jsx`**
 
 ```jsx
 // src/App.jsx
@@ -223,7 +223,7 @@ function App() {
 export default App
 ```
 
-- [ ] **Step 2: Update `ProtectedRoute.jsx` to wait for the session check**
+- [x] **Step 2: Update `ProtectedRoute.jsx` to wait for the session check**
 
 ```jsx
 // src/routes/ProtectedRoute.jsx
@@ -248,12 +248,12 @@ export default function ProtectedRoute({ children }) {
 }
 ```
 
-- [ ] **Step 3: Run lint**
+- [x] **Step 3: Run lint**
 
 Run: `npm run lint`
 Expected: no errors.
 
-- [ ] **Step 4: Commit**
+- [x] **Step 4: Commit**
 
 ```bash
 git add src/App.jsx src/routes/ProtectedRoute.jsx
@@ -272,14 +272,14 @@ git commit -m "feat: rehydrate admin session on app load, gate ProtectedRoute on
   it's read from, matching the backend's actual running port (see
   `docs/backend-requests/00-shared-infra.md`).
 
-- [ ] **Step 1: Update the default in `config.js`**
+- [x] **Step 1: Update the default in `config.js`**
 
 ```js
 // src/config/config.js
 export const API_BASE_URL = import.meta.env.VITE_API_BASE_URL ?? 'http://localhost:4200'
 ```
 
-- [ ] **Step 2: Update `.env` and `.env.example`**
+- [x] **Step 2: Update `.env` and `.env.example`**
 
 ```bash
 # .env.example
@@ -289,14 +289,14 @@ VITE_API_BASE_URL=http://localhost:4200
 Apply the same change to the local `.env` file (gitignored, but keep it in
 sync so `npm run dev` actually talks to the real backend).
 
-- [ ] **Step 3: Verify the real backend is reachable at that URL**
+- [x] **Step 3: Verify the real backend is reachable at that URL**
 
 Run: `curl -s http://localhost:4200/health`
 Expected: `{"ok":true,"service":"vtpc-api"}`. If this fails, the backend
 isn't running — start it per `vtpc_backend_v1`'s own instructions before
 continuing (do not edit anything there).
 
-- [ ] **Step 4: Commit**
+- [x] **Step 4: Commit**
 
 ```bash
 git add src/config/config.js .env.example
@@ -322,7 +322,7 @@ git commit -m "chore: point frontend at the real backend's actual port (4200, no
   5 (routing), Task 6 (sidebar), and Task 7 (dashboard cards) all read
   from.
 
-- [ ] **Step 1: Add the admin section routes to `routes.js`**
+- [x] **Step 1: Add the admin section routes to `routes.js`**
 
 ```js
 // src/constants/routes.js
@@ -351,7 +351,7 @@ export const ROUTES = {
 }
 ```
 
-- [ ] **Step 2: Create `adminSections.js`**
+- [x] **Step 2: Create `adminSections.js`**
 
 ```js
 // src/constants/adminSections.js
@@ -372,13 +372,13 @@ export const ADMIN_SECTIONS = [
 ]
 ```
 
-- [ ] **Step 3: Run lint**
+- [x] **Step 3: Run lint**
 
 Run: `npm run lint`
 Expected: no errors (unused-export warnings won't fire yet — `ADMIN_SECTIONS`
 is consumed starting Task 5).
 
-- [ ] **Step 4: Commit**
+- [x] **Step 4: Commit**
 
 ```bash
 git add src/constants/routes.js src/constants/adminSections.js
@@ -399,7 +399,7 @@ git commit -m "feat: add admin section route constants and shared ADMIN_SECTIONS
   real, protected route — `ComingSoon` for now, swapped for a real page
   one section at a time in future plans.
 
-- [ ] **Step 1: Implement `ComingSoon`**
+- [x] **Step 1: Implement `ComingSoon`**
 
 ```jsx
 // src/pages/admin/ComingSoon/index.jsx
@@ -413,7 +413,7 @@ export default function ComingSoon({ title }) {
 }
 ```
 
-- [ ] **Step 2: Register every section route in `AdminRoutes.jsx`**
+- [x] **Step 2: Register every section route in `AdminRoutes.jsx`**
 
 ```jsx
 // src/routes/AdminRoutes.jsx
@@ -462,12 +462,12 @@ export default function AdminRoutes() {
 }
 ```
 
-- [ ] **Step 3: Run lint**
+- [x] **Step 3: Run lint**
 
 Run: `npm run lint`
 Expected: no errors.
 
-- [ ] **Step 4: Commit**
+- [x] **Step 4: Commit**
 
 ```bash
 git add src/pages/admin/ComingSoon src/routes/AdminRoutes.jsx
@@ -489,7 +489,7 @@ git commit -m "feat: register every CMS section route behind ComingSoon placehol
   inside — desktop fixed sidebar, mobile collapsible via hamburger,
   working logout.
 
-- [ ] **Step 1: Rewrite `AdminLayout`**
+- [x] **Step 1: Rewrite `AdminLayout`**
 
 ```jsx
 // src/layouts/AdminLayout/index.jsx
@@ -577,12 +577,12 @@ export default function AdminLayout() {
 }
 ```
 
-- [ ] **Step 2: Run lint**
+- [x] **Step 2: Run lint**
 
 Run: `npm run lint`
 Expected: no errors.
 
-- [ ] **Step 3: Commit**
+- [x] **Step 3: Commit**
 
 ```bash
 git add src/layouts/AdminLayout
@@ -601,7 +601,7 @@ git commit -m "feat: rebuild AdminLayout with a real sidebar and working logout"
 - Produces: the page `ROUTES.ADMIN_DASHBOARD` renders — a welcome message
   plus a link card per CMS section.
 
-- [ ] **Step 1: Rewrite `Dashboard`**
+- [x] **Step 1: Rewrite `Dashboard`**
 
 ```jsx
 // src/pages/admin/Dashboard/index.jsx
@@ -635,7 +635,7 @@ export default function Dashboard() {
 }
 ```
 
-- [ ] **Step 2: Run lint, then a production build**
+- [x] **Step 2: Run lint, then a production build**
 
 Run: `npm run lint`
 Expected: no errors.
@@ -643,7 +643,7 @@ Expected: no errors.
 Run: `npm run build`
 Expected: builds successfully.
 
-- [ ] **Step 3: Commit**
+- [x] **Step 3: Commit**
 
 ```bash
 git add src/pages/admin/Dashboard
@@ -656,30 +656,30 @@ git commit -m "feat: rebuild admin Dashboard as a real section-links landing pag
 
 **Files:** none — verification only.
 
-- [ ] **Step 1: Confirm the real backend is running**
+- [x] **Step 1: Confirm the real backend is running**
 
 Run: `curl -s http://localhost:4200/health`
 Expected: `{"ok":true,"service":"vtpc-api"}`
 
-- [ ] **Step 2: Start the frontend dev server**
+- [x] **Step 2: Start the frontend dev server**
 
 Run: `npm run dev` (do **not** also start `npm run mock-api` for this
 verification — the admin flow now targets the real backend on :4200).
 
-- [ ] **Step 3: Verify login against the real backend**
+- [x] **Step 3: Verify login against the real backend**
 
 In a browser, go to `/admin/login`, sign in with `editor@vtpc.gov.in` /
 `Admin@123`. Expected: redirects to `/admin/dashboard`, shows "Welcome,
 Editor", sidebar lists all 11 sections plus Dashboard.
 
-- [ ] **Step 4: Verify session persists across a refresh**
+- [x] **Step 4: Verify session persists across a refresh**
 
 Refresh the browser on `/admin/dashboard`. Expected: briefly shows
 "Loading…", then the dashboard renders again — no bounce to `/admin/login`.
 This is the real fix from Task 2; confirm it actually works against the
 real cookie, not just in theory.
 
-- [ ] **Step 5: Verify a section link and the mobile sidebar**
+- [x] **Step 5: Verify a section link and the mobile sidebar**
 
 Click "Leaders" in the sidebar. Expected: navigates to `/admin/leaders`,
 shows the `ComingSoon` placeholder with the title "Leaders". Resize to a
@@ -687,13 +687,13 @@ mobile viewport (375px) — expected: sidebar collapses behind a hamburger
 in the top header, toggles open/closed correctly (this project's earlier
 StrictMode toggle bug means this must be checked, not assumed).
 
-- [ ] **Step 6: Verify logout**
+- [x] **Step 6: Verify logout**
 
 Click "Log out". Expected: redirects to `/admin/login`; navigating back to
 `/admin/dashboard` directly now redirects to `/admin/login` (session
 actually cleared, not just local state).
 
-- [ ] **Step 7: Commit any fixes found during verification**
+- [x] **Step 7: Commit any fixes found during verification**
 
 ```bash
 git add -A
