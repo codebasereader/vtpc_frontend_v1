@@ -17,6 +17,8 @@ export const ROUTES = {
   ADMIN_OFFICES: '/admin/offices',
   ADMIN_STAFF: '/admin/staff',
   ADMIN_EVENTS: '/admin/events',
+  ADMIN_CITIES: '/admin/cities',
+  ADMIN_EVENT_SECTORS: '/admin/event-sectors',
   ADMIN_DOWNLOADS: '/admin/downloads',
   ADMIN_PAGES: '/admin/pages',
 }

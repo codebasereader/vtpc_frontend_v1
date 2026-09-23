@@ -9,6 +9,8 @@ import {
   Calendar,
   FileDown,
   FileText,
+  MapPin,
+  Tags,
 } from 'lucide-react'
 import { ROUTES } from './routes'
 
@@ -31,7 +33,11 @@ export const ADMIN_NAV_GROUPS = [
   {
     id: 'events',
     label: 'Events',
-    items: [{ key: 'events', title: 'Events', path: ROUTES.ADMIN_EVENTS, icon: Calendar }],
+    items: [
+      { key: 'events', title: 'Events', path: ROUTES.ADMIN_EVENTS, icon: Calendar },
+      { key: 'cities', title: 'Cities', path: ROUTES.ADMIN_CITIES, icon: MapPin },
+      { key: 'eventSectors', title: 'Event Sectors', path: ROUTES.ADMIN_EVENT_SECTORS, icon: Tags },
+    ],
   },
   {
     id: 'organisation',

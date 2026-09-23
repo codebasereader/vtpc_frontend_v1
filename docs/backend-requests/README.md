@@ -15,5 +15,6 @@ general reference.
 |---|---|
 | [`00-shared-infra.md`](./00-shared-infra.md) | Auth/session, CORS, env config — things every page depends on |
 | [`01-leaders.md`](./01-leaders.md) | Leaders CRUD — confirmed schema/contract, one open question (should `name` be bilingual?) |
+| [`02-events-cities-sectors.md`](./02-events-cities-sectors.md) | Events rebuild — two new master-data resources (Cities, Event Sectors) and an `Event` schema change (type enum, real dates incl. TBA+year, city/sector links) |
 
 Status legend: 🔴 blocking · 🟡 should fix · 🟢 fixed / confirmed working
