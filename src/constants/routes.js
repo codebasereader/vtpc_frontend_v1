@@ -19,5 +19,4 @@ export const ROUTES = {
   ADMIN_EVENTS: '/admin/events',
   ADMIN_DOWNLOADS: '/admin/downloads',
   ADMIN_PAGES: '/admin/pages',
-  ADMIN_NEWSLETTER: '/admin/newsletter',
 }

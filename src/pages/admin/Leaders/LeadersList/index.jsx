@@ -56,7 +56,7 @@ export default function LeadersList() {
       <div className="flex items-center justify-between">
         <div>
           <h1 className="text-2xl font-bold text-brand-dark">Leaders</h1>
-          <p className="mt-1 text-gray-600">The CM/Dy. CM/Minister carousel shown on the homepage.</p>
+          {/* <p className="mt-1 text-gray-600">The CM/Dy. CM/Minister carousel shown on the homepage.</p> */}
         </div>
         <Link
           to={`${ROUTES.ADMIN_LEADERS}/new`}

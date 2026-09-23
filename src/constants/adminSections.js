@@ -9,7 +9,6 @@ import {
   Calendar,
   FileDown,
   FileText,
-  Mail,
 } from 'lucide-react'
 import { ROUTES } from './routes'
 
@@ -24,5 +23,4 @@ export const ADMIN_SECTIONS = [
   { key: 'events', title: 'Events', path: ROUTES.ADMIN_EVENTS, icon: Calendar },
   { key: 'downloads', title: 'Downloads', path: ROUTES.ADMIN_DOWNLOADS, icon: FileDown },
   { key: 'pages', title: 'Pages', path: ROUTES.ADMIN_PAGES, icon: FileText },
-  { key: 'newsletter', title: 'Newsletter Subscribers', path: ROUTES.ADMIN_NEWSLETTER, icon: Mail },
 ]
