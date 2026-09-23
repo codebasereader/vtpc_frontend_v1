@@ -37,7 +37,7 @@ export default function KeyDriversGrowth() {
   return (
     <section className="bg-[#eef3f8] px-4 py-14 md:px-8 md:py-16">
       <div className="mx-auto max-w-6xl">
-        <h2 className="text-3xl font-bold text-brand-navy-dark md:text-4xl">
+        <h2 className="text-3xl font-bold text-brand-navy-dark md:text-4xl lg:text-[2.75rem] lg:leading-tight">
           {titleBefore}
           {titleHighlight && (
             <span className="bg-gradient-to-r from-brand-primary to-brand-orange bg-clip-text text-transparent">
@@ -46,7 +46,7 @@ export default function KeyDriversGrowth() {
           )}
           {titleAfter}
         </h2>
-        <p className="mt-3 max-w-3xl text-sm leading-relaxed text-gray-600 md:text-base">
+        <p className="mt-3 max-w-3xl text-base leading-relaxed text-gray-600 md:text-lg">
           {t.description[language]}
         </p>
 
@@ -63,10 +63,10 @@ export default function KeyDriversGrowth() {
                   className="h-11 w-11 shrink-0 object-contain"
                 />
                 <div className="min-w-0">
-                  <h3 className="text-sm font-bold leading-snug text-brand-navy-dark">
+                  <h3 className="text-base font-bold leading-snug text-brand-navy-dark">
                     {driver.title[language]}
                   </h3>
-                  <p className="mt-1 text-xs leading-relaxed text-gray-500">{driver.subtitle[language]}</p>
+                  <p className="mt-1 text-sm leading-relaxed text-gray-500">{driver.subtitle[language]}</p>
                 </div>
               </article>
             ))}
@@ -76,10 +76,10 @@ export default function KeyDriversGrowth() {
             <div className="flex flex-1 flex-col p-5 md:p-6">
               <div className="flex items-start justify-between gap-3">
                 <div>
-                  <p className="text-[11px] font-medium tracking-wide text-gray-500 uppercase">
+                  <p className="text-xs font-medium tracking-wide text-gray-500 uppercase">
                     {panel.label[language]}
                   </p>
-                  <p className="mt-1 text-lg font-bold text-brand-dark md:text-xl">
+                  <p className="mt-1 text-xl font-bold text-brand-dark md:text-2xl">
                     {panel.gsdpLabel[language]} – <span className="text-brand-primary">{panel.gsdpValue[language]}</span>
                   </p>
                 </div>
@@ -87,7 +87,7 @@ export default function KeyDriversGrowth() {
                   <BarChart3 size={18} aria-hidden="true" />
                 </span>
               </div>
-              <p className="mt-2 text-xs leading-relaxed text-gray-500">{panel.description[language]}</p>
+              <p className="mt-2 text-sm leading-relaxed text-gray-500">{panel.description[language]}</p>
 
               <div className="mt-8 flex flex-1 items-end justify-between gap-3 px-1 sm:gap-4">
                 {panel.sectors.map((sector, index) => {
@@ -95,7 +95,7 @@ export default function KeyDriversGrowth() {
                   const barHeight = `${Math.max((value / MAX_SECTOR) * 100, 18)}%`
                   return (
                     <div key={sector.label.en} className="flex min-w-0 flex-1 flex-col items-center">
-                      <span className="mb-2 text-sm font-bold text-brand-dark">{value}%</span>
+                      <span className="mb-2 text-base font-bold text-brand-dark">{value}%</span>
                       <div className="flex h-44 w-full items-end justify-center sm:h-52">
                         <div
                           className={`relative flex w-[72%] max-w-[4.5rem] items-end justify-center rounded-t-xl ${color}`}
@@ -106,7 +106,7 @@ export default function KeyDriversGrowth() {
                           </span>
                         </div>
                       </div>
-                      <p className="mt-3 text-center text-[11px] leading-tight font-medium text-gray-600">
+                      <p className="mt-3 text-center text-xs leading-tight font-medium text-gray-600">
                         {sector.label[language]}
                       </p>
                     </div>
@@ -116,11 +116,11 @@ export default function KeyDriversGrowth() {
             </div>
 
             <div className="mt-auto flex flex-col gap-3 border-t border-gray-100 bg-[#f7f8fa] px-5 py-3 sm:flex-row sm:items-center sm:justify-between md:px-6">
-              <p className="flex items-start gap-2 text-xs text-gray-600">
+              <p className="flex items-start gap-2 text-sm text-gray-600">
                 <TrendingUp size={16} className="mt-0.5 shrink-0 text-brand-primary" aria-hidden="true" />
                 <span>{panel.footerNote[language]}</span>
               </p>
-              <p className="shrink-0 border-gray-200 text-xs font-medium text-gray-500 sm:border-l sm:pl-4">
+              <p className="shrink-0 border-gray-200 text-sm font-medium text-gray-500 sm:border-l sm:pl-4">
                 {panel.source[language]}
               </p>
             </div>

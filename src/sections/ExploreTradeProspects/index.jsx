@@ -75,7 +75,7 @@ export default function ExploreTradeProspects() {
           {titleAfter}
         </h2>
 
-        <p className="mt-4 max-w-2xl text-sm leading-relaxed text-white/95 md:text-base">
+        <p className="mt-4 max-w-2xl text-base leading-relaxed text-white/95 md:text-lg">
           {t.description[language]}
         </p>
 
@@ -111,8 +111,8 @@ export default function ExploreTradeProspects() {
                 </div>
 
                 <div className="flex flex-1 flex-col px-5 pt-4 pb-6">
-                  <h3 className="text-lg font-bold text-brand-dark">{card.title[language]}</h3>
-                  <p className="mt-2 text-sm leading-relaxed text-gray-600">{card.description[language]}</p>
+                  <h3 className="text-xl font-bold text-brand-dark">{card.title[language]}</h3>
+                  <p className="mt-2 text-base leading-relaxed text-gray-600">{card.description[language]}</p>
                 </div>
               </article>
             )

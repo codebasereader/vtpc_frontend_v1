@@ -35,14 +35,14 @@ export default function MobileNavPanel({ onNavigate }) {
           to={item.to}
           onClick={onNavigate}
           className={({ isActive }) =>
-            `rounded-md px-2 py-2.5 text-sm font-medium ${isActive ? 'text-brand-primary' : 'text-brand-dark'}`
+            `rounded-md px-2 py-2.5 text-base font-medium ${isActive ? 'text-brand-primary' : 'text-brand-dark'}`
           }
         >
           {common.nav[item.key][language]}
         </NavLink>
       ))}
 
-      <p className="mt-2 px-2 text-xs font-semibold tracking-wide text-gray-400">{common.nav.rti[language]}</p>
+      <p className="mt-2 px-2 text-sm font-semibold tracking-wide text-gray-400">{common.nav.rti[language]}</p>
       {RTI_LINKS.map((link) =>
         link.external ? (
           <a
@@ -50,7 +50,7 @@ export default function MobileNavPanel({ onNavigate }) {
             href={link.href}
             target="_blank"
             rel="noreferrer"
-            className="rounded-md px-2 py-2 pl-4 text-sm text-brand-dark"
+            className="rounded-md px-2 py-2 pl-4 text-base text-brand-dark"
           >
             {common.rti[link.key][language]}
           </a>
@@ -59,7 +59,7 @@ export default function MobileNavPanel({ onNavigate }) {
             key={link.key}
             to={link.href}
             onClick={onNavigate}
-            className="rounded-md px-2 py-2 pl-4 text-sm text-brand-dark"
+            className="rounded-md px-2 py-2 pl-4 text-base text-brand-dark"
           >
             {common.rti[link.key][language]}
           </Link>
@@ -70,7 +70,7 @@ export default function MobileNavPanel({ onNavigate }) {
         to={ROUTES.DOWNLOADS}
         onClick={onNavigate}
         className={({ isActive }) =>
-          `mt-2 rounded-md px-2 py-2.5 text-sm font-medium ${isActive ? 'text-brand-primary' : 'text-brand-dark'}`
+          `mt-2 rounded-md px-2 py-2.5 text-base font-medium ${isActive ? 'text-brand-primary' : 'text-brand-dark'}`
         }
       >
         {common.nav.downloads[language]}

@@ -20,9 +20,9 @@ export default function ExportersGuide() {
             {t.title[language]}
           </h2>
 
-          <p className="mt-4 text-base font-medium text-gray-700 md:text-lg">{t.tagline[language]}</p>
+          <p className="mt-4 text-lg font-medium text-gray-700 md:text-xl">{t.tagline[language]}</p>
 
-          <p className="mt-4 max-w-xl text-sm leading-relaxed text-gray-600 md:text-base">
+          <p className="mt-4 max-w-xl text-base leading-relaxed text-gray-600 md:text-lg">
             {t.description[language]}
           </p>
 
@@ -30,7 +30,7 @@ export default function ExportersGuide() {
             <a
               href={GUIDE_PDF}
               download
-              className="inline-flex items-center gap-2 rounded-md bg-brand-primary px-5 py-3 text-sm font-semibold text-white transition-colors hover:bg-brand-primary-dark"
+              className="inline-flex items-center gap-2 rounded-md bg-brand-primary px-5 py-3 text-base font-semibold text-white transition-colors hover:bg-brand-primary-dark"
             >
               <Download size={18} aria-hidden="true" />
               {t.downloadGuide[language]}
@@ -39,7 +39,7 @@ export default function ExportersGuide() {
               href={GUIDE_PDF}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 rounded-md border border-brand-primary bg-white px-5 py-3 text-sm font-semibold text-brand-primary transition-colors hover:bg-brand-surface"
+              className="inline-flex items-center gap-2 rounded-md border border-brand-primary bg-white px-5 py-3 text-base font-semibold text-brand-primary transition-colors hover:bg-brand-surface"
             >
               <BookOpen size={18} aria-hidden="true" />
               {t.viewGuideOnline[language]}
@@ -55,10 +55,10 @@ export default function ExportersGuide() {
                     <Icon size={18} aria-hidden="true" />
                   </span>
                   <span>
-                    <span className="block text-[11px] font-bold tracking-wide text-brand-navy uppercase">
+                    <span className="block text-xs font-bold tracking-wide text-brand-navy uppercase">
                       {benefit.title[language]}
                     </span>
-                    <span className="mt-0.5 block text-xs text-gray-600">{benefit.subtitle[language]}</span>
+                    <span className="mt-0.5 block text-sm text-gray-600">{benefit.subtitle[language]}</span>
                   </span>
                 </li>
               )

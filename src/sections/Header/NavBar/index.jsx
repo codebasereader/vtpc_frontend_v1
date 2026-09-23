@@ -15,7 +15,7 @@ const NAV_ITEMS = [
 ]
 
 const navLinkClass = ({ isActive }) =>
-  `py-3 text-sm font-medium ${isActive ? 'text-white' : 'text-white/90 hover:text-white'}`
+  `py-3 text-base font-medium ${isActive ? 'text-white' : 'text-white/90 hover:text-white'}`
 
 export default function NavBar({ isMobileMenuOpen, onToggleMobileMenu }) {
   const language = useSelector(selectLanguage)

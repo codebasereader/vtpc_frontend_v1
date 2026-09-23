@@ -13,8 +13,10 @@ export default function ChampionServiceSectors() {
   return (
     <section className="bg-[#eef3f8] px-4 py-14 md:px-8 md:py-16">
       <div className="mx-auto max-w-6xl">
-        <h2 className="text-center text-2xl font-bold text-brand-navy-dark md:text-3xl">{t.title[language]}</h2>
-        <div className="mx-auto mt-4 max-w-3xl space-y-3 text-center text-sm leading-relaxed text-gray-600 md:text-base md:leading-7">
+        <h2 className="text-center text-3xl font-bold text-brand-navy-dark md:text-4xl lg:text-[2.75rem] lg:leading-tight">
+          {t.title[language]}
+        </h2>
+        <div className="mx-auto mt-4 max-w-3xl space-y-3 text-center text-base leading-relaxed text-gray-600 md:text-lg md:leading-8">
           {t.paragraphs.map((paragraph) => (
             <p key={paragraph.en} className="text-pretty break-words">
               {paragraph[language]}
@@ -38,7 +40,7 @@ export default function ChampionServiceSectors() {
                   role="tab"
                   aria-selected={isActive}
                   onClick={() => setActiveId(sector.id)}
-                  className={`relative flex min-h-[5.5rem] flex-col items-center justify-center gap-2 px-3 py-4 text-center text-xs font-semibold transition-colors sm:text-sm ${
+                  className={`relative flex min-h-[5.5rem] flex-col items-center justify-center gap-2 px-3 py-4 text-center text-sm font-semibold transition-colors sm:text-base ${
                     isActive
                       ? 'bg-brand-primary text-white'
                       : 'bg-white text-brand-dark hover:bg-brand-page'
@@ -81,13 +83,13 @@ export default function ChampionServiceSectors() {
                   >
                     <img src={pillar.image} alt="" className="h-7 w-7 object-contain" />
                   </span>
-                  <h3 className="text-base font-bold text-brand-dark">{t.pillarTitles[pillar.key][language]}</h3>
+                  <h3 className="text-lg font-bold text-brand-dark">{t.pillarTitles[pillar.key][language]}</h3>
                   {content.summary ? (
-                    <p className="mt-2 text-xs font-semibold leading-relaxed text-brand-dark">
+                    <p className="mt-2 text-sm font-semibold leading-relaxed text-brand-dark">
                       {content.summary[language]}
                     </p>
                   ) : null}
-                  <ul className="mt-3 space-y-2 text-xs leading-relaxed text-gray-600">
+                  <ul className="mt-3 space-y-2 text-sm leading-relaxed text-gray-600">
                     {content.items.map((entry) =>
                       entry.text ? (
                         <li key={entry.text.en} className="flex flex-col gap-1.5">

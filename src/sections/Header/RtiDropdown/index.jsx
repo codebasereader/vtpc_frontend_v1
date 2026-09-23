@@ -35,7 +35,7 @@ export default function RtiDropdown() {
         onClick={() => setIsOpen(!isOpen)}
         onMouseEnter={() => setIsOpen(true)}
         aria-expanded={isOpen}
-        className="flex items-center gap-1 py-3 text-sm font-medium text-white/90 hover:text-white"
+        className="flex items-center gap-1 py-3 text-base font-medium text-white/90 hover:text-white"
       >
         {common.nav.rti[language]}
         <ChevronDown size={14} className={`transition-transform ${isOpen ? 'rotate-180' : ''}`} />
@@ -49,7 +49,7 @@ export default function RtiDropdown() {
                 href={link.href}
                 target="_blank"
                 rel="noreferrer"
-                className="block px-4 py-2 text-sm text-brand-dark hover:bg-brand-page"
+                className="block px-4 py-2 text-base text-brand-dark hover:bg-brand-page"
               >
                 {common.rti[link.key][language]}
               </a>
@@ -58,7 +58,7 @@ export default function RtiDropdown() {
                 key={link.key}
                 to={link.href}
                 onClick={() => setIsOpen(false)}
-                className="block px-4 py-2 text-sm text-brand-dark hover:bg-brand-page"
+                className="block px-4 py-2 text-base text-brand-dark hover:bg-brand-page"
               >
                 {common.rti[link.key][language]}
               </Link>

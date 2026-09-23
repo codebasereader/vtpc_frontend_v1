@@ -32,18 +32,20 @@ export default function EventsTeaser() {
 
   return (
     <section className="bg-brand-surface px-4 py-12 md:px-8">
-      <h2 className="text-center text-2xl font-bold text-brand-dark md:text-3xl">{t.title[language]}</h2>
+      <h2 className="text-center text-3xl font-bold text-brand-dark md:text-4xl lg:text-[2.75rem] lg:leading-tight">
+        {t.title[language]}
+      </h2>
       {events.length === 0 ? (
         <p className="mt-8 text-center text-gray-600">{t.empty[language]}</p>
       ) : (
         <div className="mx-auto mt-8 grid max-w-4xl grid-cols-1 gap-6 sm:grid-cols-3">
           {events.slice(0, 3).map((event) => (
             <div key={event.id} className="rounded-[5px] bg-white p-6 shadow-[0_0_10px_rgba(0,0,0,0.05)]">
-              <p className="text-sm text-brand-primary">{event.date}</p>
-              <h3 className="mt-1 font-semibold">
+              <p className="text-base text-brand-primary">{event.date}</p>
+              <h3 className="mt-1 text-lg font-semibold">
                 {getBilingualText(event.title, language) || getBilingualText(event.title, 'en')}
               </h3>
-              <p className="mt-1 text-sm text-gray-600">
+              <p className="mt-1 text-base text-gray-600">
                 {getBilingualText(event.location, language) || getBilingualText(event.location, 'en')}
               </p>
             </div>

@@ -7,7 +7,7 @@ export default function LanguageToggle() {
   const language = useSelector(selectLanguage)
 
   return (
-    <div className="flex items-center gap-2 text-sm" role="group" aria-label="Language">
+    <div className="flex items-center gap-2 text-base" role="group" aria-label="Language">
       <button
         type="button"
         aria-pressed={language === 'en'}
