@@ -50,7 +50,7 @@ describe('AppRoutes', () => {
 
   it('redirects /admin/dashboard to /admin/login when unauthenticated', async () => {
     renderAt('/admin/dashboard', false)
-    await waitFor(() => expect(screen.getByText('Admin Login')).toBeInTheDocument())
+    await waitFor(() => expect(screen.getByRole('heading', { name: 'Log in to your account' })).toBeInTheDocument())
   })
 
   it('renders the admin dashboard when authenticated', async () => {
