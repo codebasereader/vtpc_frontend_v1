@@ -1,3 +1,8 @@
+import { useSelector } from 'react-redux'
+import { selectLanguage } from '../../../redux/slices/localeSlice'
+import { home } from '../../../language/home'
+import { getBilingualText } from '../../../lib/bilingual'
+
 function DataList({ title, items, suffix = '%' }) {
   return (
     <div className="rounded-[5px] bg-white p-5.75 shadow-[0_0_10px_rgba(0,0,0,0.05)]">
@@ -21,32 +26,36 @@ function DataList({ title, items, suffix = '%' }) {
 }
 
 export default function DistrictPanel({ district }) {
+  const language = useSelector(selectLanguage)
+  const t = home.districtExplorer
+
   if (!district) {
-    return <p className="p-6 text-center text-gray-600">Select a district on the map to view its export data.</p>
+    return <p className="p-6 text-center text-gray-600">{t.selectPrompt[language]}</p>
   }
 
   const hasData = district.totalExportValueCr != null
+  const tagline = getBilingualText(district.tagline, language) || getBilingualText(district.tagline, 'en')
 
   return (
     <div className="flex max-h-119 flex-col gap-3.75 overflow-y-auto pr-3">
       <div>
         <h3 className="text-2xl font-semibold text-brand-primary">{district.name}</h3>
-        {district.tagline.en && <p className="text-brand-dark">{district.tagline.en}</p>}
+        {tagline && <p className="text-brand-dark">{tagline}</p>}
       </div>
 
       {!hasData ? (
         <p className="rounded-[5px] bg-white p-5.75 text-gray-600 shadow-[0_0_10px_rgba(0,0,0,0.05)]">
-          Export data for {district.name} is not available yet.
+          {t.noDataFor[language].replace('{district}', district.name)}
         </p>
       ) : (
         <>
           <div className="flex items-center justify-between rounded-[5px] bg-white p-5.75 shadow-[0_0_10px_rgba(0,0,0,0.05)]">
-            <h4 className="text-sm font-light uppercase">Total Exports Value (INR, in Crores)</h4>
+            <h4 className="text-sm font-light uppercase">{t.totalExportsValue[language]}</h4>
             <p className="text-2xl font-semibold text-brand-primary">{district.totalExportValueCr}</p>
           </div>
-          <DataList title="Country" items={district.countries} />
-          <DataList title="Products" items={district.products} />
-          <DataList title="Sector" items={district.sectors} />
+          <DataList title={t.country[language]} items={district.countries} />
+          <DataList title={t.products[language]} items={district.products} />
+          <DataList title={t.sector[language]} items={district.sectors} />
         </>
       )}
     </div>

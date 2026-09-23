@@ -1,7 +1,9 @@
 import { NavLink } from 'react-router-dom'
-import { useTranslation } from 'react-i18next'
+import { useSelector } from 'react-redux'
 import { Menu, X } from 'lucide-react'
 import { ROUTES } from '../../../constants/routes'
+import { selectLanguage } from '../../../redux/slices/localeSlice'
+import { common } from '../../../language/common'
 import RtiDropdown from '../RtiDropdown'
 import LanguageToggle from '../../LanguageToggle'
 
@@ -16,19 +18,19 @@ const navLinkClass = ({ isActive }) =>
   `py-3 text-sm font-medium ${isActive ? 'text-white' : 'text-white/90 hover:text-white'}`
 
 export default function NavBar({ isMobileMenuOpen, onToggleMobileMenu }) {
-  const { t } = useTranslation()
+  const language = useSelector(selectLanguage)
 
   return (
     <div className="flex items-center justify-between bg-brand-primary px-4 md:px-8">
       <div className="hidden items-center gap-8 md:mr-auto md:flex">
         {NAV_ITEMS.map((item) => (
           <NavLink key={item.key} to={item.to} className={navLinkClass}>
-            {t(`nav.${item.key}`)}
+            {common.nav[item.key][language]}
           </NavLink>
         ))}
         <RtiDropdown />
         <NavLink to={ROUTES.DOWNLOADS} className={navLinkClass}>
-          {t('nav.downloads')}
+          {common.nav.downloads[language]}
         </NavLink>
       </div>
 
@@ -38,7 +40,7 @@ export default function NavBar({ isMobileMenuOpen, onToggleMobileMenu }) {
         type="button"
         onClick={onToggleMobileMenu}
         aria-expanded={isMobileMenuOpen}
-        aria-label={isMobileMenuOpen ? 'Close menu' : 'Open menu'}
+        aria-label={isMobileMenuOpen ? common.header.closeMenu[language] : common.header.openMenu[language]}
         className="p-3 text-white md:hidden"
       >
         {isMobileMenuOpen ? <X size={22} /> : <Menu size={22} />}

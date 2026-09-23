@@ -1,14 +1,20 @@
 import { lazy, Suspense, useEffect, useState } from 'react'
+import { useSelector } from 'react-redux'
 import { getDistricts } from '../../api/districtsApi'
+import { selectLanguage } from '../../redux/slices/localeSlice'
+import { home } from '../../language/home'
 import DistrictPanel from './DistrictPanel'
 
 const KarnatakaMap = lazy(() => import('./KarnatakaMap'))
 
 export default function DistrictExplorer() {
+  const language = useSelector(selectLanguage)
+  const t = home.districtExplorer
   const [districts, setDistricts] = useState([])
   const [selectedId, setSelectedId] = useState(null)
   const [isLoading, setIsLoading] = useState(true)
-  const [error, setError] = useState('')
+  const [errorMessage, setErrorMessage] = useState('')
+  const [hasError, setHasError] = useState(false)
 
   useEffect(() => {
     let isMounted = true
@@ -19,7 +25,9 @@ export default function DistrictExplorer() {
         if (data.length > 0) setSelectedId(data[0].id)
       })
       .catch((err) => {
-        if (isMounted) setError(err.message || 'Failed to load district data.')
+        if (!isMounted) return
+        setErrorMessage(err.message || '')
+        setHasError(true)
       })
       .finally(() => {
         if (isMounted) setIsLoading(false)
@@ -33,17 +41,17 @@ export default function DistrictExplorer() {
 
   return (
     <section className="bg-brand-surface px-4 py-12 md:px-8">
-      <h2 className="text-center text-2xl font-bold text-brand-dark md:text-3xl">
-        Spotlight on Karnataka's District Exports
-      </h2>
+      <h2 className="text-center text-2xl font-bold text-brand-dark md:text-3xl">{t.title[language]}</h2>
 
-      {isLoading && <p className="mt-8 text-center">Loading district data…</p>}
-      {error && <p className="mt-8 text-center text-red-600">{error}</p>}
+      {isLoading && <p className="mt-8 text-center">{t.loading[language]}</p>}
+      {hasError && (
+        <p className="mt-8 text-center text-red-600">{errorMessage || t.loadFailed[language]}</p>
+      )}
 
-      {!isLoading && !error && (
+      {!isLoading && !hasError && (
         <div className="mx-auto mt-8 flex max-w-5xl flex-col gap-8 md:flex-row">
           <div className="md:w-1/2">
-            <Suspense fallback={<p className="text-center">Loading map…</p>}>
+            <Suspense fallback={<p className="text-center">{t.loadingMap[language]}</p>}>
               <KarnatakaMap selectedId={selectedId} onSelect={setSelectedId} />
             </Suspense>
           </div>

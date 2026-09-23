@@ -1,17 +1,21 @@
 import { useState } from 'react'
 import { Link } from 'react-router-dom'
+import { useSelector } from 'react-redux'
 import { ROUTES } from '../../constants/routes'
+import { selectLanguage } from '../../redux/slices/localeSlice'
+import { common } from '../../language/common'
 import LeaderStrip from './LeaderStrip'
 import NavBar from './NavBar'
 import MobileNavPanel from './MobileNavPanel'
 
 export default function Header() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
+  const language = useSelector(selectLanguage)
 
   return (
     <header className="bg-white shadow-sm">
       <a href="#main-content" className="sr-only focus:not-sr-only focus:absolute focus:p-2">
-        Skip to content
+        {common.header.skipToContent[language]}
       </a>
 
       <div className="flex flex-col gap-3 px-4 py-4 sm:flex-row sm:items-center sm:justify-between md:px-8 sm:py-5">

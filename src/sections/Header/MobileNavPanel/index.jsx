@@ -1,6 +1,8 @@
 import { NavLink, Link } from 'react-router-dom'
-import { useTranslation } from 'react-i18next'
+import { useSelector } from 'react-redux'
 import { ROUTES } from '../../../constants/routes'
+import { selectLanguage } from '../../../redux/slices/localeSlice'
+import { common } from '../../../language/common'
 
 const NAV_ITEMS = [
   { key: 'home', to: ROUTES.HOME },
@@ -10,20 +12,20 @@ const NAV_ITEMS = [
 ]
 
 const RTI_LINKS = [
-  { label: 'RTI Login', href: 'https://rtionline.karnataka.gov.in/index.php?lan=M', external: true },
+  { key: 'login', href: 'https://rtionline.karnataka.gov.in/index.php?lan=M', external: true },
   {
-    label: 'RTI Manual',
+    key: 'manual',
     href: 'https://ceg.karnataka.gov.in/assets/front/pdf/rti%20manual/RTI%20Manual%20English.pdf',
     external: true,
   },
-  { label: 'RTI Statistics', href: 'https://vtpc.karnataka.gov.in/rtistats/en', external: true },
-  { label: 'Online RTI', href: 'https://rtionline.karnataka.gov.in/index.php?lan=E', external: true },
-  { label: '4(1) A', href: ROUTES.DOWNLOADS, external: false },
-  { label: '4(1) B', href: ROUTES.DOWNLOADS, external: false },
+  { key: 'statistics', href: 'https://vtpc.karnataka.gov.in/rtistats/en', external: true },
+  { key: 'online', href: 'https://rtionline.karnataka.gov.in/index.php?lan=E', external: true },
+  { key: 'section4_1A', href: ROUTES.DOWNLOADS, external: false },
+  { key: 'section4_1B', href: ROUTES.DOWNLOADS, external: false },
 ]
 
 export default function MobileNavPanel({ onNavigate }) {
-  const { t } = useTranslation()
+  const language = useSelector(selectLanguage)
 
   return (
     <nav className="flex flex-col gap-1 border-t border-brand-divider bg-white px-4 py-3 md:hidden">
@@ -36,30 +38,30 @@ export default function MobileNavPanel({ onNavigate }) {
             `rounded-md px-2 py-2.5 text-sm font-medium ${isActive ? 'text-brand-primary' : 'text-brand-dark'}`
           }
         >
-          {t(`nav.${item.key}`)}
+          {common.nav[item.key][language]}
         </NavLink>
       ))}
 
-      <p className="mt-2 px-2 text-xs font-semibold tracking-wide text-gray-400">{t('nav.rti')}</p>
+      <p className="mt-2 px-2 text-xs font-semibold tracking-wide text-gray-400">{common.nav.rti[language]}</p>
       {RTI_LINKS.map((link) =>
         link.external ? (
           <a
-            key={link.label}
+            key={link.key}
             href={link.href}
             target="_blank"
             rel="noreferrer"
             className="rounded-md px-2 py-2 pl-4 text-sm text-brand-dark"
           >
-            {link.label}
+            {common.rti[link.key][language]}
           </a>
         ) : (
           <Link
-            key={link.label}
+            key={link.key}
             to={link.href}
             onClick={onNavigate}
             className="rounded-md px-2 py-2 pl-4 text-sm text-brand-dark"
           >
-            {link.label}
+            {common.rti[link.key][language]}
           </Link>
         )
       )}
@@ -71,7 +73,7 @@ export default function MobileNavPanel({ onNavigate }) {
           `mt-2 rounded-md px-2 py-2.5 text-sm font-medium ${isActive ? 'text-brand-primary' : 'text-brand-dark'}`
         }
       >
-        {t('nav.downloads')}
+        {common.nav.downloads[language]}
       </NavLink>
     </nav>
   )

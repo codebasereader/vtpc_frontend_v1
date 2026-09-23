@@ -1,6 +1,7 @@
-import { useEffect, useState } from 'react'
+import { useSelector } from 'react-redux'
 import { Helmet } from 'react-helmet-async'
-import { getHomepageContent } from '../../../api/homepageApi'
+import { selectLanguage } from '../../../redux/slices/localeSlice'
+import { home } from '../../../language/home'
 import Hero from '../../../sections/Hero'
 import ExportersGuide from '../../../sections/ExportersGuide'
 import ExploreTradeProspects from '../../../sections/ExploreTradeProspects'
@@ -9,31 +10,8 @@ import DistrictExplorer from '../../../sections/DistrictExplorer'
 import SectorsTeaser from '../../../sections/SectorsTeaser'
 import EventsTeaser from '../../../sections/EventsTeaser'
 
-const DEFAULT_CONTENT = {
-  hero: {
-    title: 'Gateway to Global Markets: Exporters Guide',
-    subtitle: 'Explore Unlimited Trade Prospects Worldwide',
-  },
-}
-
 export default function Home() {
-  const [content, setContent] = useState(DEFAULT_CONTENT)
-
-  useEffect(() => {
-    let isMounted = true
-    getHomepageContent()
-      .then((data) => {
-        if (isMounted && data?.hero) {
-          setContent({ hero: data.hero })
-        }
-      })
-      .catch(() => {
-        // Keep defaults so the page still renders immediately.
-      })
-    return () => {
-      isMounted = false
-    }
-  }, [])
+  const language = useSelector(selectLanguage)
 
   return (
     <>
@@ -44,7 +22,7 @@ export default function Home() {
           content="Visvesvaraya Trade Promotion Centre — Karnataka's gateway to global trade, exporter resources, and district-wise export data."
         />
       </Helmet>
-      <Hero title={content.hero.title} subtitle={content.hero.subtitle} />
+      <Hero title={home.hero.title[language]} subtitle={home.hero.subtitle[language]} />
       <ExportersGuide />
       <ExploreTradeProspects />
       <KeyDriversGrowth />

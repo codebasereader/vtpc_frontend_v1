@@ -1,11 +1,12 @@
 import { useEffect, useState } from 'react'
+import { useSelector } from 'react-redux'
 import { getLeaders } from '../../../api/leadersApi'
 import { getBilingualText } from '../../../lib/bilingual'
-import { useLocale } from '../../../context/LocaleContext'
+import { selectLanguage } from '../../../redux/slices/localeSlice'
 
 export default function LeaderStrip() {
   const [leaders, setLeaders] = useState([])
-  const { locale } = useLocale()
+  const locale = useSelector(selectLanguage)
 
   useEffect(() => {
     let isMounted = true
