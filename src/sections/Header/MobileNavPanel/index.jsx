@@ -4,10 +4,16 @@ import { ROUTES } from '../../../constants/routes'
 import { selectLanguage } from '../../../redux/slices/localeSlice'
 import { common } from '../../../language/common'
 
+const DGCIS_URL = 'https://ftddp.dgciskol.gov.in/dgcis/'
+
+// Ordered: Home, About Us, Events, Exporter Corner, DGCIS, Geographical
+// Indications, then RTI/Downloads/Kalagoodu rendered after.
 const NAV_ITEMS = [
   { key: 'home', to: ROUTES.HOME },
   { key: 'aboutUs', to: ROUTES.ABOUT_US },
+  { key: 'events', to: ROUTES.EVENTS },
   { key: 'exporterCorner', to: ROUTES.EXPORTER_CORNER },
+  { key: 'dgcis', href: DGCIS_URL },
   { key: 'geographicalIndications', to: ROUTES.GEOGRAPHICAL_INDICATIONS },
 ]
 
@@ -18,7 +24,6 @@ const RTI_LINKS = [
     href: 'https://ceg.karnataka.gov.in/assets/front/pdf/rti%20manual/RTI%20Manual%20English.pdf',
     external: true,
   },
-  { key: 'statistics', href: 'https://vtpc.karnataka.gov.in/rtistats/en', external: true },
   { key: 'online', href: 'https://rtionline.karnataka.gov.in/index.php?lan=E', external: true },
   { key: 'section4_1A', href: ROUTES.DOWNLOADS, external: false },
   { key: 'section4_1B', href: ROUTES.DOWNLOADS, external: false },
@@ -29,18 +34,30 @@ export default function MobileNavPanel({ onNavigate }) {
 
   return (
     <nav className="flex flex-col gap-1 border-t border-brand-divider bg-white px-4 py-3 md:hidden">
-      {NAV_ITEMS.map((item) => (
-        <NavLink
-          key={item.key}
-          to={item.to}
-          onClick={onNavigate}
-          className={({ isActive }) =>
-            `rounded-md px-2 py-2.5 text-base font-medium ${isActive ? 'text-brand-primary' : 'text-brand-dark'}`
-          }
-        >
-          {common.nav[item.key][language]}
-        </NavLink>
-      ))}
+      {NAV_ITEMS.map((item) =>
+        item.href ? (
+          <a
+            key={item.key}
+            href={item.href}
+            target="_blank"
+            rel="noreferrer"
+            className="rounded-md px-2 py-2.5 text-base font-medium text-brand-dark"
+          >
+            {common.nav[item.key][language]}
+          </a>
+        ) : (
+          <NavLink
+            key={item.key}
+            to={item.to}
+            onClick={onNavigate}
+            className={({ isActive }) =>
+              `rounded-md px-2 py-2.5 text-base font-medium ${isActive ? 'text-brand-primary' : 'text-brand-dark'}`
+            }
+          >
+            {common.nav[item.key][language]}
+          </NavLink>
+        ),
+      )}
 
       <p className="mt-2 px-2 text-sm font-semibold tracking-wide text-gray-400">{common.nav.rti[language]}</p>
       {RTI_LINKS.map((link) =>
@@ -75,6 +92,11 @@ export default function MobileNavPanel({ onNavigate }) {
       >
         {common.nav.downloads[language]}
       </NavLink>
+
+      {/* Kalagoodu — nav label reserved, destination not provided yet. */}
+      <span className="rounded-md px-2 py-2.5 text-base font-medium text-gray-400" aria-disabled="true">
+        {common.nav.kalagoodu[language]}
+      </span>
     </nav>
   )
 }

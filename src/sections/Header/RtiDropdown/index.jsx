@@ -17,7 +17,6 @@ const RTI_LINKS = [
     href: 'https://ceg.karnataka.gov.in/assets/front/pdf/rti%20manual/RTI%20Manual%20English.pdf',
     external: true,
   },
-  { key: 'statistics', href: 'https://vtpc.karnataka.gov.in/rtistats/en', external: true },
   { key: 'online', href: 'https://rtionline.karnataka.gov.in/index.php?lan=E', external: true },
   { key: 'section4_1A', href: ROUTES.DOWNLOADS, external: false },
   { key: 'section4_1B', href: ROUTES.DOWNLOADS, external: false },

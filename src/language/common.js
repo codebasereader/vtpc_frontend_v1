@@ -12,6 +12,8 @@ export const common = {
     events: { en: 'Events', kn: 'ಕಾರ್ಯಕ್ರಮಗಳು' },
     contact: { en: 'Contact Us', kn: 'ಸಂಪರ್ಕಿಸಿ' },
     rti: { en: 'RTI', kn: 'ಆರ್‌ಟಿಐ' },
+    dgcis: { en: 'DGCIS', kn: 'DGCIS' },
+    kalagoodu: { en: 'Kalagoodu', kn: 'ಕಲಾಗೂಡು' },
   },
   language: {
     english: { en: 'English', kn: 'English' },
@@ -25,7 +27,6 @@ export const common = {
   rti: {
     login: { en: 'RTI Login', kn: 'ಆರ್‌ಟಿಐ ಲಾಗಿನ್' },
     manual: { en: 'RTI Manual', kn: 'ಆರ್‌ಟಿಐ ಕೈಪಿಡಿ' },
-    statistics: { en: 'RTI Statistics', kn: 'ಆರ್‌ಟಿಐ ಅಂಕಿಅಂಶಗಳು' },
     online: { en: 'Online RTI', kn: 'ಆನ್‌ಲೈನ್ ಆರ್‌ಟಿಐ' },
     section4_1A: { en: '4(1) A', kn: '4(1) ಎ' },
     section4_1B: { en: '4(1) B', kn: '4(1) ಬಿ' },

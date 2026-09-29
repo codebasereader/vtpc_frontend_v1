@@ -7,21 +7,24 @@ export default function LanguageToggle() {
   const language = useSelector(selectLanguage)
 
   return (
-    <div className="flex items-center gap-2 text-base" role="group" aria-label="Language">
+    <div className="flex items-center gap-1 rounded-full bg-white/15 p-1" role="group" aria-label="Language">
       <button
         type="button"
         aria-pressed={language === 'en'}
         onClick={() => dispatch(setLanguage('en'))}
-        className={language === 'en' ? 'font-semibold text-white' : 'text-white/70 hover:text-white'}
+        className={`rounded-full px-3 py-1 text-sm font-semibold transition-all duration-200 ${
+          language === 'en' ? 'bg-white text-brand-primary shadow-sm' : 'text-white/80 hover:text-white'
+        }`}
       >
         {common.language.english[language]}
       </button>
-      <span className="text-white/40">|</span>
       <button
         type="button"
         aria-pressed={language === 'kn'}
         onClick={() => dispatch(setLanguage('kn'))}
-        className={language === 'kn' ? 'font-semibold text-white' : 'text-white/70 hover:text-white'}
+        className={`rounded-full px-3 py-1 text-sm font-semibold transition-all duration-200 ${
+          language === 'kn' ? 'bg-white text-brand-primary shadow-sm' : 'text-white/80 hover:text-white'
+        }`}
       >
         {common.language.kannada[language]}
       </button>

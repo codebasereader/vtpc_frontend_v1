@@ -7,10 +7,16 @@ import { common } from '../../../language/common'
 import RtiDropdown from '../RtiDropdown'
 import LanguageToggle from '../../LanguageToggle'
 
+const DGCIS_URL = 'https://ftddp.dgciskol.gov.in/dgcis/'
+
+// Ordered left-to-right: Home, About Us, Events, Exporter Corner, DGCIS,
+// Geographical Indications, then RTI/Downloads/Kalagoodu rendered after.
 const NAV_ITEMS = [
   { key: 'home', to: ROUTES.HOME },
   { key: 'aboutUs', to: ROUTES.ABOUT_US },
+  { key: 'events', to: ROUTES.EVENTS },
   { key: 'exporterCorner', to: ROUTES.EXPORTER_CORNER },
+  { key: 'dgcis', href: DGCIS_URL },
   { key: 'geographicalIndications', to: ROUTES.GEOGRAPHICAL_INDICATIONS },
 ]
 
@@ -23,15 +29,31 @@ export default function NavBar({ isMobileMenuOpen, onToggleMobileMenu }) {
   return (
     <div className="flex items-center justify-between bg-brand-primary px-4 md:px-8">
       <div className="hidden items-center gap-8 md:mr-auto md:flex">
-        {NAV_ITEMS.map((item) => (
-          <NavLink key={item.key} to={item.to} className={navLinkClass}>
-            {common.nav[item.key][language]}
-          </NavLink>
-        ))}
+        {NAV_ITEMS.map((item) =>
+          item.href ? (
+            <a
+              key={item.key}
+              href={item.href}
+              target="_blank"
+              rel="noreferrer"
+              className="py-3 text-base font-medium text-white/90 hover:text-white"
+            >
+              {common.nav[item.key][language]}
+            </a>
+          ) : (
+            <NavLink key={item.key} to={item.to} className={navLinkClass}>
+              {common.nav[item.key][language]}
+            </NavLink>
+          ),
+        )}
         <RtiDropdown />
         <NavLink to={ROUTES.DOWNLOADS} className={navLinkClass}>
           {common.nav.downloads[language]}
         </NavLink>
+        {/* Kalagoodu — nav label reserved, destination not provided yet. */}
+        <span className="py-3 text-base font-medium text-white/50" aria-disabled="true">
+          {common.nav.kalagoodu[language]}
+        </span>
       </div>
 
       <LanguageToggle />
