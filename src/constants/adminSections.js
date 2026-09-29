@@ -11,6 +11,8 @@ import {
   FileText,
   MapPin,
   Tags,
+  Signpost,
+  Warehouse,
 } from 'lucide-react'
 import { ROUTES } from './routes'
 
@@ -44,7 +46,21 @@ export const ADMIN_NAV_GROUPS = [
     label: 'Organisation',
     items: [
       { key: 'offices', title: 'Offices', path: ROUTES.ADMIN_OFFICES, icon: Building },
-      { key: 'staff', title: 'Staff', path: ROUTES.ADMIN_STAFF, icon: IdCard },
+      { key: 'orgChart', title: 'Org Chart', path: ROUTES.ADMIN_ORG_CHART, icon: IdCard },
+      {
+        key: 'governingCouncil',
+        title: 'Governing Council',
+        path: ROUTES.ADMIN_GOVERNING_COUNCIL,
+        icon: Users,
+      },
+    ],
+  },
+  {
+    id: 'exporterCorner',
+    label: 'Exporter Corner',
+    items: [
+      { key: 'taluks', title: 'Taluks', path: ROUTES.ADMIN_TALUKS, icon: Signpost },
+      { key: 'warehouses', title: 'Warehouses', path: ROUTES.ADMIN_WAREHOUSES, icon: Warehouse },
     ],
   },
   {

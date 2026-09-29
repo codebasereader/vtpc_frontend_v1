@@ -18,8 +18,32 @@ const CitiesList = lazy(() => import('../pages/admin/Cities/CitiesList'))
 const CityForm = lazy(() => import('../pages/admin/Cities/CityForm'))
 const EventSectorsList = lazy(() => import('../pages/admin/EventSectors/EventSectorsList'))
 const EventSectorForm = lazy(() => import('../pages/admin/EventSectors/EventSectorForm'))
+const OfficesList = lazy(() => import('../pages/admin/Offices/OfficesList'))
+const OfficeForm = lazy(() => import('../pages/admin/Offices/OfficeForm'))
+const OrgChartList = lazy(() => import('../pages/admin/OrgChart/OrgChartList'))
+const OrgChartForm = lazy(() => import('../pages/admin/OrgChart/OrgChartForm'))
+const GoverningCouncilList = lazy(() => import('../pages/admin/GoverningCouncil/GoverningCouncilList'))
+const GoverningCouncilForm = lazy(() => import('../pages/admin/GoverningCouncil/GoverningCouncilForm'))
+const TaluksList = lazy(() => import('../pages/admin/Taluks/TaluksList'))
+const TalukForm = lazy(() => import('../pages/admin/Taluks/TalukForm'))
+const WarehousesList = lazy(() => import('../pages/admin/Warehouses/WarehousesList'))
+const WarehouseForm = lazy(() => import('../pages/admin/Warehouses/WarehouseForm'))
+const GIProductsList = lazy(() => import('../pages/admin/GIProducts/GIProductsList'))
+const GIProductForm = lazy(() => import('../pages/admin/GIProducts/GIProductForm'))
 
-const BUILT_SECTIONS = ['leaders', 'districts', 'events', 'cities', 'eventSectors']
+const BUILT_SECTIONS = [
+  'leaders',
+  'districts',
+  'events',
+  'cities',
+  'eventSectors',
+  'offices',
+  'orgChart',
+  'governingCouncil',
+  'taluks',
+  'warehouses',
+  'giProducts',
+]
 const COMING_SOON_SECTIONS = ADMIN_SECTIONS.filter((section) => !BUILT_SECTIONS.includes(section.key))
 
 export default function AdminRoutes() {
@@ -155,6 +179,150 @@ export default function AdminRoutes() {
             element={
               <ProtectedRoute>
                 <EventSectorForm />
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path="offices"
+            element={
+              <ProtectedRoute>
+                <OfficesList />
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path="offices/new"
+            element={
+              <ProtectedRoute>
+                <OfficeForm />
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path="offices/:id/edit"
+            element={
+              <ProtectedRoute>
+                <OfficeForm />
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path="org-chart"
+            element={
+              <ProtectedRoute>
+                <OrgChartList />
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path="org-chart/new"
+            element={
+              <ProtectedRoute>
+                <OrgChartForm />
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path="org-chart/:id/edit"
+            element={
+              <ProtectedRoute>
+                <OrgChartForm />
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path="governing-council"
+            element={
+              <ProtectedRoute>
+                <GoverningCouncilList />
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path="governing-council/new"
+            element={
+              <ProtectedRoute>
+                <GoverningCouncilForm />
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path="governing-council/:id/edit"
+            element={
+              <ProtectedRoute>
+                <GoverningCouncilForm />
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path="taluks"
+            element={
+              <ProtectedRoute>
+                <TaluksList />
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path="taluks/new"
+            element={
+              <ProtectedRoute>
+                <TalukForm />
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path="taluks/:id/edit"
+            element={
+              <ProtectedRoute>
+                <TalukForm />
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path="warehouses"
+            element={
+              <ProtectedRoute>
+                <WarehousesList />
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path="warehouses/new"
+            element={
+              <ProtectedRoute>
+                <WarehouseForm />
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path="warehouses/:id/edit"
+            element={
+              <ProtectedRoute>
+                <WarehouseForm />
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path="gi-products"
+            element={
+              <ProtectedRoute>
+                <GIProductsList />
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path="gi-products/new"
+            element={
+              <ProtectedRoute>
+                <GIProductForm />
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path="gi-products/:id/edit"
+            element={
+              <ProtectedRoute>
+                <GIProductForm />
               </ProtectedRoute>
             }
           />
