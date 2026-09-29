@@ -27,8 +27,8 @@ export default function NavBar({ isMobileMenuOpen, onToggleMobileMenu }) {
   const language = useSelector(selectLanguage)
 
   return (
-    <div className="flex items-center justify-between bg-brand-primary px-4 md:px-8">
-      <div className="hidden items-center gap-8 md:mr-auto md:flex">
+    <div className="flex items-center justify-between gap-4 bg-brand-primary px-4 md:px-8">
+      <div className="hidden items-center gap-5 md:mr-auto md:flex lg:gap-6">
         {NAV_ITEMS.map((item) =>
           item.href ? (
             <a
@@ -56,7 +56,9 @@ export default function NavBar({ isMobileMenuOpen, onToggleMobileMenu }) {
         </span>
       </div>
 
-      <LanguageToggle />
+      <div className="shrink-0">
+        <LanguageToggle />
+      </div>
 
       <button
         type="button"
