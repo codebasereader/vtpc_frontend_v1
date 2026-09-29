@@ -1,0 +1,503 @@
+[
+  {
+    "id": "Pharmaceutical-&-Biotech",
+    "name": "Pharmaceutical & Biotech",
+    "image": "https://vtpc.karnataka.gov.in/wp-content/themes/VTPC/assets/images/Pharmaceutical & Biotech.jpg",
+    "description": "Karnataka, India's biotechnology hub, houses a large number of\n                                biotech firms, research institutions, and startups. Major players like Biocon, Strides\n                                Pharma, Aurobindo Pharma, Novartis, AstraZeneca, and Merck have a strong presence in the\n                                state. The government actively supports research and development in this sector.",
+    "statBoxes": [
+      {
+        "value": "40%",
+        "label": "of Pharma products exported overseas"
+      },
+      {
+        "value": "~10%",
+        "label": "of Export Revenues of Pharma products from Karnataka"
+      },
+      {
+        "value": "02",
+        "label": "Pharma parks located in Hassan and Bangalore"
+      }
+    ],
+    "yearlyChart": [
+      {
+        "year": "FY-2020",
+        "valueUsdMn": 846.58
+      },
+      {
+        "year": "FY-2021",
+        "valueUsdMn": 879.07
+      },
+      {
+        "year": "FY-2022",
+        "valueUsdMn": 859.57
+      },
+      {
+        "year": "FY-2023",
+        "valueUsdMn": 1039.27
+      }
+    ],
+    "chartColor": "#FFA723",
+    "topMarkets": [
+      {
+        "country": "USA",
+        "percentage": 31.93
+      },
+      {
+        "country": "Netherlands",
+        "percentage": 6.27
+      },
+      {
+        "country": "Australia",
+        "percentage": 5.84
+      },
+      {
+        "country": "UK",
+        "percentage": 5.82
+      },
+      {
+        "country": "South Africa",
+        "percentage": 5.56
+      }
+    ],
+    "keyInsights": {
+      "manufacturingOutput": "30.4 Lakhs (INR)",
+      "employmentGenerated": "52,797",
+      "valueAdded": "11.8 Lakhs (INR)",
+      "investments": "3.4 Lakhs (INR)"
+    }
+  },
+  {
+    "id": "Electrical-Machinery-&-Equipment",
+    "name": "Electrical Machinery & Equipment",
+    "image": "https://vtpc.karnataka.gov.in/wp-content/themes/VTPC/assets/images/Electrical Machinery & Equipment.jpg",
+    "description": "Karnataka's electrical equipment and machinery industry is a vital\n                                part of the state's industrial landscape. It produces a wide array of products including\n                                power transmission equipment, electrical machinery, appliances, components, lighting,\n                                and renewable energy equipment. Major companies like ABB India, Siemens, Schneider\n                                Electric, Havells, and BHEL have a strong presence in the state.",
+    "statBoxes": [
+      {
+        "value": "2nd",
+        "label": "in Special Purpose & Heavy Machinery Output"
+      },
+      {
+        "value": "~1/5",
+        "label": "identified foundries cluster in India"
+      },
+      {
+        "value": "~50%",
+        "label": "machine tool production in India"
+      }
+    ],
+    "yearlyChart": [
+      {
+        "year": "FY-2020",
+        "valueUsdMn": 3763.43
+      },
+      {
+        "year": "FY-2021",
+        "valueUsdMn": 6053.96
+      },
+      {
+        "year": "FY-2022",
+        "valueUsdMn": 6524.85
+      },
+      {
+        "year": "FY-2023",
+        "valueUsdMn": 6859.89
+      }
+    ],
+    "chartColor": "#FFA723",
+    "topMarkets": [
+      {
+        "country": "USA",
+        "percentage": 33.96
+      },
+      {
+        "country": "Netherlands",
+        "percentage": 5.47
+      },
+      {
+        "country": "Australia",
+        "percentage": 5.1
+      },
+      {
+        "country": "UK",
+        "percentage": 4.847
+      },
+      {
+        "country": "South Africa",
+        "percentage": 3.38
+      }
+    ],
+    "keyInsights": {
+      "manufacturingOutput": "31.6 Lakhs (INR)",
+      "employmentGenerated": "34,389",
+      "valueAdded": "4.3 Lakhs (INR)",
+      "investments": "1.8 Lakhs (INR)"
+    }
+  },
+  {
+    "id": "Ready-made-garments",
+    "name": "Ready-made garments",
+    "image": "https://vtpc.karnataka.gov.in/wp-content/themes/VTPC/assets/images/Ready-made garments.jpg",
+    "description": "Karnataka boasts a rich textile manufacturing tradition, notably in\n                                Bengaluru, Mysuru, Hubballi-Dharwad, and Belagavi. Handloom weaving and textile\n                                production are deeply ingrained in the state's culture and economy. Key segments include\n                                cotton, silk, wool, technical textiles, and garment manufacturing. The state's vibrant\n                                handloom sector thrives in clusters like Ilkal, Banahatti, and Gadag, producing unique\n                                textiles using traditional techniques.",
+    "statBoxes": [
+      {
+        "value": "07",
+        "label": "Textile Parks"
+      },
+      {
+        "value": "24",
+        "label": "Integrated Apparel & Textile Clusters"
+      },
+      {
+        "value": "~35%",
+        "label": "of Country's Raw Silk Production"
+      },
+      {
+        "value": "~24%",
+        "label": "of National Silk Exports"
+      }
+    ],
+    "yearlyChart": [
+      {
+        "year": "FY-2020",
+        "valueUsdMn": 312.58
+      },
+      {
+        "year": "FY-2021",
+        "valueUsdMn": 513.62
+      },
+      {
+        "year": "FY-2022",
+        "valueUsdMn": 381.12
+      },
+      {
+        "year": "FY-2023",
+        "valueUsdMn": 384.93
+      }
+    ],
+    "chartColor": "#FFA723",
+    "topMarkets": [
+      {
+        "country": "USA",
+        "percentage": 59.47
+      },
+      {
+        "country": "Netherlands",
+        "percentage": 8.42
+      },
+      {
+        "country": "Australia",
+        "percentage": 5.56
+      },
+      {
+        "country": "UK",
+        "percentage": 5.08
+      },
+      {
+        "country": "South Africa",
+        "percentage": 3.38
+      }
+    ],
+    "keyInsights": {
+      "manufacturingOutput": "5.5 Lakhs (INR)",
+      "employmentGenerated": "25,467",
+      "valueAdded": "1.5 Lakhs (INR)",
+      "investments": "0.2 Lakhs (INR)"
+    }
+  },
+  {
+    "id": "automobile",
+    "name": "Automobile",
+    "image": "https://vtpc.karnataka.gov.in/wp-content/themes/VTPC/assets/images/Automobile.jpg",
+    "description": "Karnataka is a major automobile manufacturing hub in India, home to\n                                prominent manufacturers like Toyota Kirloskar Motor, Tata Motors, and Mahindra &\n                                Mahindra. The state is emerging as an electric vehicle hub with companies focused on\n                                manufacturing and R&D.",
+    "statBoxes": [
+      {
+        "value": "4th",
+        "label": "of Pharma products exported overseas"
+      },
+      {
+        "value": "50+",
+        "label": "of Export Revenues of Pharma products from Karnataka"
+      },
+      {
+        "value": "05",
+        "label": "Pharma parks located in Hassan and Bangalore"
+      }
+    ],
+    "yearlyChart": [
+      {
+        "year": "FY-2020",
+        "valueUsdMn": 381.84
+      },
+      {
+        "year": "FY-2021",
+        "valueUsdMn": 566.27
+      },
+      {
+        "year": "FY-2022",
+        "valueUsdMn": 685.01
+      },
+      {
+        "year": "FY-2023",
+        "valueUsdMn": 1095.33
+      }
+    ],
+    "chartColor": "#FFA723",
+    "topMarkets": [
+      {
+        "country": "USA",
+        "percentage": 9.28
+      },
+      {
+        "country": "Netherlands",
+        "percentage": 9.03
+      },
+      {
+        "country": "Australia",
+        "percentage": 8.59
+      },
+      {
+        "country": "UK",
+        "percentage": 8.13
+      },
+      {
+        "country": "South Africa",
+        "percentage": 7.25
+      }
+    ],
+    "keyInsights": {
+      "manufacturingOutput": "49.1 Lakhs (INR)",
+      "employmentGenerated": "76,791",
+      "valueAdded": "8.5 Lakhs (INR)",
+      "investments": "2.8 Lakhs (INR)"
+    }
+  },
+  {
+    "id": "Organic-Chemicals",
+    "name": "Organic Chemicals",
+    "image": "https://vtpc.karnataka.gov.in/wp-content/themes/VTPC/assets/images/Organic Chemicals.jpg",
+    "description": "Karnataka's diverse chemicals industry encompasses petrochemicals,\n                                specialty chemicals, pharmaceuticals, agrochemicals, and industrial chemicals. The state\n                                hosts petrochemical facilities producing essential raw materials for various downstream\n                                products. Specialty chemicals used in textiles, paints, coatings, adhesives, and\n                                cosmetics are also a significant sector. The government supports the industry through\n                                investment incentives, infrastructure development, skill programs, and R&D support.",
+    "statBoxes": [],
+    "yearlyChart": [
+      {
+        "year": "FY-2020",
+        "valueUsdMn": 937.27
+      },
+      {
+        "year": "FY-2021",
+        "valueUsdMn": 1937.68
+      },
+      {
+        "year": "FY-2022",
+        "valueUsdMn": 986.71
+      },
+      {
+        "year": "FY-2023",
+        "valueUsdMn": 1259.3
+      }
+    ],
+    "chartColor": "#FFA723",
+    "topMarkets": [
+      {
+        "country": "USA",
+        "percentage": 12.63
+      },
+      {
+        "country": "Netherlands",
+        "percentage": 8.2
+      },
+      {
+        "country": "Australia",
+        "percentage": 7.79
+      },
+      {
+        "country": "UK",
+        "percentage": 7.49
+      },
+      {
+        "country": "South Africa",
+        "percentage": 6.67
+      }
+    ],
+    "keyInsights": {
+      "manufacturingOutput": "32.2 Lakhs (INR)",
+      "employmentGenerated": "36,174",
+      "valueAdded": "6.7 Lakhs (INR)",
+      "investments": "1.3 Lakhs (INR)"
+    }
+  },
+  {
+    "id": "Aerospace",
+    "name": "Aerospace",
+    "image": "https://vtpc.karnataka.gov.in/wp-content/themes/VTPC/assets/images/Aerospace.jpg",
+    "description": "Karnataka has a growing aerospace sector, particularly in\n                                Bengaluru, with companies manufacturing components, assemblies and systems for aircraft\n                                and helicopters. The government supports this growth through infrastructure, investment\n                                incentives and industry and research institution collaborations.",
+    "statBoxes": [
+      {
+        "value": "~25%",
+        "label": "of India's total production"
+      },
+      {
+        "value": "~65%",
+        "label": "of India's aerospace components exports"
+      },
+      {
+        "value": "--",
+        "label": "Presence of Global Leaders - Boeing & Airbus"
+      }
+    ],
+    "yearlyChart": [
+      {
+        "year": "FY-2020",
+        "valueUsdMn": 277.72
+      },
+      {
+        "year": "FY-2021",
+        "valueUsdMn": 343.97
+      },
+      {
+        "year": "FY-2022",
+        "valueUsdMn": 474.33
+      },
+      {
+        "year": "FY-2023",
+        "valueUsdMn": 571.65
+      }
+    ],
+    "chartColor": "#FFA723",
+    "topMarkets": [
+      {
+        "country": "USA",
+        "percentage": 39.96
+      },
+      {
+        "country": "Netherlands",
+        "percentage": 17.22
+      },
+      {
+        "country": "Australia",
+        "percentage": 14.39
+      },
+      {
+        "country": "UK",
+        "percentage": 6.15
+      },
+      {
+        "country": "South Africa",
+        "percentage": 5.28
+      }
+    ],
+    "keyInsights": {
+      "manufacturingOutput": "4.2 Lakhs (INR)",
+      "employmentGenerated": "11,234",
+      "valueAdded": "1.4 Lakhs (INR)",
+      "investments": "0.2 Lakhs (INR)"
+    }
+  },
+  {
+    "id": "Optical-&-Medical",
+    "name": "Optical and Medical",
+    "image": "https://vtpc.karnataka.gov.in/wp-content/themes/VTPC/assets/images/Optical and Medical.jpg",
+    "description": "Renowned as the \"Silicon Valley of India,\" Bengaluru isn't just a\n                                tech hub – it's also a thriving center for chemical research and development. \n                                Karnataka's increasing emphasis on high-value specialty chemicals is further bolstering\n                                sectors like automotive, electronics, and personal care. The presence of the Mangalore\n                                SEZ, with its focus on petrochemicals, chemicals, and related industries, provides the\n                                essential infrastructure to support large-scale operations.",
+    "statBoxes": [],
+    "yearlyChart": [
+      {
+        "year": "FY-2020",
+        "valueUsdMn": 682.48
+      },
+      {
+        "year": "FY-2021",
+        "valueUsdMn": 793.15
+      },
+      {
+        "year": "FY-2022",
+        "valueUsdMn": 818.23
+      },
+      {
+        "year": "FY-2023",
+        "valueUsdMn": 876.05
+      }
+    ],
+    "chartColor": "#FFA723",
+    "topMarkets": [
+      {
+        "country": "USA",
+        "percentage": 27.42
+      },
+      {
+        "country": "Netherlands",
+        "percentage": 13.5
+      },
+      {
+        "country": "Australia",
+        "percentage": 9.6
+      },
+      {
+        "country": "UK",
+        "percentage": 9.28
+      },
+      {
+        "country": "South Africa",
+        "percentage": 5.49
+      }
+    ],
+    "keyInsights": {
+      "manufacturingOutput": "40.8 Lakhs (INR)",
+      "employmentGenerated": "54,576",
+      "valueAdded": "6.5 Lakhs (INR)",
+      "investments": "0.7 Lakhs (INR)"
+    }
+  },
+  {
+    "id": "Food-Products",
+    "name": "Food Products",
+    "image": "https://vtpc.karnataka.gov.in/wp-content/themes/VTPC/assets/images/Food Products.jpg",
+    "description": "Karnataka's diverse food industry spans agriculture, processing,\n                                packaged foods, and beverages. The state's varied climate and fertile land yield a wide\n                                array of crops like rice, sugarcane, coffee, spices, fruits, vegetables, and pulses.\n                                Numerous processing units statewide like sugar mills, coffee curing, rice mills and\n                                processing units add value to this produce. The government supports the industry through\n                                incentives, infrastructure, and skill development programs.",
+    "statBoxes": [],
+    "yearlyChart": [
+      {
+        "year": "FY-2020",
+        "valueUsdMn": 617.45
+      },
+      {
+        "year": "FY-2021",
+        "valueUsdMn": 807.66
+      },
+      {
+        "year": "FY-2022",
+        "valueUsdMn": 855.3
+      },
+      {
+        "year": "FY-2023",
+        "valueUsdMn": 969.57
+      }
+    ],
+    "chartColor": "#FFA723",
+    "topMarkets": [
+      {
+        "country": "USA",
+        "percentage": 27.42
+      },
+      {
+        "country": "Netherlands",
+        "percentage": 13.5
+      },
+      {
+        "country": "Australia",
+        "percentage": 9.6
+      },
+      {
+        "country": "UK",
+        "percentage": 9.28
+      },
+      {
+        "country": "South Africa",
+        "percentage": 5.49
+      }
+    ],
+    "keyInsights": {
+      "manufacturingOutput": "88.2 Lakhs (INR)",
+      "employmentGenerated": "91,192",
+      "valueAdded": "9 Lakhs (INR)",
+      "investments": "2.4 Lakhs (INR)"
+    }
+  }
+]

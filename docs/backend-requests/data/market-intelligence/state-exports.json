@@ -1,0 +1,458 @@
+[
+  {
+    "slug": "andaman",
+    "code": "AN",
+    "color": "#607D8B",
+    "exports": {
+      "FY 2020-2021": 1.0,
+      "FY 2021-2022": 59.07,
+      "FY 2022-2023": 1.14,
+      "FY 2023-2024": 1.89
+    },
+    "name": "Andaman & Nicobar"
+  },
+  {
+    "slug": "andhrapradesh",
+    "code": "AP",
+    "color": "#795548",
+    "exports": {
+      "FY 2020-2021": 19759.84,
+      "FY 2021-2022": 19860.62,
+      "FY 2022-2023": 19311.79,
+      "FY 2023-2024": 16842.34
+    },
+    "name": "Andhra Pradesh"
+  },
+  {
+    "slug": "arunachalpradesh",
+    "code": "AR",
+    "color": "#9E9E9E",
+    "exports": {
+      "FY 2020-2021": 2.9,
+      "FY 2021-2022": 4.55,
+      "FY 2022-2023": 1.7,
+      "FY 2023-2024": 0.5
+    },
+    "name": "Arunachal Pradesh"
+  },
+  {
+    "slug": "assam",
+    "code": "AS",
+    "color": "#FF9800",
+    "exports": {
+      "FY 2020-2021": 442.26,
+      "FY 2021-2022": 497.08,
+      "FY 2022-2023": 450.42,
+      "FY 2023-2024": 415.62
+    },
+    "name": "Assam"
+  },
+  {
+    "slug": "bihar",
+    "code": "BR",
+    "color": "#E91E63",
+    "exports": {
+      "FY 2020-2021": 2010.78,
+      "FY 2021-2022": 2610.39,
+      "FY 2022-2023": 2308.6,
+      "FY 2023-2024": 1514.96
+    },
+    "name": "Bihar"
+  },
+  {
+    "slug": "chandigarh",
+    "code": "CH",
+    "color": "#673AB7",
+    "exports": {
+      "FY 2020-2021": 108.88,
+      "FY 2021-2022": 135.51,
+      "FY 2022-2023": 98.81,
+      "FY 2023-2024": 75.58
+    },
+    "name": "Chandigarh"
+  },
+  {
+    "slug": "chattisgarh",
+    "code": "CG",
+    "color": "#3F51B5",
+    "exports": {
+      "FY 2020-2021": 2016.8,
+      "FY 2021-2022": 2675.38,
+      "FY 2022-2023": 3388.69,
+      "FY 2023-2024": 2320.29
+    },
+    "name": "Chattisgarh"
+  },
+  {
+    "slug": "dadranagarhaveli",
+    "code": "DN",
+    "color": "#1976D2",
+    "exports": {
+      "FY 2020-2021": 4508.9,
+      "FY 2021-2022": 3902.05,
+      "FY 2022-2023": 3835.94,
+      "FY 2023-2024": 2645.35
+    },
+    "name": "Dadra & Nagar Haveli"
+  },
+  {
+    "slug": "damandiu",
+    "code": "DD",
+    "color": "#0097A7",
+    "exports": {
+      "FY 2020-2021": 84.36,
+      "FY 2021-2022": 649.69,
+      "FY 2022-2023": 724.09,
+      "FY 2023-2024": 618.4
+    },
+    "name": "Daman & Diu"
+  },
+  {
+    "slug": "delhi",
+    "code": "DL",
+    "color": "#00BCD4",
+    "exports": {
+      "FY 2020-2021": 10230.13,
+      "FY 2021-2022": 8146.37,
+      "FY 2022-2023": 8259.41,
+      "FY 2023-2024": 7588.32
+    },
+    "name": "Delhi"
+  },
+  {
+    "slug": "goa",
+    "code": "GA",
+    "color": "#009688",
+    "exports": {
+      "FY 2020-2021": 2391.17,
+      "FY 2021-2022": 2453.5,
+      "FY 2022-2023": 2432.54,
+      "FY 2023-2024": 2306.19
+    },
+    "name": "Goa"
+  },
+  {
+    "slug": "gujarat",
+    "code": "GJ",
+    "color": "#2196F3",
+    "exports": {
+      "FY 2020-2021": 134391.43,
+      "FY 2021-2022": 149399.57,
+      "FY 2022-2023": 126805.21,
+      "FY 2023-2024": 60587.01
+    },
+    "name": "Gujarat"
+  },
+  {
+    "slug": "haryana",
+    "code": "HR",
+    "color": "#4CAF50",
+    "exports": {
+      "FY 2020-2021": 17653.22,
+      "FY 2021-2022": 15859.05,
+      "FY 2022-2023": 15550.22,
+      "FY 2023-2024": 11592.98
+    },
+    "name": "Haryana"
+  },
+  {
+    "slug": "himachalpradesh",
+    "code": "HP",
+    "color": "#8BC34A",
+    "exports": {
+      "FY 2020-2021": 2316.92,
+      "FY 2021-2022": 2182.81,
+      "FY 2022-2023": 2147.46,
+      "FY 2023-2024": 1661.89
+    },
+    "name": "Himachal Pradesh"
+  },
+  {
+    "slug": "jammukashmir",
+    "code": "JK",
+    "color": "#CDDC39",
+    "exports": {
+      "FY 2020-2021": 192.85,
+      "FY 2021-2022": 212.53,
+      "FY 2022-2023": 246.07,
+      "FY 2023-2024": 159.64
+    },
+    "name": "Jammu & Kashmir"
+  },
+  {
+    "slug": "jharkhand",
+    "code": "JH",
+    "color": "#FFEB3B",
+    "exports": {
+      "FY 2020-2021": 1898.02,
+      "FY 2021-2022": 1398.07,
+      "FY 2022-2023": 2449.27,
+      "FY 2023-2024": 1622.31
+    },
+    "name": "Jharkhand"
+  },
+  {
+    "slug": "karnataka",
+    "code": "KA",
+    "color": "#FFA723",
+    "exports": {
+      "FY 2020-2021": 26630.5,
+      "FY 2021-2022": 27937.46,
+      "FY 2022-2023": 25874.5,
+      "FY 2023-2024": 15140.41
+    },
+    "name": "Karnataka"
+  },
+  {
+    "slug": "kerala",
+    "code": "KL",
+    "color": "#C83744",
+    "exports": {
+      "FY 2020-2021": 8172.39,
+      "FY 2021-2022": 4374.26,
+      "FY 2022-2023": 4577.9,
+      "FY 2023-2024": 3940.03
+    },
+    "name": "Kerala"
+  },
+  {
+    "slug": "ladakh",
+    "code": "LA",
+    "color": "#FF5722",
+    "exports": {
+      "FY 2020-2021": 0.03,
+      "FY 2021-2022": 0.02,
+      "FY 2022-2023": 0.03,
+      "FY 2023-2024": 0.0
+    },
+    "name": "Ladakh"
+  },
+  {
+    "slug": "lakshadweep",
+    "code": "LD",
+    "color": "#795548",
+    "exports": {
+      "FY 2020-2021": 0.04,
+      "FY 2021-2022": 0.0,
+      "FY 2022-2023": 0.16,
+      "FY 2023-2024": 0.16
+    },
+    "name": "Lakshadweep"
+  },
+  {
+    "slug": "madhyapradesh",
+    "code": "MP",
+    "color": "#9C27B0",
+    "exports": {
+      "FY 2020-2021": 7879.98,
+      "FY 2021-2022": 8218.22,
+      "FY 2022-2023": 7834.81,
+      "FY 2023-2024": 6477.32
+    },
+    "name": "Madhya Pradesh"
+  },
+  {
+    "slug": "maharashtra",
+    "code": "MH",
+    "color": "#4CAF50",
+    "exports": {
+      "FY 2020-2021": 67201.7,
+      "FY 2021-2022": 72437.52,
+      "FY 2022-2023": 73119.5,
+      "FY 2023-2024": 58383.19
+    },
+    "name": "Maharashtra"
+  },
+  {
+    "slug": "manipur",
+    "code": "MN",
+    "color": "#F44336",
+    "exports": {
+      "FY 2020-2021": 0.31,
+      "FY 2021-2022": 0.69,
+      "FY 2022-2023": 0.93,
+      "FY 2023-2024": 0.95
+    },
+    "name": "Manipur"
+  },
+  {
+    "slug": "meghalaya",
+    "code": "ML",
+    "color": "#E91E63",
+    "exports": {
+      "FY 2020-2021": 10.21,
+      "FY 2021-2022": 10.12,
+      "FY 2022-2023": 8.64,
+      "FY 2023-2024": 10.87
+    },
+    "name": "Meghalaya"
+  },
+  {
+    "slug": "mizoram",
+    "code": "MZ",
+    "color": "#9C27B0",
+    "exports": {
+      "FY 2020-2021": 0.06,
+      "FY 2021-2022": 0.04,
+      "FY 2022-2023": 3.83,
+      "FY 2023-2024": 0.69
+    },
+    "name": "Mizoram"
+  },
+  {
+    "slug": "nagaland",
+    "code": "NL",
+    "color": "#673AB7",
+    "exports": {
+      "FY 2020-2021": 1.38,
+      "FY 2021-2022": 1.36,
+      "FY 2022-2023": 1.14,
+      "FY 2023-2024": 6.06
+    },
+    "name": "Nagaland"
+  },
+  {
+    "slug": "odisha",
+    "code": "OR",
+    "color": "#3F51B5",
+    "exports": {
+      "FY 2020-2021": 11931.0,
+      "FY 2021-2022": 11222.99,
+      "FY 2022-2023": 17060.7,
+      "FY 2023-2024": 10228.44
+    },
+    "name": "Odisha"
+  },
+  {
+    "slug": "puducherry",
+    "code": "PY",
+    "color": "#2196F3",
+    "exports": {
+      "FY 2020-2021": 517.31,
+      "FY 2021-2022": 517.75,
+      "FY 2022-2023": 491.85,
+      "FY 2023-2024": 421.42
+    },
+    "name": "Puducherry"
+  },
+  {
+    "slug": "punjab",
+    "code": "PB",
+    "color": "#03A9F4",
+    "exports": {
+      "FY 2020-2021": 6744.67,
+      "FY 2021-2022": 6581.8,
+      "FY 2022-2023": 7095.65,
+      "FY 2023-2024": 5299.51
+    },
+    "name": "Punjab"
+  },
+  {
+    "slug": "rajasthan",
+    "code": "RJ",
+    "color": "#00BCD4",
+    "exports": {
+      "FY 2020-2021": 10108.75,
+      "FY 2021-2022": 9686.76,
+      "FY 2022-2023": 9654.59,
+      "FY 2023-2024": 6659.08
+    },
+    "name": "Rajasthan"
+  },
+  {
+    "slug": "sikkim",
+    "code": "SK",
+    "color": "#009688",
+    "exports": {
+      "FY 2020-2021": 17.24,
+      "FY 2021-2022": 19.08,
+      "FY 2022-2023": 18.91,
+      "FY 2023-2024": 9.36
+    },
+    "name": "Sikkim"
+  },
+  {
+    "slug": "tamilnadu",
+    "code": "TN",
+    "color": "#9C27B0",
+    "exports": {
+      "FY 2020-2021": 43553.89,
+      "FY 2021-2022": 40654.69,
+      "FY 2022-2023": 35169.43,
+      "FY 2023-2024": 26151.71
+    },
+    "name": "Tamil Nadu"
+  },
+  {
+    "slug": "telangana",
+    "code": "TG",
+    "color": "#FF4081",
+    "exports": {
+      "FY 2020-2021": 14025.77,
+      "FY 2021-2022": 11412.4,
+      "FY 2022-2023": 10995.38,
+      "FY 2023-2024": 8707.19
+    },
+    "name": "Telangana"
+  },
+  {
+    "slug": "tripura",
+    "code": "TR",
+    "color": "#7C4DFF",
+    "exports": {
+      "FY 2020-2021": 1.59,
+      "FY 2021-2022": 14.64,
+      "FY 2022-2023": 12.19,
+      "FY 2023-2024": 11.19
+    },
+    "name": "Tripura"
+  },
+  {
+    "slug": "unspecified",
+    "code": "UN",
+    "color": "#B388FF",
+    "exports": {
+      "FY 2020-2021": 8204.73,
+      "FY 2021-2022": 11720.79,
+      "FY 2022-2023": 5209.75,
+      "FY 2023-2024": 12912.17
+    },
+    "name": "Unspecified"
+  },
+  {
+    "slug": "uttarpradesh",
+    "code": "UP",
+    "color": "#FF5722",
+    "exports": {
+      "FY 2020-2021": 20571.87,
+      "FY 2021-2022": 21686.51,
+      "FY 2022-2023": 21034.17,
+      "FY 2023-2024": 16390.07
+    },
+    "name": "Uttar Pradesh"
+  },
+  {
+    "slug": "uttarakhand",
+    "code": "UK",
+    "color": "#FF7043",
+    "exports": {
+      "FY 2020-2021": 1804.95,
+      "FY 2021-2022": 1778.06,
+      "FY 2022-2023": 1933.99,
+      "FY 2023-2024": 2137.2
+    },
+    "name": "Uttarakhand"
+  },
+  {
+    "slug": "westbengal",
+    "code": "WB",
+    "color": "#FFAB91",
+    "exports": {
+      "FY 2020-2021": 11684.23,
+      "FY 2021-2022": 12748.62,
+      "FY 2022-2023": 13895.02,
+      "FY 2023-2024": 8968.21
+    },
+    "name": "West Bengal"
+  }
+]
