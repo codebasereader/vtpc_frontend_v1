@@ -30,6 +30,15 @@ const WarehousesList = lazy(() => import('../pages/admin/Warehouses/WarehousesLi
 const WarehouseForm = lazy(() => import('../pages/admin/Warehouses/WarehouseForm'))
 const GIProductsList = lazy(() => import('../pages/admin/GIProducts/GIProductsList'))
 const GIProductForm = lazy(() => import('../pages/admin/GIProducts/GIProductForm'))
+const DownloadCategoriesList = lazy(() => import('../pages/admin/DownloadCategories/DownloadCategoriesList'))
+const DownloadCategoryForm = lazy(() => import('../pages/admin/DownloadCategories/DownloadCategoryForm'))
+const DownloadsList = lazy(() => import('../pages/admin/Downloads/DownloadsList'))
+const DownloadForm = lazy(() => import('../pages/admin/Downloads/DownloadForm'))
+const PagesList = lazy(() => import('../pages/admin/Pages/PagesList'))
+const PageForm = lazy(() => import('../pages/admin/Pages/PageForm'))
+const NewsletterSubscribers = lazy(() => import('../pages/admin/Newsletter/NewsletterSubscribers'))
+const NewsletterIssues = lazy(() => import('../pages/admin/Newsletter/NewsletterIssues'))
+const VisitorAnalytics = lazy(() => import('../pages/admin/VisitorAnalytics'))
 
 const BUILT_SECTIONS = [
   'leaders',
@@ -43,6 +52,12 @@ const BUILT_SECTIONS = [
   'taluks',
   'warehouses',
   'giProducts',
+  'downloadCategories',
+  'downloads',
+  'pages',
+  'newsletterSubscribers',
+  'newsletterIssues',
+  'visitorAnalytics',
 ]
 const COMING_SOON_SECTIONS = ADMIN_SECTIONS.filter((section) => !BUILT_SECTIONS.includes(section.key))
 
@@ -323,6 +338,102 @@ export default function AdminRoutes() {
             element={
               <ProtectedRoute>
                 <GIProductForm />
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path="download-categories"
+            element={
+              <ProtectedRoute>
+                <DownloadCategoriesList />
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path="download-categories/new"
+            element={
+              <ProtectedRoute>
+                <DownloadCategoryForm />
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path="download-categories/:id/edit"
+            element={
+              <ProtectedRoute>
+                <DownloadCategoryForm />
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path="downloads"
+            element={
+              <ProtectedRoute>
+                <DownloadsList />
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path="downloads/new"
+            element={
+              <ProtectedRoute>
+                <DownloadForm />
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path="downloads/:id/edit"
+            element={
+              <ProtectedRoute>
+                <DownloadForm />
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path="pages"
+            element={
+              <ProtectedRoute>
+                <PagesList />
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path="pages/new"
+            element={
+              <ProtectedRoute>
+                <PageForm />
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path="pages/:id/edit"
+            element={
+              <ProtectedRoute>
+                <PageForm />
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path="newsletter-subscribers"
+            element={
+              <ProtectedRoute>
+                <NewsletterSubscribers />
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path="newsletter-issues"
+            element={
+              <ProtectedRoute>
+                <NewsletterIssues />
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path="visitor-analytics"
+            element={
+              <ProtectedRoute>
+                <VisitorAnalytics />
               </ProtectedRoute>
             }
           />

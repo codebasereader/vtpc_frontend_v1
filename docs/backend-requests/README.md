@@ -21,5 +21,7 @@ general reference.
 | [`05-market-intelligence.md`](./05-market-intelligence.md) | Market Intelligence section — three new resources (`StateExport`, `TopProduct`, `CountryProduct`) with real extracted data attached, bulk-replace endpoints instead of per-row CRUD |
 | [`06-live-site-data-audit.md`](./06-live-site-data-audit.md) | Audit of the live site for Focus Sectors / Warehouse Facilities / Market Intelligence — corrected 4 wrong FocusSector entries to the real 8, confirmed Warehouse Facilities has no real data anywhere, confirmed Market Intelligence already matches |
 | [`07-gi-treasures.md`](./07-gi-treasures.md) | Karnataka GI Treasures + Artisanal Stories — `GIProduct`/`Enquiry` confirmed sufficient, real 25-product dataset + craft videos seeded, one new `featured` boolean field requested and added |
+| [`08-downloads.md`](./08-downloads.md) | Downloads page — new `DownloadCategory` resource, `Download.category` changed from a fixed enum to a free reference, new `parent`/`order` fields for two-level nested documents |
+| [`09-footer-newsletter-visitors.md`](./09-footer-newsletter-visitors.md) | Footer redesign — `GET /admin/pages` list route, new `NewsletterIssue` (monthly archive + send) and `SiteVisit` (day-wise counter) resources, new `GET /last-updated` endpoint |
 
 Status legend: 🔴 blocking · 🟡 should fix · 🟢 fixed / confirmed working

@@ -1,0 +1,151 @@
+import { useEffect, useState } from 'react'
+import { Link } from 'react-router-dom'
+import { Plus, Pencil, Trash2, Check, X, FileText, ExternalLink } from 'lucide-react'
+import { getPages, deletePage } from '../../../../api/pagesApi'
+import { ROUTES } from '../../../../constants/routes'
+import { getBilingualText } from '../../../../lib/bilingual'
+
+export default function PagesList() {
+  const [pages, setPages] = useState([])
+  const [isLoading, setIsLoading] = useState(true)
+  const [error, setError] = useState('')
+  const [pendingDeleteId, setPendingDeleteId] = useState(null)
+  const [isDeleting, setIsDeleting] = useState(false)
+
+  useEffect(() => {
+    let isMounted = true
+    getPages()
+      .then((data) => {
+        if (isMounted) setPages(data)
+      })
+      .catch((err) => {
+        if (isMounted) setError(err.message || 'Failed to load pages.')
+      })
+      .finally(() => {
+        if (isMounted) setIsLoading(false)
+      })
+    return () => {
+      isMounted = false
+    }
+  }, [])
+
+  async function handleConfirmDelete(id) {
+    setIsDeleting(true)
+    try {
+      await deletePage(id)
+      setPages(pages.filter((page) => page.id !== id))
+      setPendingDeleteId(null)
+    } catch (err) {
+      setError(err.message || 'Failed to delete page.')
+    } finally {
+      setIsDeleting(false)
+    }
+  }
+
+  return (
+    <div>
+      <div className="flex items-center justify-between">
+        <div>
+          <h1 className="text-2xl font-bold text-brand-dark">Pages</h1>
+          <p className="mt-1 text-sm text-gray-600">
+            Website Policies and other static pages (Privacy Policy, Terms &amp; Conditions, Help, etc.), shown in
+            the footer and reachable at <code className="text-xs">/&lt;slug&gt;</code>.
+          </p>
+        </div>
+        <Link
+          to={`${ROUTES.ADMIN_PAGES}/new`}
+          className="flex items-center gap-2 rounded-lg bg-brand-primary px-4 py-2.5 text-sm font-medium text-white transition-colors hover:bg-brand-primary-dark"
+        >
+          <Plus size={18} strokeWidth={2} />
+          Add Page
+        </Link>
+      </div>
+
+      {error && (
+        <p role="alert" className="mt-4 rounded-lg bg-red-50 px-3 py-2 text-sm text-red-700">
+          {error}
+        </p>
+      )}
+
+      {isLoading && <p className="mt-8 text-center text-gray-600">Loading pages…</p>}
+
+      {!isLoading && pages.length === 0 && !error && (
+        <p className="mt-8 rounded-xl border border-dashed border-brand-divider p-8 text-center text-gray-600">
+          No pages yet. Add the first one above.
+        </p>
+      )}
+
+      {!isLoading && pages.length > 0 && (
+        <ul className="mt-6 flex flex-col gap-3">
+          {pages.map((page) => {
+            const titleEn = getBilingualText(page.title, 'en')
+            const titleKn = getBilingualText(page.title, 'kn')
+            return (
+              <li key={page.id} className="flex items-center gap-4 rounded-xl border border-brand-divider bg-white p-4">
+                <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-brand-page text-brand-navy">
+                  <FileText size={18} aria-hidden="true" />
+                </span>
+
+                <div className="min-w-0 flex-1">
+                  <p className="font-semibold text-brand-dark">{titleEn}</p>
+                  {titleKn && <p className="truncate text-sm text-gray-600">{titleKn}</p>}
+                  <a
+                    href={`/${page.id}`}
+                    target="_blank"
+                    rel="noreferrer"
+                    className="mt-0.5 inline-flex items-center gap-1 text-xs text-brand-primary hover:underline"
+                  >
+                    /{page.id}
+                    <ExternalLink size={11} aria-hidden="true" />
+                  </a>
+                </div>
+
+                {pendingDeleteId === page.id ? (
+                  <div className="flex shrink-0 items-center gap-2">
+                    <span className="text-sm text-gray-600">Delete?</span>
+                    <button
+                      type="button"
+                      onClick={() => handleConfirmDelete(page.id)}
+                      disabled={isDeleting}
+                      aria-label={`Confirm delete ${titleEn}`}
+                      className="rounded-md bg-red-600 p-1.5 text-white hover:bg-red-700"
+                    >
+                      <Check size={16} />
+                    </button>
+                    <button
+                      type="button"
+                      onClick={() => setPendingDeleteId(null)}
+                      disabled={isDeleting}
+                      aria-label="Cancel delete"
+                      className="rounded-md border border-brand-divider p-1.5 text-gray-600 hover:bg-gray-50"
+                    >
+                      <X size={16} />
+                    </button>
+                  </div>
+                ) : (
+                  <div className="flex shrink-0 items-center gap-1">
+                    <Link
+                      to={`${ROUTES.ADMIN_PAGES}/${page.id}/edit`}
+                      aria-label={`Edit ${titleEn}`}
+                      className="rounded-md p-2 text-gray-500 hover:bg-brand-page hover:text-brand-navy"
+                    >
+                      <Pencil size={16} />
+                    </Link>
+                    <button
+                      type="button"
+                      onClick={() => setPendingDeleteId(page.id)}
+                      aria-label={`Delete ${titleEn}`}
+                      className="rounded-md p-2 text-gray-500 hover:bg-red-50 hover:text-red-600"
+                    >
+                      <Trash2 size={16} />
+                    </button>
+                  </div>
+                )}
+              </li>
+            )
+          })}
+        </ul>
+      )}
+    </div>
+  )
+}

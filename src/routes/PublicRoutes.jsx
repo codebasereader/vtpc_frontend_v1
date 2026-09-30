@@ -5,6 +5,8 @@ import Home from '../pages/public/Home'
 import Events from '../pages/public/Events'
 import AboutUs from '../pages/public/AboutUs'
 import GeographicalIndications from '../pages/public/GeographicalIndications'
+import Downloads from '../pages/public/Downloads'
+import LegalPage from '../pages/public/LegalPage'
 import NotFound from '../pages/public/NotFound'
 import { ROUTES } from '../constants/routes'
 
@@ -20,6 +22,7 @@ export default function PublicRoutes() {
         <Route path={ROUTES.EVENTS} element={<Events />} />
         <Route path={ROUTES.ABOUT_US} element={<AboutUs />} />
         <Route path={ROUTES.GEOGRAPHICAL_INDICATIONS} element={<GeographicalIndications />} />
+        <Route path={ROUTES.DOWNLOADS} element={<Downloads />} />
         <Route
           path={ROUTES.EXPORTER_CORNER}
           element={
@@ -28,6 +31,7 @@ export default function PublicRoutes() {
             </Suspense>
           }
         />
+        <Route path={ROUTES.PAGE} element={<LegalPage />} />
         <Route path="*" element={<NotFound />} />
       </Route>
     </Routes>

@@ -21,7 +21,11 @@ export const ROUTES = {
   ADMIN_CITIES: '/admin/cities',
   ADMIN_EVENT_SECTORS: '/admin/event-sectors',
   ADMIN_DOWNLOADS: '/admin/downloads',
+  ADMIN_DOWNLOAD_CATEGORIES: '/admin/download-categories',
   ADMIN_PAGES: '/admin/pages',
   ADMIN_TALUKS: '/admin/taluks',
   ADMIN_WAREHOUSES: '/admin/warehouses',
+  ADMIN_NEWSLETTER_SUBSCRIBERS: '/admin/newsletter-subscribers',
+  ADMIN_NEWSLETTER_ISSUES: '/admin/newsletter-issues',
+  ADMIN_VISITOR_ANALYTICS: '/admin/visitor-analytics',
 }

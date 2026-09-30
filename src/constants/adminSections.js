@@ -13,6 +13,10 @@ import {
   Tags,
   Signpost,
   Warehouse,
+  FolderTree,
+  Mail,
+  Send,
+  BarChart3,
 } from 'lucide-react'
 import { ROUTES } from './routes'
 
@@ -68,8 +72,38 @@ export const ADMIN_NAV_GROUPS = [
     label: 'Content & Resources',
     items: [
       { key: 'giProducts', title: 'GI Products', path: ROUTES.ADMIN_GI_PRODUCTS, icon: Award },
+      {
+        key: 'downloadCategories',
+        title: 'Download Categories',
+        path: ROUTES.ADMIN_DOWNLOAD_CATEGORIES,
+        icon: FolderTree,
+      },
       { key: 'downloads', title: 'Downloads', path: ROUTES.ADMIN_DOWNLOADS, icon: FileDown },
       { key: 'pages', title: 'Pages', path: ROUTES.ADMIN_PAGES, icon: FileText },
+    ],
+  },
+  {
+    id: 'siteAndNewsletter',
+    label: 'Site & Newsletter',
+    items: [
+      {
+        key: 'newsletterSubscribers',
+        title: 'Newsletter Subscribers',
+        path: ROUTES.ADMIN_NEWSLETTER_SUBSCRIBERS,
+        icon: Mail,
+      },
+      {
+        key: 'newsletterIssues',
+        title: 'Send Newsletter',
+        path: ROUTES.ADMIN_NEWSLETTER_ISSUES,
+        icon: Send,
+      },
+      {
+        key: 'visitorAnalytics',
+        title: 'Visitor Analytics',
+        path: ROUTES.ADMIN_VISITOR_ANALYTICS,
+        icon: BarChart3,
+      },
     ],
   },
 ]
