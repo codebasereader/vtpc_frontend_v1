@@ -61,6 +61,37 @@ export const common = {
     },
   },
   contactButton: { en: 'Contact Us', kn: 'ಸಂಪರ್ಕಿಸಿ' },
+  contactModal: {
+    title: { en: 'Contact Us', kn: 'ನಮ್ಮನ್ನು ಸಂಪರ್ಕಿಸಿ' },
+    subtitle: {
+      en: 'Send us your enquiry and our team will get back to you.',
+      kn: 'ನಿಮ್ಮ ವಿಚಾರಣೆಯನ್ನು ನಮಗೆ ಕಳುಹಿಸಿ, ನಮ್ಮ ತಂಡ ನಿಮ್ಮನ್ನು ಸಂಪರ್ಕಿಸುತ್ತದೆ.',
+    },
+    name: { en: 'Name', kn: 'ಹೆಸರು' },
+    email: { en: 'Email', kn: 'ಇಮೇಲ್' },
+    phone: { en: 'Phone', kn: 'ಫೋನ್' },
+    optional: { en: 'optional', kn: 'ಐಚ್ಛಿಕ' },
+    enquiry: { en: 'Your enquiry', kn: 'ನಿಮ್ಮ ವಿಚಾರಣೆ' },
+    namePlaceholder: { en: 'Your full name', kn: 'ನಿಮ್ಮ ಪೂರ್ಣ ಹೆಸರು' },
+    emailPlaceholder: { en: 'you@example.com', kn: 'you@example.com' },
+    phonePlaceholder: { en: '+91 98765 43210', kn: '+91 98765 43210' },
+    enquiryPlaceholder: { en: 'How can we help you?', kn: 'ನಾವು ನಿಮಗೆ ಹೇಗೆ ಸಹಾಯ ಮಾಡಬಹುದು?' },
+    submit: { en: 'Send enquiry', kn: 'ವಿಚಾರಣೆ ಕಳುಹಿಸಿ' },
+    submitting: { en: 'Sending…', kn: 'ಕಳುಹಿಸಲಾಗುತ್ತಿದೆ…' },
+    successTitle: { en: 'Thank you!', kn: 'ಧನ್ಯವಾದಗಳು!' },
+    successBody: {
+      en: 'Your enquiry has been received. Our team will contact you shortly.',
+      kn: 'ನಿಮ್ಮ ವಿಚಾರಣೆ ಸ್ವೀಕರಿಸಲಾಗಿದೆ. ನಮ್ಮ ತಂಡ ಶೀಘ್ರದಲ್ಲೇ ನಿಮ್ಮನ್ನು ಸಂಪರ್ಕಿಸುತ್ತದೆ.',
+    },
+    close: { en: 'Close', kn: 'ಮುಚ್ಚಿ' },
+    error: {
+      en: 'Something went wrong. Please try again.',
+      kn: 'ಏನೋ ತಪ್ಪಾಗಿದೆ. ದಯವಿಟ್ಟು ಮತ್ತೆ ಪ್ರಯತ್ನಿಸಿ.',
+    },
+    invalidEmail: { en: 'Please enter a valid email address.', kn: 'ದಯವಿಟ್ಟು ಮಾನ್ಯ ಇಮೇಲ್ ವಿಳಾಸವನ್ನು ನಮೂದಿಸಿ.' },
+    invalidPhone: { en: 'Please enter a valid phone number.', kn: 'ದಯವಿಟ್ಟು ಮಾನ್ಯ ಫೋನ್ ಸಂಖ್ಯೆಯನ್ನು ನಮೂದಿಸಿ.' },
+    required: { en: 'This field is required.', kn: 'ಈ ಕ್ಷೇತ್ರ ಕಡ್ಡಾಯ.' },
+  },
   notFound: {
     title: { en: 'Page not found', kn: 'ಪುಟ ಕಂಡುಬಂದಿಲ್ಲ' },
     body: {

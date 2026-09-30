@@ -17,6 +17,8 @@ import {
   Send,
   MailCheck,
   BarChart3,
+  MessageSquare,
+  PhoneCall,
 } from 'lucide-react'
 import { ROUTES } from './routes'
 
@@ -71,6 +73,7 @@ export const ADMIN_NAV_GROUPS = [
     label: 'Content & Resources',
     items: [
       { key: 'giProducts', title: 'GI Products', path: ROUTES.ADMIN_GI_PRODUCTS, icon: Award },
+      { key: 'giEnquiries', title: 'GI Enquiries', path: ROUTES.ADMIN_GI_ENQUIRIES, icon: MessageSquare },
       {
         key: 'downloadCategories',
         title: 'Download Categories',
@@ -85,6 +88,12 @@ export const ADMIN_NAV_GROUPS = [
     id: 'siteAndNewsletter',
     label: 'Site & Newsletter',
     items: [
+      {
+        key: 'contactEnquiries',
+        title: 'Contact Enquiries',
+        path: ROUTES.ADMIN_CONTACT_ENQUIRIES,
+        icon: PhoneCall,
+      },
       {
         key: 'newsletterSubscribers',
         title: 'Newsletter Subscribers',

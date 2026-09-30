@@ -5,6 +5,7 @@ import { getNewsletterSubscribers, setNewsletterSubscriberStatus } from '../../.
 import { ROUTES } from '../../../../constants/routes'
 import { SearchInput, DateRangeFilter, NoResults } from '../../../../components/ListFilters'
 import ConfirmDialog from '../../../../components/ConfirmDialog'
+import ToggleSwitch from '../../../../components/ToggleSwitch'
 import { matchesSearch, isWithinDates } from '../../../../lib/search'
 
 const STATUS_TABS = [
@@ -80,19 +81,22 @@ export default function NewsletterSubscribers() {
   )
   const isFiltered = Boolean(search.trim() || dateRange.from || dateRange.to || statusFilter !== 'all')
 
+  // Optimistic: the row flips immediately and rolls back if the server refuses.
   async function changeStatus(sub, status) {
     setError('')
     setUpdatingEmail(sub.email)
+    setPendingBlock(null)
+    const previousStatus = sub.status
+    setSubscribers((prev) => prev.map((item) => (item.email === sub.email ? { ...item, status } : item)))
     try {
       if (!sub.id) throw new Error('The server did not return an id for this subscriber, so it cannot be updated yet.')
       const updated = await setNewsletterSubscriberStatus(sub.id, status)
       setSubscribers((prev) =>
         prev.map((item) => (item.email === sub.email ? { ...item, ...updated, status: updated?.status || status } : item)),
       )
-      setPendingBlock(null)
     } catch (err) {
+      setSubscribers((prev) => prev.map((item) => (item.email === sub.email ? { ...item, status: previousStatus } : item)))
       setError(err.message || 'Failed to update the subscriber.')
-      setPendingBlock(null)
     } finally {
       setUpdatingEmail(null)
     }
@@ -212,7 +216,7 @@ export default function NewsletterSubscribers() {
               {visibleSubscribers.map((sub) => {
                 const blocked = isBlocked(sub)
                 return (
-                  <tr key={sub.id || sub.email} className="transition-colors hover:bg-brand-page/60">
+                  <tr key={sub.id || sub.email} className="transition-colors duration-300 hover:bg-brand-page/60">
                     <td className="px-4 py-3">
                       <span
                         className={`flex items-center gap-2 font-medium ${blocked ? 'text-gray-400 line-through' : 'text-brand-dark'}`}
@@ -227,29 +231,18 @@ export default function NewsletterSubscribers() {
                     <td className="px-4 py-3">
                       <div className="flex items-center justify-end gap-3">
                         <span
-                          className={`rounded-full px-2.5 py-1 text-xs font-semibold ${
+                          className={`rounded-full px-2.5 py-1 text-xs font-semibold transition-colors duration-300 ${
                             blocked ? 'bg-red-50 text-red-700' : 'bg-green-50 text-green-700'
                           }`}
                         >
                           {blocked ? 'Blocked' : 'Active'}
                         </span>
-                        <button
-                          type="button"
-                          role="switch"
-                          aria-checked={!blocked}
-                          aria-label={`${blocked ? 'Unblock' : 'Block'} ${sub.email}`}
-                          disabled={updatingEmail === sub.email}
-                          onClick={() => handleToggle(sub)}
-                          className={`relative h-6 w-11 shrink-0 rounded-full transition-colors disabled:opacity-60 ${
-                            blocked ? 'bg-gray-300' : 'bg-green-500'
-                          }`}
-                        >
-                          <span
-                            className={`absolute top-0.5 h-5 w-5 rounded-full bg-white shadow transition-transform ${
-                              blocked ? 'translate-x-0.5' : 'translate-x-[22px]'
-                            }`}
-                          />
-                        </button>
+                        <ToggleSwitch
+                          checked={!blocked}
+                          label={`${blocked ? 'Unblock' : 'Block'} ${sub.email}`}
+                          busy={updatingEmail === sub.email}
+                          onChange={() => handleToggle(sub)}
+                        />
                       </div>
                     </td>
                   </tr>
@@ -269,7 +262,6 @@ export default function NewsletterSubscribers() {
             : ''
         }
         confirmLabel="Block subscriber"
-        isBusy={Boolean(pendingBlock) && updatingEmail === pendingBlock.email}
         onConfirm={() => changeStatus(pendingBlock, 'blocked')}
         onCancel={() => setPendingBlock(null)}
       />

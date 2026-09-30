@@ -1,0 +1,138 @@
+- generic [ref=e15]:
+  - complementary [ref=e16]:
+    - button "Expand sidebar" [ref=e18]
+    - navigation [ref=e22]:
+      - link "Dashboard" [ref=e23] [cursor=pointer]:
+        - /url: /admin/dashboard
+      - generic [ref=e32]:
+        - link "Leaders" [ref=e33] [cursor=pointer]:
+          - /url: /admin/leaders
+        - link "Districts" [ref=e39] [cursor=pointer]:
+          - /url: /admin/districts
+        - link "Focus Sectors" [ref=e42] [cursor=pointer]:
+          - /url: /admin/focus-sectors
+      - generic [ref=e49]:
+        - link "Events" [ref=e50] [cursor=pointer]:
+          - /url: /admin/events
+        - link "Cities" [ref=e53] [cursor=pointer]:
+          - /url: /admin/cities
+        - link "Event Sectors" [ref=e57] [cursor=pointer]:
+          - /url: /admin/event-sectors
+      - generic [ref=e64]:
+        - link "Offices" [ref=e65] [cursor=pointer]:
+          - /url: /admin/offices
+        - link "Org Chart" [ref=e69] [cursor=pointer]:
+          - /url: /admin/org-chart
+        - link "Governing Council" [ref=e74] [cursor=pointer]:
+          - /url: /admin/governing-council
+      - generic [ref=e82]:
+        - link "Taluks" [ref=e83] [cursor=pointer]:
+          - /url: /admin/taluks
+        - link "Warehouses" [ref=e86] [cursor=pointer]:
+          - /url: /admin/warehouses
+      - generic [ref=e92]:
+        - link "GI Products" [ref=e93] [cursor=pointer]:
+          - /url: /admin/gi-products
+        - link "GI Enquiries" [ref=e97] [cursor=pointer]:
+          - /url: /admin/gi-enquiries
+        - link "Download Categories" [ref=e100] [cursor=pointer]:
+          - /url: /admin/download-categories
+        - link "Downloads" [ref=e106] [cursor=pointer]:
+          - /url: /admin/downloads
+        - link "Pages" [ref=e111] [cursor=pointer]:
+          - /url: /admin/pages
+      - generic [ref=e117]:
+        - link "Newsletter Subscribers" [ref=e118] [cursor=pointer]:
+          - /url: /admin/newsletter-subscribers
+        - link "Send Newsletter" [ref=e122] [cursor=pointer]:
+          - /url: /admin/newsletter-issues
+        - link "Sent Newsletters" [ref=e126] [cursor=pointer]:
+          - /url: /admin/newsletters-sent
+        - link "Visitor Analytics" [ref=e131] [cursor=pointer]:
+          - /url: /admin/visitor-analytics
+    - generic [ref=e134]:
+      - generic [ref=e135]: E
+      - button "Log out" [ref=e137]
+  - main [ref=e141]:
+    - generic [ref=e142]:
+      - heading "Welcome, Editor" [level=1] [ref=e143]
+      - paragraph [ref=e144]: Choose a section to manage.
+      - generic [ref=e145]:
+        - generic [ref=e146]:
+          - heading "Home Page" [level=2] [ref=e147]
+          - generic [ref=e148]:
+            - link [ref=e149] [cursor=pointer]:
+              - /url: /admin/leaders
+              - heading "Leaders" [level=3] [ref=e157]
+            - link [ref=e160] [cursor=pointer]:
+              - /url: /admin/districts
+              - heading "Districts" [level=3] [ref=e165]
+            - link [ref=e168] [cursor=pointer]:
+              - /url: /admin/focus-sectors
+              - heading "Focus Sectors" [level=3] [ref=e175]
+        - generic [ref=e178]:
+          - heading "Events" [level=2] [ref=e179]
+          - generic [ref=e180]:
+            - link [ref=e181] [cursor=pointer]:
+              - /url: /admin/events
+              - heading "Events" [level=3] [ref=e186]
+            - link [ref=e189] [cursor=pointer]:
+              - /url: /admin/cities
+              - heading "Cities" [level=3] [ref=e195]
+            - link [ref=e198] [cursor=pointer]:
+              - /url: /admin/event-sectors
+              - heading "Event Sectors" [level=3] [ref=e205]
+        - generic [ref=e208]:
+          - heading "Organisation" [level=2] [ref=e209]
+          - generic [ref=e210]:
+            - link [ref=e211] [cursor=pointer]:
+              - /url: /admin/offices
+              - heading "Offices" [level=3] [ref=e217]
+            - link [ref=e220] [cursor=pointer]:
+              - /url: /admin/org-chart
+              - heading "Org Chart" [level=3] [ref=e227]
+            - link [ref=e230] [cursor=pointer]:
+              - /url: /admin/governing-council
+              - heading "Governing Council" [level=3] [ref=e238]
+        - generic [ref=e241]:
+          - heading "Exporter Corner" [level=2] [ref=e242]
+          - generic [ref=e243]:
+            - link [ref=e244] [cursor=pointer]:
+              - /url: /admin/taluks
+              - heading "Taluks" [level=3] [ref=e249]
+            - link [ref=e252] [cursor=pointer]:
+              - /url: /admin/warehouses
+              - heading "Warehouses" [level=3] [ref=e258]
+        - generic [ref=e261]:
+          - heading "Content & Resources" [level=2] [ref=e262]
+          - generic [ref=e263]:
+            - link [ref=e264] [cursor=pointer]:
+              - /url: /admin/gi-products
+              - heading "GI Products" [level=3] [ref=e270]
+            - link [ref=e273] [cursor=pointer]:
+              - /url: /admin/gi-enquiries
+              - heading "GI Enquiries" [level=3] [ref=e278]
+            - link [ref=e281] [cursor=pointer]:
+              - /url: /admin/download-categories
+              - heading "Download Categories" [level=3] [ref=e289]
+            - link [ref=e292] [cursor=pointer]:
+              - /url: /admin/downloads
+              - heading "Downloads" [level=3] [ref=e299]
+            - link [ref=e302] [cursor=pointer]:
+              - /url: /admin/pages
+              - heading "Pages" [level=3] [ref=e308]
+        - generic [ref=e311]:
+          - heading "Site & Newsletter" [level=2] [ref=e312]
+          - generic [ref=e313]:
+            - link [ref=e314] [cursor=pointer]:
+              - /url: /admin/newsletter-subscribers
+              - heading "Newsletter Subscribers" [level=3] [ref=e320]
+            - link [ref=e323] [cursor=pointer]:
+              - /url: /admin/newsletter-issues
+              - heading "Send Newsletter" [level=3] [ref=e329]
+            - link [ref=e332] [cursor=pointer]:
+              - /url: /admin/newsletters-sent
+              - heading "Sent Newsletters" [level=3] [ref=e339]
+            - link [ref=e342] [cursor=pointer]:
+              - /url: /admin/visitor-analytics
+              - heading "Visitor Analytics" [level=3] [ref=e347]

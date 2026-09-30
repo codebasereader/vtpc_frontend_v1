@@ -13,6 +13,8 @@ export const ROUTES = {
   ADMIN_DISTRICTS: '/admin/districts',
   ADMIN_FOCUS_SECTORS: '/admin/focus-sectors',
   ADMIN_GI_PRODUCTS: '/admin/gi-products',
+  ADMIN_GI_ENQUIRIES: '/admin/gi-enquiries',
+  ADMIN_CONTACT_ENQUIRIES: '/admin/contact-enquiries',
   ADMIN_OFFICES: '/admin/offices',
   ADMIN_ORG_CHART: '/admin/org-chart',
   ADMIN_GOVERNING_COUNCIL: '/admin/governing-council',

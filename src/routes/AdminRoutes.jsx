@@ -32,6 +32,8 @@ const GIProductsList = lazy(() => import('../pages/admin/GIProducts/GIProductsLi
 const GIProductForm = lazy(() => import('../pages/admin/GIProducts/GIProductForm'))
 const FocusSectorsList = lazy(() => import('../pages/admin/FocusSectors/FocusSectorsList'))
 const FocusSectorForm = lazy(() => import('../pages/admin/FocusSectors/FocusSectorForm'))
+const GIEnquiries = lazy(() => import('../pages/admin/GIEnquiries'))
+const ContactEnquiries = lazy(() => import('../pages/admin/ContactEnquiries'))
 const DownloadCategoriesList = lazy(() => import('../pages/admin/DownloadCategories/DownloadCategoriesList'))
 const DownloadCategoryForm = lazy(() => import('../pages/admin/DownloadCategories/DownloadCategoryForm'))
 const DownloadsList = lazy(() => import('../pages/admin/Downloads/DownloadsList'))
@@ -55,6 +57,8 @@ const BUILT_SECTIONS = [
   'taluks',
   'warehouses',
   'giProducts',
+  'giEnquiries',
+  'contactEnquiries',
   'focusSectors',
   'downloadCategories',
   'downloads',
@@ -367,6 +371,22 @@ export default function AdminRoutes() {
             element={
               <ProtectedRoute>
                 <FocusSectorForm />
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path="contact-enquiries"
+            element={
+              <ProtectedRoute>
+                <ContactEnquiries />
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path="gi-enquiries"
+            element={
+              <ProtectedRoute>
+                <GIEnquiries />
               </ProtectedRoute>
             }
           />

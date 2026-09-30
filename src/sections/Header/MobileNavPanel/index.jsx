@@ -57,7 +57,7 @@ export default function MobileNavPanel({ isOpen, onNavigate }) {
       <aside
         aria-hidden={!isOpen}
         inert={!isOpen}
-        className={`fixed inset-y-0 right-0 z-50 flex h-dvh w-full flex-col bg-white transition-transform duration-300 ease-out ${isOpen ? 'translate-x-0' : 'translate-x-full'}`}
+        className={`fixed inset-y-0 right-0 z-50 flex h-dvh w-full flex-col bg-white transition-transform duration-300 ease-[cubic-bezier(0.22,1,0.36,1)] ${isOpen ? 'translate-x-0' : 'translate-x-full'}`}
       >
         <div className="flex items-center justify-end border-b border-brand-divider px-4 py-3">
           <button
