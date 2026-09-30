@@ -4,6 +4,8 @@ import { Plus, Pencil, Eye, Trash2, Check, X, MapPin } from 'lucide-react'
 import { getDistricts, deleteDistrict } from '../../../../api/districtsApi'
 import { ROUTES } from '../../../../constants/routes'
 import RecordDrawer from '../../../../components/RecordDrawer'
+import { SearchInput, NoResults } from '../../../../components/ListFilters'
+import { filterBySearch } from '../../../../lib/search'
 
 export default function DistrictsList() {
   const [districts, setDistricts] = useState([])
@@ -11,6 +13,7 @@ export default function DistrictsList() {
   const [error, setError] = useState('')
   const [pendingDeleteId, setPendingDeleteId] = useState(null)
   const [viewing, setViewing] = useState(null)
+  const [search, setSearch] = useState('')
   const [isDeleting, setIsDeleting] = useState(false)
 
   useEffect(() => {
@@ -43,6 +46,8 @@ export default function DistrictsList() {
     }
   }
 
+  const shown = filterBySearch(districts, search)
+
   return (
     <div>
       <div className="flex items-center justify-between">
@@ -62,6 +67,13 @@ export default function DistrictsList() {
         </p>
       )}
 
+      {!isLoading && districts.length > 0 && (
+        <div className="mt-5">
+          <SearchInput value={search} onChange={setSearch} placeholder="Search districts…" />
+        </div>
+      )}
+      {!isLoading && search && districts.length > 0 && shown.length === 0 && <NoResults query={search} />}
+
       {isLoading && <p className="mt-8 text-center text-gray-600">Loading districts…</p>}
 
       {!isLoading && districts.length === 0 && !error && (
@@ -72,7 +84,7 @@ export default function DistrictsList() {
 
       {!isLoading && districts.length > 0 && (
         <ul className="mt-6 flex flex-col gap-3">
-          {districts.map((district) => (
+          {shown.map((district) => (
             <li
               key={district.id}
               className="flex items-center gap-4 rounded-xl border border-brand-divider bg-white p-4"

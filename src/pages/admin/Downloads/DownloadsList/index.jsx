@@ -6,6 +6,8 @@ import { getDownloadCategories } from '../../../../api/downloadCategoriesApi'
 import { ROUTES } from '../../../../constants/routes'
 import { getBilingualText } from '../../../../lib/bilingual'
 import RecordDrawer from '../../../../components/RecordDrawer'
+import { SearchInput, NoResults } from '../../../../components/ListFilters'
+import { matchesSearch } from '../../../../lib/search'
 
 export default function DownloadsList() {
   const [downloads, setDownloads] = useState([])
@@ -14,6 +16,7 @@ export default function DownloadsList() {
   const [error, setError] = useState('')
   const [pendingDeleteId, setPendingDeleteId] = useState(null)
   const [viewing, setViewing] = useState(null)
+  const [search, setSearch] = useState('')
   const [isDeleting, setIsDeleting] = useState(false)
   const [categoryFilter, setCategoryFilter] = useState('all')
 
@@ -50,7 +53,9 @@ export default function DownloadsList() {
   // sub-documents, filtered by category, and further filtered by the
   // category picker above the table.
   const rows = useMemo(() => {
-    const filtered = categoryFilter === 'all' ? downloads : downloads.filter((d) => d.category === categoryFilter)
+    const filtered = downloads
+      .filter((d) => categoryFilter === 'all' || d.category === categoryFilter)
+      .filter((d) => matchesSearch(d, search))
     const topLevel = filtered.filter((d) => !d.parent).sort((a, b) => (a.order ?? 0) - (b.order ?? 0))
     const children = filtered.filter((d) => d.parent)
     const out = []
@@ -69,7 +74,7 @@ export default function DownloadsList() {
       if (!shown.has(child.id)) out.push({ ...child, depth: 1 })
     })
     return out
-  }, [downloads, categoryFilter])
+  }, [downloads, categoryFilter, search])
 
   async function handleConfirmDelete(id) {
     setIsDeleting(true)
@@ -139,6 +144,13 @@ export default function DownloadsList() {
         </div>
       )}
 
+      {!isLoading && downloads.length > 0 && (
+        <div className="mt-4">
+          <SearchInput value={search} onChange={setSearch} placeholder="Search downloads…" />
+        </div>
+      )}
+      {!isLoading && search && downloads.length > 0 && rows.length === 0 && <NoResults query={search} />}
+
       {isLoading && <p className="mt-8 text-center text-gray-600">Loading downloads…</p>}
 
       {!isLoading && categories.length === 0 && (
@@ -151,7 +163,7 @@ export default function DownloadsList() {
         </p>
       )}
 
-      {!isLoading && categories.length > 0 && rows.length === 0 && !error && (
+      {!isLoading && categories.length > 0 && rows.length === 0 && !search && !error && (
         <p className="mt-8 rounded-xl border border-dashed border-brand-divider p-8 text-center text-gray-600">
           No documents yet. Add the first one above.
         </p>

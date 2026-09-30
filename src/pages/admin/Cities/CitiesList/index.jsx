@@ -4,6 +4,8 @@ import { Plus, Pencil, Eye, Trash2, Check, X, MapPin } from 'lucide-react'
 import { getCities, deleteCity } from '../../../../api/citiesApi'
 import { ROUTES } from '../../../../constants/routes'
 import RecordDrawer from '../../../../components/RecordDrawer'
+import { SearchInput, NoResults } from '../../../../components/ListFilters'
+import { filterBySearch } from '../../../../lib/search'
 
 export default function CitiesList() {
   const [cities, setCities] = useState([])
@@ -11,6 +13,7 @@ export default function CitiesList() {
   const [error, setError] = useState('')
   const [pendingDeleteId, setPendingDeleteId] = useState(null)
   const [viewing, setViewing] = useState(null)
+  const [search, setSearch] = useState('')
   const [isDeleting, setIsDeleting] = useState(false)
 
   useEffect(() => {
@@ -43,6 +46,8 @@ export default function CitiesList() {
     }
   }
 
+  const shown = filterBySearch(cities, search)
+
   return (
     <div>
       <div className="flex items-center justify-between">
@@ -67,6 +72,13 @@ export default function CitiesList() {
         </p>
       )}
 
+      {!isLoading && cities.length > 0 && (
+        <div className="mt-5">
+          <SearchInput value={search} onChange={setSearch} placeholder="Search cities…" />
+        </div>
+      )}
+      {!isLoading && search && cities.length > 0 && shown.length === 0 && <NoResults query={search} />}
+
       {isLoading && <p className="mt-8 text-center text-gray-600">Loading cities…</p>}
 
       {!isLoading && cities.length === 0 && !error && (
@@ -77,7 +89,7 @@ export default function CitiesList() {
 
       {!isLoading && cities.length > 0 && (
         <ul className="mt-6 flex flex-col gap-3">
-          {cities.map((city) => (
+          {shown.map((city) => (
             <li
               key={city.id}
               className="flex items-center gap-4 rounded-xl border border-brand-divider bg-white p-4"

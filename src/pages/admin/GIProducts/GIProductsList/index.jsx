@@ -5,6 +5,8 @@ import { getGiProducts, updateGiProduct, deleteGiProduct } from '../../../../api
 import { ROUTES } from '../../../../constants/routes'
 import { GI_CATEGORIES } from '../../../../constants/giCategories'
 import RecordDrawer from '../../../../components/RecordDrawer'
+import { SearchInput, NoResults } from '../../../../components/ListFilters'
+import { matchesSearch } from '../../../../lib/search'
 
 export default function GIProductsList() {
   const [products, setProducts] = useState([])
@@ -12,6 +14,7 @@ export default function GIProductsList() {
   const [error, setError] = useState('')
   const [pendingDeleteId, setPendingDeleteId] = useState(null)
   const [viewing, setViewing] = useState(null)
+  const [search, setSearch] = useState('')
   const [isDeleting, setIsDeleting] = useState(false)
   const [categoryFilter, setCategoryFilter] = useState('all')
   const [togglingId, setTogglingId] = useState(null)
@@ -34,8 +37,11 @@ export default function GIProductsList() {
   }, [])
 
   const filteredProducts = useMemo(
-    () => (categoryFilter === 'all' ? products : products.filter((p) => p.category === categoryFilter)),
-    [products, categoryFilter],
+    () =>
+      products
+        .filter((p) => categoryFilter === 'all' || p.category === categoryFilter)
+        .filter((p) => matchesSearch(p, search)),
+    [products, categoryFilter, search],
   )
 
   async function handleToggleFeatured(product) {
@@ -94,7 +100,11 @@ export default function GIProductsList() {
         </p>
       )}
 
-      <div className="mt-5 flex flex-wrap gap-2">
+      <div className="mt-5">
+        <SearchInput value={search} onChange={setSearch} placeholder="Search GI products…" />
+      </div>
+
+      <div className="mt-4 flex flex-wrap gap-2">
         <button
           type="button"
           onClick={() => setCategoryFilter('all')}
@@ -124,7 +134,9 @@ export default function GIProductsList() {
 
       {isLoading && <p className="mt-8 text-center text-gray-600">Loading GI products…</p>}
 
-      {!isLoading && filteredProducts.length === 0 && !error && (
+      {!isLoading && search && products.length > 0 && filteredProducts.length === 0 && <NoResults query={search} />}
+
+      {!isLoading && !search && filteredProducts.length === 0 && !error && (
         <p className="mt-8 rounded-xl border border-dashed border-brand-divider p-8 text-center text-gray-600">
           No GI products yet. Add the first one above.
         </p>

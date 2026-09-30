@@ -5,6 +5,8 @@ import { getDownloadCategories, deleteDownloadCategory } from '../../../../api/d
 import { ROUTES } from '../../../../constants/routes'
 import { getBilingualText } from '../../../../lib/bilingual'
 import RecordDrawer from '../../../../components/RecordDrawer'
+import { SearchInput, NoResults } from '../../../../components/ListFilters'
+import { filterBySearch } from '../../../../lib/search'
 
 export default function DownloadCategoriesList() {
   const [categories, setCategories] = useState([])
@@ -12,6 +14,7 @@ export default function DownloadCategoriesList() {
   const [error, setError] = useState('')
   const [pendingDeleteId, setPendingDeleteId] = useState(null)
   const [viewing, setViewing] = useState(null)
+  const [search, setSearch] = useState('')
   const [isDeleting, setIsDeleting] = useState(false)
 
   useEffect(() => {
@@ -44,6 +47,8 @@ export default function DownloadCategoriesList() {
     }
   }
 
+  const shown = filterBySearch(categories, search)
+
   return (
     <div>
       <div className="flex items-center justify-between">
@@ -69,6 +74,13 @@ export default function DownloadCategoriesList() {
         </p>
       )}
 
+      {!isLoading && categories.length > 0 && (
+        <div className="mt-5">
+          <SearchInput value={search} onChange={setSearch} placeholder="Search categories…" />
+        </div>
+      )}
+      {!isLoading && search && categories.length > 0 && shown.length === 0 && <NoResults query={search} />}
+
       {isLoading && <p className="mt-8 text-center text-gray-600">Loading categories…</p>}
 
       {!isLoading && categories.length === 0 && !error && (
@@ -79,7 +91,7 @@ export default function DownloadCategoriesList() {
 
       {!isLoading && categories.length > 0 && (
         <ul className="mt-6 flex flex-col gap-3">
-          {categories.map((category) => {
+          {shown.map((category) => {
             const nameEn = getBilingualText(category.name, 'en')
             const nameKn = getBilingualText(category.name, 'kn')
             return (

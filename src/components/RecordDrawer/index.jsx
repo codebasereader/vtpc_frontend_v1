@@ -4,6 +4,7 @@ import { X } from 'lucide-react'
 const HIDDEN_KEYS = new Set(['id', '_id', '__v', 'createdAt', 'updatedAt', 'depth'])
 const MEDIA_KEYS = new Set(['image', 'photo', 'video'])
 const IMAGE_RE = /\.(png|jpe?g|webp|gif|svg|avif)(\?.*)?$/i
+const PDF_RE = /\.pdf(\?.*)?$/i
 const VIDEO_RE = /\.(mp4|webm|mov|m4v)(\?.*)?$/i
 const ISO_DATE_RE = /^\d{4}-\d{2}-\d{2}T/
 
@@ -25,7 +26,17 @@ function isBilingual(value) {
   return keys.length > 0 && keys.every((key) => key === 'en' || key === 'kn')
 }
 
-function Value({ value, formatter }) {
+function Value({ value, formatter, isHtml }) {
+  if (isHtml && typeof value === 'string' && value) {
+    return (
+      <iframe
+        title="Preview"
+        sandbox=""
+        srcDoc={value}
+        className="h-96 w-full rounded-lg border border-brand-divider bg-white"
+      />
+    )
+  }
   if (formatter) return <span className="text-sm text-brand-dark">{formatter(value)}</span>
   if (isEmpty(value)) return <span className="text-sm text-gray-400">—</span>
   if (typeof value === 'boolean') return <span className="text-sm text-brand-dark">{value ? 'Yes' : 'No'}</span>
@@ -40,6 +51,13 @@ function Value({ value, formatter }) {
     }
     if (ISO_DATE_RE.test(value) && !Number.isNaN(Date.parse(value))) {
       return <span className="text-sm text-brand-dark">{new Date(value).toLocaleString()}</span>
+    }
+    if (PDF_RE.test(value)) {
+      return (
+        <a href={value} target="_blank" rel="noreferrer" className="inline-flex items-center gap-1.5 text-sm font-semibold text-brand-primary underline">
+          Open PDF
+        </a>
+      )
     }
     if (/^https?:\/\//i.test(value)) {
       return (
@@ -93,7 +111,7 @@ function Value({ value, formatter }) {
   return <span className="text-sm text-brand-dark">{String(value)}</span>
 }
 
-function Fields({ record, formatters }) {
+function Fields({ record, formatters, htmlFields }) {
   // Media first so the picture/video leads, then everything else in API order.
   const entries = Object.entries(record)
     .filter(([key]) => !HIDDEN_KEYS.has(key))
@@ -105,7 +123,7 @@ function Fields({ record, formatters }) {
         <div key={key}>
           <dt className="mb-1 text-[11px] font-bold tracking-wide text-gray-500 uppercase">{prettifyKey(key)}</dt>
           <dd>
-            <Value value={value} formatter={formatters?.[key]} />
+            <Value value={value} formatter={formatters?.[key]} isHtml={htmlFields?.includes(key)} />
           </dd>
         </div>
       ))}
@@ -119,7 +137,7 @@ function Fields({ record, formatters }) {
  * so it stays correct when fields are added. `formatters` lets a list turn
  * a raw value (e.g. a district slug) into a readable label.
  */
-export default function RecordDrawer({ record, title, formatters, onClose }) {
+export default function RecordDrawer({ record, title, formatters, htmlFields, onClose }) {
   const isOpen = Boolean(record)
 
   useEffect(() => {
@@ -162,7 +180,7 @@ export default function RecordDrawer({ record, title, formatters, onClose }) {
           </button>
         </header>
         <div className="flex-1 overflow-y-auto px-5 py-5">
-          <Fields record={record} formatters={formatters} />
+          <Fields record={record} formatters={formatters} htmlFields={htmlFields} />
         </div>
       </aside>
     </div>

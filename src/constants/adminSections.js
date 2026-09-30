@@ -15,6 +15,7 @@ import {
   FolderTree,
   Mail,
   Send,
+  MailCheck,
   BarChart3,
 } from 'lucide-react'
 import { ROUTES } from './routes'
@@ -95,6 +96,12 @@ export const ADMIN_NAV_GROUPS = [
         title: 'Send Newsletter',
         path: ROUTES.ADMIN_NEWSLETTER_ISSUES,
         icon: Send,
+      },
+      {
+        key: 'newslettersSent',
+        title: 'Sent Newsletters',
+        path: ROUTES.ADMIN_NEWSLETTERS_SENT,
+        icon: MailCheck,
       },
       {
         key: 'visitorAnalytics',

@@ -6,8 +6,10 @@ import { getCities } from '../../../../api/citiesApi'
 import { getEventSectors } from '../../../../api/eventSectorsApi'
 import { ROUTES } from '../../../../constants/routes'
 import { getBilingualText } from '../../../../lib/bilingual'
-import { describeEventDate, getEventStatus } from '../../../../lib/eventDates'
+import { describeEventDate, getEventStatus, matchesDateRange } from '../../../../lib/eventDates'
 import RecordDrawer from '../../../../components/RecordDrawer'
+import { SearchInput, DateRangeFilter, NoResults } from '../../../../components/ListFilters'
+import { matchesSearch, startOfDay, endOfDay } from '../../../../lib/search'
 
 const TYPE_BADGE = {
   domestic: 'bg-blue-50 text-blue-700',
@@ -21,6 +23,9 @@ export default function EventsList() {
   const [error, setError] = useState('')
   const [pendingDeleteId, setPendingDeleteId] = useState(null)
   const [viewing, setViewing] = useState(null)
+  const [search, setSearch] = useState('')
+  const [statusFilter, setStatusFilter] = useState('all')
+  const [dateRange, setDateRange] = useState({ from: '', to: '' })
   const [isDeleting, setIsDeleting] = useState(false)
 
   useEffect(() => {
@@ -45,6 +50,20 @@ export default function EventsList() {
   function cityName(slug) {
     return cities.find((c) => c.id === slug)?.name || slug
   }
+
+  const statusCounts = {
+    all: events.length,
+    upcoming: events.filter((e) => getEventStatus(e) === 'upcoming').length,
+    completed: events.filter((e) => getEventStatus(e) === 'completed').length,
+  }
+
+  const visibleEvents = events.filter((event) => {
+    if (statusFilter !== 'all' && getEventStatus(event) !== statusFilter) return false
+    if (!matchesDateRange(event, startOfDay(dateRange.from), endOfDay(dateRange.to))) return false
+    if (!search.trim()) return true
+    return matchesSearch(event, search) || cityName(event.city).toLowerCase().includes(search.trim().toLowerCase())
+  })
+  const hasActiveFilters = Boolean(search.trim() || dateRange.from || dateRange.to || statusFilter !== 'all')
 
   async function handleConfirmDelete(id) {
     setIsDeleting(true)
@@ -78,6 +97,46 @@ export default function EventsList() {
         </p>
       )}
 
+      {!isLoading && events.length > 0 && (
+        <div className="mt-5 flex flex-col gap-4">
+          <div className="flex flex-wrap items-center gap-2">
+            {[
+              ['all', 'All'],
+              ['upcoming', 'Upcoming'],
+              ['completed', 'Completed'],
+            ].map(([key, label]) => (
+              <button
+                key={key}
+                type="button"
+                onClick={() => setStatusFilter(key)}
+                aria-pressed={statusFilter === key}
+                className={`rounded-full px-3.5 py-1.5 text-xs font-semibold transition-colors ${
+                  statusFilter === key
+                    ? 'bg-brand-navy-dark text-white'
+                    : 'bg-brand-page text-brand-dark hover:bg-brand-surface'
+                }`}
+              >
+                {label} ({statusCounts[key]})
+              </button>
+            ))}
+          </div>
+          <div className="flex flex-wrap items-end gap-4">
+            <SearchInput value={search} onChange={setSearch} placeholder="Search events…" />
+            <DateRangeFilter from={dateRange.from} to={dateRange.to} onChange={setDateRange} />
+          </div>
+          {(dateRange.from || dateRange.to) && (
+            <p className="text-xs text-gray-500">
+              Dates are matched against each event&apos;s start date. Events with a date still to be announced (TBA)
+              are hidden while a date range is set.
+            </p>
+          )}
+        </div>
+      )}
+
+      {!isLoading && events.length > 0 && hasActiveFilters && visibleEvents.length === 0 && (
+        <NoResults query={search} />
+      )}
+
       {isLoading && <p className="mt-8 text-center text-gray-600">Loading events…</p>}
 
       {!isLoading && events.length === 0 && !error && (
@@ -86,9 +145,9 @@ export default function EventsList() {
         </p>
       )}
 
-      {!isLoading && events.length > 0 && (
+      {!isLoading && visibleEvents.length > 0 && (
         <ul className="mt-6 flex flex-col gap-3">
-          {events.map((event) => {
+          {visibleEvents.map((event) => {
             const titleEn = getBilingualText(event.title, 'en')
             const { dayRange, monthYear } = describeEventDate(event, 'en')
             const status = getEventStatus(event)

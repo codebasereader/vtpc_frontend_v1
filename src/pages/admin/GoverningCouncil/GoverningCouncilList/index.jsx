@@ -4,6 +4,8 @@ import { Plus, Pencil, Eye, Trash2, Check, X } from 'lucide-react'
 import { getStaff, deleteStaff } from '../../../../api/staffApi'
 import { ROUTES } from '../../../../constants/routes'
 import RecordDrawer from '../../../../components/RecordDrawer'
+import { SearchInput, NoResults } from '../../../../components/ListFilters'
+import { filterBySearch } from '../../../../lib/search'
 
 export default function GoverningCouncilList() {
   const [staff, setStaff] = useState([])
@@ -11,6 +13,7 @@ export default function GoverningCouncilList() {
   const [error, setError] = useState('')
   const [pendingDeleteId, setPendingDeleteId] = useState(null)
   const [viewing, setViewing] = useState(null)
+  const [search, setSearch] = useState('')
   const [isDeleting, setIsDeleting] = useState(false)
 
   useEffect(() => {
@@ -51,6 +54,8 @@ export default function GoverningCouncilList() {
     }
   }
 
+  const shown = filterBySearch(members, search)
+
   return (
     <div>
       <div className="flex items-center justify-between">
@@ -75,6 +80,13 @@ export default function GoverningCouncilList() {
         </p>
       )}
 
+      {!isLoading && members.length > 0 && (
+        <div className="mt-5">
+          <SearchInput value={search} onChange={setSearch} placeholder="Search members…" />
+        </div>
+      )}
+      {!isLoading && search && members.length > 0 && shown.length === 0 && <NoResults query={search} />}
+
       {isLoading && <p className="mt-8 text-center text-gray-600">Loading…</p>}
 
       {!isLoading && members.length === 0 && !error && (
@@ -85,7 +97,7 @@ export default function GoverningCouncilList() {
 
       {!isLoading && members.length > 0 && (
         <ul className="mt-6 flex flex-col gap-3">
-          {members.map((member) => (
+          {shown.map((member) => (
             <li
               key={member.id}
               className="flex items-center gap-4 rounded-xl border border-brand-divider bg-white p-4"

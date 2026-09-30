@@ -26,5 +26,7 @@ general reference.
 | [`10-media-optimisation.md`](./10-media-optimisation.md) | Auto-convert uploaded images to WebP (sharp) and videos to MP4/H.264 (ffmpeg, background job) — rules, settings, acceptance checks |
 | [`11-focus-sectors-order-icon.md`](./11-focus-sectors-order-icon.md) | Focus Sectors — new `order` (number, sort) and `icon` (string) fields so editors can reorder sectors and pick each tab icon |
 | [`12-followups-backfill-and-video-reencode.md`](./12-followups-backfill-and-video-reencode.md) | Follow-ups after verifying docs 10/11 — run only the focus-sector `order`/`icon` backfill (not the full seed), stop re-encoding large MP4s on every save, install ffmpeg |
+| [`13-newsletter-attachment-and-subscriber-dates.md`](./13-newsletter-attachment-and-subscriber-dates.md) | Newsletter — PDF attachment on issues (multipart create + attach on send), `createdAt` on the subscribers list, sent-archive notes; list search/date filters are client-side, no backend work |
+| [`14-newsletter-subscriber-block.md`](./14-newsletter-subscriber-block.md) | Newsletter subscribers — `status` (active/blocked) field + `PATCH` endpoint, skip blocked on send, return `id`/`createdAt` in the list (fixes the empty "Subscribed on" column) |
 
 Status legend: 🔴 blocking · 🟡 should fix · 🟢 fixed / confirmed working

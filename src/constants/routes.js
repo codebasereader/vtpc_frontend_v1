@@ -26,5 +26,6 @@ export const ROUTES = {
   ADMIN_WAREHOUSES: '/admin/warehouses',
   ADMIN_NEWSLETTER_SUBSCRIBERS: '/admin/newsletter-subscribers',
   ADMIN_NEWSLETTER_ISSUES: '/admin/newsletter-issues',
+  ADMIN_NEWSLETTERS_SENT: '/admin/newsletters-sent',
   ADMIN_VISITOR_ANALYTICS: '/admin/visitor-analytics',
 }

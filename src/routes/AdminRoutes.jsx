@@ -40,6 +40,7 @@ const PagesList = lazy(() => import('../pages/admin/Pages/PagesList'))
 const PageForm = lazy(() => import('../pages/admin/Pages/PageForm'))
 const NewsletterSubscribers = lazy(() => import('../pages/admin/Newsletter/NewsletterSubscribers'))
 const NewsletterIssues = lazy(() => import('../pages/admin/Newsletter/NewsletterIssues'))
+const SentNewsletters = lazy(() => import('../pages/admin/Newsletter/SentNewsletters'))
 const VisitorAnalytics = lazy(() => import('../pages/admin/VisitorAnalytics'))
 
 const BUILT_SECTIONS = [
@@ -60,6 +61,7 @@ const BUILT_SECTIONS = [
   'pages',
   'newsletterSubscribers',
   'newsletterIssues',
+  'newslettersSent',
   'visitorAnalytics',
 ]
 const COMING_SOON_SECTIONS = ADMIN_SECTIONS.filter((section) => !BUILT_SECTIONS.includes(section.key))
@@ -453,6 +455,14 @@ export default function AdminRoutes() {
             element={
               <ProtectedRoute>
                 <NewsletterIssues />
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path="newsletters-sent"
+            element={
+              <ProtectedRoute>
+                <SentNewsletters />
               </ProtectedRoute>
             }
           />

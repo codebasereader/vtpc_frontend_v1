@@ -5,6 +5,8 @@ import { getEventSectors, deleteEventSector } from '../../../../api/eventSectors
 import { ROUTES } from '../../../../constants/routes'
 import { getBilingualText } from '../../../../lib/bilingual'
 import RecordDrawer from '../../../../components/RecordDrawer'
+import { SearchInput, NoResults } from '../../../../components/ListFilters'
+import { filterBySearch } from '../../../../lib/search'
 
 export default function EventSectorsList() {
   const [sectors, setSectors] = useState([])
@@ -12,6 +14,7 @@ export default function EventSectorsList() {
   const [error, setError] = useState('')
   const [pendingDeleteId, setPendingDeleteId] = useState(null)
   const [viewing, setViewing] = useState(null)
+  const [search, setSearch] = useState('')
   const [isDeleting, setIsDeleting] = useState(false)
 
   useEffect(() => {
@@ -44,6 +47,8 @@ export default function EventSectorsList() {
     }
   }
 
+  const shown = filterBySearch(sectors, search)
+
   return (
     <div>
       <div className="flex items-center justify-between">
@@ -68,6 +73,13 @@ export default function EventSectorsList() {
         </p>
       )}
 
+      {!isLoading && sectors.length > 0 && (
+        <div className="mt-5">
+          <SearchInput value={search} onChange={setSearch} placeholder="Search event sectors…" />
+        </div>
+      )}
+      {!isLoading && search && sectors.length > 0 && shown.length === 0 && <NoResults query={search} />}
+
       {isLoading && <p className="mt-8 text-center text-gray-600">Loading event sectors…</p>}
 
       {!isLoading && sectors.length === 0 && !error && (
@@ -78,7 +90,7 @@ export default function EventSectorsList() {
 
       {!isLoading && sectors.length > 0 && (
         <ul className="mt-6 flex flex-col gap-3">
-          {sectors.map((sector) => {
+          {shown.map((sector) => {
             const nameEn = getBilingualText(sector.name, 'en')
             const nameKn = getBilingualText(sector.name, 'kn')
             return (
