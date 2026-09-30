@@ -1,10 +1,11 @@
 import { useEffect, useMemo, useState } from 'react'
 import { Link } from 'react-router-dom'
-import { Plus, Pencil, Trash2, Check, X, FileDown, CornerDownRight, ExternalLink } from 'lucide-react'
+import { Plus, Pencil, Eye, Trash2, Check, X, FileDown, CornerDownRight, ExternalLink } from 'lucide-react'
 import { getDownloads, deleteDownload } from '../../../../api/downloadsApi'
 import { getDownloadCategories } from '../../../../api/downloadCategoriesApi'
 import { ROUTES } from '../../../../constants/routes'
 import { getBilingualText } from '../../../../lib/bilingual'
+import RecordDrawer from '../../../../components/RecordDrawer'
 
 export default function DownloadsList() {
   const [downloads, setDownloads] = useState([])
@@ -12,6 +13,7 @@ export default function DownloadsList() {
   const [isLoading, setIsLoading] = useState(true)
   const [error, setError] = useState('')
   const [pendingDeleteId, setPendingDeleteId] = useState(null)
+  const [viewing, setViewing] = useState(null)
   const [isDeleting, setIsDeleting] = useState(false)
   const [categoryFilter, setCategoryFilter] = useState('all')
 
@@ -236,6 +238,14 @@ export default function DownloadsList() {
                         </div>
                       ) : (
                         <div className="flex items-center justify-end gap-1">
+                          <button
+                            type="button"
+                            onClick={() => setViewing(doc)}
+                            aria-label="View details"
+                            className="rounded-md p-2 text-gray-500 hover:bg-brand-page hover:text-brand-navy"
+                          >
+                            <Eye size={16} />
+                          </button>
                           <Link
                             to={`${ROUTES.ADMIN_DOWNLOADS}/${doc.id}/edit`}
                             aria-label={`Edit ${titleEn}`}
@@ -261,6 +271,11 @@ export default function DownloadsList() {
           </table>
         </div>
       )}
+      <RecordDrawer
+        record={viewing}
+        title={viewing ? getBilingualText(viewing.title, 'en') : ''}
+        onClose={() => setViewing(null)}
+      />
     </div>
   )
 }

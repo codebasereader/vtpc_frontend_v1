@@ -1,4 +1,6 @@
+import { useEffect } from 'react'
 import { NavLink, Link } from 'react-router-dom'
+import { X } from 'lucide-react'
 import { useSelector } from 'react-redux'
 import { ROUTES } from '../../../constants/routes'
 import { selectLanguage } from '../../../redux/slices/localeSlice'
@@ -29,11 +31,45 @@ const RTI_LINKS = [
   { key: 'section4_1B', href: ROUTES.DOWNLOADS, external: false },
 ]
 
-export default function MobileNavPanel({ onNavigate }) {
+export default function MobileNavPanel({ isOpen, onNavigate }) {
   const language = useSelector(selectLanguage)
 
+  useEffect(() => {
+    if (!isOpen) return undefined
+    const onKeyDown = (event) => {
+      if (event.key === 'Escape') onNavigate()
+    }
+    document.addEventListener('keydown', onKeyDown)
+    document.body.style.overflow = 'hidden'
+    return () => {
+      document.removeEventListener('keydown', onKeyDown)
+      document.body.style.overflow = ''
+    }
+  }, [isOpen, onNavigate])
+
   return (
-    <nav className="flex flex-col gap-1 border-t border-brand-divider bg-white px-4 py-3 md:hidden">
+    <div className="md:hidden">
+      <div
+        onClick={onNavigate}
+        aria-hidden="true"
+        className={`fixed inset-0 z-40 bg-black/40 transition-opacity duration-300 ${isOpen ? 'opacity-100' : 'pointer-events-none opacity-0'}`}
+      />
+      <aside
+        aria-hidden={!isOpen}
+        inert={!isOpen}
+        className={`fixed inset-y-0 right-0 z-50 flex h-dvh w-full flex-col bg-white transition-transform duration-300 ease-out ${isOpen ? 'translate-x-0' : 'translate-x-full'}`}
+      >
+        <div className="flex items-center justify-end border-b border-brand-divider px-4 py-3">
+          <button
+            type="button"
+            onClick={onNavigate}
+            aria-label={common.header.closeMenu[language]}
+            className="rounded-full p-2 text-brand-dark hover:bg-brand-page"
+          >
+            <X size={26} />
+          </button>
+        </div>
+        <nav className="flex flex-1 flex-col gap-1 overflow-y-auto px-4 py-3">
       {NAV_ITEMS.map((item) =>
         item.href ? (
           <a
@@ -97,6 +133,8 @@ export default function MobileNavPanel({ onNavigate }) {
       <span className="rounded-md px-2 py-2.5 text-base font-medium text-gray-400" aria-disabled="true">
         {common.nav.kalagoodu[language]}
       </span>
-    </nav>
+        </nav>
+      </aside>
+    </div>
   )
 }

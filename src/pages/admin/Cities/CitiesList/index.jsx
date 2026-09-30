@@ -1,14 +1,16 @@
 import { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
-import { Plus, Pencil, Trash2, Check, X, MapPin } from 'lucide-react'
+import { Plus, Pencil, Eye, Trash2, Check, X, MapPin } from 'lucide-react'
 import { getCities, deleteCity } from '../../../../api/citiesApi'
 import { ROUTES } from '../../../../constants/routes'
+import RecordDrawer from '../../../../components/RecordDrawer'
 
 export default function CitiesList() {
   const [cities, setCities] = useState([])
   const [isLoading, setIsLoading] = useState(true)
   const [error, setError] = useState('')
   const [pendingDeleteId, setPendingDeleteId] = useState(null)
+  const [viewing, setViewing] = useState(null)
   const [isDeleting, setIsDeleting] = useState(false)
 
   useEffect(() => {
@@ -115,6 +117,14 @@ export default function CitiesList() {
                 </div>
               ) : (
                 <div className="flex shrink-0 items-center gap-1">
+                  <button
+                    type="button"
+                    onClick={() => setViewing(city)}
+                    aria-label="View details"
+                    className="rounded-md p-2 text-gray-500 hover:bg-brand-page hover:text-brand-navy"
+                  >
+                    <Eye size={16} />
+                  </button>
                   <Link
                     to={`${ROUTES.ADMIN_CITIES}/${city.id}/edit`}
                     aria-label={`Edit ${city.name}`}
@@ -136,6 +146,11 @@ export default function CitiesList() {
           ))}
         </ul>
       )}
+      <RecordDrawer
+        record={viewing}
+        title={viewing ? viewing.name : ''}
+        onClose={() => setViewing(null)}
+      />
     </div>
   )
 }

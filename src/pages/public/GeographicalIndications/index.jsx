@@ -25,13 +25,13 @@ import GITreasures from '../../../sections/GITreasures'
 import ArtisanalStories from '../../../sections/ArtisanalStories'
 
 const HERO_IMAGES = [
-  '/assets/images/gi/hero/GiBanner1.jpg',
-  '/assets/images/gi/hero/GiBanner2.png',
-  '/assets/images/gi/hero/GiBanner3.png',
-  '/assets/images/gi/hero/GiBanner4.jpg',
+  '/assets/images/gi/hero/GiBanner1.webp',
+  '/assets/images/gi/hero/GiBanner2.webp',
+  '/assets/images/gi/hero/GiBanner3.webp',
+  '/assets/images/gi/hero/GiBanner4.webp',
 ]
 
-const FOREFRONT_IMAGE = '/assets/images/gi/At the Forefront.png'
+const FOREFRONT_IMAGE = '/assets/images/gi/At the Forefront.webp'
 
 const CARD_ICONS = {
   exquisiteProducts: Sparkles,
@@ -98,7 +98,9 @@ export default function GeographicalIndications() {
             key={src}
             src={src}
             alt=""
-            className={`absolute inset-0 h-full w-full object-cover transition-opacity duration-[1500ms] ease-in-out ${
+            fetchPriority={index === 0 ? 'high' : 'low'}
+            decoding="async"
+            className={`absolute inset-0 h-full w-full transform-gpu object-cover transition-opacity duration-[1500ms] ease-in-out ${
               index === activeSlide ? 'opacity-100' : 'opacity-0'
             }`}
             aria-hidden="true"
@@ -146,7 +148,7 @@ export default function GeographicalIndications() {
       {/* Karnataka: The GI Coffee Hub of India */}
       <section id="gi-coffee-hub" className="relative overflow-hidden bg-brand-page px-4 py-16 md:px-8 md:py-20">
         <div
-          className="pointer-events-none absolute top-0 -right-24 h-96 w-96 rounded-full bg-brand-surface/70 blur-3xl"
+          className="pointer-events-none absolute top-0 -right-24 h-96 w-96 rounded-full bg-[radial-gradient(closest-side,var(--color-brand-surface),transparent)] opacity-80"
           aria-hidden="true"
         />
         <div className="relative mx-auto max-w-6xl">

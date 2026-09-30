@@ -1,15 +1,17 @@
 import { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
-import { Plus, Pencil, Trash2, Check, X, Tag } from 'lucide-react'
+import { Plus, Pencil, Eye, Trash2, Check, X, Tag } from 'lucide-react'
 import { getEventSectors, deleteEventSector } from '../../../../api/eventSectorsApi'
 import { ROUTES } from '../../../../constants/routes'
 import { getBilingualText } from '../../../../lib/bilingual'
+import RecordDrawer from '../../../../components/RecordDrawer'
 
 export default function EventSectorsList() {
   const [sectors, setSectors] = useState([])
   const [isLoading, setIsLoading] = useState(true)
   const [error, setError] = useState('')
   const [pendingDeleteId, setPendingDeleteId] = useState(null)
+  const [viewing, setViewing] = useState(null)
   const [isDeleting, setIsDeleting] = useState(false)
 
   useEffect(() => {
@@ -117,6 +119,14 @@ export default function EventSectorsList() {
                   </div>
                 ) : (
                   <div className="flex shrink-0 items-center gap-1">
+                    <button
+                      type="button"
+                      onClick={() => setViewing(sector)}
+                      aria-label="View details"
+                      className="rounded-md p-2 text-gray-500 hover:bg-brand-page hover:text-brand-navy"
+                    >
+                      <Eye size={16} />
+                    </button>
                     <Link
                       to={`${ROUTES.ADMIN_EVENT_SECTORS}/${sector.id}/edit`}
                       aria-label={`Edit ${nameEn}`}
@@ -139,6 +149,11 @@ export default function EventSectorsList() {
           })}
         </ul>
       )}
+      <RecordDrawer
+        record={viewing}
+        title={viewing ? getBilingualText(viewing.name, 'en') : ''}
+        onClose={() => setViewing(null)}
+      />
     </div>
   )
 }

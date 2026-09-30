@@ -1,9 +1,10 @@
 import { useEffect, useMemo, useState } from 'react'
 import { Link } from 'react-router-dom'
-import { Plus, Pencil, Trash2, Check, X, Signpost } from 'lucide-react'
+import { Plus, Pencil, Eye, Trash2, Check, X, Signpost } from 'lucide-react'
 import { getTaluks, deleteTaluk } from '../../../../api/taluksApi'
 import { getDistricts } from '../../../../api/districtsApi'
 import { ROUTES } from '../../../../constants/routes'
+import RecordDrawer from '../../../../components/RecordDrawer'
 
 export default function TaluksList() {
   const [taluks, setTaluks] = useState([])
@@ -11,6 +12,7 @@ export default function TaluksList() {
   const [isLoading, setIsLoading] = useState(true)
   const [error, setError] = useState('')
   const [pendingDeleteId, setPendingDeleteId] = useState(null)
+  const [viewing, setViewing] = useState(null)
   const [isDeleting, setIsDeleting] = useState(false)
 
   useEffect(() => {
@@ -122,6 +124,14 @@ export default function TaluksList() {
                 </div>
               ) : (
                 <div className="flex shrink-0 items-center gap-1">
+                  <button
+                    type="button"
+                    onClick={() => setViewing(taluk)}
+                    aria-label="View details"
+                    className="rounded-md p-2 text-gray-500 hover:bg-brand-page hover:text-brand-navy"
+                  >
+                    <Eye size={16} />
+                  </button>
                   <Link
                     to={`${ROUTES.ADMIN_TALUKS}/${taluk.id}/edit`}
                     aria-label={`Edit ${taluk.name}`}
@@ -143,6 +153,12 @@ export default function TaluksList() {
           ))}
         </ul>
       )}
+      <RecordDrawer
+        record={viewing}
+        title={viewing ? viewing.name : ''}
+        formatters={{ district: districtName }}
+        onClose={() => setViewing(null)}
+      />
     </div>
   )
 }

@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useCallback, useState } from 'react'
 import { Link } from 'react-router-dom'
 import { useSelector } from 'react-redux'
 import { ROUTES } from '../../constants/routes'
@@ -11,6 +11,7 @@ import MobileNavPanel from './MobileNavPanel'
 export default function Header() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
   const language = useSelector(selectLanguage)
+  const closeMobileMenu = useCallback(() => setIsMobileMenuOpen(false), [])
 
   return (
     <header className="bg-white shadow-sm">
@@ -18,20 +19,18 @@ export default function Header() {
         {common.header.skipToContent[language]}
       </a>
 
-      <div className="flex flex-col gap-3 px-4 py-4 sm:flex-row sm:items-center sm:justify-between md:px-8 sm:py-5">
-        <Link to={ROUTES.HOME} className="flex shrink-0 items-center gap-3 sm:gap-4">
-          <img src="/assets/GOK%20LOGO%201.png" alt="Government of Karnataka" className="h-16 w-16 sm:h-[4.5rem] sm:w-[4.5rem]" />
-          <img src="/assets/Logo.png" alt="VTPC Karnataka" className="h-14 sm:h-16" />
+      <div className="flex flex-col gap-4 px-4 py-4 sm:flex-row sm:items-center sm:justify-between md:px-8 sm:py-5">
+        <Link to={ROUTES.HOME} className="flex w-full shrink-0 items-center justify-between sm:w-auto sm:justify-start sm:gap-4">
+          <img src="/assets/GOK%20LOGO%201.png" alt="Government of Karnataka" className="h-20 w-20 object-contain sm:h-[4.5rem] sm:w-[4.5rem]" />
+          <img src="/assets/Logo.png" alt="VTPC Karnataka" className="h-16 object-contain sm:h-16" />
         </Link>
 
-        <div className="flex justify-end sm:justify-normal">
-          <LeaderStrip />
-        </div>
+        <LeaderStrip />
       </div>
 
-      <NavBar isMobileMenuOpen={isMobileMenuOpen} onToggleMobileMenu={() => setIsMobileMenuOpen(!isMobileMenuOpen)} />
+      <NavBar isMobileMenuOpen={isMobileMenuOpen} onToggleMobileMenu={() => setIsMobileMenuOpen(true)} />
 
-      {isMobileMenuOpen && <MobileNavPanel onNavigate={() => setIsMobileMenuOpen(false)} />}
+      <MobileNavPanel isOpen={isMobileMenuOpen} onNavigate={closeMobileMenu} />
     </header>
   )
 }

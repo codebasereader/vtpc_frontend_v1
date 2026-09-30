@@ -4,7 +4,7 @@ import { Play, X } from 'lucide-react'
 import { selectLanguage } from '../../redux/slices/localeSlice'
 import { geographicalIndications as t } from '../../language/geographicalIndications'
 
-const BG_IMAGE = '/assets/images/gi/Artisanal Stories.png'
+const BG_IMAGE = '/assets/images/gi/Artisanal Stories.webp'
 
 export default function ArtisanalStories({ products, isLoading }) {
   const language = useSelector(selectLanguage)
@@ -29,7 +29,19 @@ export default function ArtisanalStories({ products, isLoading }) {
           {t.artisanalStories.description[language]}
         </p>
 
-        {isLoading && <p className="mt-10 text-center text-white/80">{t.treasures.loading[language]}</p>}
+        {isLoading && (
+          <div className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-3" aria-busy="true">
+            {[0, 1, 2].map((n) => (
+              <div key={n} className="overflow-hidden rounded-2xl bg-white/5 ring-1 ring-white/10">
+                <div className="aspect-video w-full animate-pulse bg-white/10" />
+                <div className="space-y-2 p-5">
+                  <div className="h-4 w-2/3 animate-pulse rounded bg-white/10" />
+                  <div className="h-3 w-full animate-pulse rounded bg-white/10" />
+                </div>
+              </div>
+            ))}
+          </div>
+        )}
 
         {!isLoading && stories.length === 0 && (
           <p className="mt-10 rounded-2xl border border-dashed border-white/25 p-8 text-center text-white/75">
@@ -59,13 +71,15 @@ function StoryCard({ story, language, onOpen }) {
     <button
       type="button"
       onClick={onOpen}
-      className="group flex flex-col overflow-hidden rounded-2xl bg-white/5 text-left shadow-[0_16px_36px_rgba(0,0,0,0.35)] ring-1 ring-white/10 backdrop-blur-sm transition-all hover:-translate-y-1 hover:ring-white/30"
+      className="group flex flex-col overflow-hidden rounded-2xl bg-white/5 text-left shadow-[0_16px_36px_rgba(0,0,0,0.35)] ring-1 ring-white/10 transition-all hover:-translate-y-1 hover:ring-white/30"
     >
       <div className="relative aspect-video w-full shrink-0 overflow-hidden bg-black">
         {story.image ? (
           <img
             src={story.image}
             alt=""
+            loading="lazy"
+            decoding="async"
             className="h-full w-full object-cover transition-transform duration-300 group-hover:scale-105"
             aria-hidden="true"
           />
@@ -74,7 +88,7 @@ function StoryCard({ story, language, onOpen }) {
         )}
         <div className="absolute inset-0 bg-black/25 transition-colors group-hover:bg-black/35" />
         <span className="absolute inset-0 flex items-center justify-center">
-          <span className="flex h-14 w-14 items-center justify-center rounded-full bg-white/20 text-white backdrop-blur-sm transition-transform group-hover:scale-110 group-hover:bg-brand-primary">
+          <span className="flex h-14 w-14 items-center justify-center rounded-full bg-white/20 text-white transition-transform group-hover:scale-110 group-hover:bg-brand-primary">
             <Play size={22} className="ml-0.5 fill-current" aria-hidden="true" />
           </span>
         </span>

@@ -23,5 +23,8 @@ general reference.
 | [`07-gi-treasures.md`](./07-gi-treasures.md) | Karnataka GI Treasures + Artisanal Stories — `GIProduct`/`Enquiry` confirmed sufficient, real 25-product dataset + craft videos seeded, one new `featured` boolean field requested and added |
 | [`08-downloads.md`](./08-downloads.md) | Downloads page — new `DownloadCategory` resource, `Download.category` changed from a fixed enum to a free reference, new `parent`/`order` fields for two-level nested documents |
 | [`09-footer-newsletter-visitors.md`](./09-footer-newsletter-visitors.md) | Footer redesign — `GET /admin/pages` list route, new `NewsletterIssue` (monthly archive + send) and `SiteVisit` (day-wise counter) resources, new `GET /last-updated` endpoint |
+| [`10-media-optimisation.md`](./10-media-optimisation.md) | Auto-convert uploaded images to WebP (sharp) and videos to MP4/H.264 (ffmpeg, background job) — rules, settings, acceptance checks |
+| [`11-focus-sectors-order-icon.md`](./11-focus-sectors-order-icon.md) | Focus Sectors — new `order` (number, sort) and `icon` (string) fields so editors can reorder sectors and pick each tab icon |
+| [`12-followups-backfill-and-video-reencode.md`](./12-followups-backfill-and-video-reencode.md) | Follow-ups after verifying docs 10/11 — run only the focus-sector `order`/`icon` backfill (not the full seed), stop re-encoding large MP4s on every save, install ffmpeg |
 
 Status legend: 🔴 blocking · 🟡 should fix · 🟢 fixed / confirmed working

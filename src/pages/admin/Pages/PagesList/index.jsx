@@ -1,15 +1,17 @@
 import { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
-import { Plus, Pencil, Trash2, Check, X, FileText, ExternalLink } from 'lucide-react'
+import { Plus, Pencil, Eye, Trash2, Check, X, FileText, ExternalLink } from 'lucide-react'
 import { getPages, deletePage } from '../../../../api/pagesApi'
 import { ROUTES } from '../../../../constants/routes'
 import { getBilingualText } from '../../../../lib/bilingual'
+import RecordDrawer from '../../../../components/RecordDrawer'
 
 export default function PagesList() {
   const [pages, setPages] = useState([])
   const [isLoading, setIsLoading] = useState(true)
   const [error, setError] = useState('')
   const [pendingDeleteId, setPendingDeleteId] = useState(null)
+  const [viewing, setViewing] = useState(null)
   const [isDeleting, setIsDeleting] = useState(false)
 
   useEffect(() => {
@@ -124,6 +126,14 @@ export default function PagesList() {
                   </div>
                 ) : (
                   <div className="flex shrink-0 items-center gap-1">
+                    <button
+                      type="button"
+                      onClick={() => setViewing(page)}
+                      aria-label="View details"
+                      className="rounded-md p-2 text-gray-500 hover:bg-brand-page hover:text-brand-navy"
+                    >
+                      <Eye size={16} />
+                    </button>
                     <Link
                       to={`${ROUTES.ADMIN_PAGES}/${page.id}/edit`}
                       aria-label={`Edit ${titleEn}`}
@@ -146,6 +156,11 @@ export default function PagesList() {
           })}
         </ul>
       )}
+      <RecordDrawer
+        record={viewing}
+        title={viewing ? getBilingualText(viewing.title, 'en') : ''}
+        onClose={() => setViewing(null)}
+      />
     </div>
   )
 }

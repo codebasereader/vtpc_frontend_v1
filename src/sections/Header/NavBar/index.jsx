@@ -1,6 +1,6 @@
 import { NavLink } from 'react-router-dom'
 import { useSelector } from 'react-redux'
-import { Menu, X } from 'lucide-react'
+import { Menu } from 'lucide-react'
 import { ROUTES } from '../../../constants/routes'
 import { selectLanguage } from '../../../redux/slices/localeSlice'
 import { common } from '../../../language/common'
@@ -64,10 +64,10 @@ export default function NavBar({ isMobileMenuOpen, onToggleMobileMenu }) {
         type="button"
         onClick={onToggleMobileMenu}
         aria-expanded={isMobileMenuOpen}
-        aria-label={isMobileMenuOpen ? common.header.closeMenu[language] : common.header.openMenu[language]}
+        aria-label={common.header.openMenu[language]}
         className="p-3 text-white md:hidden"
       >
-        {isMobileMenuOpen ? <X size={22} /> : <Menu size={22} />}
+        <Menu size={22} />
       </button>
     </div>
   )

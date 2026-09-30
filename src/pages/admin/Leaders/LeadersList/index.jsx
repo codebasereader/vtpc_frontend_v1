@@ -1,9 +1,10 @@
 import { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
-import { Plus, Pencil, Trash2, Check, X } from 'lucide-react'
+import { Plus, Pencil, Eye, Trash2, Check, X } from 'lucide-react'
 import { getLeaders, deleteLeader } from '../../../../api/leadersApi'
 import { ROUTES } from '../../../../constants/routes'
 import { getBilingualText } from '../../../../lib/bilingual'
+import RecordDrawer from '../../../../components/RecordDrawer'
 
 function initialsFor(nameEn) {
   return nameEn
@@ -19,6 +20,7 @@ export default function LeadersList() {
   const [isLoading, setIsLoading] = useState(true)
   const [error, setError] = useState('')
   const [pendingDeleteId, setPendingDeleteId] = useState(null)
+  const [viewing, setViewing] = useState(null)
   const [isDeleting, setIsDeleting] = useState(false)
 
   useEffect(() => {
@@ -135,6 +137,14 @@ export default function LeadersList() {
                   </div>
                 ) : (
                   <div className="flex shrink-0 items-center gap-1">
+                    <button
+                      type="button"
+                      onClick={() => setViewing(leader)}
+                      aria-label="View details"
+                      className="rounded-md p-2 text-gray-500 hover:bg-brand-page hover:text-brand-navy"
+                    >
+                      <Eye size={16} />
+                    </button>
                     <Link
                       to={`${ROUTES.ADMIN_LEADERS}/${leader.id}/edit`}
                       aria-label={`Edit ${nameEn}`}
@@ -157,6 +167,11 @@ export default function LeadersList() {
           })}
         </ul>
       )}
+      <RecordDrawer
+        record={viewing}
+        title={viewing ? getBilingualText(viewing.name, 'en') : ''}
+        onClose={() => setViewing(null)}
+      />
     </div>
   )
 }

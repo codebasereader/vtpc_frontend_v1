@@ -25,7 +25,7 @@ export default function LeaderStrip() {
   if (leaders.length === 0) return null
 
   return (
-    <div className="flex gap-4 overflow-x-auto sm:gap-8">
+    <div className="flex w-full flex-col-reverse gap-3 sm:w-auto sm:flex-row sm:gap-8 sm:overflow-x-auto">
       {leaders.map((leader) => {
         // Falls back to English whenever a record's Kannada text hasn't
         // been filled in yet, rather than showing blank.
@@ -33,7 +33,10 @@ export default function LeaderStrip() {
         const designation =
           getBilingualText(leader.designation, locale) || getBilingualText(leader.designation, 'en')
         return (
-          <div key={leader.id} className="flex shrink-0 items-center gap-3 sm:gap-4">
+          <div
+            key={leader.id}
+            className="flex w-full shrink-0 items-center gap-3 rounded-xl border border-brand-divider bg-brand-page/50 p-3 sm:gap-4 sm:w-auto sm:rounded-none sm:border-0 sm:bg-transparent sm:p-0"
+          >
             {leader.photo ? (
               <img
                 src={leader.photo}
@@ -45,7 +48,7 @@ export default function LeaderStrip() {
                 {name.charAt(0)}
               </span>
             )}
-            <div className="max-w-[240px]">
+            <div className="min-w-0 sm:max-w-[240px]">
               <p className="text-sm font-semibold text-brand-dark sm:text-base">{name}</p>
               <p className="text-xs text-gray-600 sm:text-sm">{designation}</p>
             </div>

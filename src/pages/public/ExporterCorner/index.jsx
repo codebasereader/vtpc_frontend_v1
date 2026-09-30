@@ -1,44 +1,19 @@
 import { useEffect, useMemo, useState } from 'react'
 import { Helmet } from 'react-helmet-async'
 import { useSelector } from 'react-redux'
-import {
-  Search,
-  MapPin,
-  Warehouse as WarehouseIcon,
-  Pill,
-  Zap,
-  Shirt,
-  Car,
-  FlaskConical,
-  Rocket,
-  Eye,
-  Wheat,
-  Layers,
-  TrendingUp,
-  Globe2,
-} from 'lucide-react'
+import { Search, MapPin, Warehouse as WarehouseIcon, TrendingUp, Globe2 } from 'lucide-react'
 import { getWarehouses } from '../../../api/warehousesApi'
 import { getDistricts } from '../../../api/districtsApi'
 import { getTaluks } from '../../../api/taluksApi'
 import { getSectors } from '../../../api/sectorsApi'
 import { selectLanguage } from '../../../redux/slices/localeSlice'
 import { exporterCorner as t } from '../../../language/exporterCorner'
+import { getSectorIcon, sortSectors } from '../../../constants/sectorIcons'
 import { getBilingualText } from '../../../lib/bilingual'
 import WarehouseMap from '../../../components/WarehouseMap'
 import MarketIntelligence from '../../../sections/MarketIntelligence'
 
 const HERO_IMAGE = '/assets/images/exporter-corner/exporter-hero.png'
-
-const SECTOR_ICONS = {
-  'pharmaceutical-biotech': Pill,
-  'electrical-machinery-equipment': Zap,
-  'ready-made-garments': Shirt,
-  automobile: Car,
-  'organic-chemicals': FlaskConical,
-  aerospace: Rocket,
-  'optical-and-medical': Eye,
-  'food-products': Wheat,
-}
 
 export default function ExporterCorner() {
   const language = useSelector(selectLanguage)
@@ -62,8 +37,9 @@ export default function ExporterCorner() {
         setWarehouses(warehousesData)
         setDistricts([...districtsData].sort((a, b) => a.name.localeCompare(b.name)))
         setTaluks(taluksData)
-        setSectors(sectorsData)
-        setActiveSectorId(sectorsData[0]?.id ?? null)
+        const orderedSectors = sortSectors(sectorsData)
+        setSectors(orderedSectors)
+        setActiveSectorId(orderedSectors[0]?.id ?? null)
       })
       .catch(() => {
         if (isMounted) {
@@ -291,7 +267,7 @@ export default function ExporterCorner() {
               >
                 <div className="grid grid-cols-2 divide-x divide-y divide-brand-divider sm:grid-cols-4 sm:divide-y-0">
                   {sectors.map((sector) => {
-                    const Icon = SECTOR_ICONS[sector.id] || Layers
+                    const Icon = getSectorIcon(sector)
                     const isActive = sector.id === activeSectorId
                     return (
                       <button
@@ -344,6 +320,32 @@ export default function ExporterCorner() {
                               </p>
                             </div>
                           ))}
+                        </div>
+                      )}
+
+                      {activeSector.yearlyChart?.length > 0 && (
+                        <div>
+                          <p className="flex items-center gap-1.5 text-xs font-bold tracking-wide text-brand-navy-dark uppercase">
+                            <TrendingUp size={14} className="text-brand-primary" aria-hidden="true" />
+                            {t.focusSectors.exportTrend[language]}
+                          </p>
+                          <div className="mt-3 flex h-28 items-end gap-3">
+                            {(() => {
+                              const max = Math.max(...activeSector.yearlyChart.map((y) => y.valueUsdMn), 1)
+                              return activeSector.yearlyChart.map((point) => (
+                                <div key={point.year} className="flex h-full flex-1 flex-col items-center justify-end gap-1">
+                                  <span className="text-[11px] font-semibold text-brand-navy-dark">
+                                    {Math.round(point.valueUsdMn).toLocaleString()}
+                                  </span>
+                                  <div
+                                    className="w-full rounded-t-md bg-brand-primary/85"
+                                    style={{ height: `${Math.max((point.valueUsdMn / max) * 70, 4)}%` }}
+                                  />
+                                  <span className="text-[10px] text-gray-500">{point.year}</span>
+                                </div>
+                              ))
+                            })()}
+                          </div>
                         </div>
                       )}
 

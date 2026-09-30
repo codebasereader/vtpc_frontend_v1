@@ -1,12 +1,13 @@
 import { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
-import { Plus, Pencil, Trash2, Check, X, Calendar } from 'lucide-react'
+import { Plus, Pencil, Eye, Trash2, Check, X, Calendar } from 'lucide-react'
 import { getEvents, deleteEvent } from '../../../../api/eventsApi'
 import { getCities } from '../../../../api/citiesApi'
 import { getEventSectors } from '../../../../api/eventSectorsApi'
 import { ROUTES } from '../../../../constants/routes'
 import { getBilingualText } from '../../../../lib/bilingual'
 import { describeEventDate, getEventStatus } from '../../../../lib/eventDates'
+import RecordDrawer from '../../../../components/RecordDrawer'
 
 const TYPE_BADGE = {
   domestic: 'bg-blue-50 text-blue-700',
@@ -19,6 +20,7 @@ export default function EventsList() {
   const [isLoading, setIsLoading] = useState(true)
   const [error, setError] = useState('')
   const [pendingDeleteId, setPendingDeleteId] = useState(null)
+  const [viewing, setViewing] = useState(null)
   const [isDeleting, setIsDeleting] = useState(false)
 
   useEffect(() => {
@@ -146,6 +148,14 @@ export default function EventsList() {
                   </div>
                 ) : (
                   <div className="flex shrink-0 items-center gap-1">
+                    <button
+                      type="button"
+                      onClick={() => setViewing(event)}
+                      aria-label="View details"
+                      className="rounded-md p-2 text-gray-500 hover:bg-brand-page hover:text-brand-navy"
+                    >
+                      <Eye size={16} />
+                    </button>
                     <Link
                       to={`${ROUTES.ADMIN_EVENTS}/${event.id}/edit`}
                       aria-label={`Edit ${titleEn}`}
@@ -168,6 +178,11 @@ export default function EventsList() {
           })}
         </ul>
       )}
+      <RecordDrawer
+        record={viewing}
+        title={viewing ? getBilingualText(viewing.title, 'en') : ''}
+        onClose={() => setViewing(null)}
+      />
     </div>
   )
 }

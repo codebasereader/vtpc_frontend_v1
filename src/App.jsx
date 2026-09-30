@@ -3,6 +3,7 @@ import { BrowserRouter } from 'react-router-dom'
 import { HelmetProvider } from 'react-helmet-async'
 import { Provider, useDispatch } from 'react-redux'
 import { store } from './redux/store'
+import ScrollToTop from './components/ScrollToTop'
 import AppRoutes from './routes/AppRoutes'
 import { getMe } from './api/authApi'
 import { setCheckingSession, setUser, clearUser } from './redux/slices/authSlice'
@@ -26,6 +27,7 @@ function App() {
       <HelmetProvider>
         <BrowserRouter>
           <SessionBootstrap />
+          <ScrollToTop />
           <AppRoutes />
         </BrowserRouter>
       </HelmetProvider>

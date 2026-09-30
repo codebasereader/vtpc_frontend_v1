@@ -1,15 +1,17 @@
 import { useEffect, useMemo, useState } from 'react'
 import { Link } from 'react-router-dom'
-import { Plus, Pencil, Trash2, Check, X, Video, ImageOff, Star } from 'lucide-react'
+import { Plus, Pencil, Eye, Trash2, Check, X, Video, ImageOff, Star } from 'lucide-react'
 import { getGiProducts, updateGiProduct, deleteGiProduct } from '../../../../api/giProductsApi'
 import { ROUTES } from '../../../../constants/routes'
 import { GI_CATEGORIES } from '../../../../constants/giCategories'
+import RecordDrawer from '../../../../components/RecordDrawer'
 
 export default function GIProductsList() {
   const [products, setProducts] = useState([])
   const [isLoading, setIsLoading] = useState(true)
   const [error, setError] = useState('')
   const [pendingDeleteId, setPendingDeleteId] = useState(null)
+  const [viewing, setViewing] = useState(null)
   const [isDeleting, setIsDeleting] = useState(false)
   const [categoryFilter, setCategoryFilter] = useState('all')
   const [togglingId, setTogglingId] = useState(null)
@@ -219,6 +221,14 @@ export default function GIProductsList() {
                       </div>
                     ) : (
                       <div className="flex items-center justify-end gap-1">
+                        <button
+                          type="button"
+                          onClick={() => setViewing(product)}
+                          aria-label="View details"
+                          className="rounded-md p-2 text-gray-500 hover:bg-brand-page hover:text-brand-navy"
+                        >
+                          <Eye size={16} />
+                        </button>
                         <Link
                           to={`${ROUTES.ADMIN_GI_PRODUCTS}/${product.id}/edit`}
                           aria-label={`Edit ${product.name?.en}`}
@@ -243,6 +253,11 @@ export default function GIProductsList() {
           </table>
         </div>
       )}
+      <RecordDrawer
+        record={viewing}
+        title={viewing ? viewing.name?.en : ''}
+        onClose={() => setViewing(null)}
+      />
     </div>
   )
 }

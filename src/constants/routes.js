@@ -10,7 +10,6 @@ export const ROUTES = {
   ADMIN_LOGIN: '/admin/login',
   ADMIN_DASHBOARD: '/admin/dashboard',
   ADMIN_LEADERS: '/admin/leaders',
-  ADMIN_HOMEPAGE_CONTENT: '/admin/homepage-content',
   ADMIN_DISTRICTS: '/admin/districts',
   ADMIN_FOCUS_SECTORS: '/admin/focus-sectors',
   ADMIN_GI_PRODUCTS: '/admin/gi-products',
