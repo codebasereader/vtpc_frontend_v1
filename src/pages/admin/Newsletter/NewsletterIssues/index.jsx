@@ -77,7 +77,7 @@ export default function NewsletterIssues() {
   function loadDrafts() {
     Promise.all([getNewsletterIssues(), getNewsletterSubscribers()])
       .then(([issuesData, subsData]) => {
-        setDrafts(issuesData.filter((issue) => !issue.sentAt))
+        setDrafts(issuesData.filter((issue) => !issue.sentAt && issue.status !== 'sent'))
         setSubscriberCount(subsData.filter((sub) => sub.status !== 'blocked').length)
       })
       .catch((err) => setError(err.message || 'Failed to load newsletter drafts.'))
@@ -85,6 +85,15 @@ export default function NewsletterIssues() {
   }
 
   useEffect(loadDrafts, [])
+
+  // Large sends run in the background on the server; keep refreshing until
+  // they finish (they then move to Sent Newsletters).
+  const hasSending = drafts.some((draft) => draft.status === 'sending')
+  useEffect(() => {
+    if (!hasSending) return undefined
+    const timer = setInterval(loadDrafts, 4000)
+    return () => clearInterval(timer)
+  }, [hasSending])
 
   // Keep the pre-filled text in step with the chosen month/year until the
   // editor starts customising it.
@@ -154,9 +163,13 @@ export default function NewsletterIssues() {
     setError('')
     setNotice('')
     try {
-      await sendNewsletterIssue(id)
+      const result = await sendNewsletterIssue(id)
       setConfirmSendId(null)
-      setNotice('Newsletter sent. You can find it under Sent Newsletters.')
+      setNotice(
+        result?.sentAt
+          ? 'Newsletter sent. You can find it under Sent Newsletters.'
+          : 'Sending has started in the background. It will move to Sent Newsletters when it finishes.',
+      )
       setIsLoading(true)
       loadDrafts()
     } catch (err) {
@@ -211,7 +224,7 @@ export default function NewsletterIssues() {
       {notice && (
         <p role="status" className="mt-4 rounded-lg bg-green-50 px-3 py-2 text-sm text-green-700">
           {notice}{' '}
-          {notice.startsWith('Newsletter sent') && (
+          {(notice.startsWith('Newsletter sent') || notice.startsWith('Sending has started')) && (
             <Link to={ROUTES.ADMIN_NEWSLETTERS_SENT} className="font-semibold underline">
               View sent newsletters
             </Link>
@@ -364,7 +377,14 @@ export default function NewsletterIssues() {
                 <p className="font-semibold text-brand-dark">{draft.subject}</p>
                 <p className="flex flex-wrap items-center gap-x-2 text-sm text-gray-500">
                   <span>
-                    {MONTHS[(draft.month || 1) - 1]} {draft.year} · Draft
+                    {MONTHS[(draft.month || 1) - 1]} {draft.year} ·{' '}
+                    {draft.status === 'sending' ? (
+                      <span className="font-semibold text-amber-600">Sending…</span>
+                    ) : draft.status === 'failed' ? (
+                      <span className="font-semibold text-red-600">Sending failed — you can retry</span>
+                    ) : (
+                      'Draft'
+                    )}
                   </span>
                   {draft.attachment && (
                     <span className="inline-flex items-center gap-1 text-brand-primary">
@@ -375,7 +395,11 @@ export default function NewsletterIssues() {
                 </p>
               </div>
               <div className="flex shrink-0 items-center gap-2">
-                {confirmSendId === draft.id ? (
+                {draft.status === 'sending' ? (
+                  <span className="rounded-full bg-amber-50 px-3 py-1.5 text-xs font-semibold text-amber-700">
+                    Sending in progress…
+                  </span>
+                ) : confirmSendId === draft.id ? (
                   <>
                     <span className="text-sm text-gray-600">
                       Send to {subscriberCount ?? 'all'} subscribers?
@@ -414,7 +438,7 @@ export default function NewsletterIssues() {
                       className="flex items-center gap-1.5 rounded-lg bg-brand-primary px-3.5 py-2 text-sm font-semibold text-white transition-colors hover:bg-brand-primary-dark"
                     >
                       <Send size={14} aria-hidden="true" />
-                      Send now
+                      {draft.status === 'failed' ? 'Retry send' : 'Send now'}
                     </button>
                     <button
                       type="button"

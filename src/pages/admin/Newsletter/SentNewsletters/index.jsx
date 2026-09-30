@@ -140,6 +140,7 @@ export default function SentNewsletters() {
                   </span>
                   <span>· Sent {new Date(issue.sentAt).toLocaleString()}</span>
                   <span>· {issue.recipientCount ?? '—'} recipients</span>
+                  {issue.sentBy && <span>· by {issue.sentBy}</span>}
                   {issue.attachment && (
                     <span className="inline-flex items-center gap-1 text-brand-primary">
                       <Paperclip size={13} aria-hidden="true" />
