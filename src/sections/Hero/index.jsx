@@ -1,7 +1,7 @@
 export default function Hero({ title, subtitle }) {
   return (
     <section
-      className="relative h-[calc(100svh-11rem)] min-h-[420px] w-full overflow-hidden sm:min-h-[520px]"
+      className="relative min-h-0 w-full flex-1 overflow-hidden"
       aria-label={title}
     >
       <video

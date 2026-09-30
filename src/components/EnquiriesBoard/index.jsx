@@ -14,7 +14,7 @@ import {
   Check,
 } from 'lucide-react'
 import { getBilingualText } from '../../lib/bilingual'
-import { matchesSearch, isWithinDates } from '../../lib/search'
+import { matchesSearch, isWithinDates, formatCsvDate } from '../../lib/search'
 import { SearchInput, DateRangeFilter, NoResults } from '../ListFilters'
 import RecordDrawer from '../RecordDrawer'
 
@@ -226,14 +226,14 @@ export default function EnquiriesBoard({
       header.join(','),
       ...rows.map((e) =>
         [
-          e.createdAt || '',
+          formatCsvDate(e.createdAt),
           ...(hasProducts ? [productName(e.productId)] : []),
           e.name,
           e.email,
           e.phone,
           e.message,
           e.contacted ? 'Yes' : 'No',
-          e.contactedAt || '',
+          formatCsvDate(e.contactedAt),
         ]
           .map(csvEscape)
           .join(','),

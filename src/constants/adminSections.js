@@ -19,6 +19,7 @@ import {
   BarChart3,
   MessageSquare,
   PhoneCall,
+  ClipboardList,
 } from 'lucide-react'
 import { ROUTES } from './routes'
 
@@ -72,6 +73,7 @@ export const ADMIN_NAV_GROUPS = [
     id: 'resources',
     label: 'Content & Resources',
     items: [
+      { key: 'forms', title: 'Forms', path: ROUTES.ADMIN_FORMS, icon: ClipboardList },
       { key: 'giProducts', title: 'GI Products', path: ROUTES.ADMIN_GI_PRODUCTS, icon: Award },
       { key: 'giEnquiries', title: 'GI Enquiries', path: ROUTES.ADMIN_GI_ENQUIRIES, icon: MessageSquare },
       {

@@ -7,6 +7,7 @@ import AboutUs from '../pages/public/AboutUs'
 import GeographicalIndications from '../pages/public/GeographicalIndications'
 import Downloads from '../pages/public/Downloads'
 import LegalPage from '../pages/public/LegalPage'
+import FormPage from '../pages/public/FormPage'
 import NotFound from '../pages/public/NotFound'
 import { ROUTES } from '../constants/routes'
 
@@ -31,6 +32,7 @@ export default function PublicRoutes() {
             </Suspense>
           }
         />
+        <Route path={ROUTES.FORM} element={<FormPage />} />
         <Route path={ROUTES.PAGE} element={<LegalPage />} />
         <Route path="*" element={<NotFound />} />
       </Route>

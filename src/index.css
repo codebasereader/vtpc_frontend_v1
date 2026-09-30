@@ -135,3 +135,41 @@ body {
     animation: none;
   }
 }
+
+/* Home-page announcement marquee (forms). The track holds two identical
+   halves, so moving it left by 50% loops seamlessly. Pauses on hover/focus. */
+@keyframes forms-marquee {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+.forms-marquee-track {
+  animation: forms-marquee var(--marquee-duration, 30s) linear infinite;
+}
+
+.forms-marquee:hover .forms-marquee-track,
+.forms-marquee:focus-within .forms-marquee-track {
+  animation-play-state: paused;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .forms-marquee {
+    height: auto;
+    padding: 0.5rem 1rem;
+  }
+
+  .forms-marquee-track {
+    animation: none;
+    width: 100%;
+    flex-wrap: wrap;
+    white-space: normal;
+  }
+
+  .forms-marquee-track > div[aria-hidden='true'] {
+    display: none;
+  }
+}

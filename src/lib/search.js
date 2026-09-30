@@ -46,3 +46,12 @@ export function isWithinDates(dateValue, from, to) {
   if (to && date > endOfDay(to)) return false
   return true
 }
+
+// "2026-09-30 16:12" in the viewer's local time — readable in Excel/Sheets, unlike raw ISO/UTC.
+export function formatCsvDate(value) {
+  if (!value) return ''
+  const date = new Date(value)
+  if (Number.isNaN(date.getTime())) return ''
+  const pad = (n) => String(n).padStart(2, '0')
+  return `${date.getFullYear()}-${pad(date.getMonth() + 1)}-${pad(date.getDate())} ${pad(date.getHours())}:${pad(date.getMinutes())}`
+}

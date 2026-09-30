@@ -32,6 +32,9 @@ const GIProductsList = lazy(() => import('../pages/admin/GIProducts/GIProductsLi
 const GIProductForm = lazy(() => import('../pages/admin/GIProducts/GIProductForm'))
 const FocusSectorsList = lazy(() => import('../pages/admin/FocusSectors/FocusSectorsList'))
 const FocusSectorForm = lazy(() => import('../pages/admin/FocusSectors/FocusSectorForm'))
+const FormsList = lazy(() => import('../pages/admin/Forms/FormsList'))
+const FormBuilder = lazy(() => import('../pages/admin/Forms/FormBuilder'))
+const FormResponses = lazy(() => import('../pages/admin/Forms/FormResponses'))
 const GIEnquiries = lazy(() => import('../pages/admin/GIEnquiries'))
 const ContactEnquiries = lazy(() => import('../pages/admin/ContactEnquiries'))
 const DownloadCategoriesList = lazy(() => import('../pages/admin/DownloadCategories/DownloadCategoriesList'))
@@ -58,6 +61,7 @@ const BUILT_SECTIONS = [
   'warehouses',
   'giProducts',
   'giEnquiries',
+  'forms',
   'contactEnquiries',
   'focusSectors',
   'downloadCategories',
@@ -379,6 +383,38 @@ export default function AdminRoutes() {
             element={
               <ProtectedRoute>
                 <ContactEnquiries />
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path="forms"
+            element={
+              <ProtectedRoute>
+                <FormsList />
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path="forms/new"
+            element={
+              <ProtectedRoute>
+                <FormBuilder />
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path="forms/:id/edit"
+            element={
+              <ProtectedRoute>
+                <FormBuilder />
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path="forms/:id/responses"
+            element={
+              <ProtectedRoute>
+                <FormResponses />
               </ProtectedRoute>
             }
           />

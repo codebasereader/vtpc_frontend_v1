@@ -112,7 +112,7 @@ function Value({ value, formatter, isHtml }) {
   return <span className="text-sm text-brand-dark">{String(value)}</span>
 }
 
-function Fields({ record, formatters, htmlFields }) {
+function Fields({ record, formatters, htmlFields, fieldLabels }) {
   // Media first so the picture/video leads, then everything else in API order.
   const entries = Object.entries(record)
     .filter(([key]) => !HIDDEN_KEYS.has(key))
@@ -122,7 +122,7 @@ function Fields({ record, formatters, htmlFields }) {
     <dl className="flex flex-col gap-4">
       {entries.map(([key, value]) => (
         <div key={key}>
-          <dt className="mb-1 text-[11px] font-bold tracking-wide text-gray-500 uppercase">{prettifyKey(key)}</dt>
+          <dt className="mb-1 text-[11px] font-bold tracking-wide text-gray-500 uppercase">{fieldLabels?.[key] ?? prettifyKey(key)}</dt>
           <dd>
             <Value value={value} formatter={formatters?.[key]} isHtml={htmlFields?.includes(key)} />
           </dd>
@@ -138,7 +138,7 @@ function Fields({ record, formatters, htmlFields }) {
  * so it stays correct when fields are added. `formatters` lets a list turn
  * a raw value (e.g. a district slug) into a readable label.
  */
-export default function RecordDrawer({ record, title, formatters, htmlFields, onClose }) {
+export default function RecordDrawer({ record, title, formatters, htmlFields, fieldLabels, onClose }) {
   const isOpen = Boolean(record)
   const { mounted, visible } = useExitTransition(isOpen, 300)
 
@@ -196,7 +196,7 @@ export default function RecordDrawer({ record, title, formatters, htmlFields, on
           </button>
         </header>
         <div className="flex-1 overflow-y-auto px-5 py-5">
-          <Fields record={shown.record} formatters={formatters} htmlFields={htmlFields} />
+          <Fields record={shown.record} formatters={formatters} htmlFields={htmlFields} fieldLabels={fieldLabels} />
         </div>
       </aside>
     </div>
