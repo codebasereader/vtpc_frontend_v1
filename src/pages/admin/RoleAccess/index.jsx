@@ -1,6 +1,6 @@
 import { useEffect, useMemo, useState } from 'react'
 import { Link, useSearchParams } from 'react-router-dom'
-import { Lock, Users, CheckCircle2, ShieldCheck } from 'lucide-react'
+import { Users, CheckCircle2, ShieldCheck, KeyRound, Plus, Check } from 'lucide-react'
 import { getRoles, setRolePermissions } from '../../../api/rolesApi'
 import { PERMISSION_GROUPS } from '../../../constants/adminSections'
 import { ROUTES } from '../../../constants/routes'
@@ -157,48 +157,97 @@ export default function RoleAccess() {
       )}
 
       {!isLoading && selected && (
-        <div className="mt-6 grid gap-6 lg:grid-cols-[17rem_1fr]">
-          {/* Role picker */}
-          <nav aria-label="Roles" className="flex flex-col gap-2 self-start lg:sticky lg:top-0">
+        <div className="mt-6">
+          {/* Role picker — one card per role, four to a row on wide screens */}
+          <nav aria-label="Roles" className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4">
             {roles.map((role) => {
               const isSelected = role.id === selected.id
-              const count = role.isSystem ? ALL_KEYS.length : role.permissions?.filter((k) => ALL_KEYS.includes(k)).length ?? 0
+              const saved = role.isSystem ? ALL_KEYS.length : role.permissions?.filter((k) => ALL_KEYS.includes(k)).length ?? 0
+              // The open role reflects unsaved toggles live.
+              const count = isSelected && !role.isSystem ? current.length : saved
+              const percent = Math.round((count / ALL_KEYS.length) * 100)
               return (
                 <button
                   key={role.id}
                   type="button"
                   onClick={() => selectRole(role.id)}
                   aria-current={isSelected}
-                  className={`rounded-xl border p-3.5 text-left transition-all ${
+                  className={`group relative flex flex-col rounded-2xl border p-4 text-left transition-all duration-200 ${
                     isSelected
-                      ? 'border-brand-primary bg-brand-surface/50 ring-2 ring-brand-primary/15'
-                      : 'border-brand-divider bg-white hover:-translate-y-0.5 hover:shadow-[0_6px_18px_rgba(15,40,80,0.08)]'
+                      ? 'border-brand-primary bg-white shadow-[0_10px_28px_rgba(200,55,68,0.14)] ring-2 ring-brand-primary/20'
+                      : 'border-brand-divider bg-white hover:-translate-y-0.5 hover:border-brand-primary/40 hover:shadow-[0_10px_24px_rgba(15,40,80,0.08)]'
                   }`}
                 >
-                  <span className="flex items-center gap-2">
-                    <span className="truncate text-sm font-bold text-brand-dark">{role.name}</span>
-                    {role.isSystem && <Lock size={12} className="shrink-0 text-gray-400" aria-label="Built-in" />}
-                  </span>
-                  <span className="mt-1 flex items-center gap-3 text-xs text-gray-500">
-                    <span>{role.isSystem ? 'Full access' : `${count} of ${ALL_KEYS.length} pages`}</span>
-                    <span className="inline-flex items-center gap-1">
-                      <Users size={11} aria-hidden="true" />
-                      {role.userCount ?? 0}
+                  <span className="flex items-start justify-between gap-2">
+                    <span
+                      className={`flex h-11 w-11 shrink-0 items-center justify-center rounded-xl transition-colors ${
+                        role.isSystem
+                          ? 'bg-brand-navy text-white'
+                          : isSelected
+                            ? 'bg-brand-primary text-white'
+                            : 'bg-brand-surface text-brand-primary group-hover:bg-brand-primary/15'
+                      }`}
+                    >
+                      {role.isSystem ? <ShieldCheck size={22} aria-hidden="true" /> : <KeyRound size={21} aria-hidden="true" />}
                     </span>
+                    <span className="flex items-center gap-1.5">
+                      {isSelected && isDirty && (
+                        <span className="rounded-full bg-amber-100 px-2 py-0.5 text-[10px] font-bold tracking-wide text-amber-700 uppercase">
+                          Unsaved
+                        </span>
+                      )}
+                      <span
+                        className={`flex h-6 w-6 items-center justify-center rounded-full border-2 transition-all ${
+                          isSelected ? 'border-brand-primary bg-brand-primary text-white' : 'border-brand-divider text-transparent'
+                        }`}
+                        aria-hidden="true"
+                      >
+                        <Check size={13} strokeWidth={3} />
+                      </span>
+                    </span>
+                  </span>
+
+                  <span className="mt-3 block truncate text-base font-bold text-brand-dark">{role.name}</span>
+                  <span className="mt-0.5 line-clamp-2 min-h-9 text-xs leading-snug text-gray-500">
+                    {role.description || (role.isSystem ? 'Full access to every page.' : 'No description')}
+                  </span>
+
+                  <span className="mt-4 block">
+                    <span className="mb-1.5 flex items-center justify-between text-xs font-semibold">
+                      <span className={role.isSystem ? 'text-brand-navy' : 'text-gray-600'}>
+                        {role.isSystem ? 'Full access' : `${count} of ${ALL_KEYS.length} pages`}
+                      </span>
+                      {!role.isSystem && <span className="text-gray-400">{percent}%</span>}
+                    </span>
+                    <span className="block h-1.5 overflow-hidden rounded-full bg-brand-page">
+                      <span
+                        className={`block h-full rounded-full transition-all duration-500 ${role.isSystem ? 'bg-brand-navy' : 'bg-brand-primary'}`}
+                        style={{ width: `${role.isSystem ? 100 : percent}%` }}
+                      />
+                    </span>
+                  </span>
+
+                  <span className="mt-3 inline-flex items-center gap-1.5 text-xs text-gray-500">
+                    <Users size={13} aria-hidden="true" />
+                    {role.userCount ?? 0} user{role.userCount === 1 ? '' : 's'}
                   </span>
                 </button>
               )
             })}
+
             <Link
               to={`${ROUTES.ADMIN_ROLES}/new`}
-              className="rounded-xl border border-dashed border-brand-divider p-3 text-center text-sm font-medium text-brand-primary hover:bg-brand-surface/40"
+              className="flex min-h-44 flex-col items-center justify-center gap-2 rounded-2xl border-2 border-dashed border-brand-divider p-4 text-center text-sm font-semibold text-brand-primary transition-all hover:-translate-y-0.5 hover:border-brand-primary/50 hover:bg-brand-surface/40"
             >
-              + New role
+              <span className="flex h-10 w-10 items-center justify-center rounded-full bg-brand-surface">
+                <Plus size={20} aria-hidden="true" />
+              </span>
+              Create a new role
             </Link>
           </nav>
 
           {/* Matrix */}
-          <section aria-label={`Pages for ${selected.name}`}>
+          <section aria-label={`Pages for ${selected.name}`} className="mt-6">
             <div className="flex flex-wrap items-center justify-between gap-3 rounded-xl border border-brand-divider bg-white p-4">
               <div className="min-w-0">
                 <h2 className="flex items-center gap-2 text-lg font-bold text-brand-dark">
