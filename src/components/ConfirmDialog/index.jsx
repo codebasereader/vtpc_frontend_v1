@@ -14,6 +14,8 @@ export default function ConfirmDialog({
   cancelLabel = 'Cancel',
   tone = 'danger',
   isBusy = false,
+  confirmDisabled = false,
+  children = null,
   onConfirm,
   onCancel,
 }) {
@@ -73,6 +75,7 @@ export default function ConfirmDialog({
             </p>
           </div>
         </div>
+        {children && <div className="mt-4">{children}</div>}
         <div className="mt-6 flex justify-end gap-3">
           <button
             type="button"
@@ -85,7 +88,7 @@ export default function ConfirmDialog({
           <button
             type="button"
             onClick={onConfirm}
-            disabled={isBusy}
+            disabled={isBusy || confirmDisabled}
             className={`rounded-lg px-4 py-2.5 text-sm font-semibold text-white transition-colors disabled:opacity-60 ${confirmClass}`}
           >
             {isBusy ? 'Please wait…' : confirmLabel}

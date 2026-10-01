@@ -3,6 +3,7 @@ import { useSelector } from 'react-redux'
 import { ChevronRight } from 'lucide-react'
 import { selectCurrentUser } from '../../../redux/slices/authSlice'
 import { ADMIN_NAV_GROUPS } from '../../../constants/adminSections'
+import { roleLabel, visibleGroups } from '../../../lib/access'
 
 export default function Dashboard() {
   const currentUser = useSelector(selectCurrentUser)
@@ -12,10 +13,12 @@ export default function Dashboard() {
       <h1 className="text-2xl font-bold text-brand-dark">
         {currentUser ? `Welcome, ${currentUser.name}` : 'Dashboard'}
       </h1>
-      <p className="mt-1 text-gray-600">Choose a section to manage.</p>
+      <p className="mt-1 text-gray-600">
+        {roleLabel(currentUser) ? `Signed in as ${roleLabel(currentUser)}. ` : ''}Choose a section to manage.
+      </p>
 
       <div className="mt-8 space-y-8">
-        {ADMIN_NAV_GROUPS.map((group) => (
+        {visibleGroups(ADMIN_NAV_GROUPS, currentUser).map((group) => (
           <section key={group.id}>
             <h2 className="text-xs font-semibold tracking-[0.12em] text-gray-500 uppercase">
               {group.label}

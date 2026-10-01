@@ -20,6 +20,10 @@ import {
   MessageSquare,
   PhoneCall,
   ClipboardList,
+  UserCog,
+  ShieldCheck,
+  KeyRound,
+  ScrollText,
 } from 'lucide-react'
 import { ROUTES } from './routes'
 
@@ -124,5 +128,33 @@ export const ADMIN_NAV_GROUPS = [
   },
 ]
 
+/**
+ * Access-control area — Super Admin only (never grantable to a role), so
+ * these items are flagged instead of being part of the permission catalog.
+ */
+const ACCESS_CONTROL_GROUP = {
+  id: 'accessControl',
+  label: 'Access Control',
+  superAdminOnly: true,
+  items: [
+    { key: 'users', title: 'Users', path: ROUTES.ADMIN_USERS, icon: UserCog, superAdminOnly: true },
+    { key: 'roles', title: 'Roles', path: ROUTES.ADMIN_ROLES, icon: ShieldCheck, superAdminOnly: true },
+    { key: 'roleAccess', title: 'Role Access', path: ROUTES.ADMIN_ROLE_ACCESS, icon: KeyRound, superAdminOnly: true },
+    { key: 'auditLogs', title: 'Audit Logs', path: ROUTES.ADMIN_AUDIT_LOGS, icon: ScrollText, superAdminOnly: true },
+  ],
+}
+
+ADMIN_NAV_GROUPS.push(ACCESS_CONTROL_GROUP)
+
 /** Flat list — used by Dashboard cards and route generation. */
 export const ADMIN_SECTIONS = ADMIN_NAV_GROUPS.flatMap((group) => group.items)
+
+/** Grantable pages (everything except the Super-Admin-only area), grouped like the sidebar. */
+export const PERMISSION_GROUPS = ADMIN_NAV_GROUPS.filter((group) => !group.superAdminOnly)
+
+/** The section a pathname belongs to (e.g. /admin/forms/12/edit → forms), or null. */
+export function sectionForPath(pathname) {
+  return (
+    ADMIN_SECTIONS.find((section) => pathname === section.path || pathname.startsWith(`${section.path}/`)) || null
+  )
+}

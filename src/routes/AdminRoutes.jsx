@@ -35,6 +35,13 @@ const FocusSectorForm = lazy(() => import('../pages/admin/FocusSectors/FocusSect
 const FormsList = lazy(() => import('../pages/admin/Forms/FormsList'))
 const FormBuilder = lazy(() => import('../pages/admin/Forms/FormBuilder'))
 const FormResponses = lazy(() => import('../pages/admin/Forms/FormResponses'))
+const UsersList = lazy(() => import('../pages/admin/Users/UsersList'))
+const UserForm = lazy(() => import('../pages/admin/Users/UserForm'))
+const RolesList = lazy(() => import('../pages/admin/Roles/RolesList'))
+const RoleForm = lazy(() => import('../pages/admin/Roles/RoleForm'))
+const RoleAccess = lazy(() => import('../pages/admin/RoleAccess'))
+const AuditLogs = lazy(() => import('../pages/admin/AuditLogs'))
+const ChangePassword = lazy(() => import('../pages/admin/ChangePassword'))
 const GIEnquiries = lazy(() => import('../pages/admin/GIEnquiries'))
 const ContactEnquiries = lazy(() => import('../pages/admin/ContactEnquiries'))
 const DownloadCategoriesList = lazy(() => import('../pages/admin/DownloadCategories/DownloadCategoriesList'))
@@ -62,6 +69,10 @@ const BUILT_SECTIONS = [
   'giProducts',
   'giEnquiries',
   'forms',
+  'users',
+  'roles',
+  'roleAccess',
+  'auditLogs',
   'contactEnquiries',
   'focusSectors',
   'downloadCategories',
@@ -415,6 +426,78 @@ export default function AdminRoutes() {
             element={
               <ProtectedRoute>
                 <FormResponses />
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path="users"
+            element={
+              <ProtectedRoute>
+                <UsersList />
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path="users/new"
+            element={
+              <ProtectedRoute>
+                <UserForm />
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path="users/:id/edit"
+            element={
+              <ProtectedRoute>
+                <UserForm />
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path="roles"
+            element={
+              <ProtectedRoute>
+                <RolesList />
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path="roles/new"
+            element={
+              <ProtectedRoute>
+                <RoleForm />
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path="roles/:id/edit"
+            element={
+              <ProtectedRoute>
+                <RoleForm />
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path="role-access"
+            element={
+              <ProtectedRoute>
+                <RoleAccess />
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path="audit-logs"
+            element={
+              <ProtectedRoute>
+                <AuditLogs />
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path="change-password"
+            element={
+              <ProtectedRoute>
+                <ChangePassword />
               </ProtectedRoute>
             }
           />

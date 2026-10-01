@@ -23,6 +23,7 @@ const authSlice = createSlice({
 })
 
 export const { setCheckingSession, setUser, clearUser } = authSlice.actions
+export const selectIsSuperAdmin = (state) => Boolean(state.auth.user?.isSuperAdmin)
 export const selectIsAuthenticated = (state) => state.auth.isAuthenticated
 export const selectCurrentUser = (state) => state.auth.user
 export const selectAuthStatus = (state) => state.auth.status

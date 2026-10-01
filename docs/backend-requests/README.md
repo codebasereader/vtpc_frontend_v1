@@ -31,5 +31,6 @@ general reference.
 | [`15-gi-enquiries-admin.md`](./15-gi-enquiries-admin.md) | GI Enquiries admin screen — `contacted`/`contactedAt`/`contactedBy` on `Enquiry` + `PATCH /admin/enquiries/:id`, product-name snapshot, validation; list/filters/export are client-side on the existing `GET /admin/enquiries` |
 | [`16-contact-us-enquiries.md`](./16-contact-us-enquiries.md) | Contact Us modal + admin Contact Enquiries — new `ContactEnquiry` model, public `POST /contact-enquiries`, admin list + `PATCH` contacted (same shape as GI enquiries) |
 | [`17-forms-registrations-feedback.md`](./17-forms-registrations-feedback.md) | Forms builder + home marquee — `Form`/`FormResponse` models, public `GET /forms/active`, `GET /forms/:slug`, `POST /forms/:slug/responses`, admin CRUD/toggle/responses/delete with server-side answer validation |
+| [`18-roles-users-access-audit.md`](./18-roles-users-access-audit.md) | Roles, users, role-based page access (server-enforced, default-deny) and Super-Admin-only audit logs — login/logout sessions, every change with before/after, failed logins, access denied |
 
 Status legend: 🔴 blocking · 🟡 should fix · 🟢 fixed / confirmed working

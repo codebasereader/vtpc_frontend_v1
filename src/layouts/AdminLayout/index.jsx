@@ -1,12 +1,13 @@
 import { useState } from 'react'
 import { NavLink, Outlet, useNavigate } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux'
-import { LayoutDashboard, LogOut, Menu, X, PanelLeftClose, PanelLeftOpen } from 'lucide-react'
+import { LayoutDashboard, LogOut, Menu, X, PanelLeftClose, PanelLeftOpen, KeyRound } from 'lucide-react'
 import ErrorBoundary from '../../components/ErrorBoundary'
 import { logout } from '../../api/authApi'
 import { clearUser, selectCurrentUser } from '../../redux/slices/authSlice'
 import { ROUTES } from '../../constants/routes'
 import { ADMIN_NAV_GROUPS } from '../../constants/adminSections'
+import { roleLabel, visibleGroups } from '../../lib/access'
 
 const SIDEBAR_COLLAPSED_KEY = 'vtpc_admin_sidebar_collapsed'
 
@@ -146,7 +147,7 @@ export default function AdminLayout() {
             collapsed={isCollapsed}
             onClick={closeMobileMenu}
           />
-          {ADMIN_NAV_GROUPS.map((group) => (
+          {visibleGroups(ADMIN_NAV_GROUPS, currentUser).map((group) => (
             <div key={group.id}>
               <NavGroupLabel label={group.label} collapsed={isCollapsed} />
               <div className="flex flex-col gap-0.5">
@@ -173,10 +174,17 @@ export default function AdminLayout() {
             {currentUser && (
               <div className={`min-w-0 ${isCollapsed ? 'md:hidden' : ''}`}>
                 <p className="truncate text-sm font-medium text-white">{currentUser.name}</p>
-                <p className="truncate text-xs text-white/50 capitalize">{currentUser.role}</p>
+                <p className="truncate text-xs text-white/50">{roleLabel(currentUser)}</p>
               </div>
             )}
           </div>
+          <NavItem
+            to={ROUTES.ADMIN_CHANGE_PASSWORD}
+            icon={KeyRound}
+            label="Change password"
+            collapsed={isCollapsed}
+            onClick={closeMobileMenu}
+          />
           <button
             type="button"
             onClick={handleLogout}
