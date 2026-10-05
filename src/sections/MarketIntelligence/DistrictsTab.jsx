@@ -1,6 +1,7 @@
 import { useMemo, useState } from 'react'
 import { exporterCorner as t } from '../../language/exporterCorner'
 import BarList from './BarList'
+import DistrictDetail from './DistrictDetail'
 import { fill, formatShare } from './format'
 import { districtRows, districtsWithSectorData } from './derive'
 import { EmptyNote, FilterSelect, ShowAllToggle, TabIntro } from './ui'
@@ -11,6 +12,7 @@ const DEFAULT_COUNT = 10
 export default function DistrictsTab({ release, language }) {
   const [sector, setSector] = useState('')
   const [showAll, setShowAll] = useState(false)
+  const [selectedDistrict, setSelectedDistrict] = useState(null)
 
   const sectorOptions = useMemo(
     () => [
@@ -29,6 +31,18 @@ export default function DistrictsTab({ release, language }) {
     }))
   }, [release, sector, language])
 
+  if (selectedDistrict) {
+    return (
+      <DistrictDetail
+        key={selectedDistrict}
+        release={release}
+        language={language}
+        name={selectedDistrict}
+        onBack={() => setSelectedDistrict(null)}
+      />
+    )
+  }
+
   const shown = showAll ? rows : rows.slice(0, DEFAULT_COUNT)
 
   function handleSectorChange(next) {
@@ -40,7 +54,11 @@ export default function DistrictsTab({ release, language }) {
     <div>
       <TabIntro
         title={sector ? fill(mi.districts.titleForSector[language], { sector }) : mi.districts.title[language]}
-        hint={sector ? mi.districts.hintForSector[language] : mi.districts.hint[language]}
+        hint={
+          sector
+            ? `${mi.districts.hintForSector[language]} ${mi.districts.hint[language]}`
+            : mi.districts.hint[language]
+        }
       />
       {hasSectorFilter && (
         <div className="mt-4 max-w-sm">
@@ -56,8 +74,7 @@ export default function DistrictsTab({ release, language }) {
             <BarList
               rows={shown}
               previousLabel={release.previousLabel}
-              detailsHeading={mi.districts.mainProducts[language]}
-              previousText={fill(mi.districts.previousPeriod[language], { label: release.previousLabel })}
+              onSelect={(row) => setSelectedDistrict(row.label)}
             />
           </div>
           <ShowAllToggle

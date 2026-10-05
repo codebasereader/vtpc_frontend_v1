@@ -1,6 +1,6 @@
 import { useMemo, useState } from 'react'
 import { useSelector } from 'react-redux'
-import { Building2, Globe2, Layers, Map } from 'lucide-react'
+import { Building2, Globe2, Grid3x3, Layers, Map } from 'lucide-react'
 import { getMarketRelease, getMarketReleases } from '../../api/marketIntelligenceApi'
 import { selectLanguage } from '../../redux/slices/localeSlice'
 import { exporterCorner as t } from '../../language/exporterCorner'
@@ -8,10 +8,12 @@ import { useRemote } from '../../lib/useRemote'
 import { ChangeChip } from './BarList'
 import CountriesTab from './CountriesTab'
 import DistrictsTab from './DistrictsTab'
+import GridTab from './GridTab'
 import SectorsTab from './SectorsTab'
 import StatesTab from './StatesTab'
-import { districtRows, karnatakaShareOfIndia, sectorRows, servicesFigure } from './derive'
+import { districtRows, karnatakaShareOfIndia, sectorRows, servicesSummary } from './derive'
 import { fill, formatShare, formatUsd } from './format'
+import { SummaryCard } from './ui'
 
 const mi = t.marketIntelligence
 
@@ -37,22 +39,11 @@ function PeriodPills({ releases, active, onChange, label }) {
   )
 }
 
-function SummaryCard({ title, value, note, children }) {
-  return (
-    <div className="rounded-2xl border border-brand-divider bg-white p-4 shadow-[0_8px_24px_rgba(15,40,80,0.06)]">
-      <p className="text-xs font-semibold tracking-wide text-gray-500 uppercase">{title}</p>
-      <p className="mt-2 text-xl font-bold text-brand-navy-dark md:text-2xl">{value}</p>
-      {note && <p className="mt-1 text-sm text-gray-600">{note}</p>}
-      {children}
-    </div>
-  )
-}
-
 function Summary({ release, language }) {
   const topDistrict = districtRows(release, '')[0]
   const topSector = sectorRows(release).find((row) => !/^others?$/i.test(row.label))
   const share = karnatakaShareOfIndia(release)
-  const services = servicesFigure(release)
+  const services = servicesSummary(release)
 
   return (
     <div className="mt-6">
@@ -72,9 +63,9 @@ function Summary({ release, language }) {
           <SummaryCard title={mi.summary.topSector[language]} value={topSector.label} note={formatUsd(topSector.value)} />
         )}
       </div>
-      {services?.current ? (
+      {services?.value ? (
         <p className="mt-3 text-sm text-gray-500">
-          {fill(mi.summary.services[language], { value: formatUsd(services.current) })}
+          {fill(mi.summary.services[language], { value: formatUsd(services.value) })}
         </p>
       ) : null}
     </div>
@@ -92,6 +83,7 @@ function ReleaseView({ releaseKey, language }) {
       { key: 'sectors', icon: Layers, show: release.sectorStates.some((row) => !row.isServices) },
       { key: 'districts', icon: Building2, show: release.districts.length > 0 },
       { key: 'countries', icon: Globe2, show: release.countryDistricts.length > 0 },
+      { key: 'grid', icon: Grid3x3, show: Object.keys(release.stateTotals).length > 1 && release.sectorStates.some((row) => !row.isServices) },
     ].filter((tab) => tab.show)
   }, [release])
 
@@ -135,6 +127,7 @@ function ReleaseView({ releaseKey, language }) {
         {activeTab === 'sectors' && <SectorsTab {...tabProps} />}
         {activeTab === 'districts' && <DistrictsTab {...tabProps} />}
         {activeTab === 'countries' && <CountriesTab {...tabProps} />}
+        {activeTab === 'grid' && <GridTab {...tabProps} />}
       </div>
 
       <p className="mt-4 text-xs text-gray-500">{fill(mi.source[language], { source: release.source })}</p>

@@ -39,14 +39,27 @@ export const exporterCorner = {
       sectors: { en: 'By sector', kn: 'ವಲಯದ ಪ್ರಕಾರ' },
       districts: { en: 'By district', kn: 'ಜಿಲ್ಲೆಯ ಪ್ರಕಾರ' },
       countries: { en: 'By country', kn: 'ದೇಶದ ಪ್ರಕಾರ' },
+      grid: { en: 'Compare all', kn: 'ಎಲ್ಲವನ್ನೂ ಹೋಲಿಸಿ' },
     },
 
     states: {
       title: { en: 'How Karnataka compares with other leading states', kn: 'ಕರ್ನಾಟಕವು ಇತರ ಪ್ರಮುಖ ರಾಜ್ಯಗಳೊಂದಿಗೆ ಹೇಗೆ ಹೋಲಿಸುತ್ತದೆ' },
       titleForSector: { en: '{sector}: Karnataka vs other leading states', kn: '{sector}: ಕರ್ನಾಟಕ vs ಇತರ ಪ್ರಮುಖ ರಾಜ್ಯಗಳು' },
-      hint: { en: 'Goods exports. Karnataka is shown in red.', kn: 'ಸರಕು ರಫ್ತು. ಕರ್ನಾಟಕವನ್ನು ಕೆಂಪು ಬಣ್ಣದಲ್ಲಿ ತೋರಿಸಲಾಗಿದೆ.' },
+      titleWithServices: {
+        en: 'Total exports (goods + services): Karnataka vs other leading states',
+        kn: 'ಒಟ್ಟು ರಫ್ತು (ಸರಕು + ಸೇವೆಗಳು): ಕರ್ನಾಟಕ vs ಇತರ ಪ್ರಮುಖ ರಾಜ್ಯಗಳು',
+      },
+      hint: { en: 'Karnataka is shown in red.', kn: 'ಕರ್ನಾಟಕವನ್ನು ಕೆಂಪು ಬಣ್ಣದಲ್ಲಿ ತೋರಿಸಲಾಗಿದೆ.' },
+      servicesHint: {
+        en: 'Software & services figures are RBI estimates.',
+        kn: 'ಸಾಫ್ಟ್‌ವೇರ್ ಮತ್ತು ಸೇವಾ ಅಂಕಿಅಂಶಗಳು RBI ಅಂದಾಜುಗಳು.',
+      },
       sectorFilter: { en: 'Sector', kn: 'ವಲಯ' },
       allSectors: { en: 'All goods (all sectors)', kn: 'ಎಲ್ಲಾ ಸರಕುಗಳು (ಎಲ್ಲಾ ವಲಯಗಳು)' },
+      servicesOption: { en: '{sector} (RBI estimate)', kn: '{sector} (RBI ಅಂದಾಜು)' },
+      viewLabel: { en: 'Show', kn: 'ತೋರಿಸಿ' },
+      goodsOnly: { en: 'Goods only', kn: 'ಸರಕು ಮಾತ್ರ' },
+      goodsAndServices: { en: 'Goods + services', kn: 'ಸರಕು + ಸೇವೆಗಳು' },
       rank: {
         en: 'Karnataka ranks #{rank} out of the {total} states shown.',
         kn: 'ತೋರಿಸಿರುವ {total} ರಾಜ್ಯಗಳಲ್ಲಿ ಕರ್ನಾಟಕ {rank}ನೇ ಸ್ಥಾನದಲ್ಲಿದೆ.',
@@ -62,19 +75,69 @@ export const exporterCorner = {
         kn: 'ವಲಯದ ಪ್ರಕಾರ ಸರಕು ರಫ್ತು. ಸಣ್ಣ ಬೂದು ಅಕ್ಷರಗಳು ಆ ವಲಯದಲ್ಲಿ ಭಾರತದ ಒಟ್ಟು ರಫ್ತಿನಲ್ಲಿ ಕರ್ನಾಟಕದ ಪಾಲನ್ನು ತೋರಿಸುತ್ತವೆ.',
       },
       shareOfIndia: { en: "{value}% of India's exports in this sector", kn: 'ಈ ವಲಯದಲ್ಲಿ ಭಾರತದ ರಫ್ತಿನ {value}%' },
+      standing: { en: 'Rank {rank} of {total} states', kn: '{total} ರಾಜ್ಯಗಳಲ್ಲಿ {rank}ನೇ ಸ್ಥಾನ' },
+      leads: { en: 'Leads', kn: 'ಮುಂಚೂಣಿ' },
+      leadsTitle: { en: 'Where Karnataka leads', kn: 'ಕರ್ನಾಟಕ ಮುಂಚೂಣಿಯಲ್ಲಿರುವ ವಲಯಗಳು' },
+      leadsBody: {
+        en: 'Karnataka exports more than any of the other {others} states compared, in these sectors:',
+        kn: 'ಹೋಲಿಸಿದ ಇತರ {others} ರಾಜ್ಯಗಳಿಗಿಂತ ಕರ್ನಾಟಕ ಹೆಚ್ಚು ರಫ್ತು ಮಾಡುವ ವಲಯಗಳು:',
+      },
+      servicesTitle: { en: 'Software & services (RBI estimate)', kn: 'ಸಾಫ್ಟ್‌ವೇರ್ ಮತ್ತು ಸೇವೆಗಳು (RBI ಅಂದಾಜು)' },
+      servicesBody: {
+        en: "Counted separately from goods. Karnataka ranks {rank} of {total} states and has {share}% of India's total.",
+        kn: 'ಸರಕುಗಳಿಂದ ಪ್ರತ್ಯೇಕವಾಗಿ ಎಣಿಸಲಾಗಿದೆ. {total} ರಾಜ್ಯಗಳಲ್ಲಿ ಕರ್ನಾಟಕ {rank}ನೇ ಸ್ಥಾನದಲ್ಲಿದ್ದು ಭಾರತದ ಒಟ್ಟಿನ {share}% ಹೊಂದಿದೆ.',
+      },
     },
 
     districts: {
       title: { en: 'Which districts export the most', kn: 'ಯಾವ ಜಿಲ್ಲೆಗಳು ಹೆಚ್ಚು ರಫ್ತು ಮಾಡುತ್ತವೆ' },
       titleForSector: { en: 'Top districts for {sector}', kn: '{sector} ಗಾಗಿ ಪ್ರಮುಖ ಜಿಲ್ಲೆಗಳು' },
-      hint: { en: 'Tap a district to see its main exported products.', kn: 'ಜಿಲ್ಲೆಯ ಪ್ರಮುಖ ರಫ್ತು ಉತ್ಪನ್ನಗಳನ್ನು ನೋಡಲು ಅದರ ಮೇಲೆ ಒತ್ತಿ.' },
+      hint: {
+        en: 'Tap a district to see what it exports and where it sends it.',
+        kn: 'ಜಿಲ್ಲೆ ಏನನ್ನು ಮತ್ತು ಎಲ್ಲಿಗೆ ರಫ್ತು ಮಾಡುತ್ತದೆ ಎಂದು ನೋಡಲು ಅದರ ಮೇಲೆ ಒತ್ತಿ.',
+      },
       hintForSector: { en: 'Value of this sector exported from each district.', kn: 'ಪ್ರತಿ ಜಿಲ್ಲೆಯಿಂದ ಈ ವಲಯದ ರಫ್ತು ಮೌಲ್ಯ.' },
       sectorFilter: { en: 'Sector', kn: 'ವಲಯ' },
       allSectors: { en: 'All sectors', kn: 'ಎಲ್ಲಾ ವಲಯಗಳು' },
       shareOfKarnataka: { en: "{value}% of Karnataka's exports", kn: 'ಕರ್ನಾಟಕದ ರಫ್ತಿನ {value}%' },
       shareOfSector: { en: "{value}% of the state's exports in this sector", kn: 'ಈ ವಲಯದಲ್ಲಿ ರಾಜ್ಯದ ರಫ್ತಿನ {value}%' },
       mainProducts: { en: 'Main products exported', kn: 'ಪ್ರಮುಖ ರಫ್ತು ಉತ್ಪನ್ನಗಳು' },
-      previousPeriod: { en: 'Previous period ({label})', kn: 'ಹಿಂದಿನ ಅವಧಿ ({label})' },
+      back: { en: 'All districts', kn: 'ಎಲ್ಲಾ ಜಿಲ್ಲೆಗಳು' },
+      detailExports: { en: 'Total exports', kn: 'ಒಟ್ಟು ರಫ್ತು' },
+      detailRank: { en: 'Rank among districts', kn: 'ಜಿಲ್ಲೆಗಳಲ್ಲಿ ಸ್ಥಾನ' },
+      detailRankValue: { en: '{rank} of {total}', kn: '{total} ರಲ್ಲಿ {rank}' },
+      detailShare: { en: 'Share of Karnataka', kn: 'ಕರ್ನಾಟಕದಲ್ಲಿ ಪಾಲು' },
+      whatItExports: { en: 'What it exports', kn: 'ಏನನ್ನು ರಫ್ತು ಮಾಡುತ್ತದೆ' },
+      whatItExportsHint: {
+        en: 'Goods exports by sector. The grey text gives the sector’s share of this district’s exports, and this district’s share of the state’s exports in that sector.',
+        kn: 'ವಲಯದ ಪ್ರಕಾರ ಸರಕು ರಫ್ತು. ಬೂದು ಅಕ್ಷರಗಳು ಈ ಜಿಲ್ಲೆಯ ರಫ್ತಿನಲ್ಲಿ ವಲಯದ ಪಾಲು ಮತ್ತು ಆ ವಲಯದಲ್ಲಿ ರಾಜ್ಯದ ರಫ್ತಿನಲ್ಲಿ ಈ ಜಿಲ್ಲೆಯ ಪಾಲನ್ನು ತೋರಿಸುತ್ತವೆ.',
+      },
+      sectorSub: {
+        en: "{district}% of this district's exports · {state}% of Karnataka's total in this sector",
+        kn: 'ಈ ಜಿಲ್ಲೆಯ ರಫ್ತಿನ {district}% · ಈ ವಲಯದಲ್ಲಿ ಕರ್ನಾಟಕದ ಒಟ್ಟಿನ {state}%',
+      },
+      whereItExports: { en: 'Where it exports to', kn: 'ಎಲ್ಲಿಗೆ ರಫ್ತು ಮಾಡುತ್ತದೆ' },
+      whereItExportsHint: { en: 'Top destination countries.', kn: 'ಪ್ರಮುಖ ಗಮ್ಯಸ್ಥಾನ ದೇಶಗಳು.' },
+      noDetail: {
+        en: 'More detail for this district is not available for this period.',
+        kn: 'ಈ ಅವಧಿಗೆ ಈ ಜಿಲ್ಲೆಯ ಹೆಚ್ಚಿನ ವಿವರ ಲಭ್ಯವಿಲ್ಲ.',
+      },
+    },
+
+    grid: {
+      title: { en: 'Every sector, every state', kn: 'ಪ್ರತಿ ವಲಯ, ಪ್ರತಿ ರಾಜ್ಯ' },
+      hint: {
+        en: 'The darker a cell, the bigger that state is within the sector. The leading state in each row is in bold.',
+        kn: 'ಕೋಶ ಗಾಢವಾದಷ್ಟೂ ಆ ವಲಯದಲ್ಲಿ ರಾಜ್ಯ ದೊಡ್ಡದು. ಪ್ರತಿ ಸಾಲಿನಲ್ಲಿ ಮುಂಚೂಣಿಯಲ್ಲಿರುವ ರಾಜ್ಯವನ್ನು ದಪ್ಪ ಅಕ್ಷರಗಳಲ್ಲಿ ತೋರಿಸಲಾಗಿದೆ.',
+      },
+      viewLabel: { en: 'Show', kn: 'ತೋರಿಸಿ' },
+      viewValue: { en: 'US$ million', kn: 'ಮಿಲಿಯನ್ US$' },
+      viewShare: { en: "Share of India's exports", kn: 'ಭಾರತದ ರಫ್ತಿನಲ್ಲಿ ಪಾಲು' },
+      sector: { en: 'Sector', kn: 'ವಲಯ' },
+      india: { en: 'All India', kn: 'ಇಡೀ ಭಾರತ' },
+      goodsTotal: { en: 'Total goods', kn: 'ಒಟ್ಟು ಸರಕುಗಳು' },
+      servicesRow: { en: 'Software & services (RBI estimate)', kn: 'ಸಾಫ್ಟ್‌ವೇರ್ ಮತ್ತು ಸೇವೆಗಳು (RBI ಅಂದಾಜು)' },
+      empty: { en: '–', kn: '–' },
     },
 
     countries: {
