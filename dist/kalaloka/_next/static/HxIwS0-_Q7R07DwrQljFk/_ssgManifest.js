@@ -1,0 +1,1 @@
+self.__SSG_MANIFEST=new Set(["\u002Four-brands\u002F[slug]","\u002Four-brands\u002Fkarnataka-handicrafts\u002F[category]"]);self.__SSG_MANIFEST_CB&&self.__SSG_MANIFEST_CB()

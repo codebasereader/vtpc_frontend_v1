@@ -1,0 +1,5 @@
+User-Agent: *
+Allow: /
+
+Host: https://vtpc.karnataka.gov.in/kalaloka
+Sitemap: https://vtpc.karnataka.gov.in/kalaloka/sitemap.xml
