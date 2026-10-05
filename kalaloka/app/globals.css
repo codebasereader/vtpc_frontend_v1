@@ -1,0 +1,50 @@
+@import "tailwindcss";
+
+:root {
+  --background: #f6e1df;
+  --foreground: #074760;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-peach: #f6e1df;
+  --color-coral: #ee5a3c;
+  --color-navy: #074760;
+  --font-sans: var(--font-merriweather);
+  --font-serif: var(--font-merriweather);
+}
+
+html,
+body {
+  background: var(--background);
+  color: var(--foreground);
+}
+
+body {
+  font-family: var(--font-serif), ui-serif, Georgia, serif;
+}
+
+@keyframes logo-marquee {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+.logo-marquee-track {
+  animation: logo-marquee 16s linear infinite;
+  width: max-content;
+}
+
+.logo-marquee-track:hover {
+  animation-play-state: paused;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .logo-marquee-track {
+    animation: none;
+  }
+}
