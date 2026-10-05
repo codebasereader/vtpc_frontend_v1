@@ -13,6 +13,37 @@ export function nameKey(value) {
   return cleanText(value).toLowerCase().replace(/[^a-z]/g, '')
 }
 
+// Districts whose public name differs from the name in the DGCIS sheets.
+const DISTRICT_DISPLAY_NAMES = { ramanagara: 'Bangalore South (Ramanagara)' }
+
+/** Letters-only key that ignores the display rename, so "Ramanagara" and "Bangalore South (Ramanagara)" match. */
+export function districtKey(value) {
+  const key = nameKey(value)
+  return key.endsWith('ramanagara') ? 'ramanagara' : key
+}
+
+export function districtDisplayName(value) {
+  return DISTRICT_DISPLAY_NAMES[districtKey(value)] ?? cleanText(value)
+}
+
+/**
+ * Applies the district rename to a release that was published before the rename
+ * existed (district names are also keys inside the release, so all are updated).
+ */
+export function normalizeRelease(release) {
+  if (!release || typeof release !== 'object') return release
+  const rename = districtDisplayName
+  return {
+    ...release,
+    districts: (release.districts || []).map((d) => ({ ...d, name: rename(d.name) })),
+    sectorDistricts: (release.sectorDistricts || []).map((row) => ({
+      ...row,
+      values: Object.fromEntries(Object.entries(row.values || {}).map(([name, value]) => [rename(name), value])),
+    })),
+    countryDistricts: (release.countryDistricts || []).map((row) => ({ ...row, district: rename(row.district) })),
+  }
+}
+
 export function titleCase(value) {
   return cleanText(value)
     .toLowerCase()

@@ -14,6 +14,8 @@ import {
   cleanCountryName,
   cleanSectorName,
   cleanText,
+  districtDisplayName,
+  districtKey,
   isNumber,
   isServicesSector,
   nameKey,
@@ -135,7 +137,7 @@ function parseDistrictComparison(rows, header) {
       throw new Error(`row for "${name}" has a missing or non-numeric value.`)
     }
     districts.push({
-      name: titleCase(name),
+      name: districtDisplayName(titleCase(name)),
       previous: roundValue(previous),
       current: roundValue(current),
       majorProducts: cleanProducts(row[5]),
@@ -449,7 +451,7 @@ function assemble(parsed, report) {
     variation: variation(d.previous, d.current),
     majorProducts: d.majorProducts,
   }))
-  const districtNames = new Map(districts.map((d) => [nameKey(d.name), d.name]))
+  const districtNames = new Map(districts.map((d) => [districtKey(d.name), d.name]))
   if (districtNames.size !== districts.length) errors.push('The district sheet lists the same district twice.')
 
   const districtsCurrent = sum(districts.map((d) => d.current))
@@ -462,7 +464,7 @@ function assemble(parsed, report) {
   }
 
   const mapDistrict = (rawName, where, missing) => {
-    const name = districtNames.get(nameKey(rawName))
+    const name = districtNames.get(districtKey(rawName))
     if (!name && !missing.has(rawName)) {
       missing.add(rawName)
       warnings.push(`"${where}" has a district "${cleanText(rawName)}" that is not in the district sheet — it was skipped.`)

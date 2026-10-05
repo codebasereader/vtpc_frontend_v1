@@ -10,8 +10,6 @@ const Login = lazy(() => import('../pages/admin/Login'))
 const Dashboard = lazy(() => import('../pages/admin/Dashboard'))
 const LeadersList = lazy(() => import('../pages/admin/Leaders/LeadersList'))
 const LeaderForm = lazy(() => import('../pages/admin/Leaders/LeaderForm'))
-const DistrictsList = lazy(() => import('../pages/admin/Districts/DistrictsList'))
-const DistrictForm = lazy(() => import('../pages/admin/Districts/DistrictForm'))
 const EventsList = lazy(() => import('../pages/admin/Events/EventsList'))
 const EventForm = lazy(() => import('../pages/admin/Events/EventForm'))
 const CitiesList = lazy(() => import('../pages/admin/Cities/CitiesList'))
@@ -58,7 +56,6 @@ const MarketData = lazy(() => import('../pages/admin/MarketData'))
 
 const BUILT_SECTIONS = [
   'leaders',
-  'districts',
   'events',
   'cities',
   'eventSectors',
@@ -124,30 +121,6 @@ export default function AdminRoutes() {
             element={
               <ProtectedRoute>
                 <LeaderForm />
-              </ProtectedRoute>
-            }
-          />
-          <Route
-            path="districts"
-            element={
-              <ProtectedRoute>
-                <DistrictsList />
-              </ProtectedRoute>
-            }
-          />
-          <Route
-            path="districts/new"
-            element={
-              <ProtectedRoute>
-                <DistrictForm />
-              </ProtectedRoute>
-            }
-          />
-          <Route
-            path="districts/:id/edit"
-            element={
-              <ProtectedRoute>
-                <DistrictForm />
               </ProtectedRoute>
             }
           />

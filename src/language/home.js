@@ -192,8 +192,13 @@ export const home = {
       kn: '{district} ಗೆ ರಫ್ತು ಮಾಹಿತಿ ಇನ್ನೂ ಲಭ್ಯವಿಲ್ಲ.',
     },
     totalExportsValue: {
-      en: 'Total Exports Value (INR, in Crores)',
-      kn: 'ಒಟ್ಟು ರಫ್ತು ಮೌಲ್ಯ (₹, ಕೋಟಿಗಳಲ್ಲಿ)',
+      en: 'Total Exports Value (US$)',
+      kn: 'ಒಟ್ಟು ರಫ್ತು ಮೌಲ್ಯ (US$)',
+    },
+    period: { en: 'Period', kn: 'ಅವಧಿ' },
+    countryUnavailable: {
+      en: 'Country-wise figures are published for full financial years only.',
+      kn: 'ದೇಶವಾರು ಅಂಕಿಅಂಶಗಳನ್ನು ಪೂರ್ಣ ಹಣಕಾಸು ವರ್ಷಗಳಿಗೆ ಮಾತ್ರ ಪ್ರಕಟಿಸಲಾಗುತ್ತದೆ.',
     },
     country: { en: 'Country', kn: 'ದೇಶ' },
     products: { en: 'Products', kn: 'ಉತ್ಪನ್ನಗಳು' },

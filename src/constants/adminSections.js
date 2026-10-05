@@ -1,6 +1,5 @@
 import {
   Users,
-  Map,
   Building2,
   Award,
   Building,
@@ -39,7 +38,6 @@ export const ADMIN_NAV_GROUPS = [
     label: 'Home Page',
     items: [
       { key: 'leaders', title: 'Leaders', path: ROUTES.ADMIN_LEADERS, icon: Users },
-      { key: 'districts', title: 'Districts', path: ROUTES.ADMIN_DISTRICTS, icon: Map },
       { key: 'focusSectors', title: 'Focus Sectors', path: ROUTES.ADMIN_FOCUS_SECTORS, icon: Building2 },
     ],
   },

@@ -39,7 +39,6 @@ logged-in user).
 | Permission key | Admin page | Backend routes it unlocks |
 |---|---|---|
 | `leaders` | Leaders | `/admin/leaders*` |
-| `districts` | Districts | `/admin/districts*` |
 | `focusSectors` | Focus Sectors | `/admin/focus-sectors*` |
 | `events` | Events | `/admin/events*` |
 | `cities` | Cities | `/admin/cities*` |

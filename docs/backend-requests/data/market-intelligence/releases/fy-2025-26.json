@@ -39,7 +39,7 @@
    "majorProducts": "Smartphones, Turbo-Jets Of A Thrust>25 Kn, Other Parts Of Airplanes, Helicopters Or Unmanned Aircraft, Other Medicine Put Up For Retail Sale, Parts Of Engines And Motors, Static Converters, Men's Or Boys Shirts Of Cotton"
   },
   {
-   "name": "Ramanagara",
+   "name": "Bangalore South (Ramanagara)",
    "previous": 913.836771,
    "current": 1113.737247,
    "variation": 21.87,
@@ -1230,7 +1230,7 @@
     "Mandya": 0.097145,
     "Mysuru": 104.603813,
     "Raichur": 0.169937,
-    "Ramanagara": 18.572001,
+    "Bangalore South (Ramanagara)": 18.572001,
     "Shivamogga": 0.105054,
     "Tumakuru": 27.073496,
     "Udupi": 9.485825,
@@ -1264,7 +1264,7 @@
     "Kolar": 158.596004,
     "Mysuru": 4.664864,
     "Raichur": 0.025362,
-    "Ramanagara": 2.769039,
+    "Bangalore South (Ramanagara)": 2.769039,
     "Tumakuru": 8.410244,
     "Udupi": 0.001892,
     "Uttara Kannada": 0.380039,
@@ -1286,7 +1286,7 @@
     "Hassan": 0.134072,
     "Kolar": 0.108557,
     "Mysuru": 0.322521,
-    "Ramanagara": 14.566052
+    "Bangalore South (Ramanagara)": 14.566052
    }
   },
   {
@@ -1317,7 +1317,7 @@
     "Mandya": 21.970018,
     "Mysuru": 29.920264,
     "Raichur": 0.040688,
-    "Ramanagara": 26.598292,
+    "Bangalore South (Ramanagara)": 26.598292,
     "Tumakuru": 29.611655,
     "Udupi": 7.361755,
     "Uttara Kannada": 0.012042,
@@ -1352,7 +1352,7 @@
     "Mandya": 4.757677,
     "Mysuru": 8.750286,
     "Raichur": 0.007279,
-    "Ramanagara": 10.670462,
+    "Bangalore South (Ramanagara)": 10.670462,
     "Tumakuru": 13.611477,
     "Vijayapura": 0.002078
    }
@@ -1377,7 +1377,7 @@
     "Koppal": 0.01443,
     "Mandya": 0.001046,
     "Mysuru": 0.880205,
-    "Ramanagara": 0.515041,
+    "Bangalore South (Ramanagara)": 0.515041,
     "Udupi": 0.003595
    }
   },
@@ -1409,7 +1409,7 @@
     "Mandya": 9.897046,
     "Mysuru": 97.042013,
     "Raichur": 0.622019,
-    "Ramanagara": 133.943811,
+    "Bangalore South (Ramanagara)": 133.943811,
     "Shivamogga": 28.575072,
     "Tumakuru": 344.213172,
     "Udupi": 20.379303,
@@ -1444,7 +1444,7 @@
     "Mandya": 0.000035,
     "Mysuru": 229.289888,
     "Raichur": 0.000035,
-    "Ramanagara": 771.405354,
+    "Bangalore South (Ramanagara)": 771.405354,
     "Shivamogga": 2.509321,
     "Tumakuru": 0.179804,
     "Udupi": 0.010435,
@@ -1477,7 +1477,7 @@
     "Mandya": 0.000324,
     "Mysuru": 0.325456,
     "Raichur": 1.444518,
-    "Ramanagara": 0.887699,
+    "Bangalore South (Ramanagara)": 0.887699,
     "Shivamogga": 0.005561,
     "Tumakuru": 0.517876,
     "Udupi": 0.83793,
@@ -1550,7 +1550,7 @@
     "Mandya": 0.00472,
     "Mysuru": 0.992946,
     "Raichur": 1.625147,
-    "Ramanagara": 0.135962,
+    "Bangalore South (Ramanagara)": 0.135962,
     "Shivamogga": 21.047288,
     "Tumakuru": 7.928752,
     "Udupi": 0.000023,
@@ -1586,7 +1586,7 @@
     "Mandya": 44.224269,
     "Mysuru": 157.47254,
     "Raichur": 22.382163,
-    "Ramanagara": 7.546452,
+    "Bangalore South (Ramanagara)": 7.546452,
     "Shivamogga": 1.554677,
     "Tumakuru": 124.900564,
     "Udupi": 25.619109,
@@ -1672,7 +1672,7 @@
     "Mandya": 0.725483,
     "Mysuru": 5.794713,
     "Raichur": 0.000853,
-    "Ramanagara": 0.017334,
+    "Bangalore South (Ramanagara)": 0.017334,
     "Shivamogga": 0.923154,
     "Tumakuru": 1.304408,
     "Udupi": 0.002502,
@@ -1708,7 +1708,7 @@
     "Mandya": 58.603881,
     "Mysuru": 91.219946,
     "Raichur": 93.658811,
-    "Ramanagara": 67.282245,
+    "Bangalore South (Ramanagara)": 67.282245,
     "Shivamogga": 0.15198,
     "Tumakuru": 45.470508,
     "Udupi": 57.189454,
@@ -1746,7 +1746,7 @@
     "Mandya": 0.005456,
     "Mysuru": 29.260433,
     "Raichur": 2.325034,
-    "Ramanagara": 27.092219,
+    "Bangalore South (Ramanagara)": 27.092219,
     "Shivamogga": 0.131934,
     "Tumakuru": 7.27998,
     "Udupi": 0.568606,
@@ -1778,7 +1778,7 @@
     "Mandya": 0.079412,
     "Mysuru": 11.827198,
     "Raichur": 0.007931,
-    "Ramanagara": 5.57747,
+    "Bangalore South (Ramanagara)": 5.57747,
     "Shivamogga": 0.005493,
     "Tumakuru": 0.168878,
     "Udupi": 0.331015,
@@ -1814,7 +1814,7 @@
     "Mandya": 1.064221,
     "Mysuru": 121.501466,
     "Raichur": 4.09095,
-    "Ramanagara": 26.157814,
+    "Bangalore South (Ramanagara)": 26.157814,
     "Shivamogga": 1.7821,
     "Tumakuru": 3.0991,
     "Udupi": 159.84924,
@@ -2922,6 +2922,894 @@
    "country": "Zimbabwe",
    "previous": 0,
    "current": 0.135151
+  },
+  {
+   "district": "Bangalore South (Ramanagara)",
+   "country": "Algeria",
+   "previous": 0.456793,
+   "current": 0.210484
+  },
+  {
+   "district": "Bangalore South (Ramanagara)",
+   "country": "Angola",
+   "previous": 3.078113,
+   "current": 7.433006
+  },
+  {
+   "district": "Bangalore South (Ramanagara)",
+   "country": "Antigua and Barbuda",
+   "previous": 0.332496,
+   "current": 0.236634
+  },
+  {
+   "district": "Bangalore South (Ramanagara)",
+   "country": "Argentina",
+   "previous": 22.624523,
+   "current": 20.380859
+  },
+  {
+   "district": "Bangalore South (Ramanagara)",
+   "country": "Armenia",
+   "previous": 0.004763,
+   "current": 0.00554
+  },
+  {
+   "district": "Bangalore South (Ramanagara)",
+   "country": "Aruba",
+   "previous": 0.24353,
+   "current": 0.157598
+  },
+  {
+   "district": "Bangalore South (Ramanagara)",
+   "country": "Australia",
+   "previous": 1.037092,
+   "current": 1.132483
+  },
+  {
+   "district": "Bangalore South (Ramanagara)",
+   "country": "Austria",
+   "previous": 0.14437,
+   "current": 0.056081
+  },
+  {
+   "district": "Bangalore South (Ramanagara)",
+   "country": "Azerbaijan",
+   "previous": 0,
+   "current": 0.012105
+  },
+  {
+   "district": "Bangalore South (Ramanagara)",
+   "country": "Bahamas",
+   "previous": 0.433578,
+   "current": 0.283375
+  },
+  {
+   "district": "Bangalore South (Ramanagara)",
+   "country": "Bahrain",
+   "previous": 6.969335,
+   "current": 12.051985
+  },
+  {
+   "district": "Bangalore South (Ramanagara)",
+   "country": "Bangladesh",
+   "previous": 2.796015,
+   "current": 1.68626
+  },
+  {
+   "district": "Bangalore South (Ramanagara)",
+   "country": "Barbados",
+   "previous": 3.142966,
+   "current": 1.21599
+  },
+  {
+   "district": "Bangalore South (Ramanagara)",
+   "country": "Belgium",
+   "previous": 4.244038,
+   "current": 16.782366
+  },
+  {
+   "district": "Bangalore South (Ramanagara)",
+   "country": "Benin",
+   "previous": 0.746159,
+   "current": 0.261659
+  },
+  {
+   "district": "Bangalore South (Ramanagara)",
+   "country": "Bermuda",
+   "previous": 0.137028,
+   "current": 0
+  },
+  {
+   "district": "Bangalore South (Ramanagara)",
+   "country": "Bhutan",
+   "previous": 2.857869,
+   "current": 6.800499
+  },
+  {
+   "district": "Bangalore South (Ramanagara)",
+   "country": "Bolivia",
+   "previous": 1.307397,
+   "current": 1.805518
+  },
+  {
+   "district": "Bangalore South (Ramanagara)",
+   "country": "Bosnia and Herzegovina",
+   "previous": 0,
+   "current": 0.007832
+  },
+  {
+   "district": "Bangalore South (Ramanagara)",
+   "country": "Brazil",
+   "previous": 3.114366,
+   "current": 19.390622
+  },
+  {
+   "district": "Bangalore South (Ramanagara)",
+   "country": "British Virgin Islands",
+   "previous": 0.088192,
+   "current": 0
+  },
+  {
+   "district": "Bangalore South (Ramanagara)",
+   "country": "Brunei",
+   "previous": 5.298936,
+   "current": 2.769134
+  },
+  {
+   "district": "Bangalore South (Ramanagara)",
+   "country": "Burundi",
+   "previous": 0,
+   "current": 0.016834
+  },
+  {
+   "district": "Bangalore South (Ramanagara)",
+   "country": "Cambodia",
+   "previous": 0,
+   "current": 0.000529
+  },
+  {
+   "district": "Bangalore South (Ramanagara)",
+   "country": "Cameroon",
+   "previous": 1.508606,
+   "current": 0.991721
+  },
+  {
+   "district": "Bangalore South (Ramanagara)",
+   "country": "Canada",
+   "previous": 1.066209,
+   "current": 1.64526
+  },
+  {
+   "district": "Bangalore South (Ramanagara)",
+   "country": "Cape Verde",
+   "previous": 0.760807,
+   "current": 1.079568
+  },
+  {
+   "district": "Bangalore South (Ramanagara)",
+   "country": "Cayman Islands",
+   "previous": 0.028718,
+   "current": 0
+  },
+  {
+   "district": "Bangalore South (Ramanagara)",
+   "country": "Chile",
+   "previous": 15.299731,
+   "current": 9.472852
+  },
+  {
+   "district": "Bangalore South (Ramanagara)",
+   "country": "China",
+   "previous": 34.386218,
+   "current": 39.738593
+  },
+  {
+   "district": "Bangalore South (Ramanagara)",
+   "country": "Colombia",
+   "previous": 6.80576,
+   "current": 6.43473
+  },
+  {
+   "district": "Bangalore South (Ramanagara)",
+   "country": "Congo",
+   "previous": 1.030116,
+   "current": 0.393345
+  },
+  {
+   "district": "Bangalore South (Ramanagara)",
+   "country": "Costa Rica",
+   "previous": 4.705926,
+   "current": 4.44422
+  },
+  {
+   "district": "Bangalore South (Ramanagara)",
+   "country": "Côte d'Ivoire",
+   "previous": 6.827268,
+   "current": 4.980111
+  },
+  {
+   "district": "Bangalore South (Ramanagara)",
+   "country": "Croatia",
+   "previous": 0.034002,
+   "current": 0.018254
+  },
+  {
+   "district": "Bangalore South (Ramanagara)",
+   "country": "Cuba",
+   "previous": 0.080198,
+   "current": 0
+  },
+  {
+   "district": "Bangalore South (Ramanagara)",
+   "country": "Cyprus",
+   "previous": 0,
+   "current": 0.244958
+  },
+  {
+   "district": "Bangalore South (Ramanagara)",
+   "country": "Czech Republic",
+   "previous": 0.094086,
+   "current": 0.03848
+  },
+  {
+   "district": "Bangalore South (Ramanagara)",
+   "country": "Denmark",
+   "previous": 0.444024,
+   "current": 0.321582
+  },
+  {
+   "district": "Bangalore South (Ramanagara)",
+   "country": "Djibouti",
+   "previous": 0.205232,
+   "current": 0.147281
+  },
+  {
+   "district": "Bangalore South (Ramanagara)",
+   "country": "Dominican Republic",
+   "previous": 2.087593,
+   "current": 0
+  },
+  {
+   "district": "Bangalore South (Ramanagara)",
+   "country": "DR Congo",
+   "previous": 0,
+   "current": 0.00946
+  },
+  {
+   "district": "Bangalore South (Ramanagara)",
+   "country": "Ecuador",
+   "previous": 5.933233,
+   "current": 0.829346
+  },
+  {
+   "district": "Bangalore South (Ramanagara)",
+   "country": "Egypt",
+   "previous": 8.649285,
+   "current": 12.171214
+  },
+  {
+   "district": "Bangalore South (Ramanagara)",
+   "country": "El Salvador",
+   "previous": 0.527684,
+   "current": 0.062801
+  },
+  {
+   "district": "Bangalore South (Ramanagara)",
+   "country": "Estonia",
+   "previous": 0.007318,
+   "current": 0
+  },
+  {
+   "district": "Bangalore South (Ramanagara)",
+   "country": "Ethiopia",
+   "previous": 0.650935,
+   "current": 0
+  },
+  {
+   "district": "Bangalore South (Ramanagara)",
+   "country": "Fiji",
+   "previous": 0,
+   "current": 0.008206
+  },
+  {
+   "district": "Bangalore South (Ramanagara)",
+   "country": "Finland",
+   "previous": 0,
+   "current": 0.11002
+  },
+  {
+   "district": "Bangalore South (Ramanagara)",
+   "country": "France",
+   "previous": 18.108491,
+   "current": 16.664014
+  },
+  {
+   "district": "Bangalore South (Ramanagara)",
+   "country": "Gabon",
+   "previous": 1.892692,
+   "current": 1.535516
+  },
+  {
+   "district": "Bangalore South (Ramanagara)",
+   "country": "Germany",
+   "previous": 10.44707,
+   "current": 13.148499
+  },
+  {
+   "district": "Bangalore South (Ramanagara)",
+   "country": "Ghana",
+   "previous": 2.104878,
+   "current": 1.771376
+  },
+  {
+   "district": "Bangalore South (Ramanagara)",
+   "country": "Greece",
+   "previous": 2.064828,
+   "current": 1.657583
+  },
+  {
+   "district": "Bangalore South (Ramanagara)",
+   "country": "Grenada",
+   "previous": 0.147175,
+   "current": 0
+  },
+  {
+   "district": "Bangalore South (Ramanagara)",
+   "country": "Guadeloupe",
+   "previous": 0.064536,
+   "current": 0
+  },
+  {
+   "district": "Bangalore South (Ramanagara)",
+   "country": "Guatemala",
+   "previous": 3.863729,
+   "current": 0.600705
+  },
+  {
+   "district": "Bangalore South (Ramanagara)",
+   "country": "Guinea",
+   "previous": 0,
+   "current": 0.013983
+  },
+  {
+   "district": "Bangalore South (Ramanagara)",
+   "country": "Guyana",
+   "previous": 0.412921,
+   "current": 0.053856
+  },
+  {
+   "district": "Bangalore South (Ramanagara)",
+   "country": "Haiti",
+   "previous": 0.195951,
+   "current": 0.209866
+  },
+  {
+   "district": "Bangalore South (Ramanagara)",
+   "country": "Honduras",
+   "previous": 0.105816,
+   "current": 0.09646
+  },
+  {
+   "district": "Bangalore South (Ramanagara)",
+   "country": "Hong Kong",
+   "previous": 0.288283,
+   "current": 0.400185
+  },
+  {
+   "district": "Bangalore South (Ramanagara)",
+   "country": "Hungary",
+   "previous": 0.007717,
+   "current": 0.015302
+  },
+  {
+   "district": "Bangalore South (Ramanagara)",
+   "country": "Indonesia",
+   "previous": 87.880517,
+   "current": 73.54771
+  },
+  {
+   "district": "Bangalore South (Ramanagara)",
+   "country": "Iraq",
+   "previous": 11.433069,
+   "current": 19.310999
+  },
+  {
+   "district": "Bangalore South (Ramanagara)",
+   "country": "Ireland",
+   "previous": 0.461618,
+   "current": 0.649094
+  },
+  {
+   "district": "Bangalore South (Ramanagara)",
+   "country": "Israel",
+   "previous": 0.165731,
+   "current": 0.889437
+  },
+  {
+   "district": "Bangalore South (Ramanagara)",
+   "country": "Italy",
+   "previous": 2.967548,
+   "current": 2.2674
+  },
+  {
+   "district": "Bangalore South (Ramanagara)",
+   "country": "Jamaica",
+   "previous": 1.263081,
+   "current": 0.301746
+  },
+  {
+   "district": "Bangalore South (Ramanagara)",
+   "country": "Japan",
+   "previous": 36.313648,
+   "current": 45.16064
+  },
+  {
+   "district": "Bangalore South (Ramanagara)",
+   "country": "Jordan",
+   "previous": 1.296858,
+   "current": 3.846864
+  },
+  {
+   "district": "Bangalore South (Ramanagara)",
+   "country": "Kenya",
+   "previous": 0.641771,
+   "current": 1.248281
+  },
+  {
+   "district": "Bangalore South (Ramanagara)",
+   "country": "Kuwait",
+   "previous": 19.961695,
+   "current": 11.208123
+  },
+  {
+   "district": "Bangalore South (Ramanagara)",
+   "country": "Latvia",
+   "previous": 0.003353,
+   "current": 0
+  },
+  {
+   "district": "Bangalore South (Ramanagara)",
+   "country": "Lebanon",
+   "previous": 2.046171,
+   "current": 3.748523
+  },
+  {
+   "district": "Bangalore South (Ramanagara)",
+   "country": "Liberia",
+   "previous": 0.162101,
+   "current": 0.045051
+  },
+  {
+   "district": "Bangalore South (Ramanagara)",
+   "country": "Libya",
+   "previous": 12.019275,
+   "current": 19.76652
+  },
+  {
+   "district": "Bangalore South (Ramanagara)",
+   "country": "Luxembourg",
+   "previous": 0.456526,
+   "current": 0
+  },
+  {
+   "district": "Bangalore South (Ramanagara)",
+   "country": "Madagascar",
+   "previous": 0.84928,
+   "current": 0.726538
+  },
+  {
+   "district": "Bangalore South (Ramanagara)",
+   "country": "Malaysia",
+   "previous": 0.49388,
+   "current": 5.828852
+  },
+  {
+   "district": "Bangalore South (Ramanagara)",
+   "country": "Maldives",
+   "previous": 0.074641,
+   "current": 0.207669
+  },
+  {
+   "district": "Bangalore South (Ramanagara)",
+   "country": "Mali",
+   "previous": 0,
+   "current": 0.043496
+  },
+  {
+   "district": "Bangalore South (Ramanagara)",
+   "country": "Malta",
+   "previous": 0.000251,
+   "current": 0.005061
+  },
+  {
+   "district": "Bangalore South (Ramanagara)",
+   "country": "Mauritius",
+   "previous": 5.565251,
+   "current": 3.17672
+  },
+  {
+   "district": "Bangalore South (Ramanagara)",
+   "country": "Mexico",
+   "previous": 8.678289,
+   "current": 1.468832
+  },
+  {
+   "district": "Bangalore South (Ramanagara)",
+   "country": "Mongolia",
+   "previous": 0,
+   "current": 0.03756
+  },
+  {
+   "district": "Bangalore South (Ramanagara)",
+   "country": "Morocco",
+   "previous": 0.126042,
+   "current": 0.144871
+  },
+  {
+   "district": "Bangalore South (Ramanagara)",
+   "country": "Mozambique",
+   "previous": 0.213623,
+   "current": 0.391434
+  },
+  {
+   "district": "Bangalore South (Ramanagara)",
+   "country": "Myanmar",
+   "previous": 0.004742,
+   "current": 0.011654
+  },
+  {
+   "district": "Bangalore South (Ramanagara)",
+   "country": "Namibia",
+   "previous": 0.012209,
+   "current": 0
+  },
+  {
+   "district": "Bangalore South (Ramanagara)",
+   "country": "Nepal",
+   "previous": 2.336136,
+   "current": 1.890826
+  },
+  {
+   "district": "Bangalore South (Ramanagara)",
+   "country": "Netherlands",
+   "previous": 26.384132,
+   "current": 32.288851
+  },
+  {
+   "district": "Bangalore South (Ramanagara)",
+   "country": "New Zealand",
+   "previous": 0.304512,
+   "current": 0.128065
+  },
+  {
+   "district": "Bangalore South (Ramanagara)",
+   "country": "Nicaragua",
+   "previous": 0.615879,
+   "current": 0.407587
+  },
+  {
+   "district": "Bangalore South (Ramanagara)",
+   "country": "Nigeria",
+   "previous": 2.594217,
+   "current": 2.777843
+  },
+  {
+   "district": "Bangalore South (Ramanagara)",
+   "country": "North Macedonia",
+   "previous": 0.001698,
+   "current": 0
+  },
+  {
+   "district": "Bangalore South (Ramanagara)",
+   "country": "Norway",
+   "previous": 2.110508,
+   "current": 2.683204
+  },
+  {
+   "district": "Bangalore South (Ramanagara)",
+   "country": "Oman",
+   "previous": 5.933447,
+   "current": 9.077341
+  },
+  {
+   "district": "Bangalore South (Ramanagara)",
+   "country": "Pakistan",
+   "previous": 1.253875,
+   "current": 0.179849
+  },
+  {
+   "district": "Bangalore South (Ramanagara)",
+   "country": "Panama",
+   "previous": 1.753197,
+   "current": 1.922391
+  },
+  {
+   "district": "Bangalore South (Ramanagara)",
+   "country": "Paraguay",
+   "previous": 4.49129,
+   "current": 3.533723
+  },
+  {
+   "district": "Bangalore South (Ramanagara)",
+   "country": "Peru",
+   "previous": 2.679922,
+   "current": 4.864053
+  },
+  {
+   "district": "Bangalore South (Ramanagara)",
+   "country": "Philippines",
+   "previous": 10.021351,
+   "current": 10.383372
+  },
+  {
+   "district": "Bangalore South (Ramanagara)",
+   "country": "Poland",
+   "previous": 2.639393,
+   "current": 3.825978
+  },
+  {
+   "district": "Bangalore South (Ramanagara)",
+   "country": "Portugal",
+   "previous": 0.128806,
+   "current": 0.254229
+  },
+  {
+   "district": "Bangalore South (Ramanagara)",
+   "country": "Puerto Rico",
+   "previous": 0.019536,
+   "current": 0
+  },
+  {
+   "district": "Bangalore South (Ramanagara)",
+   "country": "Qatar",
+   "previous": 13.793356,
+   "current": 20.276604
+  },
+  {
+   "district": "Bangalore South (Ramanagara)",
+   "country": "Reunion",
+   "previous": 0.008844,
+   "current": 0.012147
+  },
+  {
+   "district": "Bangalore South (Ramanagara)",
+   "country": "Romania",
+   "previous": 0.161622,
+   "current": 1.826502
+  },
+  {
+   "district": "Bangalore South (Ramanagara)",
+   "country": "Russia",
+   "previous": 3.167651,
+   "current": 1.797
+  },
+  {
+   "district": "Bangalore South (Ramanagara)",
+   "country": "Saint Kitts and Nevis",
+   "previous": 0,
+   "current": 0.011821
+  },
+  {
+   "district": "Bangalore South (Ramanagara)",
+   "country": "Saint Lucia",
+   "previous": 0.489267,
+   "current": 0
+  },
+  {
+   "district": "Bangalore South (Ramanagara)",
+   "country": "Saint Vincent and the Grenadines",
+   "previous": 0.165682,
+   "current": 0
+  },
+  {
+   "district": "Bangalore South (Ramanagara)",
+   "country": "Saudi Arabia",
+   "previous": 149.82835,
+   "current": 213.922991
+  },
+  {
+   "district": "Bangalore South (Ramanagara)",
+   "country": "Senegal",
+   "previous": 0.869661,
+   "current": 0.59559
+  },
+  {
+   "district": "Bangalore South (Ramanagara)",
+   "country": "Serbia",
+   "previous": 0.017339,
+   "current": 0.000231
+  },
+  {
+   "district": "Bangalore South (Ramanagara)",
+   "country": "Seychelles",
+   "previous": 1.411919,
+   "current": 0.609371
+  },
+  {
+   "district": "Bangalore South (Ramanagara)",
+   "country": "Sierra Leone",
+   "previous": 1.253056,
+   "current": 1.49486
+  },
+  {
+   "district": "Bangalore South (Ramanagara)",
+   "country": "Singapore",
+   "previous": 0.688708,
+   "current": 0.961785
+  },
+  {
+   "district": "Bangalore South (Ramanagara)",
+   "country": "Slovakia",
+   "previous": 0,
+   "current": 0.001515
+  },
+  {
+   "district": "Bangalore South (Ramanagara)",
+   "country": "Slovenia",
+   "previous": 0,
+   "current": 0.005057
+  },
+  {
+   "district": "Bangalore South (Ramanagara)",
+   "country": "Somalia",
+   "previous": 0.110226,
+   "current": 0
+  },
+  {
+   "district": "Bangalore South (Ramanagara)",
+   "country": "South Africa",
+   "previous": 100.821549,
+   "current": 128.537318
+  },
+  {
+   "district": "Bangalore South (Ramanagara)",
+   "country": "South Korea",
+   "previous": 1.308204,
+   "current": 2.272795
+  },
+  {
+   "district": "Bangalore South (Ramanagara)",
+   "country": "Spain",
+   "previous": 3.20396,
+   "current": 3.956701
+  },
+  {
+   "district": "Bangalore South (Ramanagara)",
+   "country": "Sri Lanka",
+   "previous": 0.682443,
+   "current": 0.656029
+  },
+  {
+   "district": "Bangalore South (Ramanagara)",
+   "country": "Sweden",
+   "previous": 5.921452,
+   "current": 12.251319
+  },
+  {
+   "district": "Bangalore South (Ramanagara)",
+   "country": "Switzerland",
+   "previous": 0.643953,
+   "current": 4.365327
+  },
+  {
+   "district": "Bangalore South (Ramanagara)",
+   "country": "Syria",
+   "previous": 0,
+   "current": 0.010694
+  },
+  {
+   "district": "Bangalore South (Ramanagara)",
+   "country": "Taiwan",
+   "previous": 0.019305,
+   "current": 0.288468
+  },
+  {
+   "district": "Bangalore South (Ramanagara)",
+   "country": "Tanzania",
+   "previous": 0.72109,
+   "current": 0.415887
+  },
+  {
+   "district": "Bangalore South (Ramanagara)",
+   "country": "Thailand",
+   "previous": 64.955667,
+   "current": 98.487442
+  },
+  {
+   "district": "Bangalore South (Ramanagara)",
+   "country": "Togo",
+   "previous": 0.198243,
+   "current": 0.234447
+  },
+  {
+   "district": "Bangalore South (Ramanagara)",
+   "country": "Trinidad and Tobago",
+   "previous": 5.530232,
+   "current": 0
+  },
+  {
+   "district": "Bangalore South (Ramanagara)",
+   "country": "Tunisia",
+   "previous": 0.347623,
+   "current": 0.016686
+  },
+  {
+   "district": "Bangalore South (Ramanagara)",
+   "country": "Turkey",
+   "previous": 3.806327,
+   "current": 5.384209
+  },
+  {
+   "district": "Bangalore South (Ramanagara)",
+   "country": "Turkmenistan",
+   "previous": 0.004608,
+   "current": 0.010506
+  },
+  {
+   "district": "Bangalore South (Ramanagara)",
+   "country": "Turks and Caicos Islands",
+   "previous": 0.037484,
+   "current": 0
+  },
+  {
+   "district": "Bangalore South (Ramanagara)",
+   "country": "Uganda",
+   "previous": 0.582431,
+   "current": 0.382751
+  },
+  {
+   "district": "Bangalore South (Ramanagara)",
+   "country": "Ukraine",
+   "previous": 0,
+   "current": 0.038713
+  },
+  {
+   "district": "Bangalore South (Ramanagara)",
+   "country": "United Arab Emirates",
+   "previous": 53.001989,
+   "current": 61.885132
+  },
+  {
+   "district": "Bangalore South (Ramanagara)",
+   "country": "United Kingdom",
+   "previous": 15.858264,
+   "current": 18.721646
+  },
+  {
+   "district": "Bangalore South (Ramanagara)",
+   "country": "United States",
+   "previous": 32.108384,
+   "current": 50.726743
+  },
+  {
+   "district": "Bangalore South (Ramanagara)",
+   "country": "Uruguay",
+   "previous": 2.820981,
+   "current": 0.938569
+  },
+  {
+   "district": "Bangalore South (Ramanagara)",
+   "country": "Uzbekistan",
+   "previous": 0,
+   "current": 0.03661
+  },
+  {
+   "district": "Bangalore South (Ramanagara)",
+   "country": "Vietnam",
+   "previous": 1.601872,
+   "current": 0.699078
+  },
+  {
+   "district": "Bangalore South (Ramanagara)",
+   "country": "Yemen",
+   "previous": 1.035199,
+   "current": 1.539361
+  },
+  {
+   "district": "Bangalore South (Ramanagara)",
+   "country": "Zambia",
+   "previous": 0.055849,
+   "current": 0.103238
   },
   {
    "district": "Belagavi",
@@ -16644,894 +17532,6 @@
    "country": "Yemen",
    "previous": 0.034744,
    "current": 0
-  },
-  {
-   "district": "Ramanagara",
-   "country": "Algeria",
-   "previous": 0.456793,
-   "current": 0.210484
-  },
-  {
-   "district": "Ramanagara",
-   "country": "Angola",
-   "previous": 3.078113,
-   "current": 7.433006
-  },
-  {
-   "district": "Ramanagara",
-   "country": "Antigua and Barbuda",
-   "previous": 0.332496,
-   "current": 0.236634
-  },
-  {
-   "district": "Ramanagara",
-   "country": "Argentina",
-   "previous": 22.624523,
-   "current": 20.380859
-  },
-  {
-   "district": "Ramanagara",
-   "country": "Armenia",
-   "previous": 0.004763,
-   "current": 0.00554
-  },
-  {
-   "district": "Ramanagara",
-   "country": "Aruba",
-   "previous": 0.24353,
-   "current": 0.157598
-  },
-  {
-   "district": "Ramanagara",
-   "country": "Australia",
-   "previous": 1.037092,
-   "current": 1.132483
-  },
-  {
-   "district": "Ramanagara",
-   "country": "Austria",
-   "previous": 0.14437,
-   "current": 0.056081
-  },
-  {
-   "district": "Ramanagara",
-   "country": "Azerbaijan",
-   "previous": 0,
-   "current": 0.012105
-  },
-  {
-   "district": "Ramanagara",
-   "country": "Bahamas",
-   "previous": 0.433578,
-   "current": 0.283375
-  },
-  {
-   "district": "Ramanagara",
-   "country": "Bahrain",
-   "previous": 6.969335,
-   "current": 12.051985
-  },
-  {
-   "district": "Ramanagara",
-   "country": "Bangladesh",
-   "previous": 2.796015,
-   "current": 1.68626
-  },
-  {
-   "district": "Ramanagara",
-   "country": "Barbados",
-   "previous": 3.142966,
-   "current": 1.21599
-  },
-  {
-   "district": "Ramanagara",
-   "country": "Belgium",
-   "previous": 4.244038,
-   "current": 16.782366
-  },
-  {
-   "district": "Ramanagara",
-   "country": "Benin",
-   "previous": 0.746159,
-   "current": 0.261659
-  },
-  {
-   "district": "Ramanagara",
-   "country": "Bermuda",
-   "previous": 0.137028,
-   "current": 0
-  },
-  {
-   "district": "Ramanagara",
-   "country": "Bhutan",
-   "previous": 2.857869,
-   "current": 6.800499
-  },
-  {
-   "district": "Ramanagara",
-   "country": "Bolivia",
-   "previous": 1.307397,
-   "current": 1.805518
-  },
-  {
-   "district": "Ramanagara",
-   "country": "Bosnia and Herzegovina",
-   "previous": 0,
-   "current": 0.007832
-  },
-  {
-   "district": "Ramanagara",
-   "country": "Brazil",
-   "previous": 3.114366,
-   "current": 19.390622
-  },
-  {
-   "district": "Ramanagara",
-   "country": "British Virgin Islands",
-   "previous": 0.088192,
-   "current": 0
-  },
-  {
-   "district": "Ramanagara",
-   "country": "Brunei",
-   "previous": 5.298936,
-   "current": 2.769134
-  },
-  {
-   "district": "Ramanagara",
-   "country": "Burundi",
-   "previous": 0,
-   "current": 0.016834
-  },
-  {
-   "district": "Ramanagara",
-   "country": "Cambodia",
-   "previous": 0,
-   "current": 0.000529
-  },
-  {
-   "district": "Ramanagara",
-   "country": "Cameroon",
-   "previous": 1.508606,
-   "current": 0.991721
-  },
-  {
-   "district": "Ramanagara",
-   "country": "Canada",
-   "previous": 1.066209,
-   "current": 1.64526
-  },
-  {
-   "district": "Ramanagara",
-   "country": "Cape Verde",
-   "previous": 0.760807,
-   "current": 1.079568
-  },
-  {
-   "district": "Ramanagara",
-   "country": "Cayman Islands",
-   "previous": 0.028718,
-   "current": 0
-  },
-  {
-   "district": "Ramanagara",
-   "country": "Chile",
-   "previous": 15.299731,
-   "current": 9.472852
-  },
-  {
-   "district": "Ramanagara",
-   "country": "China",
-   "previous": 34.386218,
-   "current": 39.738593
-  },
-  {
-   "district": "Ramanagara",
-   "country": "Colombia",
-   "previous": 6.80576,
-   "current": 6.43473
-  },
-  {
-   "district": "Ramanagara",
-   "country": "Congo",
-   "previous": 1.030116,
-   "current": 0.393345
-  },
-  {
-   "district": "Ramanagara",
-   "country": "Costa Rica",
-   "previous": 4.705926,
-   "current": 4.44422
-  },
-  {
-   "district": "Ramanagara",
-   "country": "Côte d'Ivoire",
-   "previous": 6.827268,
-   "current": 4.980111
-  },
-  {
-   "district": "Ramanagara",
-   "country": "Croatia",
-   "previous": 0.034002,
-   "current": 0.018254
-  },
-  {
-   "district": "Ramanagara",
-   "country": "Cuba",
-   "previous": 0.080198,
-   "current": 0
-  },
-  {
-   "district": "Ramanagara",
-   "country": "Cyprus",
-   "previous": 0,
-   "current": 0.244958
-  },
-  {
-   "district": "Ramanagara",
-   "country": "Czech Republic",
-   "previous": 0.094086,
-   "current": 0.03848
-  },
-  {
-   "district": "Ramanagara",
-   "country": "Denmark",
-   "previous": 0.444024,
-   "current": 0.321582
-  },
-  {
-   "district": "Ramanagara",
-   "country": "Djibouti",
-   "previous": 0.205232,
-   "current": 0.147281
-  },
-  {
-   "district": "Ramanagara",
-   "country": "Dominican Republic",
-   "previous": 2.087593,
-   "current": 0
-  },
-  {
-   "district": "Ramanagara",
-   "country": "DR Congo",
-   "previous": 0,
-   "current": 0.00946
-  },
-  {
-   "district": "Ramanagara",
-   "country": "Ecuador",
-   "previous": 5.933233,
-   "current": 0.829346
-  },
-  {
-   "district": "Ramanagara",
-   "country": "Egypt",
-   "previous": 8.649285,
-   "current": 12.171214
-  },
-  {
-   "district": "Ramanagara",
-   "country": "El Salvador",
-   "previous": 0.527684,
-   "current": 0.062801
-  },
-  {
-   "district": "Ramanagara",
-   "country": "Estonia",
-   "previous": 0.007318,
-   "current": 0
-  },
-  {
-   "district": "Ramanagara",
-   "country": "Ethiopia",
-   "previous": 0.650935,
-   "current": 0
-  },
-  {
-   "district": "Ramanagara",
-   "country": "Fiji",
-   "previous": 0,
-   "current": 0.008206
-  },
-  {
-   "district": "Ramanagara",
-   "country": "Finland",
-   "previous": 0,
-   "current": 0.11002
-  },
-  {
-   "district": "Ramanagara",
-   "country": "France",
-   "previous": 18.108491,
-   "current": 16.664014
-  },
-  {
-   "district": "Ramanagara",
-   "country": "Gabon",
-   "previous": 1.892692,
-   "current": 1.535516
-  },
-  {
-   "district": "Ramanagara",
-   "country": "Germany",
-   "previous": 10.44707,
-   "current": 13.148499
-  },
-  {
-   "district": "Ramanagara",
-   "country": "Ghana",
-   "previous": 2.104878,
-   "current": 1.771376
-  },
-  {
-   "district": "Ramanagara",
-   "country": "Greece",
-   "previous": 2.064828,
-   "current": 1.657583
-  },
-  {
-   "district": "Ramanagara",
-   "country": "Grenada",
-   "previous": 0.147175,
-   "current": 0
-  },
-  {
-   "district": "Ramanagara",
-   "country": "Guadeloupe",
-   "previous": 0.064536,
-   "current": 0
-  },
-  {
-   "district": "Ramanagara",
-   "country": "Guatemala",
-   "previous": 3.863729,
-   "current": 0.600705
-  },
-  {
-   "district": "Ramanagara",
-   "country": "Guinea",
-   "previous": 0,
-   "current": 0.013983
-  },
-  {
-   "district": "Ramanagara",
-   "country": "Guyana",
-   "previous": 0.412921,
-   "current": 0.053856
-  },
-  {
-   "district": "Ramanagara",
-   "country": "Haiti",
-   "previous": 0.195951,
-   "current": 0.209866
-  },
-  {
-   "district": "Ramanagara",
-   "country": "Honduras",
-   "previous": 0.105816,
-   "current": 0.09646
-  },
-  {
-   "district": "Ramanagara",
-   "country": "Hong Kong",
-   "previous": 0.288283,
-   "current": 0.400185
-  },
-  {
-   "district": "Ramanagara",
-   "country": "Hungary",
-   "previous": 0.007717,
-   "current": 0.015302
-  },
-  {
-   "district": "Ramanagara",
-   "country": "Indonesia",
-   "previous": 87.880517,
-   "current": 73.54771
-  },
-  {
-   "district": "Ramanagara",
-   "country": "Iraq",
-   "previous": 11.433069,
-   "current": 19.310999
-  },
-  {
-   "district": "Ramanagara",
-   "country": "Ireland",
-   "previous": 0.461618,
-   "current": 0.649094
-  },
-  {
-   "district": "Ramanagara",
-   "country": "Israel",
-   "previous": 0.165731,
-   "current": 0.889437
-  },
-  {
-   "district": "Ramanagara",
-   "country": "Italy",
-   "previous": 2.967548,
-   "current": 2.2674
-  },
-  {
-   "district": "Ramanagara",
-   "country": "Jamaica",
-   "previous": 1.263081,
-   "current": 0.301746
-  },
-  {
-   "district": "Ramanagara",
-   "country": "Japan",
-   "previous": 36.313648,
-   "current": 45.16064
-  },
-  {
-   "district": "Ramanagara",
-   "country": "Jordan",
-   "previous": 1.296858,
-   "current": 3.846864
-  },
-  {
-   "district": "Ramanagara",
-   "country": "Kenya",
-   "previous": 0.641771,
-   "current": 1.248281
-  },
-  {
-   "district": "Ramanagara",
-   "country": "Kuwait",
-   "previous": 19.961695,
-   "current": 11.208123
-  },
-  {
-   "district": "Ramanagara",
-   "country": "Latvia",
-   "previous": 0.003353,
-   "current": 0
-  },
-  {
-   "district": "Ramanagara",
-   "country": "Lebanon",
-   "previous": 2.046171,
-   "current": 3.748523
-  },
-  {
-   "district": "Ramanagara",
-   "country": "Liberia",
-   "previous": 0.162101,
-   "current": 0.045051
-  },
-  {
-   "district": "Ramanagara",
-   "country": "Libya",
-   "previous": 12.019275,
-   "current": 19.76652
-  },
-  {
-   "district": "Ramanagara",
-   "country": "Luxembourg",
-   "previous": 0.456526,
-   "current": 0
-  },
-  {
-   "district": "Ramanagara",
-   "country": "Madagascar",
-   "previous": 0.84928,
-   "current": 0.726538
-  },
-  {
-   "district": "Ramanagara",
-   "country": "Malaysia",
-   "previous": 0.49388,
-   "current": 5.828852
-  },
-  {
-   "district": "Ramanagara",
-   "country": "Maldives",
-   "previous": 0.074641,
-   "current": 0.207669
-  },
-  {
-   "district": "Ramanagara",
-   "country": "Mali",
-   "previous": 0,
-   "current": 0.043496
-  },
-  {
-   "district": "Ramanagara",
-   "country": "Malta",
-   "previous": 0.000251,
-   "current": 0.005061
-  },
-  {
-   "district": "Ramanagara",
-   "country": "Mauritius",
-   "previous": 5.565251,
-   "current": 3.17672
-  },
-  {
-   "district": "Ramanagara",
-   "country": "Mexico",
-   "previous": 8.678289,
-   "current": 1.468832
-  },
-  {
-   "district": "Ramanagara",
-   "country": "Mongolia",
-   "previous": 0,
-   "current": 0.03756
-  },
-  {
-   "district": "Ramanagara",
-   "country": "Morocco",
-   "previous": 0.126042,
-   "current": 0.144871
-  },
-  {
-   "district": "Ramanagara",
-   "country": "Mozambique",
-   "previous": 0.213623,
-   "current": 0.391434
-  },
-  {
-   "district": "Ramanagara",
-   "country": "Myanmar",
-   "previous": 0.004742,
-   "current": 0.011654
-  },
-  {
-   "district": "Ramanagara",
-   "country": "Namibia",
-   "previous": 0.012209,
-   "current": 0
-  },
-  {
-   "district": "Ramanagara",
-   "country": "Nepal",
-   "previous": 2.336136,
-   "current": 1.890826
-  },
-  {
-   "district": "Ramanagara",
-   "country": "Netherlands",
-   "previous": 26.384132,
-   "current": 32.288851
-  },
-  {
-   "district": "Ramanagara",
-   "country": "New Zealand",
-   "previous": 0.304512,
-   "current": 0.128065
-  },
-  {
-   "district": "Ramanagara",
-   "country": "Nicaragua",
-   "previous": 0.615879,
-   "current": 0.407587
-  },
-  {
-   "district": "Ramanagara",
-   "country": "Nigeria",
-   "previous": 2.594217,
-   "current": 2.777843
-  },
-  {
-   "district": "Ramanagara",
-   "country": "North Macedonia",
-   "previous": 0.001698,
-   "current": 0
-  },
-  {
-   "district": "Ramanagara",
-   "country": "Norway",
-   "previous": 2.110508,
-   "current": 2.683204
-  },
-  {
-   "district": "Ramanagara",
-   "country": "Oman",
-   "previous": 5.933447,
-   "current": 9.077341
-  },
-  {
-   "district": "Ramanagara",
-   "country": "Pakistan",
-   "previous": 1.253875,
-   "current": 0.179849
-  },
-  {
-   "district": "Ramanagara",
-   "country": "Panama",
-   "previous": 1.753197,
-   "current": 1.922391
-  },
-  {
-   "district": "Ramanagara",
-   "country": "Paraguay",
-   "previous": 4.49129,
-   "current": 3.533723
-  },
-  {
-   "district": "Ramanagara",
-   "country": "Peru",
-   "previous": 2.679922,
-   "current": 4.864053
-  },
-  {
-   "district": "Ramanagara",
-   "country": "Philippines",
-   "previous": 10.021351,
-   "current": 10.383372
-  },
-  {
-   "district": "Ramanagara",
-   "country": "Poland",
-   "previous": 2.639393,
-   "current": 3.825978
-  },
-  {
-   "district": "Ramanagara",
-   "country": "Portugal",
-   "previous": 0.128806,
-   "current": 0.254229
-  },
-  {
-   "district": "Ramanagara",
-   "country": "Puerto Rico",
-   "previous": 0.019536,
-   "current": 0
-  },
-  {
-   "district": "Ramanagara",
-   "country": "Qatar",
-   "previous": 13.793356,
-   "current": 20.276604
-  },
-  {
-   "district": "Ramanagara",
-   "country": "Reunion",
-   "previous": 0.008844,
-   "current": 0.012147
-  },
-  {
-   "district": "Ramanagara",
-   "country": "Romania",
-   "previous": 0.161622,
-   "current": 1.826502
-  },
-  {
-   "district": "Ramanagara",
-   "country": "Russia",
-   "previous": 3.167651,
-   "current": 1.797
-  },
-  {
-   "district": "Ramanagara",
-   "country": "Saint Kitts and Nevis",
-   "previous": 0,
-   "current": 0.011821
-  },
-  {
-   "district": "Ramanagara",
-   "country": "Saint Lucia",
-   "previous": 0.489267,
-   "current": 0
-  },
-  {
-   "district": "Ramanagara",
-   "country": "Saint Vincent and the Grenadines",
-   "previous": 0.165682,
-   "current": 0
-  },
-  {
-   "district": "Ramanagara",
-   "country": "Saudi Arabia",
-   "previous": 149.82835,
-   "current": 213.922991
-  },
-  {
-   "district": "Ramanagara",
-   "country": "Senegal",
-   "previous": 0.869661,
-   "current": 0.59559
-  },
-  {
-   "district": "Ramanagara",
-   "country": "Serbia",
-   "previous": 0.017339,
-   "current": 0.000231
-  },
-  {
-   "district": "Ramanagara",
-   "country": "Seychelles",
-   "previous": 1.411919,
-   "current": 0.609371
-  },
-  {
-   "district": "Ramanagara",
-   "country": "Sierra Leone",
-   "previous": 1.253056,
-   "current": 1.49486
-  },
-  {
-   "district": "Ramanagara",
-   "country": "Singapore",
-   "previous": 0.688708,
-   "current": 0.961785
-  },
-  {
-   "district": "Ramanagara",
-   "country": "Slovakia",
-   "previous": 0,
-   "current": 0.001515
-  },
-  {
-   "district": "Ramanagara",
-   "country": "Slovenia",
-   "previous": 0,
-   "current": 0.005057
-  },
-  {
-   "district": "Ramanagara",
-   "country": "Somalia",
-   "previous": 0.110226,
-   "current": 0
-  },
-  {
-   "district": "Ramanagara",
-   "country": "South Africa",
-   "previous": 100.821549,
-   "current": 128.537318
-  },
-  {
-   "district": "Ramanagara",
-   "country": "South Korea",
-   "previous": 1.308204,
-   "current": 2.272795
-  },
-  {
-   "district": "Ramanagara",
-   "country": "Spain",
-   "previous": 3.20396,
-   "current": 3.956701
-  },
-  {
-   "district": "Ramanagara",
-   "country": "Sri Lanka",
-   "previous": 0.682443,
-   "current": 0.656029
-  },
-  {
-   "district": "Ramanagara",
-   "country": "Sweden",
-   "previous": 5.921452,
-   "current": 12.251319
-  },
-  {
-   "district": "Ramanagara",
-   "country": "Switzerland",
-   "previous": 0.643953,
-   "current": 4.365327
-  },
-  {
-   "district": "Ramanagara",
-   "country": "Syria",
-   "previous": 0,
-   "current": 0.010694
-  },
-  {
-   "district": "Ramanagara",
-   "country": "Taiwan",
-   "previous": 0.019305,
-   "current": 0.288468
-  },
-  {
-   "district": "Ramanagara",
-   "country": "Tanzania",
-   "previous": 0.72109,
-   "current": 0.415887
-  },
-  {
-   "district": "Ramanagara",
-   "country": "Thailand",
-   "previous": 64.955667,
-   "current": 98.487442
-  },
-  {
-   "district": "Ramanagara",
-   "country": "Togo",
-   "previous": 0.198243,
-   "current": 0.234447
-  },
-  {
-   "district": "Ramanagara",
-   "country": "Trinidad and Tobago",
-   "previous": 5.530232,
-   "current": 0
-  },
-  {
-   "district": "Ramanagara",
-   "country": "Tunisia",
-   "previous": 0.347623,
-   "current": 0.016686
-  },
-  {
-   "district": "Ramanagara",
-   "country": "Turkey",
-   "previous": 3.806327,
-   "current": 5.384209
-  },
-  {
-   "district": "Ramanagara",
-   "country": "Turkmenistan",
-   "previous": 0.004608,
-   "current": 0.010506
-  },
-  {
-   "district": "Ramanagara",
-   "country": "Turks and Caicos Islands",
-   "previous": 0.037484,
-   "current": 0
-  },
-  {
-   "district": "Ramanagara",
-   "country": "Uganda",
-   "previous": 0.582431,
-   "current": 0.382751
-  },
-  {
-   "district": "Ramanagara",
-   "country": "Ukraine",
-   "previous": 0,
-   "current": 0.038713
-  },
-  {
-   "district": "Ramanagara",
-   "country": "United Arab Emirates",
-   "previous": 53.001989,
-   "current": 61.885132
-  },
-  {
-   "district": "Ramanagara",
-   "country": "United Kingdom",
-   "previous": 15.858264,
-   "current": 18.721646
-  },
-  {
-   "district": "Ramanagara",
-   "country": "United States",
-   "previous": 32.108384,
-   "current": 50.726743
-  },
-  {
-   "district": "Ramanagara",
-   "country": "Uruguay",
-   "previous": 2.820981,
-   "current": 0.938569
-  },
-  {
-   "district": "Ramanagara",
-   "country": "Uzbekistan",
-   "previous": 0,
-   "current": 0.03661
-  },
-  {
-   "district": "Ramanagara",
-   "country": "Vietnam",
-   "previous": 1.601872,
-   "current": 0.699078
-  },
-  {
-   "district": "Ramanagara",
-   "country": "Yemen",
-   "previous": 1.035199,
-   "current": 1.539361
-  },
-  {
-   "district": "Ramanagara",
-   "country": "Zambia",
-   "previous": 0.055849,
-   "current": 0.103238
   },
   {
    "district": "Shivamogga",

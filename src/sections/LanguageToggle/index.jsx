@@ -12,7 +12,7 @@ export default function LanguageToggle() {
         type="button"
         aria-pressed={language === 'en'}
         onClick={() => dispatch(setLanguage('en'))}
-        className={`rounded-full px-3 py-1 text-sm font-semibold transition-all duration-200 ${
+        className={`rounded-full px-2.5 py-1 text-sm font-semibold transition-all duration-200 md:px-3 ${
           language === 'en' ? 'bg-white text-brand-primary shadow-sm' : 'text-white/80 hover:text-white'
         }`}
       >
@@ -22,7 +22,7 @@ export default function LanguageToggle() {
         type="button"
         aria-pressed={language === 'kn'}
         onClick={() => dispatch(setLanguage('kn'))}
-        className={`rounded-full px-3 py-1 text-sm font-semibold transition-all duration-200 ${
+        className={`rounded-full px-2.5 py-1 text-sm font-semibold transition-all duration-200 md:px-3 ${
           language === 'kn' ? 'bg-white text-brand-primary shadow-sm' : 'text-white/80 hover:text-white'
         }`}
       >

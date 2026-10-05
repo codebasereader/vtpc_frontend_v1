@@ -53,7 +53,7 @@
    "majorProducts": "Flat Rolled Products In Coils of A Thickness, pitch coke, Carbon (Carbon Blacks and other forms Nes) , Iron ores and Concentrats Non-Agglomerated other Than Roast, Semi/Wholly Miled Rice W/N Polished/Glazed, Bars and Rods,Hot Rolled of Iron/Non Aloy Steel of Cicular"
   },
   {
-   "name": "Ramanagara",
+   "name": "Bangalore South (Ramanagara)",
    "previous": 254.881374,
    "current": 237.945119,
    "variation": -6.64,
@@ -1131,7 +1131,7 @@
     "Hassan": 1.073875,
     "Kolar": 1487.539103,
     "Mysuru": 32.971263,
-    "Ramanagara": 6.18896,
+    "Bangalore South (Ramanagara)": 6.18896,
     "Shivamogga": 0.008846,
     "Tumakuru": 7.710869,
     "Udupi": 3.160348,
@@ -1160,7 +1160,7 @@
     "Kolar": 24.32334,
     "Mysuru": 1.545069,
     "Raichur": 0.00198,
-    "Ramanagara": 1.080678,
+    "Bangalore South (Ramanagara)": 1.080678,
     "Tumakuru": 2.178275,
     "Udupi": 0.03193,
     "Uttara Kannada": 0.245832,
@@ -1179,7 +1179,7 @@
     "Chikkaballapura": 2.163894,
     "Hassan": 0.105124,
     "Mysuru": 0.089202,
-    "Ramanagara": 4.964523
+    "Bangalore South (Ramanagara)": 4.964523
    }
   },
   {
@@ -1208,7 +1208,7 @@
     "Mandya": 7.418393,
     "Mysuru": 7.489112,
     "Raichur": 0.033446,
-    "Ramanagara": 4.574899,
+    "Bangalore South (Ramanagara)": 4.574899,
     "Tumakuru": 7.052435,
     "Udupi": 1.538163
    }
@@ -1230,7 +1230,7 @@
     "Koppal": 0.000494,
     "Mandya": 2.212362,
     "Mysuru": 3.106985,
-    "Ramanagara": 3.246539,
+    "Bangalore South (Ramanagara)": 3.246539,
     "Tumakuru": 3.993971
    }
   },
@@ -1248,7 +1248,7 @@
     "Dharwad": 0.04265,
     "Hassan": 0.00004,
     "Mysuru": 0.316005,
-    "Ramanagara": 0.222523,
+    "Bangalore South (Ramanagara)": 0.222523,
     "Vijayapura": 0.004061
    }
   },
@@ -1280,7 +1280,7 @@
     "Mandya": 2.5463,
     "Mysuru": 34.431246,
     "Raichur": 0.108078,
-    "Ramanagara": 36.120779,
+    "Bangalore South (Ramanagara)": 36.120779,
     "Shivamogga": 7.084775,
     "Tumakuru": 81.256929,
     "Udupi": 4.110822,
@@ -1308,7 +1308,7 @@
     "Kolar": 11.229756,
     "Mandya": 0.00298,
     "Mysuru": 66.474336,
-    "Ramanagara": 146.947868,
+    "Bangalore South (Ramanagara)": 146.947868,
     "Shivamogga": 1.033323,
     "Tumakuru": 0.066271,
     "Udupi": 0.002532
@@ -1338,7 +1338,7 @@
     "Koppal": 2.78875,
     "Mysuru": 0.059005,
     "Raichur": 0.346191,
-    "Ramanagara": 0.189196,
+    "Bangalore South (Ramanagara)": 0.189196,
     "Tumakuru": 0.126403,
     "Udupi": 0.007155,
     "Vijayapura": 0.001466
@@ -1400,7 +1400,7 @@
     "Mandya": 0.11297,
     "Mysuru": 0.148282,
     "Raichur": 0.638446,
-    "Ramanagara": 0.098066,
+    "Bangalore South (Ramanagara)": 0.098066,
     "Shivamogga": 2.652095,
     "Tumakuru": 2.654774,
     "Uttara Kannada": 0.36196,
@@ -1437,7 +1437,7 @@
     "Mandya": 12.485235,
     "Mysuru": 12.795468,
     "Raichur": 9.323824,
-    "Ramanagara": 1.79811,
+    "Bangalore South (Ramanagara)": 1.79811,
     "Shivamogga": 0.328629,
     "Tumakuru": 24.986999,
     "Udupi": 14.850743,
@@ -1489,7 +1489,7 @@
     "Kolar": 0.005319,
     "Mandya": 2.975812,
     "Mysuru": 2.731381,
-    "Ramanagara": 0.029821
+    "Bangalore South (Ramanagara)": 0.029821
    }
   },
   {
@@ -1511,7 +1511,7 @@
     "Kolar": 0.010178,
     "Mandya": 0.208702,
     "Mysuru": 1.55848,
-    "Ramanagara": 0.025269,
+    "Bangalore South (Ramanagara)": 0.025269,
     "Shivamogga": 0.256221,
     "Tumakuru": 0.247824,
     "Udupi": 0.00001,
@@ -1545,7 +1545,7 @@
     "Mandya": 27.015628,
     "Mysuru": 19.225907,
     "Raichur": 22.478905,
-    "Ramanagara": 15.946741,
+    "Bangalore South (Ramanagara)": 15.946741,
     "Shivamogga": 0.007013,
     "Tumakuru": 17.346884,
     "Udupi": 49.960799,
@@ -1577,7 +1577,7 @@
     "Mandya": 0.000158,
     "Mysuru": 12.99387,
     "Raichur": 0.680314,
-    "Ramanagara": 5.963166,
+    "Bangalore South (Ramanagara)": 5.963166,
     "Shivamogga": 0.000611,
     "Tumakuru": 3.023245,
     "Udupi": 0.086084,
@@ -1606,7 +1606,7 @@
     "Koppal": 0.001799,
     "Mysuru": 2.612388,
     "Raichur": 0.014989,
-    "Ramanagara": 3.568441,
+    "Bangalore South (Ramanagara)": 3.568441,
     "Tumakuru": 0.206626,
     "Udupi": 0.074019
    }
@@ -1638,7 +1638,7 @@
     "Mandya": 0.075591,
     "Mysuru": 40.799402,
     "Raichur": 0.354075,
-    "Ramanagara": 6.97954,
+    "Bangalore South (Ramanagara)": 6.97954,
     "Shivamogga": 1.5328,
     "Tumakuru": 1.104893,
     "Udupi": 52.703289,
