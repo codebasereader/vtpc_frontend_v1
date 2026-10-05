@@ -5,7 +5,10 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "vite build",
+    "build": "npm run kalaloka:build && vite build",
+    "kalaloka:dev": "npm --prefix kalaloka run dev -- --port 3000",
+    "kalaloka:build": "node scripts/buildKalaloka.mjs",
+    "kalaloka:optimize-images": "node scripts/optimizeKalalokaImages.mjs",
     "preview": "vite preview",
     "lint": "eslint .",
     "mock-api": "node mock/server.js",

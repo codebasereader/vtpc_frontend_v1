@@ -18,3 +18,9 @@ Notes
 - The admin preview iframes use `srcdoc` with `sandbox=""`; `frame-src 'none'` does not affect them.
 - Test in the browser console for CSP violations after enabling (maps, fonts and uploaded images are the likely ones to need an extra origin).
 - If the site is served at `/` and the API on another domain, keep `COOKIE_SAMESITE`/CORS on the backend in step with that.
+
+## Kala Loka (`/kalaloka/`) needs its own, looser CSP
+Kala Loka is a Next.js static export; its pages contain small inline scripts, so the strict
+`script-src 'self'` policy above would break it. Give the `location /kalaloka/` block its own header
+(see `docs/kalaloka.md`) and note that nginx does **not** inherit `add_header` lines from the parent
+once a location defines its own — repeat the ones you want (HSTS, `Referrer-Policy`, …) inside it.

@@ -139,13 +139,16 @@ export default function MobileNavPanel({ isOpen, onNavigate }) {
             {common.nav.downloads[language]}
           </NavLink>
 
-          {/* Kalaloka — nav label reserved, destination not provided yet. */}
-          <span
-            className="rounded-md px-2 py-2.5 text-base font-medium text-gray-400"
-            aria-disabled="true"
+          {/* Kala Loka is a separate site: a plain link (full page load) that opens in a new tab. */}
+          <a
+            href={ROUTES.KALALOKA}
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label={common.nav.kalaloka[language]}
+            className="flex items-center rounded-md px-2 py-2.5"
           >
-            {common.nav.kalaloka[language]}
-          </span>
+            <img src="/assets/kalaloka-logo.svg" alt="" className="h-7 w-auto" />
+          </a>
         </nav>
       </aside>
     </div>

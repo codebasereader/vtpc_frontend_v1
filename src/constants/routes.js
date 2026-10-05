@@ -2,6 +2,8 @@ export const ROUTES = {
   HOME: '/',
   ABOUT_US: '/about-us',
   EXPORTER_CORNER: '/exporter-corner',
+  // Kala Loka is a separate static site served at this path (see kalaloka/ and docs/kalaloka.md).
+  KALALOKA: '/kalaloka/',
   GEOGRAPHICAL_INDICATIONS: '/geographical-indications',
   DOWNLOADS: '/downloads',
   EVENTS: '/events',

@@ -9,6 +9,7 @@ import Downloads from '../pages/public/Downloads'
 import LegalPage from '../pages/public/LegalPage'
 import FormPage from '../pages/public/FormPage'
 import NotFound from '../pages/public/NotFound'
+import KalalokaUnavailable from '../pages/public/KalalokaUnavailable'
 import { ROUTES } from '../constants/routes'
 
 // Lazy-loaded — pulls in leaflet + recharts, which only this page needs.
@@ -32,6 +33,7 @@ export default function PublicRoutes() {
             </Suspense>
           }
         />
+        <Route path="kalaloka/*" element={<KalalokaUnavailable />} />
         <Route path={ROUTES.FORM} element={<FormPage />} />
         <Route path={ROUTES.PAGE} element={<LegalPage />} />
         <Route path="*" element={<NotFound />} />

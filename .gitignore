@@ -26,3 +26,9 @@ dist-ssr
 
 # Playwright MCP scratch output
 .playwright-mcp/
+
+# Kala Loka (kalaloka/ is committed; its build output and the copy served by the main app are not)
+/kalaloka/node_modules
+/kalaloka/.next
+/kalaloka/out
+/public/kalaloka

@@ -18,7 +18,7 @@ const vitestGlobals = {
 }
 
 export default defineConfig([
-  globalIgnores(['dist']),
+  globalIgnores(['dist', 'kalaloka', 'public']),
   {
     files: ['**/*.{js,jsx}'],
     extends: [
