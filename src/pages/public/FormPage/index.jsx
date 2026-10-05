@@ -54,6 +54,12 @@ function FormPageContent({ slug }) {
     }
   }, [slug])
 
+  // The thank-you card replaces a long form, so bring it into view instead of
+  // leaving the visitor scrolled down where the submit button was.
+  useEffect(() => {
+    if (status === 'submitted') window.scrollTo({ top: 0, behavior: 'smooth' })
+  }, [status])
+
   function handleChange(questionId, value) {
     setValues((prev) => ({ ...prev, [questionId]: value }))
     // Clear that question's error as soon as the visitor edits it.
