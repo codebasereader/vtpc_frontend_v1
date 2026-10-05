@@ -1,6 +1,7 @@
-import { useEffect, useState } from 'react'
+import { useEffect, useMemo, useState } from 'react'
 import { useParams, Link } from 'react-router-dom'
 import { Helmet } from 'react-helmet-async'
+import { sanitizeHtml } from '../../../lib/sanitizeHtml'
 import { useSelector } from 'react-redux'
 import { FileText } from 'lucide-react'
 import { getPageBySlug } from '../../../api/pagesApi'
@@ -39,7 +40,10 @@ function LegalPageContent({ slug }) {
   }, [slug])
 
   const title = page ? getBilingualText(page.title, language) : ''
-  const bodyHtml = page ? getBilingualText(page.body, language) || getBilingualText(page.body, 'en') : ''
+  const bodyHtml = useMemo(
+    () => (page ? sanitizeHtml(getBilingualText(page.body, language) || getBilingualText(page.body, 'en')) : ''),
+    [page, language],
+  )
 
   return (
     <>
@@ -82,7 +86,7 @@ function LegalPageContent({ slug }) {
           {!isLoading && !error && page && (
             <div
               className="legal-content"
-              // Content is CMS-authored by the admin team, not user input.
+              // CMS-authored, but cleaned first so a page can never run script.
               dangerouslySetInnerHTML={{ __html: bodyHtml }}
             />
           )}

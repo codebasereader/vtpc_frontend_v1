@@ -6,6 +6,7 @@ import { getDownloadCategories } from '../../../api/downloadCategoriesApi'
 import { getDownloads } from '../../../api/downloadsApi'
 import { selectLanguage } from '../../../redux/slices/localeSlice'
 import { getBilingualText } from '../../../lib/bilingual'
+import { safeUrl } from '../../../lib/safeUrl'
 import { downloads as t } from '../../../language/downloads'
 
 export default function Downloads() {
@@ -174,7 +175,9 @@ function DocumentRow({ doc, children, language }) {
   )
 }
 
-function DocumentActions({ fileUrl, language, compact = false }) {
+function DocumentActions({ fileUrl: rawFileUrl, language, compact = false }) {
+  const fileUrl = safeUrl(rawFileUrl)
+  if (!fileUrl) return null
   const size = compact ? 'px-3 py-1.5 text-xs' : 'px-3.5 py-2 text-sm'
   return (
     <div className="flex shrink-0 items-center gap-2">

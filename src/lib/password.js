@@ -1,10 +1,10 @@
-// Password rules (mirrors the backend): ≥ 8 characters, a letter and a number.
-export const PASSWORD_RULES = ['At least 8 characters', 'Contains a letter', 'Contains a number']
+// Password rules (mirrors the backend): ≥ 10 characters, a letter and a number.
+export const PASSWORD_RULES = ['At least 10 characters', 'Contains a letter', 'Contains a number']
 
 /** Returns the rules the password does NOT satisfy yet (empty = valid). */
 export function passwordProblems(password) {
   const problems = []
-  if (password.length < 8) problems.push(PASSWORD_RULES[0])
+  if (password.length < 10) problems.push(PASSWORD_RULES[0])
   if (!/[A-Za-z]/.test(password)) problems.push(PASSWORD_RULES[1])
   if (!/\d/.test(password)) problems.push(PASSWORD_RULES[2])
   return problems

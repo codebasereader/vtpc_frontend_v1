@@ -8,6 +8,7 @@ import { getBilingualText } from '../../../../lib/bilingual'
 import RecordDrawer from '../../../../components/RecordDrawer'
 import { SearchInput, NoResults } from '../../../../components/ListFilters'
 import { matchesSearch } from '../../../../lib/search'
+import { safeUrl } from '../../../../lib/safeUrl'
 
 export default function DownloadsList() {
   const [downloads, setDownloads] = useState([])
@@ -210,7 +211,7 @@ export default function DownloadsList() {
                     <td className="px-4 py-3">
                       {doc.fileUrl ? (
                         <a
-                          href={doc.fileUrl}
+                          href={safeUrl(doc.fileUrl) || undefined}
                           target="_blank"
                           rel="noreferrer"
                           className="inline-flex items-center gap-1 text-xs font-semibold text-brand-navy hover:underline"

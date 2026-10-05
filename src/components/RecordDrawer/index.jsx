@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react'
 import { X } from 'lucide-react'
 import { useExitTransition } from '../../lib/useExitTransition'
+import { safeUrl } from '../../lib/safeUrl'
 
 const HIDDEN_KEYS = new Set(['id', '_id', '__v', 'createdAt', 'updatedAt', 'depth'])
 const MEDIA_KEYS = new Set(['image', 'photo', 'video'])
@@ -45,17 +46,17 @@ function Value({ value, formatter, isHtml }) {
 
   if (typeof value === 'string') {
     if (IMAGE_RE.test(value)) {
-      return <img src={value} alt="" loading="lazy" className="max-h-64 w-full rounded-lg object-contain ring-1 ring-brand-divider" />
+      return <img src={safeUrl(value)} alt="" loading="lazy" className="max-h-64 w-full rounded-lg object-contain ring-1 ring-brand-divider" />
     }
     if (VIDEO_RE.test(value)) {
-      return <video src={value} controls preload="metadata" className="max-h-72 w-full rounded-lg bg-black" />
+      return <video src={safeUrl(value)} controls preload="metadata" className="max-h-72 w-full rounded-lg bg-black" />
     }
     if (ISO_DATE_RE.test(value) && !Number.isNaN(Date.parse(value))) {
       return <span className="text-sm text-brand-dark">{new Date(value).toLocaleString()}</span>
     }
     if (PDF_RE.test(value)) {
       return (
-        <a href={value} target="_blank" rel="noreferrer" className="inline-flex items-center gap-1.5 text-sm font-semibold text-brand-primary underline">
+        <a href={safeUrl(value) || undefined} target="_blank" rel="noreferrer" className="inline-flex items-center gap-1.5 text-sm font-semibold text-brand-primary underline">
           Open PDF
         </a>
       )

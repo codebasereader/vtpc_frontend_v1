@@ -117,7 +117,7 @@ export default function ChangePassword() {
         <PasswordField label="New password" value={newPassword} onChange={setNewPassword} autoComplete="new-password" />
         {newPassword && (
           <ul className="-mt-2 flex flex-col gap-1 text-xs">
-            {['At least 8 characters', 'Contains a letter', 'Contains a number'].map((rule) => (
+            {['At least 10 characters', 'Contains a letter', 'Contains a number'].map((rule) => (
               <li key={rule} className={problems.includes(rule) ? 'text-gray-500' : 'text-green-700'}>
                 {problems.includes(rule) ? '○' : '✓'} {rule}
               </li>

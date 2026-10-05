@@ -6,6 +6,7 @@ import { getDownloadCategories } from '../../../../api/downloadCategoriesApi'
 import { ROUTES } from '../../../../constants/routes'
 import { getBilingualText } from '../../../../lib/bilingual'
 import Button from '../../../../components/Button'
+import { safeUrl } from '../../../../lib/safeUrl'
 
 const inputClass =
   'rounded-lg border border-brand-divider px-3 py-2.5 text-sm outline-none transition-colors focus:border-brand-primary focus:ring-2 focus:ring-brand-primary/15'
@@ -200,7 +201,7 @@ export default function DownloadForm() {
             File (PDF/DOC/XLS)
             {existingFileUrl && !file && (
               <a
-                href={existingFileUrl}
+                href={safeUrl(existingFileUrl) || undefined}
                 target="_blank"
                 rel="noreferrer"
                 className="mb-1 inline-flex w-fit items-center gap-1.5 text-sm text-brand-primary hover:underline"

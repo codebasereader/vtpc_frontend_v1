@@ -8,6 +8,7 @@ import { getEventSectors } from '../../../api/eventSectorsApi'
 import { selectLanguage } from '../../../redux/slices/localeSlice'
 import { events as t } from '../../../language/events'
 import { getBilingualText } from '../../../lib/bilingual'
+import { safeUrl } from '../../../lib/safeUrl'
 import { describeEventDate, getEventStatus, matchesDateRange } from '../../../lib/eventDates'
 
 const fieldClass =
@@ -301,9 +302,9 @@ export default function Events() {
                       {description && <p className="mt-2 text-sm leading-relaxed text-gray-600">{description}</p>}
                     </div>
 
-                    {event.registrationLink && (
+                    {safeUrl(event.registrationLink) && (
                       <a
-                        href={event.registrationLink}
+                        href={safeUrl(event.registrationLink)}
                         target="_blank"
                         rel="noopener noreferrer"
                         className="inline-flex shrink-0 items-center gap-1.5 self-start rounded-lg border border-brand-primary px-3 py-2 text-sm font-medium text-brand-primary transition-colors hover:bg-brand-surface sm:self-center"
