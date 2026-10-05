@@ -49,6 +49,7 @@ logged-in user).
 | `governingCouncil` | Governing Council | `/admin/staff*` **where `group = "governing-council"`** |
 | `taluks` | Taluks | `/admin/taluks*` |
 | `warehouses` | Warehouses | `/admin/warehouses*` |
+| `marketData` | Market Data (Exporter Corner) | `/admin/market-releases*` — see doc 19 |
 | `forms` | Forms (builder + responses) | `/admin/forms*` |
 | `giProducts` | GI Products | `/admin/gi-products*` |
 | `giEnquiries` | GI Enquiries | `/admin/enquiries*` |

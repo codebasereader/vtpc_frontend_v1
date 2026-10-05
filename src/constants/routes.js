@@ -33,6 +33,7 @@ export const ROUTES = {
   ADMIN_PAGES: '/admin/pages',
   ADMIN_TALUKS: '/admin/taluks',
   ADMIN_WAREHOUSES: '/admin/warehouses',
+  ADMIN_MARKET_DATA: '/admin/market-data',
   ADMIN_NEWSLETTER_SUBSCRIBERS: '/admin/newsletter-subscribers',
   ADMIN_NEWSLETTER_ISSUES: '/admin/newsletter-issues',
   ADMIN_NEWSLETTERS_SENT: '/admin/newsletters-sent',

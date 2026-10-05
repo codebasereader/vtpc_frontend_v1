@@ -54,6 +54,7 @@ const NewsletterSubscribers = lazy(() => import('../pages/admin/Newsletter/Newsl
 const NewsletterIssues = lazy(() => import('../pages/admin/Newsletter/NewsletterIssues'))
 const SentNewsletters = lazy(() => import('../pages/admin/Newsletter/SentNewsletters'))
 const VisitorAnalytics = lazy(() => import('../pages/admin/VisitorAnalytics'))
+const MarketData = lazy(() => import('../pages/admin/MarketData'))
 
 const BUILT_SECTIONS = [
   'leaders',
@@ -82,6 +83,7 @@ const BUILT_SECTIONS = [
   'newsletterIssues',
   'newslettersSent',
   'visitorAnalytics',
+  'marketData',
 ]
 const COMING_SOON_SECTIONS = ADMIN_SECTIONS.filter((section) => !BUILT_SECTIONS.includes(section.key))
 
@@ -602,6 +604,14 @@ export default function AdminRoutes() {
             element={
               <ProtectedRoute>
                 <SentNewsletters />
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path="market-data"
+            element={
+              <ProtectedRoute>
+                <MarketData />
               </ProtectedRoute>
             }
           />

@@ -1,5 +1,9 @@
 # Market Intelligence (Exporter Corner)
 
+> **Superseded by [19-market-data-releases.md](./19-market-data-releases.md).** The real DGCIS/RBI workbooks
+> (US$ million, district / sector / state level, uploaded by staff every quarter) replaced this static
+> dataset. The frontend no longer calls the three endpoints below.
+
 Three new backend collections for the Exporter Corner "Market
 Intelligence" section — a 3-tab trade-data explorer (Key States, Top
 Products, Key Countries). All three datasets are **real data extracted

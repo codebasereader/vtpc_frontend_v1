@@ -13,35 +13,96 @@ export const exporterCorner = {
   marketIntelligence: {
     heading: { en: 'Market Intelligence', kn: 'ಮಾರುಕಟ್ಟೆ ಬುದ್ಧಿಮತ್ತೆ' },
     description: {
-      en: "Real export data on Karnataka's performance across states, products and destination countries.",
-      kn: 'ರಾಜ್ಯಗಳು, ಉತ್ಪನ್ನಗಳು ಮತ್ತು ಗಮ್ಯಸ್ಥಾನ ದೇಶಗಳಾದ್ಯಂತ ಕರ್ನಾಟಕದ ಕಾರ್ಯಕ್ಷಮತೆಯ ನೈಜ ರಫ್ತು ಮಾಹಿತಿ.',
+      en: "See how Karnataka's exports are performing — compared with other states, and by sector, district and destination country.",
+      kn: 'ಕರ್ನಾಟಕದ ರಫ್ತು ಕಾರ್ಯಕ್ಷಮತೆಯನ್ನು ನೋಡಿ — ಇತರ ರಾಜ್ಯಗಳೊಂದಿಗೆ ಹೋಲಿಕೆ, ಹಾಗೂ ವಲಯ, ಜಿಲ್ಲೆ ಮತ್ತು ಗಮ್ಯಸ್ಥಾನ ದೇಶಗಳ ಪ್ರಕಾರ.',
     },
+    periodLabel: { en: 'Period', kn: 'ಅವಧಿ' },
+    comparedWith: { en: 'Changes shown are compared with {previous}.', kn: 'ತೋರಿಸಿರುವ ಬದಲಾವಣೆಗಳು {previous} ಗೆ ಹೋಲಿಸಿದವು.' },
+    howToRead: {
+      en: 'Longer bar = higher exports. Green and red tags show growth or fall.',
+      kn: 'ಉದ್ದದ ಪಟ್ಟಿ = ಹೆಚ್ಚು ರಫ್ತು. ಹಸಿರು ಮತ್ತು ಕೆಂಪು ಟ್ಯಾಗ್‌ಗಳು ಬೆಳವಣಿಗೆ ಅಥವಾ ಇಳಿಕೆಯನ್ನು ತೋರಿಸುತ್ತವೆ.',
+    },
+
+    summary: {
+      total: { en: "Karnataka's goods exports", kn: 'ಕರ್ನಾಟಕದ ಸರಕು ರಫ್ತು' },
+      share: { en: "Share of India's goods exports", kn: 'ಭಾರತದ ಸರಕು ರಫ್ತಿನಲ್ಲಿ ಪಾಲು' },
+      topDistrict: { en: 'Top exporting district', kn: 'ಅತಿ ಹೆಚ್ಚು ರಫ್ತು ಮಾಡುವ ಜಿಲ್ಲೆ' },
+      topSector: { en: 'Top exporting sector', kn: 'ಅತಿ ಹೆಚ್ಚು ರಫ್ತು ಮಾಡುವ ವಲಯ' },
+      services: {
+        en: 'Software & services exports (RBI estimate, not included in the goods figures above): {value}',
+        kn: 'ಸಾಫ್ಟ್‌ವೇರ್ ಮತ್ತು ಸೇವಾ ರಫ್ತು (RBI ಅಂದಾಜು, ಮೇಲಿನ ಸರಕು ಅಂಕಿಅಂಶಗಳಲ್ಲಿ ಸೇರಿಲ್ಲ): {value}',
+      },
+    },
+
     tabs: {
-      states: { en: 'Key States & Karnataka', kn: 'ಪ್ರಮುಖ ರಾಜ್ಯಗಳು ಮತ್ತು ಕರ್ನಾಟಕ' },
-      products: { en: 'Top Products', kn: 'ಪ್ರಮುಖ ಉತ್ಪನ್ನಗಳು' },
-      countries: { en: 'Key Countries', kn: 'ಪ್ರಮುಖ ದೇಶಗಳು' },
+      states: { en: 'Karnataka vs other states', kn: 'ಕರ್ನಾಟಕ vs ಇತರ ರಾಜ್ಯಗಳು' },
+      sectors: { en: 'By sector', kn: 'ವಲಯದ ಪ್ರಕಾರ' },
+      districts: { en: 'By district', kn: 'ಜಿಲ್ಲೆಯ ಪ್ರಕಾರ' },
+      countries: { en: 'By country', kn: 'ದೇಶದ ಪ್ರಕಾರ' },
     },
-    allYears: { en: 'All Years', kn: 'ಎಲ್ಲಾ ವರ್ಷಗಳು' },
-    valueCr: { en: '₹ Cr', kn: '₹ ಕೋಟಿ' },
-    karnataka: { en: 'Karnataka', kn: 'ಕರ್ನಾಟಕ' },
-    searchProducts: { en: 'Search product name or HS code', kn: 'ಉತ್ಪನ್ನದ ಹೆಸರು ಅಥವಾ HS ಕೋಡ್ ಹುಡುಕಿ' },
-    selectCountry: { en: 'Select Country', kn: 'ದೇಶ ಆಯ್ಕೆಮಾಡಿ' },
-    allStates: { en: 'All States (Top 15)', kn: 'ಎಲ್ಲಾ ರಾಜ್ಯಗಳು (ಟಾಪ್ 15)' },
-    searchStates: { en: 'Search states', kn: 'ರಾಜ್ಯಗಳನ್ನು ಹುಡುಕಿ' },
-    allProducts: { en: 'All Products (Top 15)', kn: 'ಎಲ್ಲಾ ಉತ್ಪನ್ನಗಳು (ಟಾಪ್ 15)' },
-    topStates: { en: 'Top states by export value', kn: 'ರಫ್ತು ಮೌಲ್ಯದ ಪ್ರಕಾರ ಪ್ರಮುಖ ರಾಜ್ಯಗಳು' },
-    topProducts: { en: 'Top products by export value', kn: 'ರಫ್ತು ಮೌಲ್ಯದ ಪ್ರಕಾರ ಪ್ರಮುಖ ಉತ್ಪನ್ನಗಳು' },
-    countryTopProducts: {
-      en: 'Top products exported to this country',
-      kn: 'ಈ ದೇಶಕ್ಕೆ ರಫ್ತು ಮಾಡುವ ಪ್ರಮುಖ ಉತ್ಪನ್ನಗಳು',
+
+    states: {
+      title: { en: 'How Karnataka compares with other leading states', kn: 'ಕರ್ನಾಟಕವು ಇತರ ಪ್ರಮುಖ ರಾಜ್ಯಗಳೊಂದಿಗೆ ಹೇಗೆ ಹೋಲಿಸುತ್ತದೆ' },
+      titleForSector: { en: '{sector}: Karnataka vs other leading states', kn: '{sector}: ಕರ್ನಾಟಕ vs ಇತರ ಪ್ರಮುಖ ರಾಜ್ಯಗಳು' },
+      hint: { en: 'Goods exports. Karnataka is shown in red.', kn: 'ಸರಕು ರಫ್ತು. ಕರ್ನಾಟಕವನ್ನು ಕೆಂಪು ಬಣ್ಣದಲ್ಲಿ ತೋರಿಸಲಾಗಿದೆ.' },
+      sectorFilter: { en: 'Sector', kn: 'ವಲಯ' },
+      allSectors: { en: 'All goods (all sectors)', kn: 'ಎಲ್ಲಾ ಸರಕುಗಳು (ಎಲ್ಲಾ ವಲಯಗಳು)' },
+      rank: {
+        en: 'Karnataka ranks #{rank} out of the {total} states shown.',
+        kn: 'ತೋರಿಸಿರುವ {total} ರಾಜ್ಯಗಳಲ್ಲಿ ಕರ್ನಾಟಕ {rank}ನೇ ಸ್ಥಾನದಲ್ಲಿದೆ.',
+      },
+      shareOfIndia: { en: '{value}% of India', kn: 'ಭಾರತದ {value}%' },
+      otherStates: { en: 'All other states together: {value}', kn: 'ಉಳಿದ ಎಲ್ಲಾ ರಾಜ್ಯಗಳು ಒಟ್ಟಾಗಿ: {value}' },
     },
-    relativeValueNote: {
-      en: 'Values shown as relative figures pending unit confirmation.',
-      kn: 'ಘಟಕ ದೃಢೀಕರಣ ಬಾಕಿ ಇರುವವರೆಗೆ ಮೌಲ್ಯಗಳನ್ನು ಸಾಪೇಕ್ಷ ಅಂಕಿಅಂಶಗಳಾಗಿ ತೋರಿಸಲಾಗಿದೆ.',
+
+    sectors: {
+      title: { en: 'What Karnataka exports', kn: 'ಕರ್ನಾಟಕ ಏನನ್ನು ರಫ್ತು ಮಾಡುತ್ತದೆ' },
+      hint: {
+        en: "Goods exports by sector. The small grey text shows Karnataka's share of all India's exports in that sector.",
+        kn: 'ವಲಯದ ಪ್ರಕಾರ ಸರಕು ರಫ್ತು. ಸಣ್ಣ ಬೂದು ಅಕ್ಷರಗಳು ಆ ವಲಯದಲ್ಲಿ ಭಾರತದ ಒಟ್ಟು ರಫ್ತಿನಲ್ಲಿ ಕರ್ನಾಟಕದ ಪಾಲನ್ನು ತೋರಿಸುತ್ತವೆ.',
+      },
+      shareOfIndia: { en: "{value}% of India's exports in this sector", kn: 'ಈ ವಲಯದಲ್ಲಿ ಭಾರತದ ರಫ್ತಿನ {value}%' },
+    },
+
+    districts: {
+      title: { en: 'Which districts export the most', kn: 'ಯಾವ ಜಿಲ್ಲೆಗಳು ಹೆಚ್ಚು ರಫ್ತು ಮಾಡುತ್ತವೆ' },
+      titleForSector: { en: 'Top districts for {sector}', kn: '{sector} ಗಾಗಿ ಪ್ರಮುಖ ಜಿಲ್ಲೆಗಳು' },
+      hint: { en: 'Tap a district to see its main exported products.', kn: 'ಜಿಲ್ಲೆಯ ಪ್ರಮುಖ ರಫ್ತು ಉತ್ಪನ್ನಗಳನ್ನು ನೋಡಲು ಅದರ ಮೇಲೆ ಒತ್ತಿ.' },
+      hintForSector: { en: 'Value of this sector exported from each district.', kn: 'ಪ್ರತಿ ಜಿಲ್ಲೆಯಿಂದ ಈ ವಲಯದ ರಫ್ತು ಮೌಲ್ಯ.' },
+      sectorFilter: { en: 'Sector', kn: 'ವಲಯ' },
+      allSectors: { en: 'All sectors', kn: 'ಎಲ್ಲಾ ವಲಯಗಳು' },
+      shareOfKarnataka: { en: "{value}% of Karnataka's exports", kn: 'ಕರ್ನಾಟಕದ ರಫ್ತಿನ {value}%' },
+      shareOfSector: { en: "{value}% of the state's exports in this sector", kn: 'ಈ ವಲಯದಲ್ಲಿ ರಾಜ್ಯದ ರಫ್ತಿನ {value}%' },
+      mainProducts: { en: 'Main products exported', kn: 'ಪ್ರಮುಖ ರಫ್ತು ಉತ್ಪನ್ನಗಳು' },
+      previousPeriod: { en: 'Previous period ({label})', kn: 'ಹಿಂದಿನ ಅವಧಿ ({label})' },
+    },
+
+    countries: {
+      title: { en: 'Top destination countries', kn: 'ಪ್ರಮುಖ ಗಮ್ಯಸ್ಥಾನ ದೇಶಗಳು' },
+      titleForCountry: { en: 'Districts exporting to {country}', kn: '{country} ಗೆ ರಫ್ತು ಮಾಡುವ ಜಿಲ್ಲೆಗಳು' },
+      titleForDistrict: { en: 'Top destination countries for {district}', kn: '{district} ಗಾಗಿ ಪ್ರಮುಖ ಗಮ್ಯಸ್ಥಾನ ದೇಶಗಳು' },
+      titleForBoth: { en: '{district} exports to {country}', kn: '{district} ನಿಂದ {country} ಗೆ ರಫ್ತು' },
+      hint: { en: 'Tap a country to see which districts export to it.', kn: 'ಯಾವ ಜಿಲ್ಲೆಗಳು ರಫ್ತು ಮಾಡುತ್ತವೆ ಎಂದು ನೋಡಲು ದೇಶದ ಮೇಲೆ ಒತ್ತಿ.' },
+      country: { en: 'Country', kn: 'ದೇಶ' },
+      district: { en: 'District', kn: 'ಜಿಲ್ಲೆ' },
+      allCountries: { en: 'All countries', kn: 'ಎಲ್ಲಾ ದೇಶಗಳು' },
+      allDistricts: { en: 'All Karnataka', kn: 'ಇಡೀ ಕರ್ನಾಟಕ' },
+      shareOfTotal: { en: '{value}% of this list', kn: 'ಈ ಪಟ್ಟಿಯ {value}%' },
+      none: { en: 'No exports recorded for this selection.', kn: 'ಈ ಆಯ್ಕೆಗೆ ಯಾವುದೇ ರಫ್ತು ದಾಖಲಾಗಿಲ್ಲ.' },
+    },
+
+    showAll: { en: 'Show all {count}', kn: 'ಎಲ್ಲಾ {count} ತೋರಿಸಿ' },
+    showTop: { en: 'Show top {count} only', kn: 'ಮೊದಲ {count} ಮಾತ್ರ ತೋರಿಸಿ' },
+    source: {
+      en: 'Source: {source}. Values in US$ million; software & services figures are from the RBI.',
+      kn: 'ಮೂಲ: {source}. ಮೌಲ್ಯಗಳು ಮಿಲಿಯನ್ US$ ನಲ್ಲಿ; ಸಾಫ್ಟ್‌ವೇರ್ ಮತ್ತು ಸೇವಾ ಅಂಕಿಅಂಶಗಳು RBI ಯಿಂದ.',
     },
     loading: { en: 'Loading market data…', kn: 'ಮಾರುಕಟ್ಟೆ ಮಾಹಿತಿ ಲೋಡ್ ಆಗುತ್ತಿದೆ…' },
+    loadError: {
+      en: 'Market data could not be loaded right now. Please try again later.',
+      kn: 'ಮಾರುಕಟ್ಟೆ ಮಾಹಿತಿಯನ್ನು ಈಗ ಲೋಡ್ ಮಾಡಲಾಗಲಿಲ್ಲ. ದಯವಿಟ್ಟು ನಂತರ ಪ್ರಯತ್ನಿಸಿ.',
+    },
     noData: { en: 'Data for this section is coming soon.', kn: 'ಈ ವಿಭಾಗದ ಮಾಹಿತಿ ಶೀಘ್ರದಲ್ಲೇ ಬರಲಿದೆ.' },
-    noMatches: { en: 'No matches for your search.', kn: 'ನಿಮ್ಮ ಹುಡುಕಾಟಕ್ಕೆ ಯಾವುದೇ ಹೊಂದಾಣಿಕೆ ಇಲ್ಲ.' },
   },
 
   warehouses: {

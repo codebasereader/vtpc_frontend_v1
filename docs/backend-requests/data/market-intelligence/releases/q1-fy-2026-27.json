@@ -1,0 +1,1650 @@
+{
+ "key": "q1-fy-2026-27",
+ "type": "quarter",
+ "label": "Q1 FY 2026-27",
+ "previousLabel": "Q1 FY 2025-26",
+ "unit": "USD Mn",
+ "source": "DGCIS, Kolkata",
+ "totals": {
+  "previous": 9431.443784,
+  "current": 9978.830127
+ },
+ "districts": [
+  {
+   "name": "Bengaluru Urban",
+   "previous": 2477.235838,
+   "current": 3213.159871,
+   "variation": 29.71,
+   "majorProducts": "Turbo-Jets of A Thrust>25 Kn, other Medicine put up for Retail Sale, Static Converters, other Parts of Airplanes, Helicopters or Unmanned Aircraft, Immunological Products, put up In Measured Doses or In form"
+  },
+  {
+   "name": "Bengaluru Rural",
+   "previous": 1298.371225,
+   "current": 1927.14015,
+   "variation": 48.43,
+   "majorProducts": "Smartphones, other Parts of Airplanes, Helicopters or Unmanned Aircraft, Turbo-Jets of A Thrust>25 Kn, other Medicine put up for Retail Sale, Parts of Engines and Motors"
+  },
+  {
+   "name": "Kolar",
+   "previous": 2067.121516,
+   "current": 1597.767602,
+   "variation": -22.71,
+   "majorProducts": "Smartphones, other Medecine put up for Retail Sale, Cobalt Mattes and other Intermediate Product of Cobalt Metlur, Semi/Wholly Miled Rice W/N Polished/Glazed, other Parts of Airplanes, Helicopters or Unmanned Aircraft, Buckets,Shovels Grabs and Grips of the machinery"
+  },
+  {
+   "name": "Dakshina Kannada",
+   "previous": 1837.085277,
+   "current": 1358.635043,
+   "variation": -26.04,
+   "majorProducts": "other Petroleum Oils and Oils obtained Frombituminous Mineral, Light Oils and Preparations, Flours Meals and Pellets of Fish Crustaceansmolluscs/other Aqua, other Aromatic Hydro Carbon Mixtures , others-of-Fish Fillets and other Fish Meat, Coffee Neither Roasted Nor Decaffeinated, other Vessels for Transport of The Goods and other Vessels"
+  },
+  {
+   "name": "Mysuru",
+   "previous": 252.856231,
+   "current": 277.574629,
+   "variation": 9.78,
+   "majorProducts": "Motor Cycle Etc With Internal Cumbuston Piston Engine of Cylndr Capacity, Coffee Neither Roasted Nor Decaffeinated, Tobacco Partly or Wholly Stemmed/Stripped, Printed Circuits, Extracts Essnces and Concentrations of Coffee"
+  },
+  {
+   "name": "Ballari",
+   "previous": 213.569566,
+   "current": 239.085512,
+   "variation": 11.95,
+   "majorProducts": "Flat Rolled Products In Coils of A Thickness, pitch coke, Carbon (Carbon Blacks and other forms Nes) , Iron ores and Concentrats Non-Agglomerated other Than Roast, Semi/Wholly Miled Rice W/N Polished/Glazed, Bars and Rods,Hot Rolled of Iron/Non Aloy Steel of Cicular"
+  },
+  {
+   "name": "Ramanagara",
+   "previous": 254.881374,
+   "current": 237.945119,
+   "variation": -6.64,
+   "majorProducts": "Vehicles With Spark-Ignition Internal Combustion, Gear Boxes, other Heterdcyclic Cmpounds With Nitrogen Hetro Atom, Fuel,Lubricating/Cooling Medium Pumps for Internal Combustion"
+  },
+  {
+   "name": "Kodagu",
+   "previous": 219.536731,
+   "current": 211.287019,
+   "variation": -3.76,
+   "majorProducts": "Coffee Neither Roasted Nor Decaffeinated, Extracts Essences and Concentrates of Coffee"
+  },
+  {
+   "name": "Udupi",
+   "previous": 80.450693,
+   "current": 168.631159,
+   "variation": 109.61,
+   "majorProducts": "Biodiesel and Mixtures, not Containing or Containing L< 70 %, Flours Meals and Pellets of Fish Crustaceansmolluscs, Fats and Oils and Their Fractions of Fish, Cashen Nuts Fresh/Dried Shelled, other Vessels for Transport of The Goods and other Vessels , others-of-Fish Fillets and other Fish Meat, Cuttle Fish and Squid Frozen"
+  },
+  {
+   "name": "Tumakuru",
+   "previous": 147.484416,
+   "current": 152.546386,
+   "variation": 3.43,
+   "majorProducts": "Parts of Transformers,Static Converters and Inductors, Static Converters, other Concentrates of Essential Oils In Fats/Fixd/Wax, Cucumbers and Ghirkins Prepared/preserved By Acetic Acid, Flexible Intermediate Bulk Containers of Man Made Textile"
+  },
+  {
+   "name": "Hassan",
+   "previous": 182.186301,
+   "current": 143.370616,
+   "variation": -21.31,
+   "majorProducts": "Coffee Neither Roasted Nor Decaffeinated, Toilet Linen and Kitchen Linen,of Terry Towelling/Similar, Wadding;other Articles of Wadding of Cotton, other Bed Linen of Cotton, Ginger:Neither Crushed Nor Ground"
+  },
+  {
+   "name": "Belagavi",
+   "previous": 105.973542,
+   "current": 107.857106,
+   "variation": 1.78,
+   "majorProducts": "parts of aircraft, spacecraft, or unmanned aerial vehicles (UAVs), Aluminium Oxide other Than Artificial Corundum, Sugar Refined not Containing Flavouring/Coloring Matter, Starch of Maize (Corn)"
+  },
+  {
+   "name": "Mandya",
+   "previous": 19.80263,
+   "current": 55.054131,
+   "variation": 178.01,
+   "majorProducts": "Biodiesel and Mixtures, Nt Containing or Containing L< 70 % , Semi/Wholly Miled Rice W/N Polished/Glazed, Mens or Boys Shirts of Cotton, Articles of leather With Outer Surface of Plastic Sheeting"
+  },
+  {
+   "name": "Dharwad",
+   "previous": 58.664926,
+   "current": 52.257816,
+   "variation": -10.92,
+   "majorProducts": "Drive Axles With Differential W/N Provided with other Transmission, Cotton, not Carded or Combed, other concentrates of essential oils in fats, fixed oils, waxes or the like, like terpenic byproducts, \"other appliances\" such as taps, cocks, valves, and similar plumbing or industrial fittings used for pipes, boiler shells, tanks, or vats"
+  },
+  {
+   "name": "Chikkamagaluru",
+   "previous": 27.258668,
+   "current": 38.03739,
+   "variation": 39.54,
+   "majorProducts": "Coffee Neither Roasted Nor Decaffeinated, Extracts Essences and Concentrates of Coffee"
+  },
+  {
+   "name": "Bidar",
+   "previous": 31.99663,
+   "current": 37.254934,
+   "variation": 16.43,
+   "majorProducts": "other Heterocyclic Compounds, other Lactams, Derivatives of Pyridine"
+  },
+  {
+   "name": "Raichur",
+   "previous": 28.078629,
+   "current": 34.005961,
+   "variation": 21.11,
+   "majorProducts": "other carboxylic acids with alcohol function but without other oxygen function, Semi/Wholly Miled Rice W/N Polished/Glazed, other organic Compounds: Cefadroxil and Its Salts, Ibuprofen"
+  },
+  {
+   "name": "Bagalkote",
+   "previous": 13.523887,
+   "current": 25.906699,
+   "variation": 91.56,
+   "majorProducts": "Sugar Refined not Containing Flavouring/Coloring Matter, other Cane Sugar:, Granite Crude or Roughly Trimmed"
+  },
+  {
+   "name": "Chamarajanagara",
+   "previous": 17.575312,
+   "current": 16.886054,
+   "variation": -3.92,
+   "majorProducts": "Simply Cut/Swn Granite With A Flat/Even Surfce, other Knited or Crochetd Fabrics of Cotton , Dyed, other Synthtic Woven Fabrics,Dyed, Agarbatti and other Odoriferous Preperation Whichoperate By Burniing"
+  },
+  {
+   "name": "Haveri",
+   "previous": 14.371063,
+   "current": 15.674504,
+   "variation": 9.07,
+   "majorProducts": "Fruits of The Genus Capsicum or of The Genus Pimenta: Dried, Fruits of The Genus Capsicum- Crushed or Ground, Vegetable Seeds Used for Sowing, Chemically Pure Glucose and Its Syrup Without or With < 20% By Weight of Fructose"
+  },
+  {
+   "name": "Shivamogga",
+   "previous": 16.977749,
+   "current": 12.904313,
+   "variation": -23.99,
+   "majorProducts": "Parts of other Gas Turbines, Ginger:Neither Crushed Nor Ground, Parts of other Engines(Diesel/Semi Diesel), other Parts and accesseries of Vehicles"
+  },
+  {
+   "name": "Chikkaballapura",
+   "previous": 11.487858,
+   "current": 12.61226,
+   "variation": 9.79,
+   "majorProducts": "other organic Compounds : Cefadroxil and Its Salts, Ibuprof, Silk Waste (Including Cocoons Unsuitable for Reeling, Yarn"
+  },
+  {
+   "name": "Koppal",
+   "previous": 8.985171,
+   "current": 9.67679,
+   "variation": 7.7,
+   "majorProducts": "Semi/Wholly Miled Rice W/N Polished/Glazed, Granite Crude or Roughly Trimmed"
+  },
+  {
+   "name": "Chitradurga",
+   "previous": 15.505528,
+   "current": 8.387342,
+   "variation": -45.91,
+   "majorProducts": "Underpants and Briefs of Cotton, Iron ores and Concentrats Non-Agglomerated other Than Roast, Ground-Nut, not Roasted or otherwise Cooked"
+  },
+  {
+   "name": "Davangere",
+   "previous": 9.694773,
+   "current": 7.652512,
+   "variation": -21.07,
+   "majorProducts": "Vegetable Seeds Used for Sowing, Cucumbers and Gherkins Provisionally Preserved, Stranded Wire,Ropes and Cables, other Instruments and appliances of Medical Science"
+  },
+  {
+   "name": "Kalaburagi",
+   "previous": 8.20714,
+   "current": 7.156342,
+   "variation": -12.8,
+   "majorProducts": "Bentonite, Sugar Refined not Containing Flavouring/Coloring Matter, Activated Natural Mineral Products Etc, Cotton, not Carded or Combed"
+  },
+  {
+   "name": "Vijayapura",
+   "previous": 6.817115,
+   "current": 6.951582,
+   "variation": 1.97,
+   "majorProducts": "Sugar Refined not Containing Flavouring/Coloring Matter, Vegetable Seeds Used for Sowing"
+  },
+  {
+   "name": "Uttara Kannada",
+   "previous": 1.336588,
+   "current": 2.676219,
+   "variation": 100.23,
+   "majorProducts": "Parts of Machinery for Making/Finishing Paper/Paperboard, other Paper and Paperboard not Containing Fibres obtained By Mechanical or Chemi-Mechanical Process, other Cane Sugar"
+  },
+  {
+   "name": "Gadag",
+   "previous": 3.288957,
+   "current": 0.530983,
+   "variation": -83.86,
+   "majorProducts": "Parts of Pumps, other Boring / Sinking Machinery not Self-Propelled"
+  },
+  {
+   "name": "Yadgir",
+   "previous": 1.11845,
+   "current": 0.204083,
+   "variation": -81.75,
+   "majorProducts": "Air Compressors Mounted On A Wheeled Chassis for Towing, Derivatives of Pyridine, Fruits of The Genus Capsicum- Crushed or Ground"
+  }
+ ],
+ "states": [
+  "All India",
+  "Karnataka",
+  "Tamil Nadu",
+  "Maharashtra",
+  "Gujarat",
+  "Andhra Pradesh",
+  "Uttar Pradesh",
+  "Telangana"
+ ],
+ "stateTotals": {
+  "All India": {
+   "previous": 111802.520654,
+   "current": 129502.830775
+  },
+  "Karnataka": {
+   "previous": 9431.492081,
+   "current": 9978.845154
+  },
+  "Tamil Nadu": {
+   "previous": 14772.591035,
+   "current": 16482.895397
+  },
+  "Maharashtra": {
+   "previous": 16866.410233,
+   "current": 18575.045902
+  },
+  "Gujarat": {
+   "previous": 30009.704299,
+   "current": 37606.719591
+  },
+  "Andhra Pradesh": {
+   "previous": 5260.928847,
+   "current": 4940.385631
+  },
+  "Uttar Pradesh": {
+   "previous": 5493.362774,
+   "current": 6285.985592
+  },
+  "Telangana": {
+   "previous": null,
+   "current": 3628.082061
+  }
+ },
+ "sectorStates": [
+  {
+   "sector": "Software & Services Exports",
+   "isServices": true,
+   "values": {
+    "All India": {
+     "previous": 97400,
+     "current": 106747
+    },
+    "Karnataka": {
+     "previous": 39934,
+     "current": 43766.27
+    },
+    "Tamil Nadu": {
+     "previous": null,
+     "current": 13343.375
+    },
+    "Maharashtra": {
+     "previous": null,
+     "current": 17079.52
+    },
+    "Gujarat": {
+     "previous": null,
+     "current": 1067.47
+    },
+    "Andhra Pradesh": {
+     "previous": null,
+     "current": 1174.217
+    },
+    "Uttar Pradesh": {
+     "previous": null,
+     "current": 5209.2536
+    },
+    "Telangana": {
+     "previous": null,
+     "current": 13877.11
+    }
+   }
+  },
+  {
+   "sector": "Electronics & Semiconductor",
+   "isServices": false,
+   "values": {
+    "All India": {
+     "previous": 11928.062231,
+     "current": 14166.005378
+    },
+    "Karnataka": {
+     "previous": 2631.953698,
+     "current": 2846.86105
+    },
+    "Tamil Nadu": {
+     "previous": null,
+     "current": 6468.968595
+    },
+    "Maharashtra": {
+     "previous": null,
+     "current": 1118.499855
+    },
+    "Gujarat": {
+     "previous": null,
+     "current": 439.798552
+    },
+    "Andhra Pradesh": {
+     "previous": null,
+     "current": 97.828352
+    },
+    "Uttar Pradesh": {
+     "previous": null,
+     "current": 1641.899832
+    },
+    "Telangana": {
+     "previous": null,
+     "current": 204.517584
+    }
+   }
+  },
+  {
+   "sector": "Engineering",
+   "isServices": false,
+   "values": {
+    "All India": {
+     "previous": 18702.366132,
+     "current": 22340.587703
+    },
+    "Karnataka": {
+     "previous": 1667.83577,
+     "current": 2311.026968
+    },
+    "Tamil Nadu": {
+     "previous": null,
+     "current": 2728.12087
+    },
+    "Maharashtra": {
+     "previous": null,
+     "current": 4188.809656
+    },
+    "Gujarat": {
+     "previous": null,
+     "current": 2976.199371
+    },
+    "Andhra Pradesh": {
+     "previous": null,
+     "current": 532.379033
+    },
+    "Uttar Pradesh": {
+     "previous": null,
+     "current": 840.338229
+    },
+    "Telangana": {
+     "previous": null,
+     "current": 480.203923
+    }
+   }
+  },
+  {
+   "sector": "Petroleum",
+   "isServices": false,
+   "values": {
+    "All India": {
+     "previous": 17722.113701,
+     "current": 24041.690887
+    },
+    "Karnataka": {
+     "previous": 1544.757801,
+     "current": 1100.474157
+    },
+    "Tamil Nadu": {
+     "previous": null,
+     "current": 347.846896
+    },
+    "Maharashtra": {
+     "previous": null,
+     "current": 635.966161
+    },
+    "Gujarat": {
+     "previous": null,
+     "current": 17383.978728
+    },
+    "Andhra Pradesh": {
+     "previous": null,
+     "current": 412.010922
+    },
+    "Uttar Pradesh": {
+     "previous": null,
+     "current": 185.986019
+    },
+    "Telangana": {
+     "previous": null,
+     "current": 0.613486
+    }
+   }
+  },
+  {
+   "sector": "Textiles, Garments, Wool & Woollen Products",
+   "isServices": false,
+   "values": {
+    "All India": {
+     "previous": 5698.084814,
+     "current": 5222.612177
+    },
+    "Karnataka": {
+     "previous": 644.101632,
+     "current": 573.037855
+    },
+    "Tamil Nadu": {
+     "previous": null,
+     "current": 1500.964528
+    },
+    "Maharashtra": {
+     "previous": null,
+     "current": 405.640534
+    },
+    "Gujarat": {
+     "previous": null,
+     "current": 526.907507
+    },
+    "Andhra Pradesh": {
+     "previous": null,
+     "current": 65.476915
+    },
+    "Uttar Pradesh": {
+     "previous": null,
+     "current": 643.448793
+    },
+    "Telangana": {
+     "previous": null,
+     "current": 6.692442
+    }
+   }
+  },
+  {
+   "sector": "Chemicals & Allied Products",
+   "isServices": false,
+   "values": {
+    "All India": {
+     "previous": 10442.971808,
+     "current": 11866.89994
+    },
+    "Karnataka": {
+     "previous": 508.773448,
+     "current": 500.650578
+    },
+    "Tamil Nadu": {
+     "previous": null,
+     "current": 513.335729
+    },
+    "Maharashtra": {
+     "previous": null,
+     "current": 2160.918284
+    },
+    "Gujarat": {
+     "previous": null,
+     "current": 4591.605186
+    },
+    "Andhra Pradesh": {
+     "previous": null,
+     "current": 929.505846
+    },
+    "Uttar Pradesh": {
+     "previous": null,
+     "current": 295.059211
+    },
+    "Telangana": {
+     "previous": null,
+     "current": 872.988118
+    }
+   }
+  },
+  {
+   "sector": "Coffee, Excl Instant Coffee",
+   "isServices": false,
+   "values": {
+    "All India": {
+     "previous": 431.583214,
+     "current": 428.770837
+    },
+    "Karnataka": {
+     "previous": 396.335372,
+     "current": 385.204688
+    },
+    "Tamil Nadu": {
+     "previous": null,
+     "current": 2.320522
+    },
+    "Maharashtra": {
+     "previous": null,
+     "current": 8.532623
+    },
+    "Gujarat": {
+     "previous": null,
+     "current": 0.664547
+    },
+    "Andhra Pradesh": {
+     "previous": null,
+     "current": 0.350545
+    },
+    "Uttar Pradesh": {
+     "previous": null,
+     "current": 0.070294
+    },
+    "Telangana": {
+     "previous": null,
+     "current": 0.917169
+    }
+   }
+  },
+  {
+   "sector": "Agriculture and Processed food including seeds and beverages",
+   "isServices": false,
+   "values": {
+    "All India": {
+     "previous": 7481.573878,
+     "current": 7695.506927
+    },
+    "Karnataka": {
+     "previous": 288.948804,
+     "current": 365.361827
+    },
+    "Tamil Nadu": {
+     "previous": null,
+     "current": 374.18587
+    },
+    "Maharashtra": {
+     "previous": null,
+     "current": 1089.781138
+    },
+    "Gujarat": {
+     "previous": null,
+     "current": 2005.04242
+    },
+    "Andhra Pradesh": {
+     "previous": null,
+     "current": 506.548262
+    },
+    "Uttar Pradesh": {
+     "previous": null,
+     "current": 136.962087
+    },
+    "Telangana": {
+     "previous": null,
+     "current": 208.043986
+    }
+   }
+  },
+  {
+   "sector": "Pharmaceuticals",
+   "isServices": false,
+   "values": {
+    "All India": {
+     "previous": 6133.799729,
+     "current": 6480.889784
+    },
+    "Karnataka": {
+     "previous": 330.978587,
+     "current": 339.265253
+    },
+    "Tamil Nadu": {
+     "previous": null,
+     "current": 196.329242
+    },
+    "Maharashtra": {
+     "previous": null,
+     "current": 1392.533041
+    },
+    "Gujarat": {
+     "previous": null,
+     "current": 1164.591546
+    },
+    "Andhra Pradesh": {
+     "previous": null,
+     "current": 342.07027
+    },
+    "Uttar Pradesh": {
+     "previous": null,
+     "current": 32.707857
+    },
+    "Telangana": {
+     "previous": null,
+     "current": 1257.203708
+    }
+   }
+  },
+  {
+   "sector": "Automobile",
+   "isServices": false,
+   "values": {
+    "All India": {
+     "previous": 6050.062731,
+     "current": 6844.769147
+    },
+    "Karnataka": {
+     "previous": 314.472897,
+     "current": 312.094397
+    },
+    "Tamil Nadu": {
+     "previous": null,
+     "current": 1804.982755
+    },
+    "Maharashtra": {
+     "previous": null,
+     "current": 1605.055971
+    },
+    "Gujarat": {
+     "previous": null,
+     "current": 853.490977
+    },
+    "Andhra Pradesh": {
+     "previous": null,
+     "current": 232.358812
+    },
+    "Uttar Pradesh": {
+     "previous": null,
+     "current": 164.853206
+    },
+    "Telangana": {
+     "previous": null,
+     "current": 30.675144
+    }
+   }
+  },
+  {
+   "sector": "Optical and Medical instrument",
+   "isServices": false,
+   "values": {
+    "All India": {
+     "previous": 1338.615765,
+     "current": 1615.71334
+    },
+    "Karnataka": {
+     "previous": 250.674099,
+     "current": 265.237022
+    },
+    "Tamil Nadu": {
+     "previous": null,
+     "current": 128.375024
+    },
+    "Maharashtra": {
+     "previous": null,
+     "current": 362.583748
+    },
+    "Gujarat": {
+     "previous": null,
+     "current": 174.08649
+    },
+    "Andhra Pradesh": {
+     "previous": null,
+     "current": 10.454561
+    },
+    "Uttar Pradesh": {
+     "previous": null,
+     "current": 69.633454
+    },
+    "Telangana": {
+     "previous": null,
+     "current": 77.789642
+    }
+   }
+  },
+  {
+   "sector": "Aerospace",
+   "isServices": false,
+   "values": {
+    "All India": {
+     "previous": 382.199056,
+     "current": 481.14049
+    },
+    "Karnataka": {
+     "previous": 173.887651,
+     "current": 212.836066
+    },
+    "Tamil Nadu": {
+     "previous": null,
+     "current": 16.835519
+    },
+    "Maharashtra": {
+     "previous": null,
+     "current": 61.226803
+    },
+    "Gujarat": {
+     "previous": null,
+     "current": 61.329705
+    },
+    "Andhra Pradesh": {
+     "previous": null,
+     "current": 0.003654
+    },
+    "Uttar Pradesh": {
+     "previous": null,
+     "current": 8.854107
+    },
+    "Telangana": {
+     "previous": null,
+     "current": 60.378175
+    }
+   }
+  },
+  {
+   "sector": "Plastic Goods",
+   "isServices": false,
+   "values": {
+    "All India": {
+     "previous": 1974.841877,
+     "current": 2331.892374
+    },
+    "Karnataka": {
+     "previous": 69.657419,
+     "current": 88.531571
+    },
+    "Tamil Nadu": {
+     "previous": null,
+     "current": 77.938566
+    },
+    "Maharashtra": {
+     "previous": null,
+     "current": 406.694953
+    },
+    "Gujarat": {
+     "previous": null,
+     "current": 946.151297
+    },
+    "Andhra Pradesh": {
+     "previous": null,
+     "current": 12.275667
+    },
+    "Uttar Pradesh": {
+     "previous": null,
+     "current": 84.753184
+    },
+    "Telangana": {
+     "previous": null,
+     "current": 61.086935
+    }
+   }
+  },
+  {
+   "sector": "Marine Products",
+   "isServices": false,
+   "values": {
+    "All India": {
+     "previous": 1637.405142,
+     "current": 1660.674563
+    },
+    "Karnataka": {
+     "previous": 44.209291,
+     "current": 63.570107
+    },
+    "Tamil Nadu": {
+     "previous": null,
+     "current": 91.191967
+    },
+    "Maharashtra": {
+     "previous": null,
+     "current": 96.733548
+    },
+    "Gujarat": {
+     "previous": null,
+     "current": 207.564813
+    },
+    "Andhra Pradesh": {
+     "previous": null,
+     "current": 754.492485
+    },
+    "Uttar Pradesh": {
+     "previous": null,
+     "current": 0.371474
+    },
+    "Telangana": {
+     "previous": null,
+     "current": 3.290815
+    }
+   }
+  },
+  {
+   "sector": "Iron Ore and Minerals",
+   "isServices": false,
+   "values": {
+    "All India": {
+     "previous": 1058.364676,
+     "current": 1188.050941
+    },
+    "Karnataka": {
+     "previous": 128.473122,
+     "current": 58.31598
+    },
+    "Tamil Nadu": {
+     "previous": null,
+     "current": 35.117472
+    },
+    "Maharashtra": {
+     "previous": null,
+     "current": 61.312652
+    },
+    "Gujarat": {
+     "previous": null,
+     "current": 219.896984
+    },
+    "Andhra Pradesh": {
+     "previous": null,
+     "current": 97.956486
+    },
+    "Uttar Pradesh": {
+     "previous": null,
+     "current": 5.770549
+    },
+    "Telangana": {
+     "previous": null,
+     "current": 53.136445
+    }
+   }
+  },
+  {
+   "sector": "Spices",
+   "isServices": false,
+   "values": {
+    "All India": {
+     "previous": 1154.045329,
+     "current": 1098.071443
+    },
+    "Karnataka": {
+     "previous": 57.026051,
+     "current": 51.409223
+    },
+    "Tamil Nadu": {
+     "previous": null,
+     "current": 62.174528
+    },
+    "Maharashtra": {
+     "previous": null,
+     "current": 127.949529
+    },
+    "Gujarat": {
+     "previous": null,
+     "current": 199.069453
+    },
+    "Andhra Pradesh": {
+     "previous": null,
+     "current": 192.461873
+    },
+    "Uttar Pradesh": {
+     "previous": null,
+     "current": 81.137327
+    },
+    "Telangana": {
+     "previous": null,
+     "current": 91.038866
+    }
+   }
+  },
+  {
+   "sector": "Leather Products",
+   "isServices": false,
+   "values": {
+    "All India": {
+     "previous": 752.813333,
+     "current": 739.91564
+    },
+    "Karnataka": {
+     "previous": 19.515716,
+     "current": 27.156826
+    },
+    "Tamil Nadu": {
+     "previous": null,
+     "current": 174.296348
+    },
+    "Maharashtra": {
+     "previous": null,
+     "current": 21.64
+    },
+    "Gujarat": {
+     "previous": null,
+     "current": 7.268701
+    },
+    "Andhra Pradesh": {
+     "previous": null,
+     "current": 6.54025
+    },
+    "Uttar Pradesh": {
+     "previous": null,
+     "current": 171.545913
+    },
+    "Telangana": {
+     "previous": null,
+     "current": 0.483776
+    }
+   }
+  },
+  {
+   "sector": "Handicrafts",
+   "isServices": false,
+   "values": {
+    "All India": {
+     "previous": 756.095244,
+     "current": 904.920681
+    },
+    "Karnataka": {
+     "previous": 24.832424,
+     "current": 24.744775
+    },
+    "Tamil Nadu": {
+     "previous": null,
+     "current": 31.078019
+    },
+    "Maharashtra": {
+     "previous": null,
+     "current": 86.237595
+    },
+    "Gujarat": {
+     "previous": null,
+     "current": 128.522654
+    },
+    "Andhra Pradesh": {
+     "previous": null,
+     "current": 3.723179
+    },
+    "Uttar Pradesh": {
+     "previous": null,
+     "current": 230.370387
+    },
+    "Telangana": {
+     "previous": null,
+     "current": 0.412601
+    }
+   }
+  },
+  {
+   "sector": "Silk Product",
+   "isServices": false,
+   "values": {
+    "All India": {
+     "previous": 60.199371,
+     "current": 61.717811
+    },
+    "Karnataka": {
+     "previous": 16.423835,
+     "current": 17.528293
+    },
+    "Tamil Nadu": {
+     "previous": null,
+     "current": 1.341588
+    },
+    "Maharashtra": {
+     "previous": null,
+     "current": 0.256363
+    },
+    "Gujarat": {
+     "previous": null,
+     "current": 0.182236
+    },
+    "Andhra Pradesh": {
+     "previous": null,
+     "current": 0.041567
+    },
+    "Uttar Pradesh": {
+     "previous": null,
+     "current": 37.473497
+    },
+    "Telangana": {
+     "previous": null,
+     "current": 0.073535
+    }
+   }
+  },
+  {
+   "sector": "Gems and Jewellery",
+   "isServices": false,
+   "values": {
+    "All India": {
+     "previous": 6696.632816,
+     "current": 7302.108218
+    },
+    "Karnataka": {
+     "previous": 22.721724,
+     "current": 17.142276
+    },
+    "Tamil Nadu": {
+     "previous": null,
+     "current": 246.921479
+    },
+    "Maharashtra": {
+     "previous": null,
+     "current": 3151.402975
+    },
+    "Gujarat": {
+     "previous": null,
+     "current": 2306.327458
+    },
+    "Andhra Pradesh": {
+     "previous": null,
+     "current": 0.916946
+    },
+    "Uttar Pradesh": {
+     "previous": null,
+     "current": 80.755386
+    },
+    "Telangana": {
+     "previous": null,
+     "current": 45.141617
+    }
+   }
+  },
+  {
+   "sector": "Cashew & Cashew kernels",
+   "isServices": false,
+   "values": {
+    "All India": {
+     "previous": 61.566419,
+     "current": 56.596702
+    },
+    "Karnataka": {
+     "previous": 10.866888,
+     "current": 12.862807
+    },
+    "Tamil Nadu": {
+     "previous": null,
+     "current": 13.762082
+    },
+    "Maharashtra": {
+     "previous": null,
+     "current": 0.940527
+    },
+    "Gujarat": {
+     "previous": null,
+     "current": 0.676029
+    },
+    "Andhra Pradesh": {
+     "previous": null,
+     "current": 7.169071
+    },
+    "Uttar Pradesh": {
+     "previous": null,
+     "current": 0.377028
+    },
+    "Telangana": {
+     "previous": null,
+     "current": 0.01633
+    }
+   }
+  },
+  {
+   "sector": "Others",
+   "isServices": false,
+   "values": {
+    "All India": {
+     "previous": 11339.123388,
+     "current": 12974.295792
+    },
+    "Karnataka": {
+     "previous": 285.045852,
+     "current": 405.533435
+    },
+    "Tamil Nadu": {
+     "previous": null,
+     "current": 1666.807798
+    },
+    "Maharashtra": {
+     "previous": null,
+     "current": 1592.329946
+    },
+    "Gujarat": {
+     "previous": null,
+     "current": 3413.364937
+    },
+    "Andhra Pradesh": {
+     "previous": null,
+     "current": 735.820935
+    },
+    "Uttar Pradesh": {
+     "previous": null,
+     "current": 1573.617758
+    },
+    "Telangana": {
+     "previous": null,
+     "current": 173.377764
+    }
+   }
+  }
+ ],
+ "sectorDistricts": [
+  {
+   "sector": "Software & Services Exports",
+   "isServices": true,
+   "hsCode": "",
+   "total": 0,
+   "values": {}
+  },
+  {
+   "sector": "Electronics & Semiconductor",
+   "isServices": false,
+   "hsCode": "85 -(8501, 8504, 8537,8544)",
+   "total": 2846.86105,
+   "values": {
+    "Bagalkote": 0.277609,
+    "Ballari": 0.000316,
+    "Belagavi": 0.320872,
+    "Bengaluru Rural": 1061.02017,
+    "Bengaluru Urban": 242.765335,
+    "Bidar": 0.074541,
+    "Chamarajanagara": 0.402677,
+    "Chikkaballapura": 0.027806,
+    "Chikkamagaluru": 0.02487,
+    "Dakshina Kannada": 2.287335,
+    "Dharwad": 0.995231,
+    "Hassan": 1.073875,
+    "Kolar": 1487.539103,
+    "Mysuru": 32.971263,
+    "Ramanagara": 6.18896,
+    "Shivamogga": 0.008846,
+    "Tumakuru": 7.710869,
+    "Udupi": 3.160348,
+    "Uttara Kannada": 0.001027,
+    "Vijayapura": 0.007556
+   }
+  },
+  {
+   "sector": "Pharmaceuticals",
+   "isServices": false,
+   "hsCode": "30",
+   "total": 339.265253,
+   "values": {
+    "Bagalkote": 0.073695,
+    "Ballari": 0.014024,
+    "Belagavi": 0.376963,
+    "Bengaluru Rural": 42.263087,
+    "Bengaluru Urban": 263.926358,
+    "Chikkamagaluru": 0.00009,
+    "Chitradurga": 0.000879,
+    "Dakshina Kannada": 0.016265,
+    "Dharwad": 0.846364,
+    "Hassan": 1.695118,
+    "Haveri": 0.627177,
+    "Kalaburagi": 0.011312,
+    "Kolar": 24.32334,
+    "Mysuru": 1.545069,
+    "Raichur": 0.00198,
+    "Ramanagara": 1.080678,
+    "Tumakuru": 2.178275,
+    "Udupi": 0.03193,
+    "Uttara Kannada": 0.245832,
+    "Vijayapura": 0.003154,
+    "Yadgir": 0.003663
+   }
+  },
+  {
+   "sector": "Silk Product",
+   "isServices": false,
+   "hsCode": "50",
+   "total": 17.528293,
+   "values": {
+    "Bengaluru Rural": 0.361068,
+    "Bengaluru Urban": 9.844482,
+    "Chikkaballapura": 2.163894,
+    "Hassan": 0.105124,
+    "Mysuru": 0.089202,
+    "Ramanagara": 4.964523
+   }
+  },
+  {
+   "sector": "Textiles, Garments, Wool & Woollen Products",
+   "isServices": false,
+   "hsCode": "51, 61, 62, 63",
+   "total": 573.037855,
+   "values": {
+    "Bagalkote": 0.014995,
+    "Ballari": 0.418242,
+    "Belagavi": 0.237932,
+    "Bengaluru Rural": 94.464847,
+    "Bengaluru Urban": 403.897871,
+    "Bidar": 0.164057,
+    "Chamarajanagara": 0.033919,
+    "Chikkaballapura": 0.177718,
+    "Chikkamagaluru": 0.000037,
+    "Chitradurga": 4.438124,
+    "Dakshina Kannada": 9.21774,
+    "Davangere": 0.009197,
+    "Dharwad": 0.128632,
+    "Gadag": 0.006592,
+    "Hassan": 23.80416,
+    "Haveri": 0.000029,
+    "Kolar": 7.917315,
+    "Mandya": 7.418393,
+    "Mysuru": 7.489112,
+    "Raichur": 0.033446,
+    "Ramanagara": 4.574899,
+    "Tumakuru": 7.052435,
+    "Udupi": 1.538163
+   }
+  },
+  {
+   "sector": "Aerospace",
+   "isServices": false,
+   "hsCode": "88",
+   "total": 212.836066,
+   "values": {
+    "Bagalkote": 0.000971,
+    "Ballari": 0.001183,
+    "Belagavi": 24.57994,
+    "Bengaluru Rural": 67.1741,
+    "Bengaluru Urban": 100.879349,
+    "Bidar": 0.003935,
+    "Kalaburagi": 0.015999,
+    "Kolar": 7.620238,
+    "Koppal": 0.000494,
+    "Mandya": 2.212362,
+    "Mysuru": 3.106985,
+    "Ramanagara": 3.246539,
+    "Tumakuru": 3.993971
+   }
+  },
+  {
+   "sector": "Petroleum",
+   "isServices": false,
+   "hsCode": "27",
+   "total": 1100.474157,
+   "values": {
+    "Ballari": 26.422718,
+    "Belagavi": 0.000285,
+    "Bengaluru Rural": 0.545771,
+    "Bengaluru Urban": 1.122271,
+    "Dakshina Kannada": 1071.797833,
+    "Dharwad": 0.04265,
+    "Hassan": 0.00004,
+    "Mysuru": 0.316005,
+    "Ramanagara": 0.222523,
+    "Vijayapura": 0.004061
+   }
+  },
+  {
+   "sector": "Engineering",
+   "isServices": false,
+   "hsCode": "72 to 84 +(8501, 8504, 8537,8544)",
+   "total": 2311.026925,
+   "values": {
+    "Bagalkote": 0.678235,
+    "Ballari": 174.034787,
+    "Belagavi": 33.790644,
+    "Bengaluru Rural": 419.977151,
+    "Bengaluru Urban": 1420.56274,
+    "Bidar": 1.828287,
+    "Chamarajanagara": 0.145405,
+    "Chikkaballapura": 0.401725,
+    "Chikkamagaluru": 0.308643,
+    "Chitradurga": 0.005408,
+    "Dakshina Kannada": 48.222804,
+    "Davangere": 1.258146,
+    "Dharwad": 12.990026,
+    "Gadag": 0.357205,
+    "Hassan": 0.155854,
+    "Kalaburagi": 0.189997,
+    "Kodagu": 0.000252,
+    "Kolar": 29.197724,
+    "Koppal": 0.176885,
+    "Mandya": 2.5463,
+    "Mysuru": 34.431246,
+    "Raichur": 0.108078,
+    "Ramanagara": 36.120779,
+    "Shivamogga": 7.084775,
+    "Tumakuru": 81.256929,
+    "Udupi": 4.110822,
+    "Uttara Kannada": 0.591237,
+    "Vijayapura": 0.440594,
+    "Yadgir": 0.054247
+   }
+  },
+  {
+   "sector": "Automobile",
+   "isServices": false,
+   "hsCode": "87",
+   "total": 312.094397,
+   "values": {
+    "Bagalkote": 0.031154,
+    "Ballari": 0.000206,
+    "Belagavi": 0.39747,
+    "Bengaluru Rural": 25.971192,
+    "Bengaluru Urban": 44.345364,
+    "Bidar": 0.065253,
+    "Chamarajanagara": 0.004726,
+    "Chitradurga": 0.069412,
+    "Dakshina Kannada": 1.871378,
+    "Dharwad": 13.581176,
+    "Kolar": 11.229756,
+    "Mandya": 0.00298,
+    "Mysuru": 66.474336,
+    "Ramanagara": 146.947868,
+    "Shivamogga": 1.033323,
+    "Tumakuru": 0.066271,
+    "Udupi": 0.002532
+   }
+  },
+  {
+   "sector": "Iron Ore and Minerals",
+   "isServices": false,
+   "hsCode": "25, 26",
+   "total": 58.31598,
+   "values": {
+    "Bagalkote": 4.278435,
+    "Ballari": 10.475981,
+    "Belagavi": 1.007558,
+    "Bengaluru Rural": 1.241299,
+    "Bengaluru Urban": 13.703829,
+    "Bidar": 0.138391,
+    "Chamarajanagara": 0.245013,
+    "Chikkaballapura": 0.01179,
+    "Chitradurga": 1.722744,
+    "Dakshina Kannada": 17.918092,
+    "Dharwad": 0.060062,
+    "Gadag": 0.042453,
+    "Hassan": 1.111965,
+    "Kalaburagi": 2.818255,
+    "Kolar": 0.021947,
+    "Koppal": 2.78875,
+    "Mysuru": 0.059005,
+    "Raichur": 0.346191,
+    "Ramanagara": 0.189196,
+    "Tumakuru": 0.126403,
+    "Udupi": 0.007155,
+    "Vijayapura": 0.001466
+   }
+  },
+  {
+   "sector": "Coffee, Excl Instant Coffee",
+   "isServices": false,
+   "hsCode": "0901",
+   "total": 385.204688,
+   "values": {
+    "Bengaluru Rural": 1.427302,
+    "Bengaluru Urban": 4.135844,
+    "Chikkamagaluru": 29.614679,
+    "Dakshina Kannada": 20.792054,
+    "Hassan": 84.754516,
+    "Kodagu": 198.319902,
+    "Mysuru": 38.196207,
+    "Tumakuru": 0.589988,
+    "Udupi": 7.283638,
+    "Uttara Kannada": 0.090558
+   }
+  },
+  {
+   "sector": "Cashew & Cashew kernels",
+   "isServices": false,
+   "hsCode": "801 (PC- Cashew)",
+   "total": 12.862807,
+   "values": {
+    "Bengaluru Rural": 0.062553,
+    "Bengaluru Urban": 0.010281,
+    "Dakshina Kannada": 0.485183,
+    "Mysuru": 0.000597,
+    "Udupi": 12.304193
+   }
+  },
+  {
+   "sector": "Spices",
+   "isServices": false,
+   "hsCode": "(PC-Spices) '0904 to 0910 + 1301",
+   "total": 51.409223,
+   "values": {
+    "Bagalkote": 0.008964,
+    "Ballari": 0.631525,
+    "Belagavi": 0.505382,
+    "Bengaluru Rural": 16.555906,
+    "Bengaluru Urban": 10.442446,
+    "Chamarajanagara": 1.612447,
+    "Chikkaballapura": 0.008178,
+    "Chikkamagaluru": 0.083329,
+    "Dakshina Kannada": 0.123535,
+    "Dharwad": 4.259819,
+    "Gadag": 0.043801,
+    "Hassan": 3.852173,
+    "Haveri": 6.490994,
+    "Kalaburagi": 0.05116,
+    "Kodagu": 0.004443,
+    "Kolar": 0.036999,
+    "Mandya": 0.11297,
+    "Mysuru": 0.148282,
+    "Raichur": 0.638446,
+    "Ramanagara": 0.098066,
+    "Shivamogga": 2.652095,
+    "Tumakuru": 2.654774,
+    "Uttara Kannada": 0.36196,
+    "Vijayapura": 0.001871,
+    "Yadgir": 0.029658
+   }
+  },
+  {
+   "sector": "Agriculture and Processed food including seeds and beverages",
+   "isServices": false,
+   "hsCode": "04 & 06 to 22 (except 16)-(0901-Coffee), Cashew(PC) & Spices (PC)",
+   "total": 365.361827,
+   "values": {
+    "Bagalkote": 19.398782,
+    "Ballari": 12.596888,
+    "Belagavi": 18.406493,
+    "Bengaluru Rural": 28.648799,
+    "Bengaluru Urban": 115.281814,
+    "Bidar": 0.41514,
+    "Chamarajanagara": 0.052372,
+    "Chikkaballapura": 1.935765,
+    "Chikkamagaluru": 7.512539,
+    "Chitradurga": 2.1498,
+    "Dakshina Kannada": 8.586266,
+    "Davangere": 5.149583,
+    "Dharwad": 3.600743,
+    "Gadag": 0.080282,
+    "Hassan": 7.562656,
+    "Haveri": 5.873718,
+    "Kalaburagi": 1.651462,
+    "Kodagu": 12.957974,
+    "Kolar": 23.985776,
+    "Koppal": 6.007451,
+    "Mandya": 12.485235,
+    "Mysuru": 12.795468,
+    "Raichur": 9.323824,
+    "Ramanagara": 1.79811,
+    "Shivamogga": 0.328629,
+    "Tumakuru": 24.986999,
+    "Udupi": 14.850743,
+    "Uttara Kannada": 0.495393,
+    "Vijayapura": 6.402125,
+    "Yadgir": 0.040998
+   }
+  },
+  {
+   "sector": "Marine Products",
+   "isServices": false,
+   "hsCode": "03",
+   "total": 63.570107,
+   "values": {
+    "Ballari": 0.00156,
+    "Bengaluru Urban": 0.751005,
+    "Dakshina Kannada": 40.274395,
+    "Raichur": 0.025713,
+    "Udupi": 22.517434
+   }
+  },
+  {
+   "sector": "Gems and Jewellery",
+   "isServices": false,
+   "hsCode": "71",
+   "total": 17.142276,
+   "values": {
+    "Belagavi": 0.000368,
+    "Bengaluru Rural": 2.906854,
+    "Bengaluru Urban": 11.872584,
+    "Dakshina Kannada": 2.320222,
+    "Mysuru": 0.030424,
+    "Uttara Kannada": 0.011824
+   }
+  },
+  {
+   "sector": "Leather Products",
+   "isServices": false,
+   "hsCode": "41, 42",
+   "total": 27.156826,
+   "values": {
+    "Bagalkote": 0.000166,
+    "Belagavi": 0.007618,
+    "Bengaluru Rural": 1.3128,
+    "Bengaluru Urban": 20.087318,
+    "Bidar": 0.000165,
+    "Dharwad": 0.005889,
+    "Gadag": 0.000537,
+    "Kolar": 0.005319,
+    "Mandya": 2.975812,
+    "Mysuru": 2.731381,
+    "Ramanagara": 0.029821
+   }
+  },
+  {
+   "sector": "Handicrafts",
+   "isServices": false,
+   "hsCode": "Handicrafts= (Excl Handmade) (PC) & Carpet (Excl Silk Handmade) (PC)",
+   "total": 24.744775,
+   "values": {
+    "Ballari": 0.015136,
+    "Belagavi": 0.000368,
+    "Bengaluru Rural": 2.21418,
+    "Bengaluru Urban": 17.253432,
+    "Bidar": 0.098558,
+    "Chamarajanagara": 2.216866,
+    "Dakshina Kannada": 0.48003,
+    "Davangere": 0.083314,
+    "Gadag": 0.00038,
+    "Hassan": 0.070719,
+    "Kolar": 0.010178,
+    "Mandya": 0.208702,
+    "Mysuru": 1.55848,
+    "Ramanagara": 0.025269,
+    "Shivamogga": 0.256221,
+    "Tumakuru": 0.247824,
+    "Udupi": 0.00001,
+    "Uttara Kannada": 0.005108
+   }
+  },
+  {
+   "sector": "Chemicals & Allied Products",
+   "isServices": false,
+   "hsCode": "28 to 38-(30),47,48,49",
+   "total": 500.650578,
+   "values": {
+    "Bagalkote": 0.174086,
+    "Ballari": 14.279646,
+    "Belagavi": 16.950515,
+    "Bengaluru Rural": 52.854048,
+    "Bengaluru Urban": 166.085181,
+    "Bidar": 33.999491,
+    "Chamarajanagara": 2.257008,
+    "Chikkaballapura": 6.772091,
+    "Chikkamagaluru": 0.008855,
+    "Dakshina Kannada": 38.086407,
+    "Davangere": 0.012865,
+    "Dharwad": 5.548788,
+    "Gadag": 0.000002,
+    "Hassan": 6.126422,
+    "Haveri": 2.095409,
+    "Kalaburagi": 1.32088,
+    "Kodagu": 0.000405,
+    "Kolar": 1.261407,
+    "Mandya": 27.015628,
+    "Mysuru": 19.225907,
+    "Raichur": 22.478905,
+    "Ramanagara": 15.946741,
+    "Shivamogga": 0.007013,
+    "Tumakuru": 17.346884,
+    "Udupi": 49.960799,
+    "Uttara Kannada": 0.740783,
+    "Vijayapura": 0.018895,
+    "Yadgir": 0.075517
+   }
+  },
+  {
+   "sector": "Plastic Goods",
+   "isServices": false,
+   "hsCode": "39",
+   "total": 88.531571,
+   "values": {
+    "Bagalkote": 0.677761,
+    "Ballari": 0.006306,
+    "Belagavi": 0.973922,
+    "Bengaluru Rural": 11.263253,
+    "Bengaluru Urban": 48.546209,
+    "Bidar": 0.412618,
+    "Chamarajanagara": 0.188843,
+    "Chitradurga": 0.000975,
+    "Dakshina Kannada": 1.969325,
+    "Dharwad": 1.141192,
+    "Hassan": 0.013814,
+    "Haveri": 0.029908,
+    "Kalaburagi": 0.003347,
+    "Kolar": 0.424153,
+    "Mandya": 0.000158,
+    "Mysuru": 12.99387,
+    "Raichur": 0.680314,
+    "Ramanagara": 5.963166,
+    "Shivamogga": 0.000611,
+    "Tumakuru": 3.023245,
+    "Udupi": 0.086084,
+    "Uttara Kannada": 0.132497
+   }
+  },
+  {
+   "sector": "Optical and Medical instrument",
+   "isServices": false,
+   "hsCode": "90",
+   "total": 265.237022,
+   "values": {
+    "Bagalkote": 0.042598,
+    "Ballari": 0.00371,
+    "Belagavi": 0.136149,
+    "Bengaluru Rural": 49.084266,
+    "Bengaluru Urban": 207.187555,
+    "Bidar": 0.002032,
+    "Chikkaballapura": 0.097558,
+    "Chikkamagaluru": 0.040834,
+    "Dakshina Kannada": 0.092714,
+    "Davangere": 1.139407,
+    "Dharwad": 0.447821,
+    "Kalaburagi": 0.017377,
+    "Kolar": 0.466739,
+    "Koppal": 0.001799,
+    "Mysuru": 2.612388,
+    "Raichur": 0.014989,
+    "Ramanagara": 3.568441,
+    "Tumakuru": 0.206626,
+    "Udupi": 0.074019
+   }
+  },
+  {
+   "sector": "Others",
+   "isServices": false,
+   "hsCode": "",
+   "total": 405.533478,
+   "values": {
+    "Bagalkote": 0.249929,
+    "Ballari": 0.183284,
+    "Belagavi": 10.164627,
+    "Bengaluru Rural": 47.793945,
+    "Bengaluru Urban": 110.464055,
+    "Bidar": 0.052466,
+    "Chamarajanagara": 9.726778,
+    "Chikkaballapura": 1.015735,
+    "Chikkamagaluru": 0.443514,
+    "Dakshina Kannada": 94.093465,
+    "Dharwad": 8.615876,
+    "Gadag": 0.000538,
+    "Hassan": 13.04418,
+    "Haveri": 0.557269,
+    "Kalaburagi": 1.076553,
+    "Kodagu": 0.004043,
+    "Kolar": 3.727608,
+    "Koppal": 0.701411,
+    "Mandya": 0.075591,
+    "Mysuru": 40.799402,
+    "Raichur": 0.354075,
+    "Ramanagara": 6.97954,
+    "Shivamogga": 1.5328,
+    "Tumakuru": 1.104893,
+    "Udupi": 52.703289,
+    "Vijayapura": 0.07186
+   }
+  }
+ ],
+ "countryDistricts": []
+}

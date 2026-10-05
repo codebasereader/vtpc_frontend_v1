@@ -24,6 +24,7 @@ import {
   ShieldCheck,
   KeyRound,
   ScrollText,
+  ChartColumn,
 } from 'lucide-react'
 import { ROUTES } from './routes'
 
@@ -71,6 +72,7 @@ export const ADMIN_NAV_GROUPS = [
     items: [
       { key: 'taluks', title: 'Taluks', path: ROUTES.ADMIN_TALUKS, icon: Signpost },
       { key: 'warehouses', title: 'Warehouses', path: ROUTES.ADMIN_WAREHOUSES, icon: Warehouse },
+      { key: 'marketData', title: 'Market Data', path: ROUTES.ADMIN_MARKET_DATA, icon: ChartColumn },
     ],
   },
   {
