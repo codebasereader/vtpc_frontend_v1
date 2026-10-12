@@ -33,7 +33,7 @@ export const kalaloka = {
     { en: "LIDKAR", kn: "ಲಿಡ್ಕರ್" },
   ],
   watchHeading: { en: "Watch the story of Kala Loka", kn: "ಕಲಾಲೋಕದ ಕಥೆಯನ್ನು ವೀಕ್ಷಿಸಿ" },
-  visit: { en: "Visit the Kala Loka website", kn: "ಕಲಾಲೋಕ ವೆಬ್‌ಸೈಟ್‌ಗೆ ಭೇಟಿ ನೀಡಿ" },
+  visit: { en: "Visit the Kala Loka catalogue", kn: "ಕಲಾಲೋಕ ಕ್ಯಾಟಲಾಗ್‌ಗೆ ಭೇಟಿ ನೀಡಿ" },
   enquiries: {
     en: "For enquiries w.r.t Kala Loka, please email to",
     kn: "ಕಲಾಲೋಕಕ್ಕೆ ಸಂಬಂಧಿಸಿದ ವಿಚಾರಣೆಗಳಿಗಾಗಿ, ದಯವಿಟ್ಟು ಇಮೇಲ್ ಮಾಡಿ:",
