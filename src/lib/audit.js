@@ -49,6 +49,8 @@ export const ENDED_BY = {
   expired: 'Session expired',
   deactivated: 'Account deactivated',
   password_reset: 'Password reset',
+  password_change: 'Password changed',
+  signed_in_elsewhere: 'Signed in on another device',
 }
 
 export function formatDateTime(value) {

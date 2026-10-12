@@ -1,4 +1,5 @@
 import { Search, X, CalendarRange } from 'lucide-react'
+import { cleanSearchText, SEARCH_MAX_LENGTH } from '../../lib/search'
 
 const fieldClass =
   'rounded-lg border border-brand-divider bg-white px-3 py-2 text-sm outline-none transition-colors focus:border-brand-primary focus:ring-2 focus:ring-brand-primary/15'
@@ -10,7 +11,8 @@ export function SearchInput({ value, onChange, placeholder = 'Search…', classN
       <input
         type="search"
         value={value}
-        onChange={(e) => onChange(e.target.value)}
+        onChange={(e) => onChange(cleanSearchText(e.target.value))}
+        maxLength={SEARCH_MAX_LENGTH}
         placeholder={placeholder}
         aria-label={placeholder}
         className={`${fieldClass} w-full pr-9 pl-9`}

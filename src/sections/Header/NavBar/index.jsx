@@ -1,4 +1,4 @@
-import { NavLink } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import { useSelector } from "react-redux";
 import { Menu } from "lucide-react";
 import { ROUTES } from "../../../constants/routes";
@@ -52,17 +52,15 @@ export default function NavBar({ isMobileMenuOpen, onToggleMobileMenu }) {
         <NavLink to={ROUTES.DOWNLOADS} className={navLinkClass}>
           {common.nav.downloads[language]}
         </NavLink>
-        {/* Kala Loka is a separate site: a plain link (full page load) that opens in a new tab. */}
-        <a
-          href={ROUTES.KALALOKA}
-          target="_blank"
-          rel="noopener noreferrer"
+        {/* Opens the Kala Loka introduction page, which links on to the separate Kala Loka site. */}
+        <Link
+          to={ROUTES.KALALOKA_INTRO}
           aria-label={common.nav.kalaloka[language]}
           className="my-1.5 flex items-center rounded-md bg-white px-3 py-1.5 shadow-sm transition-transform hover:scale-105"
         >
           {/* The logo's colours are dark, so it sits on a white tile against the red bar. */}
           <img src={KALALOKA_LOGO} alt="" className="h-6 w-auto" />
-        </a>
+        </Link>
       </div>
 
       <div className="shrink-0">
@@ -71,17 +69,15 @@ export default function NavBar({ isMobileMenuOpen, onToggleMobileMenu }) {
 
       {/* Phones: Kala Loka sits in the red strip itself (centred between the language toggle and
           the menu button) instead of inside the drawer. */}
-      <a
-        href={ROUTES.KALALOKA}
-        target="_blank"
-        rel="noopener noreferrer"
+      <Link
+        to={ROUTES.KALALOKA_INTRO}
         aria-label={common.nav.kalaloka[language]}
         className="my-1.5 flex min-w-0 flex-1 justify-center md:hidden"
       >
         <span className="flex shrink-0 items-center rounded-md bg-white px-2 py-1 shadow-sm max-[340px]:px-1.5">
           <img src={KALALOKA_LOGO} alt="" className="h-4 w-auto max-w-none max-[340px]:h-3 min-[400px]:h-5" />
         </span>
-      </a>
+      </Link>
 
       <button
         type="button"

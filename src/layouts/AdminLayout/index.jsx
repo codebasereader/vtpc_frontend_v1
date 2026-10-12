@@ -4,6 +4,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import { LayoutDashboard, LogOut, Menu, X, PanelLeftClose, PanelLeftOpen, KeyRound } from 'lucide-react'
 import ErrorBoundary from '../../components/ErrorBoundary'
 import { logout } from '../../api/authApi'
+import { useIdleLogout } from '../../lib/useIdleLogout'
 import { clearUser, selectCurrentUser } from '../../redux/slices/authSlice'
 import { ROUTES } from '../../constants/routes'
 import { ADMIN_NAV_GROUPS } from '../../constants/adminSections'
@@ -76,16 +77,19 @@ export default function AdminLayout() {
     }
   }
 
-  async function handleLogout() {
+  async function endSession(reason) {
     try {
       await logout()
     } catch {
       // Clear local state regardless — a failed logout request shouldn't
       // leave the admin stuck unable to sign out.
     }
-    dispatch(clearUser())
-    navigate(ROUTES.ADMIN_LOGIN)
+    dispatch(clearUser(reason))
+    navigate(ROUTES.ADMIN_LOGIN, { replace: true })
   }
+
+  const handleLogout = () => endSession()
+  const secondsLeft = useIdleLogout(() => endSession('idle'))
 
   function closeMobileMenu() {
     setIsMobileOpen(false)
@@ -198,6 +202,25 @@ export default function AdminLayout() {
           </button>
         </div>
       </aside>
+
+      {secondsLeft !== null && (
+        <div
+          role="alertdialog"
+          aria-live="assertive"
+          className="fixed right-4 bottom-4 z-50 max-w-sm rounded-xl border border-brand-divider bg-white p-4 shadow-[0_12px_40px_rgba(0,0,0,0.25)]"
+        >
+          <p className="text-sm font-semibold text-brand-navy-dark">Still there?</p>
+          <p className="mt-1 text-sm text-gray-600">
+            You will be signed out in {secondsLeft}s because there has been no activity.
+          </p>
+          <button
+            type="button"
+            className="mt-3 rounded-lg bg-brand-primary px-4 py-2 text-sm font-bold text-white hover:bg-brand-primary-dark"
+          >
+            Stay signed in
+          </button>
+        </div>
+      )}
 
       <main className="min-h-0 min-w-0 flex-1 overflow-y-auto p-4 md:p-8">
         <ErrorBoundary>

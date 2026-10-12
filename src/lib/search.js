@@ -1,5 +1,14 @@
 const HIDDEN_KEYS = new Set(['id', '_id', '__v', 'createdAt', 'updatedAt', 'depth'])
 
+// Search boxes only take letters (any language), numbers, spaces and a few separators
+// (. - _ @ + ,) — everything else is dropped as it is typed or pasted.
+const SEARCH_DISALLOWED = /[^\p{L}\p{M}\p{N}\s.\-_@+,‌‍]/gu
+export const SEARCH_MAX_LENGTH = 80
+
+export function cleanSearchText(value) {
+  return String(value ?? '').replace(SEARCH_DISALLOWED, '').slice(0, SEARCH_MAX_LENGTH)
+}
+
 function collectText(value, out) {
   if (value == null) return
   if (typeof value === 'string' || typeof value === 'number') {

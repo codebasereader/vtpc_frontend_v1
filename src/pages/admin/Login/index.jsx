@@ -1,8 +1,8 @@
 import { useState } from 'react'
-import { useDispatch } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import { useNavigate } from 'react-router-dom'
-import { login } from '../../../api/authApi'
-import { setUser } from '../../../redux/slices/authSlice'
+import { login, getMe, getCaptcha } from '../../../api/authApi'
+import { setUser, selectEndedReason } from '../../../redux/slices/authSlice'
 import { ROUTES } from '../../../constants/routes'
 import { ArrowRight, Eye, EyeOff, Loader2, Lock, Mail } from 'lucide-react'
 
@@ -14,20 +14,42 @@ export default function Login() {
   const [password, setPassword] = useState('')
   const [showPassword, setShowPassword] = useState(false)
   const [error, setError] = useState('')
+  const endedReason = useSelector(selectEndedReason)
+  const idleNotice =
+    endedReason === 'idle' ? 'You were signed out after a period of inactivity. Please log in again.' : ''
   const [isSubmitting, setIsSubmitting] = useState(false)
+  const [captcha, setCaptcha] = useState(null) // { question, token } once the server asks for it
+  const [captchaAnswer, setCaptchaAnswer] = useState('')
   const dispatch = useDispatch()
   const navigate = useNavigate()
+
+  async function loadCaptcha() {
+    try {
+      setCaptcha(await getCaptcha())
+      setCaptchaAnswer('')
+    } catch {
+      setCaptcha(null)
+    }
+  }
 
   async function handleSubmit(event) {
     event.preventDefault()
     setError('')
     setIsSubmitting(true)
     try {
-      const user = await login({ email, password })
+      await login({
+        email,
+        password,
+        ...(captcha ? { captchaToken: captcha.token, captchaAnswer } : {}),
+      })
+      // The login reply alone is never trusted: the session is confirmed with a separate
+      // request, so a doctored login response cannot open the admin area.
+      const user = await getMe()
       dispatch(setUser(user))
       navigate(ROUTES.ADMIN_DASHBOARD)
     } catch (err) {
       setError(err.message || 'Login failed. Please try again.')
+      if (err.code === 'CAPTCHA_REQUIRED') await loadCaptcha()
     } finally {
       setIsSubmitting(false)
     }
@@ -39,9 +61,9 @@ export default function Login() {
         <h2 className="text-2xl font-bold text-brand-navy-dark">Welcome back</h2>
         <p className="mt-1 text-sm text-gray-600">Log in to manage the VTPC website.</p>
       </div>
-      {error && (
+      {(error || idleNotice) && (
         <p role="alert" className="rounded-lg bg-red-50 px-3 py-2 text-sm text-red-700">
-          {error}
+          {error || idleNotice}
         </p>
       )}
       <label className="flex flex-col gap-1.5 text-sm font-medium text-brand-dark">
@@ -82,6 +104,24 @@ export default function Login() {
           </button>
         </span>
       </label>
+      {captcha && (
+        <label className="flex flex-col gap-1.5 text-sm font-medium text-brand-dark">
+          Security check: {captcha.question}
+          <input
+            type="text"
+            inputMode="numeric"
+            value={captchaAnswer}
+            onChange={(e) => setCaptchaAnswer(e.target.value.replace(/\D/g, '').slice(0, 3))}
+            required
+            autoComplete="off"
+            placeholder="Your answer"
+            className={`${inputClass} pl-3`}
+          />
+        </label>
+      )}
+      <p className="-mt-2 text-xs text-gray-500">
+        Forgot your password? Ask a Super Admin to reset it for you.
+      </p>
       <button
         type="submit"
         disabled={isSubmitting}
