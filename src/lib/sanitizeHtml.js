@@ -11,6 +11,8 @@ const OPTIONS = {
   ADD_ATTR: ['target'],
   // Content pages are text, images, tables and links — nothing that could draw
   // a fake login box or restyle the whole site.
+  // No inline style="" either: the site's CSP no longer allows inline styles.
+  FORBID_ATTR: ['style'],
   FORBID_TAGS: ['style', 'form', 'input', 'button', 'select', 'textarea', 'iframe', 'object', 'embed', 'link', 'meta'],
 }
 

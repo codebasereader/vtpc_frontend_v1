@@ -48,7 +48,7 @@ Create `/etc/nginx/snippets/vtpc-security-headers.conf`:
 ```nginx
 # --- Findings 8 and 10 ------------------------------------------------------
 # Content-Security-Policy for the React site and the admin panel.
-add_header Content-Security-Policy "default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: blob: https://*.tile.openstreetmap.org; media-src 'self'; connect-src 'self'; frame-src 'none'; object-src 'none'; base-uri 'self'; form-action 'self'; frame-ancestors 'none'" always;
+add_header Content-Security-Policy "default-src 'self'; script-src 'self'; style-src 'self' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: blob: https://*.tile.openstreetmap.org; media-src 'self'; connect-src 'self'; frame-src 'none'; object-src 'none'; base-uri 'self'; form-action 'self'; frame-ancestors 'none'" always;
 
 # Finding 10. Modern browsers ignore this header (CSP above is the real protection); it is
 # sent because the audit asks for it. It does no harm.
@@ -63,8 +63,7 @@ add_header Strict-Transport-Security "max-age=31536000; includeSubDomains" alway
 ```
 
 Why each source is in the CSP:
-- `style-src 'unsafe-inline'` — the app uses inline `style=""` attributes (chart bars, map). **Scripts stay locked to `'self'`**,
-  which is what protects against XSS. The built `index.html` has no inline script.
+- No `'unsafe-inline'` for styles or scripts on the React site (finding 8 retest: "change unsafe-inline to safe"). React `style={{}}` props go through the CSSOM, which CSP does not block. The `/kalaloka` Next.js app is the exception, it has its own CSP below.
 - `https://fonts.googleapis.com` / `https://fonts.gstatic.com` — Inter, Manrope and Noto Sans Kannada are loaded from Google Fonts.
 - `https://*.tile.openstreetmap.org` — the warehouse map on Exporter Corner.
 - `connect-src 'self'` and `img-src 'self'` — works because the API is on the **same origin** (`/api/...`), including uploaded

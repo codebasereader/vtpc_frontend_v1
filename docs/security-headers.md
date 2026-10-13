@@ -5,7 +5,7 @@ The frontend is a static site, so these headers must be set by the web server
 the API address (the value of `VITE_API_BASE_URL`, e.g. `https://api.vtpc.karnataka.gov.in`).
 
 ```nginx
-add_header Content-Security-Policy "default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: blob: API_ORIGIN https://*.tile.openstreetmap.org; media-src 'self' API_ORIGIN; connect-src 'self' API_ORIGIN; frame-src 'none'; object-src 'none'; base-uri 'self'; form-action 'self'; frame-ancestors 'none'" always;
+add_header Content-Security-Policy "default-src 'self'; script-src 'self'; style-src 'self' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: blob: API_ORIGIN https://*.tile.openstreetmap.org; media-src 'self' API_ORIGIN; connect-src 'self' API_ORIGIN; frame-src 'none'; object-src 'none'; base-uri 'self'; form-action 'self'; frame-ancestors 'none'" always;
 add_header X-Frame-Options "DENY" always;
 add_header X-Content-Type-Options "nosniff" always;
 add_header Referrer-Policy "strict-origin-when-cross-origin" always;
@@ -14,7 +14,7 @@ add_header Strict-Transport-Security "max-age=31536000; includeSubDomains" alway
 ```
 
 Notes
-- `style-src 'unsafe-inline'` is needed because the app uses inline `style` attributes (chart bars, map). Scripts stay locked to `'self'`.
+- No `'unsafe-inline'` anywhere in the site's CSP: React's `style={{}}` props are applied through the CSSOM (not blocked), built CSS is an external file, and the CMS sanitizer strips `style=""` attributes. Scripts stay locked to `'self'`. Side effect: the admin newsletter/record preview iframes (`srcDoc`) inherit the CSP, so inline styles inside the previewed email HTML are not drawn in the preview (the sent email is unaffected).
 - The admin preview iframes use `srcdoc` with `sandbox=""`; `frame-src 'none'` does not affect them.
 - Test in the browser console for CSP violations after enabling (maps, fonts and uploaded images are the likely ones to need an extra origin).
 - If the site is served at `/` and the API on another domain, keep `COOKIE_SAMESITE`/CORS on the backend in step with that.
