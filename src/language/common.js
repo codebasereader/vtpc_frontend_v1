@@ -24,6 +24,10 @@ export const common = {
   },
   header: {
     skipToContent: { en: "Skip to content", kn: "ವಿಷಯಕ್ಕೆ ತೆರಳಿ" },
+    orgName: {
+      en: "Visvesvaraya Trade Promotion Centre (VTPC)",
+      kn: "ವಿಶ್ವೇಶ್ವರಯ್ಯ ವ್ಯಾಪಾರ ಪ್ರೋತ್ಸಾಹ ಕೇಂದ್ರ (VTPC)",
+    },
     openMenu: { en: "Open menu", kn: "ಮೆನು ತೆರೆಯಿರಿ" },
     closeMenu: { en: "Close menu", kn: "ಮೆನು ಮುಚ್ಚಿರಿ" },
   },

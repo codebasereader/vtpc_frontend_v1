@@ -23,6 +23,10 @@ export default function Header() {
         <Link to={ROUTES.HOME} className="flex w-full shrink-0 items-center justify-between sm:w-auto sm:justify-start sm:gap-4">
           <img src="/assets/GOK%20LOGO%201.png" alt="Government of Karnataka" className="h-20 w-20 object-contain sm:h-[4.5rem] sm:w-[4.5rem]" />
           <img src="/assets/Logo.png" alt="VTPC Karnataka" className="h-16 object-contain sm:h-16" />
+          {/* Full name beside the logo; hidden on phones, where it only crowds the row. */}
+          <span className="font-admin hidden max-w-[300px] text-xl font-extrabold uppercase leading-tight tracking-wide text-[#1f4e8c] sm:block">
+            {common.header.orgName[language]}
+          </span>
         </Link>
 
         <LeaderStrip />

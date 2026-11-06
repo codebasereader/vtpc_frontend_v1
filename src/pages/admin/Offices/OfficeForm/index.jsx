@@ -161,7 +161,7 @@ export default function OfficeForm() {
             type="email"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
-            placeholder="e.g. vtpcbengaluru@gmail.com"
+            placeholder="e.g. vtpckarnataka@gmail.com"
             className={inputClass}
           />
         </label>
