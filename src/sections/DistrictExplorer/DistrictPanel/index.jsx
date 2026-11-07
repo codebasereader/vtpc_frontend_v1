@@ -113,7 +113,7 @@ export default function DistrictPanel({ district, releases, activeKey, onChangeP
           </span>
           <span className="flex shrink-0 items-center gap-2">
             <ChangeChip previous={detail.previous} current={detail.current} previousLabel={previousLabel} />
-            <span className="text-2xl font-bold whitespace-nowrap text-brand-primary">{formatUsd(detail.current)}</span>
+            <span className="text-xl font-bold whitespace-nowrap text-brand-primary sm:text-2xl">{formatUsd(detail.current)}</span>
           </span>
         </div>
         {countries.length > 0 ? (

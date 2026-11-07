@@ -1,18 +1,13 @@
 import { useMemo, useState } from 'react'
 import { exporterCorner as t } from '../../language/exporterCorner'
-import { formatShare, formatUsd, percentChange } from './format'
+import { formatMillion, formatShare, formatUsd, percentChange } from './format'
 import { gridData } from './derive'
 import { SegmentedControl, TabIntro } from './ui'
 
 const mi = t.marketIntelligence
-const grouped = new Intl.NumberFormat('en-US', { maximumFractionDigits: 0 })
-
 function formatCell(value) {
   if (value === null || value === undefined) return mi.grid.empty.en
-  if (value >= 100) return grouped.format(value)
-  if (value >= 1) return value.toFixed(1)
-  if (value > 0) return value.toFixed(2)
-  return '0'
+  return formatMillion(value)
 }
 
 const isNumber = (value) => typeof value === 'number' && Number.isFinite(value)
@@ -51,15 +46,22 @@ function GridRow({ label, row, states, mode, previousLabel, showIndia, isBold, l
         const metric = metrics[index]
         const figure = row.cells[state]
         const intensity = max > 0 && isNumber(metric) ? metric / max : 0
-        const rgb = state === 'Karnataka' ? '200,55,68' : '35,76,134'
+        const isKarnataka = state === 'Karnataka'
+        const rgb = isKarnataka ? '5,150,105' : '35,76,134'
+        // Karnataka's column always reads green, even for small values, so start from a stronger tint.
+        const alpha = (isKarnataka ? 0.1 : 0.04) + intensity * 0.26
         const isLeader = index === leaderIndex
         return (
           <td
             key={state}
             title={figure && isNumber(figure.current) ? cellTitle(label, state, figure, mode, row.india, previousLabel) : undefined}
-            style={{ backgroundColor: `rgba(${rgb},${(0.04 + intensity * 0.26).toFixed(3)})` }}
-            className={`px-3 py-2.5 text-right text-sm tabular-nums ${
-              isLeader ? 'font-bold text-brand-navy-dark ring-1 ring-brand-navy/50 ring-inset' : 'text-gray-700'
+            style={{ backgroundColor: `rgba(${rgb},${alpha.toFixed(3)})` }}
+            className={`px-3 py-2.5 text-right text-sm tabular-nums ${isKarnataka ? 'border-x border-emerald-300' : ''} ${
+              isLeader
+                ? `font-bold ring-1 ring-inset ${isKarnataka ? 'text-emerald-900 ring-emerald-600/60' : 'text-brand-navy-dark ring-brand-navy/50'}`
+                : isKarnataka
+                  ? 'font-semibold text-emerald-900'
+                  : 'text-gray-700'
             }`}
           >
             {isNumber(metric) ? (mode === 'share' ? `${formatShare(metric)}%` : formatCell(metric)) : mi.grid.empty[language]}
@@ -109,7 +111,7 @@ export default function GridTab({ release, language }) {
                   key={state}
                   scope="col"
                   className={`px-3 py-3 text-right text-xs font-bold tracking-wide whitespace-nowrap text-white uppercase ${
-                    state === 'Karnataka' ? 'bg-brand-primary' : 'bg-brand-navy'
+                    state === 'Karnataka' ? 'bg-emerald-700' : 'bg-brand-navy'
                   }`}
                 >
                   {state}

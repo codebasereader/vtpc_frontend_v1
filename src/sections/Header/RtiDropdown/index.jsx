@@ -34,7 +34,7 @@ export default function RtiDropdown() {
         onClick={() => setIsOpen(!isOpen)}
         onMouseEnter={() => setIsOpen(true)}
         aria-expanded={isOpen}
-        className="flex items-center gap-1 py-3 text-base font-medium text-white/90 hover:text-white"
+        className="my-1.5 flex items-center gap-1 whitespace-nowrap px-2 py-1.5 text-sm font-medium text-white/90 hover:text-white lg:px-3 lg:text-base"
       >
         {common.nav.rti[language]}
         <ChevronDown size={14} className={`transition-transform ${isOpen ? 'rotate-180' : ''}`} />

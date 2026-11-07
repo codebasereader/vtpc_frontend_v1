@@ -74,7 +74,7 @@ export default function StatesTab({ release, language }) {
       ) : (
         <>
           {karnatakaRank > 0 && (
-            <p className="mt-5 inline-block rounded-lg bg-brand-surface px-3 py-2 text-sm font-semibold text-brand-primary-dark">
+            <p className="mt-5 inline-block rounded-lg bg-emerald-50 px-3 py-2 text-sm font-semibold text-emerald-800 ring-1 ring-emerald-200">
               {fill(mi.states.rank[language], { rank: karnatakaRank, total: rows.length })}
             </p>
           )}

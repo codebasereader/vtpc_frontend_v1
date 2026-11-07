@@ -22,6 +22,16 @@ const DISTRICT_COLORS = [
 // the panel once selected.
 const MIN_LABEL_AREA = 900
 
+// The three Bengaluru-area districts are packed tightly (Urban sits inside Rural, South is
+// directly below), so their labels use a shorter name, a smaller font and a nudge from the
+// centre of the shape so they stay inside their own district and don't collide.
+// dx / dy are in the SVG's own units.
+const LABEL_OVERRIDES = {
+  'bengaluru-rural': { text: 'Bengaluru Rural', dx: 0, dy: -12, fontSize: 5.5 },
+  'bengaluru-urban': { text: 'Bengaluru Urban', dx: 0, dy: 2, fontSize: 5.5 },
+  ramanagara: { text: 'Bangalore South\n(Ramanagara)', dx: 16, dy: 18, fontSize: 5.5 },
+}
+
 function fillableParts(anchor) {
   // Excludes <path> elements that live inside a <mask> definition — those
   // aren't visible geometry, they're cutout shapes the mask uses, and
@@ -52,6 +62,10 @@ export default function KarnatakaMap({ selectedId, onSelect }) {
     const container = containerRef.current
     if (!container) return
 
+    // Start clean: React StrictMode (dev) runs this effect twice, which would stack a second
+    // copy of every label on top of the first.
+    container.querySelectorAll('text[data-map-label]').forEach((el) => el.remove())
+
     const anchors = container.querySelectorAll('[data-district]')
     anchors.forEach((anchor, index) => {
       const color = DISTRICT_COLORS[index % DISTRICT_COLORS.length]
@@ -60,7 +74,8 @@ export default function KarnatakaMap({ selectedId, onSelect }) {
         path.style.fill = color
       })
 
-      const name = anchor.getAttribute('title')
+      const override = LABEL_OVERRIDES[anchor.getAttribute('data-district')]
+      const name = override?.text ?? anchor.getAttribute('title')
       const svg = anchor.closest('svg')
       if (!name || !svg) return
 
@@ -69,18 +84,28 @@ export default function KarnatakaMap({ selectedId, onSelect }) {
         if (box.width * box.height < MIN_LABEL_AREA) return
 
         const label = document.createElementNS('http://www.w3.org/2000/svg', 'text')
-        label.textContent = name
-        label.setAttribute('x', String(box.x + box.width / 2))
-        label.setAttribute('y', String(box.y + box.height / 2))
+        // A line break in a name starts a new line (centred on the same point).
+        const lines = name.split('\n')
+        const fontSize = override?.fontSize ?? 7
+        lines.forEach((line, i) => {
+          const span = document.createElementNS('http://www.w3.org/2000/svg', 'tspan')
+          span.textContent = line
+          span.setAttribute('x', String(box.x + box.width / 2 + (override?.dx ?? 0)))
+          span.setAttribute('dy', i === 0 ? String(-((lines.length - 1) * fontSize * 0.55)) : String(fontSize * 1.1))
+          label.appendChild(span)
+        })
+        label.setAttribute('x', String(box.x + box.width / 2 + (override?.dx ?? 0)))
+        label.setAttribute('y', String(box.y + box.height / 2 + (override?.dy ?? 0)))
         label.setAttribute('text-anchor', 'middle')
         label.setAttribute('dominant-baseline', 'middle')
-        label.setAttribute('font-size', '7')
+        label.setAttribute('font-size', String(override?.fontSize ?? 7))
         label.setAttribute('font-weight', '600')
         label.setAttribute('fill', '#2d2d2d')
         label.setAttribute('stroke', 'white')
         label.setAttribute('stroke-width', '2.5')
         label.setAttribute('paint-order', 'stroke')
         label.setAttribute('pointer-events', 'none')
+        label.setAttribute('data-map-label', '')
         anchor.appendChild(label)
       } catch {
         // getBBox can throw if the element isn't rendered yet (e.g. hidden

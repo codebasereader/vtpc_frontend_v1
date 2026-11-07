@@ -4,8 +4,11 @@ import { ExternalLink } from 'lucide-react'
 import { selectLanguage } from '../../../redux/slices/localeSlice'
 import { ROUTES } from '../../../constants/routes'
 import { kalaloka as t } from '../../../language/kalaloka'
+import VerticalVideoPlayer from '../../../components/VerticalVideoPlayer'
 
 const VIDEO_SRC = '/assets/video/kala-loka%20video.mp4'
+const VIDEO_POSTER = '/assets/images/kalaloka/video-thumbnail.webp'
+const WATCH_BG = '/assets/images/kalaloka/watch-bg.webp'
 const ENQUIRY_EMAIL = 'ksdlkalaloka@gmail.com'
 
 export default function KalalokaIntro() {
@@ -58,21 +61,33 @@ export default function KalalokaIntro() {
         </div>
       </section>
 
-      <section className="px-4 pb-12 md:px-8 md:pb-16">
-        <div className="mx-auto max-w-3xl">
-          <h2 className="text-center text-2xl font-bold text-brand-navy-dark md:text-3xl">
+      <section className="relative overflow-hidden bg-brand-navy-dark px-4 py-14 md:px-8 md:py-20">
+        <img
+          src={WATCH_BG}
+          alt=""
+          aria-hidden="true"
+          loading="lazy"
+          className="absolute inset-0 h-full w-full object-cover"
+        />
+        <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/35 to-black/70" aria-hidden="true" />
+
+        <div className="relative mx-auto max-w-3xl">
+          <h2 className="text-center text-2xl font-bold text-white [text-shadow:0_2px_12px_rgba(0,0,0,0.6)] md:text-3xl">
             {t.watchHeading[language]}
           </h2>
-          <video
-            src={VIDEO_SRC}
-            controls
-            playsInline
-            preload="metadata"
-            className="mt-6 aspect-video w-full rounded-xl bg-black shadow-md"
-          />
-          <p className="mt-8 border-t border-brand-divider pt-5 text-center text-sm text-gray-600">
+          <div className="mt-8">
+            <VerticalVideoPlayer
+              src={VIDEO_SRC}
+              poster={VIDEO_POSTER}
+              backdrop={WATCH_BG}
+              title={t.watchHeading[language]}
+              playLabel={t.playVideo[language]}
+              closeLabel={t.closeVideo[language]}
+            />
+          </div>
+          <p className="mt-10 border-t border-white/25 pt-5 text-center text-sm text-white/90">
             {t.enquiries[language]}{' '}
-            <a href={`mailto:${ENQUIRY_EMAIL}`} className="font-semibold text-brand-primary hover:underline">
+            <a href={`mailto:${ENQUIRY_EMAIL}`} className="font-semibold text-white underline underline-offset-2 hover:text-brand-gold">
               {ENQUIRY_EMAIL}
             </a>
           </p>

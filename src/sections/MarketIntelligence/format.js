@@ -1,17 +1,17 @@
-// All market figures are in US$ million. These helpers turn them into short,
-// human-readable text ("US$ 11.18 bn", "US$ 856 Mn").
+// All market figures are in US$ million. Every amount is shown in US$ million with two decimals
+// ("US$ 11,184.37 Mn") so the numbers are directly comparable across districts, sectors and states.
 
-const grouped = new Intl.NumberFormat('en-US', { maximumFractionDigits: 0 })
+const million = new Intl.NumberFormat('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })
+
+/** A plain US$ million figure with two decimals and thousands separators ("11,184.37"). */
+export function formatMillion(valueMn) {
+  if (valueMn === null || valueMn === undefined || Number.isNaN(valueMn)) return '—'
+  return million.format(valueMn)
+}
 
 export function formatUsd(valueMn) {
   if (valueMn === null || valueMn === undefined || Number.isNaN(valueMn)) return '—'
-  const abs = Math.abs(valueMn)
-  if (abs >= 1000) return `US$ ${(valueMn / 1000).toFixed(2)} bn`
-  if (abs >= 100) return `US$ ${grouped.format(valueMn)} Mn`
-  if (abs >= 1) return `US$ ${valueMn.toFixed(1)} Mn`
-  if (abs >= 0.01) return `US$ ${valueMn.toFixed(2)} Mn`
-  if (abs > 0) return 'Under US$ 0.01 Mn'
-  return 'US$ 0'
+  return `US$ ${million.format(valueMn)} Mn`
 }
 
 export function formatShare(percent) {

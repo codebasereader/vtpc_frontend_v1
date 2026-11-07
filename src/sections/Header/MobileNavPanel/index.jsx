@@ -6,16 +6,14 @@ import { ROUTES } from "../../../constants/routes";
 import { selectLanguage } from "../../../redux/slices/localeSlice";
 import { common } from "../../../language/common";
 
-const DGCIS_URL = "https://ftddp.dgciskol.gov.in/dgcis/";
 
-// Ordered: Home, About Us, Events, Exporter Corner, DGCIS, Geographical
+// Ordered: Home, About Us, Events, Exporter Corner, Geographical
 // Indications, then RTI/Downloads/Kalaloka rendered after.
 const NAV_ITEMS = [
   { key: "home", to: ROUTES.HOME },
   { key: "aboutUs", to: ROUTES.ABOUT_US },
   { key: "events", to: ROUTES.EVENTS },
   { key: "exporterCorner", to: ROUTES.EXPORTER_CORNER },
-  { key: "dgcis", href: DGCIS_URL },
   { key: "geographicalIndications", to: ROUTES.GEOGRAPHICAL_INDICATIONS },
 ];
 
@@ -95,7 +93,7 @@ export default function MobileNavPanel({ isOpen, onNavigate }) {
                 to={item.to}
                 onClick={onNavigate}
                 className={({ isActive }) =>
-                  `rounded-md px-2 py-2.5 text-base font-medium ${isActive ? "text-brand-primary" : "text-brand-dark"}`
+                  `rounded-md px-2 py-2.5 text-base font-medium ${isActive ? "font-semibold text-brand-navy" : "text-brand-dark"}`
                 }
               >
                 {common.nav[item.key][language]}
@@ -133,7 +131,7 @@ export default function MobileNavPanel({ isOpen, onNavigate }) {
             to={ROUTES.DOWNLOADS}
             onClick={onNavigate}
             className={({ isActive }) =>
-              `mt-2 rounded-md px-2 py-2.5 text-base font-medium ${isActive ? "text-brand-primary" : "text-brand-dark"}`
+              `mt-2 rounded-md px-2 py-2.5 text-base font-medium ${isActive ? "font-semibold text-brand-navy" : "text-brand-dark"}`
             }
           >
             {common.nav.downloads[language]}

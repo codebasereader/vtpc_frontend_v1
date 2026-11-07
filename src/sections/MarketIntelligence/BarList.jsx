@@ -45,10 +45,10 @@ export default function BarList({ rows, previousLabel, onSelect }) {
         const heading = (
           <span className="flex w-full flex-wrap items-baseline justify-between gap-x-4 gap-y-1">
             <span className="flex min-w-0 items-baseline gap-2">
-              <span className="w-6 shrink-0 text-right text-xs font-semibold text-gray-400 tabular-nums">
+              <span className={`w-6 shrink-0 text-right text-xs font-semibold tabular-nums ${row.highlight ? 'text-emerald-700' : 'text-gray-400'}`}>
                 {index + 1}
               </span>
-              <span className={`min-w-0 text-sm font-semibold sm:text-base ${row.highlight ? 'text-brand-primary' : 'text-brand-navy-dark'}`}>
+              <span className={`min-w-0 text-sm font-semibold sm:text-base ${row.highlight ? 'font-bold text-emerald-800' : 'text-brand-navy-dark'}`}>
                 {row.label}
               </span>
               {row.badge && (
@@ -59,14 +59,18 @@ export default function BarList({ rows, previousLabel, onSelect }) {
               {onSelect && <ChevronRight size={14} aria-hidden="true" className="shrink-0 self-center text-gray-400" />}
             </span>
             <span className="flex items-center gap-2">
-              <span className="text-sm font-bold text-brand-dark tabular-nums sm:text-base">{formatUsd(row.value)}</span>
+              <span className={`text-sm font-bold tabular-nums sm:text-base ${row.highlight ? 'text-emerald-800' : 'text-brand-dark'}`}>{formatUsd(row.value)}</span>
               <ChangeChip previous={row.previous} current={row.value} previousLabel={previousLabel} />
             </span>
           </span>
         )
 
         return (
-          <li key={row.key}>
+          <li
+            key={row.key}
+            // Highlighted row (Karnataka): soft green card, padded out and pulled back so the columns still line up.
+            className={row.highlight ? '-mx-3 rounded-xl bg-emerald-50 px-3 py-3 ring-1 ring-emerald-200' : undefined}
+          >
             {onSelect ? (
               <button
                 type="button"
@@ -79,14 +83,14 @@ export default function BarList({ rows, previousLabel, onSelect }) {
               heading
             )}
 
-            <div className="mt-1.5 ml-8 h-3 overflow-hidden rounded-full bg-brand-page" aria-hidden="true">
+            <div className={`mt-1.5 ml-8 h-3 overflow-hidden rounded-full ${row.highlight ? 'bg-white' : 'bg-brand-page'}`} aria-hidden="true">
               <div
-                className={`h-full rounded-full ${row.highlight ? 'bg-brand-primary' : 'bg-brand-navy'}`}
+                className={`h-full rounded-full ${row.highlight ? 'bg-emerald-600' : 'bg-brand-navy'}`}
                 style={{ width: `${width}%` }}
               />
             </div>
 
-            {row.sub && <p className="mt-1 ml-8 text-xs text-gray-500">{row.sub}</p>}
+            {row.sub && <p className={`mt-1 ml-8 text-xs ${row.highlight ? 'text-emerald-800/80' : 'text-gray-500'}`}>{row.sub}</p>}
           </li>
         )
       })}

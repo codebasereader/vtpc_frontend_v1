@@ -8,7 +8,6 @@ import ExportersGuide from '../../../sections/ExportersGuide'
 import ExploreTradeProspects from '../../../sections/ExploreTradeProspects'
 import KeyDriversGrowth from '../../../sections/KeyDriversGrowth'
 import DistrictExplorer from '../../../sections/DistrictExplorer'
-import ChampionServiceSectors from '../../../sections/ChampionServiceSectors'
 import EventsTeaser from '../../../sections/EventsTeaser'
 
 export default function Home() {
@@ -32,7 +31,6 @@ export default function Home() {
       <ExploreTradeProspects />
       <KeyDriversGrowth />
       <DistrictExplorer />
-      <ChampionServiceSectors />
       <EventsTeaser />
     </>
   )

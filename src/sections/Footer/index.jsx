@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 import { useSelector } from 'react-redux'
-import { Mail, Send, MapPin, Phone, FileDown, Eye, Clock, CheckCircle2 } from 'lucide-react'
+import { Mail, Send, MapPin, Phone, Eye, Clock, CheckCircle2 } from 'lucide-react'
 import { ROUTES } from '../../constants/routes'
 import { selectLanguage } from '../../redux/slices/localeSlice'
 import { common } from '../../language/common'
@@ -9,7 +9,6 @@ import { getOffices } from '../../api/officesApi'
 import { subscribeToNewsletter } from '../../api/newsletterApi'
 import { getVisitsSummary, getLastUpdated, trackVisit } from '../../api/visitsApi'
 
-const BROCHURE_URL = '/assets/pdf/footer/VTPC-Exporters-Guide.pdf'
 
 const WEBSITE_PAGES = [
   { key: 'home', to: ROUTES.HOME },
@@ -28,6 +27,8 @@ const WEBSITE_POLICIES = [
   { en: 'Security Policy', kn: 'ಭದ್ರತಾ ನೀತಿ', to: '/security-policy' },
   { en: 'Screen Reader Access', kn: 'ಸ್ಕ್ರೀನ್ ರೀಡರ್ ಪ್ರವೇಶ', to: '/screen-reader-access' },
   { en: 'Help', kn: 'ಸಹಾಯ', to: '/help' },
+  { en: 'WCAG 2.2', kn: 'WCAG 2.2', href: 'https://www.w3.org/TR/WCAG22/' },
+  { en: 'HTTPS', kn: 'HTTPS', href: 'https://www.https.in/government-solutions' },
   { en: 'Guidelines', kn: 'ಮಾರ್ಗಸೂಚಿಗಳು', href: 'https://industries.karnataka.gov.in/guidelines/en' },
 ]
 
@@ -44,18 +45,16 @@ const FOOTER_LOGOS = [
     alt: 'Guidelines for Indian Government Websites',
     href: 'https://guidelines.india.gov.in/',
   },
-  { file: 'W3C.svg', alt: 'W3C WCAG 2.2', href: 'https://www.w3.org/TR/WCAG22/' },
-  { file: 'https.png', alt: 'HTTPS', href: 'https://www.https.in/government-solutions' },
   { file: 'kappec.png', alt: 'KAPPEC', href: 'https://kappec.karnataka.gov.in/english' },
+  {
+    file: 'DGCIS_Logo.png',
+    alt: 'DGCIS — Directorate General of Commercial Intelligence & Statistics',
+    href: 'https://www.dgciskol.gov.in/CI_Quarterly_Review.aspx',
+  },
   { file: 'InvestKarnataka.jpg', alt: 'Invest Karnataka', href: 'https://investkarnataka.co.in/' },
   {
     file: 'KUM-logo-blue.png',
     alt: 'Karnataka Udyog Mitra',
-    href: 'https://investkarnataka.co.in/karnataka-udyog-mitra/',
-  },
-  {
-    file: 'logo-gok-kum-ik2.svg',
-    alt: 'Government of Karnataka — Invest Karnataka',
     href: 'https://investkarnataka.co.in/karnataka-udyog-mitra/',
   },
 ]
@@ -114,16 +113,6 @@ export default function Footer() {
             ) : (
               <p className="mt-4 text-sm text-white/50">—</p>
             )}
-
-            <a
-              href={BROCHURE_URL}
-              target="_blank"
-              rel="noreferrer"
-              className="mt-6 inline-flex items-center gap-2 rounded-lg bg-white/10 px-4 py-2.5 text-sm font-semibold text-white transition-colors hover:bg-white/20"
-            >
-              <FileDown size={16} aria-hidden="true" />
-              {common.footer.downloadGuide[language]}
-            </a>
           </div>
 
           <FooterLinkColumn title={common.footer.websitePages[language]}>

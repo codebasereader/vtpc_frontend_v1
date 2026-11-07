@@ -6,7 +6,7 @@ export const common = {
   nav: {
     home: { en: "Home", kn: "ಮುಖಪುಟ" },
     aboutUs: { en: "About Us", kn: "ನಮ್ಮ ಬಗ್ಗೆ" },
-    exporterCorner: { en: "Exporter Corner", kn: "ರಫ್ತುದಾರರ ಮೂಲೆ" },
+    exporterCorner: { en: "Exporter Corner", kn: "ರಫ್ತುದಾರರ ಅಂಕಣ" },
     geographicalIndications: {
       en: "Geographical Indications",
       kn: "ಭೌಗೋಳಿಕ ಸೂಚನೆಗಳು",
@@ -14,7 +14,7 @@ export const common = {
     downloads: { en: "Downloads", kn: "ಡೌನ್‌ಲೋಡ್‌ಗಳು" },
     events: { en: "Events", kn: "ಕಾರ್ಯಕ್ರಮಗಳು" },
     contact: { en: "Contact Us", kn: "ಸಂಪರ್ಕಿಸಿ" },
-    rti: { en: "RTI", kn: "ಆರ್‌ಟಿಐ" },
+    rti: { en: "RTI", kn: "ಮಾಹಿತಿ ಹಕ್ಕು" },
     dgcis: { en: "DGCIS", kn: "DGCIS" },
     kalaloka: { en: "Kalaloka", kn: "ಕಲಾಲೋಕ" },
   },
@@ -26,15 +26,15 @@ export const common = {
     skipToContent: { en: "Skip to content", kn: "ವಿಷಯಕ್ಕೆ ತೆರಳಿ" },
     orgName: {
       en: "Visvesvaraya Trade Promotion Centre (VTPC)",
-      kn: "ವಿಶ್ವೇಶ್ವರಯ್ಯ ವ್ಯಾಪಾರ ಪ್ರೋತ್ಸಾಹ ಕೇಂದ್ರ (VTPC)",
+      kn: "ವಿಶ್ವೇಶ್ವರಯ್ಯ ವ್ಯಾಪಾರ ಉತ್ತೇಜನ ಕೇಂದ್ರ (VTPC)",
     },
     openMenu: { en: "Open menu", kn: "ಮೆನು ತೆರೆಯಿರಿ" },
     closeMenu: { en: "Close menu", kn: "ಮೆನು ಮುಚ್ಚಿರಿ" },
   },
   rti: {
-    login: { en: "RTI Login", kn: "ಆರ್‌ಟಿಐ ಲಾಗಿನ್" },
-    manual: { en: "RTI Manual", kn: "ಆರ್‌ಟಿಐ ಕೈಪಿಡಿ" },
-    online: { en: "Online RTI", kn: "ಆನ್‌ಲೈನ್ ಆರ್‌ಟಿಐ" },
+    login: { en: "RTI Login", kn: "ಮಾಹಿತಿ ಹಕ್ಕು ಲಾಗಿನ್" },
+    manual: { en: "RTI Manual", kn: "ಮಾಹಿತಿ ಹಕ್ಕು ಕೈಪಿಡಿ" },
+    online: { en: "Online RTI", kn: "ಆನ್‌ಲೈನ್ ಮಾಹಿತಿ ಹಕ್ಕು" },
     section4_1A: { en: "4(1) A", kn: "4(1) ಎ" },
     section4_1B: { en: "4(1) B", kn: "4(1) ಬಿ" },
     pioNotification: {

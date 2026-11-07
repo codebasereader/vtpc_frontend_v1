@@ -347,8 +347,9 @@ export default function AboutUs() {
           {isLoading && <p className="mt-8 text-white/80">{t.loading[language]}</p>}
 
           {!isLoading && offices.length > 0 && (
-            <div className="mt-10 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4">
-              {firstOffice && <OfficeCard office={firstOffice} className="sm:col-span-2 lg:col-span-4" />}
+            // On large screens the map sits on the right of the banner, so keep the cards in the left half.
+            <div className="mt-10 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:w-[52%] lg:grid-cols-2">
+              {firstOffice && <OfficeCard office={firstOffice} className="sm:col-span-2" />}
               {restOffices.map((office) => (
                 <OfficeCard key={office.id} office={office} />
               ))}

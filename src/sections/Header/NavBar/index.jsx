@@ -7,30 +7,28 @@ import { common } from "../../../language/common";
 import RtiDropdown from "../RtiDropdown";
 import LanguageToggle from "../../LanguageToggle";
 
-const DGCIS_URL = "https://ftddp.dgciskol.gov.in/dgcis/";
-
-// Ordered left-to-right: Home, About Us, Events, Exporter Corner, DGCIS,
+// Ordered left-to-right: Home, About Us, Events, Exporter Corner,
 // Geographical Indications, then RTI/Downloads/Kalaloka rendered after.
 const NAV_ITEMS = [
   { key: "home", to: ROUTES.HOME },
   { key: "aboutUs", to: ROUTES.ABOUT_US },
   { key: "events", to: ROUTES.EVENTS },
   { key: "exporterCorner", to: ROUTES.EXPORTER_CORNER },
-  { key: "dgcis", href: DGCIS_URL },
   { key: "geographicalIndications", to: ROUTES.GEOGRAPHICAL_INDICATIONS },
 ];
 
 const KALALOKA_LOGO = "/assets/kalaloka-logo.svg";
 
 const navLinkClass = ({ isActive }) =>
-  `py-3 text-base font-medium ${isActive ? "text-white" : "text-white/90 hover:text-white"}`;
+  // Active page: blue text on a white pill (blue on the red bar itself would be unreadable).
+  `my-1.5 whitespace-nowrap rounded-md px-2 py-1.5 text-sm font-medium lg:px-3 lg:text-base ${isActive ? "bg-white font-semibold text-brand-navy" : "text-white/90 hover:text-white"}`;
 
 export default function NavBar({ isMobileMenuOpen, onToggleMobileMenu }) {
   const language = useSelector(selectLanguage);
 
   return (
     <div className="flex items-center justify-between gap-2 bg-brand-primary px-4 md:gap-4 md:px-8">
-      <div className="hidden items-center gap-5 md:mr-auto md:flex lg:gap-6">
+      <div className="hidden items-center md:mr-auto md:flex md:gap-1 lg:gap-1">
         {NAV_ITEMS.map((item) =>
           item.href ? (
             <a
@@ -38,7 +36,7 @@ export default function NavBar({ isMobileMenuOpen, onToggleMobileMenu }) {
               href={item.href}
               target="_blank"
               rel="noreferrer"
-              className="py-3 text-base font-medium text-white/90 hover:text-white"
+              className="my-1.5 whitespace-nowrap px-2 py-1.5 text-sm font-medium text-white/90 hover:text-white lg:px-3 lg:text-base"
             >
               {common.nav[item.key][language]}
             </a>

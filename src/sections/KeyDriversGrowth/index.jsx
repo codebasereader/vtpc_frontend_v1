@@ -17,9 +17,9 @@ const DRIVER_IMAGES = [
 ]
 
 const SECTOR_META = [
-  { value: 65.4, color: 'bg-[#ecb044]', icon: Settings },
-  { value: 20.9, color: 'bg-brand-primary', icon: Factory },
-  { value: 13.7, color: 'bg-brand-navy', icon: Leaf },
+  { value: 69.8, color: 'bg-[#ecb044]', icon: Settings },
+  { value: 19.4, color: 'bg-brand-primary', icon: Factory },
+  { value: 10.8, color: 'bg-brand-navy', icon: Leaf },
 ]
 
 const MAX_SECTOR = Math.max(...SECTOR_META.map((s) => s.value))

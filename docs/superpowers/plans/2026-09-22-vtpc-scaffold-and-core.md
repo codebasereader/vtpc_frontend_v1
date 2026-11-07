@@ -646,7 +646,7 @@ Expected: FAIL — module does not exist.
   "nav": {
     "home": "ಮುಖಪುಟ",
     "aboutUs": "ನಮ್ಮ ಬಗ್ಗೆ",
-    "exporterCorner": "ರಫ್ತುದಾರರ ಮೂಲೆ",
+    "exporterCorner": "ರಫ್ತುದಾರರ ಅಂಕಣ",
     "geographicalIndications": "ಭೌಗೋಳಿಕ ಸೂಚನೆಗಳು",
     "downloads": "ಡೌನ್‌ಲೋಡ್‌ಗಳು",
     "events": "ಕಾರ್ಯಕ್ರಮಗಳು",

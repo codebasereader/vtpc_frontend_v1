@@ -143,18 +143,28 @@ function DocumentRow({ doc, children, language }) {
             <span className="block truncate font-semibold text-brand-dark">
               {getBilingualText(doc.title, language)}
             </span>
-            {hasChildren && (
-              <span className="mt-0.5 flex items-center gap-1 text-xs font-medium text-brand-primary">
-                <ChevronDown
-                  size={13}
-                  className={`transition-transform duration-200 ${isExpanded ? 'rotate-180' : ''}`}
-                  aria-hidden="true"
-                />
-                {children.length} {t.subDocuments[language]}
-              </span>
-            )}
           </span>
         </button>
+
+        {hasChildren && (
+          <button
+            type="button"
+            onClick={() => setIsExpanded((prev) => !prev)}
+            aria-expanded={isExpanded}
+            className="inline-flex shrink-0 items-center justify-center gap-1.5 self-start rounded-lg border border-brand-primary/30 bg-brand-surface/60 px-3.5 py-2 text-sm font-semibold text-brand-primary transition-colors hover:bg-brand-surface sm:self-auto"
+          >
+            {isExpanded
+              ? t.hideDocuments[language]
+              : children.length === 1
+                ? t.clickToViewOne[language]
+                : t.clickToView[language].replace('{count}', children.length)}
+            <ChevronDown
+              size={15}
+              className={`transition-transform duration-200 ${isExpanded ? 'rotate-180' : ''}`}
+              aria-hidden="true"
+            />
+          </button>
+        )}
 
         {doc.fileUrl && <DocumentActions fileUrl={doc.fileUrl} language={language} />}
       </div>

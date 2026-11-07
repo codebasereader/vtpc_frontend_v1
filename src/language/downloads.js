@@ -16,4 +16,10 @@ export const downloads = {
   view: { en: 'View', kn: 'ವೀಕ್ಷಿಸಿ' },
   download: { en: 'Download', kn: 'ಡೌನ್‌ಲೋಡ್' },
   subDocuments: { en: 'document(s)', kn: 'ದಾಖಲೆ(ಗಳು)' },
+  clickToView: {
+    en: 'Click to view {count} documents',
+    kn: '{count} ದಾಖಲೆಗಳನ್ನು ವೀಕ್ಷಿಸಲು ಕ್ಲಿಕ್ ಮಾಡಿ',
+  },
+  clickToViewOne: { en: 'Click to view 1 document', kn: '1 ದಾಖಲೆಯನ್ನು ವೀಕ್ಷಿಸಲು ಕ್ಲಿಕ್ ಮಾಡಿ' },
+  hideDocuments: { en: 'Hide documents', kn: 'ದಾಖಲೆಗಳನ್ನು ಮರೆಮಾಡಿ' },
 }
