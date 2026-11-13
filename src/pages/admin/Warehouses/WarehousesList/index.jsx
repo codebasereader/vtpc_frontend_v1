@@ -5,6 +5,7 @@ import { getWarehouses, deleteWarehouse } from '../../../../api/warehousesApi'
 import { getDistricts } from '../../../../api/districtsApi'
 import { getTaluks } from '../../../../api/taluksApi'
 import { ROUTES } from '../../../../constants/routes'
+import { warehouseTypeLabel } from '../../../../constants/warehouseTypes'
 import RecordDrawer from '../../../../components/RecordDrawer'
 
 export default function WarehousesList() {
@@ -107,9 +108,14 @@ export default function WarehousesList() {
               <div className="min-w-0 flex-1">
                 <p className="font-semibold text-brand-dark">{warehouse.name}</p>
                 <p className="truncate text-sm text-gray-600">
-                  {[districtName(warehouse.district), talukName(warehouse.taluk)].filter(Boolean).join(' · ')}
-                  {' · '}
-                  {warehouse.capacityMt?.toLocaleString('en-IN')} MT
+                  {[
+                    warehouseTypeLabel(warehouse.type),
+                    districtName(warehouse.district),
+                    talukName(warehouse.taluk),
+                    warehouse.capacityMt ? `${warehouse.capacityMt.toLocaleString('en-IN')} MT` : '',
+                  ]
+                    .filter(Boolean)
+                    .join(' · ')}
                   {(warehouse.lat == null || warehouse.lng == null) && (
                     <span className="ml-1 text-amber-600">(no map pin)</span>
                   )}
@@ -172,7 +178,7 @@ export default function WarehousesList() {
       <RecordDrawer
         record={viewing}
         title={viewing ? viewing.name : ''}
-        formatters={{ district: districtName, taluk: talukName }}
+        formatters={{ district: districtName, taluk: talukName, type: warehouseTypeLabel }}
         onClose={() => setViewing(null)}
       />
     </div>

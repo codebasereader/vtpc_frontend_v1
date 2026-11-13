@@ -128,10 +128,10 @@ export const about = {
   },
 
   locateUs: {
-    heading: { en: "Where to Find Us?", kn: "ನಮ್ಮನ್ನು ಎಲ್ಲಿ ಕಾಣಬಹುದು ?" },
+    heading: { en: "Where to Find Us?", kn: "ನಮ್ಮನ್ನು ಎಲ್ಲಿ ಕಾಣಬಹುದು?" },
     description: {
       en: "Reach VTPC at our head office in Bengaluru or at any of our regional Export Facilitation Centres across Karnataka.",
-      kn: "ಬೆಂಗಳೂರಿನಲ್ಲಿರುವ ನಮ್ಮ ಪ್ರಧಾನ ಕಚೇರಿ ಅಥವಾ ಕರ್ನಾಟಕದಾದ್ಯಂತ ಇರುವ ಯಾವುದೇ ಪ್ರಾದೇಶಿಕ ರಫ್ತು ಕೇಂದ್ರಗಳನ್ನು ವಿಟಿಪಿಸಿ ಸಂಪರ್ಕಿಸಿ.",
+      kn: "ಬೆಂಗಳೂರಿನಲ್ಲಿರುವ ನಮ್ಮ ಪ್ರಧಾನ ಕಚೇರಿ ಅಥವಾ ಕರ್ನಾಟಕದಾದ್ಯಂತ ಇರುವ ಯಾವುದೇ ಪ್ರಾದೇಶಿಕ ರಫ್ತು ಕೇಂದ್ರಗಳನ್ನು ಸಂಪರ್ಕಿಸಿ.",
     },
   },
 

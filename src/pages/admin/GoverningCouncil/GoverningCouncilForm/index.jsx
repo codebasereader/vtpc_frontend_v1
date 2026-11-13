@@ -15,6 +15,8 @@ export default function GoverningCouncilForm() {
 
   const [name, setName] = useState('')
   const [role, setRole] = useState('')
+  const [nameKn, setNameKn] = useState('')
+  const [roleKn, setRoleKn] = useState('')
   const [order, setOrder] = useState(1)
 
   const [isLoading, setIsLoading] = useState(isEditMode)
@@ -34,6 +36,8 @@ export default function GoverningCouncilForm() {
         }
         setName(member.name || '')
         setRole(member.role || '')
+        setNameKn(member.nameKn || '')
+        setRoleKn(member.roleKn || '')
         setOrder(member.order ?? 1)
       })
       .catch((err) => {
@@ -52,7 +56,7 @@ export default function GoverningCouncilForm() {
     setError('')
     setIsSubmitting(true)
     try {
-      const payload = { name, role, group: 'governing-council', order }
+      const payload = { name, role, nameKn, roleKn, group: 'governing-council', order }
       if (isEditMode) {
         await updateStaff(id, payload)
       } else {
@@ -113,6 +117,27 @@ export default function GoverningCouncilForm() {
             placeholder="e.g. Chairman"
             className={inputClass}
           />
+        </label>
+
+        <label className="flex flex-col gap-1.5 text-sm font-medium text-brand-dark">
+          Member in Kannada (ಕನ್ನಡ)
+          <textarea
+            value={nameKn}
+            onChange={(e) => setNameKn(e.target.value)}
+            rows={2}
+            className={inputClass}
+          />
+        </label>
+
+        <label className="flex flex-col gap-1.5 text-sm font-medium text-brand-dark">
+          Designation in Kannada (ಕನ್ನಡ)
+          <input
+            type="text"
+            value={roleKn}
+            onChange={(e) => setRoleKn(e.target.value)}
+            className={inputClass}
+          />
+          <span className="text-xs font-normal text-gray-500">Optional — English is shown if left empty.</span>
         </label>
 
         <label className="flex flex-col gap-1.5 text-sm font-medium text-brand-dark">

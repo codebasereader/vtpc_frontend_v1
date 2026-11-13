@@ -14,9 +14,9 @@ export function nameKey(value) {
 }
 
 // Districts whose public name differs from the name in the DGCIS sheets.
-const DISTRICT_DISPLAY_NAMES = { ramanagara: 'Bangalore South (Ramanagara)' }
+const DISTRICT_DISPLAY_NAMES = { ramanagara: 'Bengaluru South (Ramanagara)' }
 
-/** Letters-only key that ignores the display rename, so "Ramanagara" and "Bangalore South (Ramanagara)" match. */
+/** Letters-only key that ignores the display rename, so "Ramanagara" and "Bengaluru South (Ramanagara)" match. */
 export function districtKey(value) {
   const key = nameKey(value)
   return key.endsWith('ramanagara') ? 'ramanagara' : key

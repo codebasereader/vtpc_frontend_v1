@@ -78,14 +78,14 @@ export default function AboutUs() {
   const orgChain = useMemo(
     () =>
       staff
-        .filter((item) => item.group === 'org-chart' && (item.order ?? 0) <= 3)
+        .filter((item) => item.group === 'org-chart' && (item.order ?? 0) <= 5)
         .sort((a, b) => (a.order ?? 0) - (b.order ?? 0)),
     [staff],
   )
   const orgSiblings = useMemo(
     () =>
       staff
-        .filter((item) => item.group === 'org-chart' && (item.order ?? 0) > 3)
+        .filter((item) => item.group === 'org-chart' && (item.order ?? 0) > 5)
         .sort((a, b) => (a.order ?? 0) - (b.order ?? 0)),
     [staff],
   )
@@ -98,6 +98,7 @@ export default function AboutUs() {
   )
 
   const [firstOffice, ...restOffices] = offices
+  const isKn = language === 'kn'
 
   return (
     <>
@@ -233,7 +234,7 @@ export default function AboutUs() {
             <div className="mt-14 flex flex-col items-center">
               {orgChain.map((member, index) => (
                 <div key={member.id} className="flex flex-col items-center">
-                  <OrgNode member={member} highlight={index === 0} />
+                  <OrgNode member={member} isKn={isKn} highlight={index === 0} />
                   {index < orgChain.length - 1 && <Connector />}
                 </div>
               ))}
@@ -254,7 +255,7 @@ export default function AboutUs() {
                           className="absolute top-0 left-1/2 h-8 w-px -translate-x-1/2 bg-brand-primary/30"
                           aria-hidden="true"
                         />
-                        <OrgNode member={member} />
+                        <OrgNode member={member} isKn={isKn} />
                       </div>
                     ))}
                   </div>
@@ -297,8 +298,8 @@ export default function AboutUs() {
                       }`}
                     >
                       <td className="px-5 py-4 text-sm font-semibold text-brand-navy-dark">{member.order}</td>
-                      <td className="px-5 py-4 text-sm text-gray-700">{member.name}</td>
-                      <td className="px-5 py-4 text-sm font-medium text-brand-primary">{member.role}</td>
+                      <td className="px-5 py-4 text-sm text-gray-700">{(isKn && member.nameKn) || member.name}</td>
+                      <td className="px-5 py-4 text-sm font-medium text-brand-primary">{(isKn && member.roleKn) || member.role}</td>
                     </tr>
                   ))}
                 </tbody>
@@ -311,8 +312,8 @@ export default function AboutUs() {
                       {member.order}
                     </span>
                     <div>
-                      <p className="text-sm text-gray-700">{member.name}</p>
-                      <p className="mt-0.5 text-sm font-medium text-brand-primary">{member.role}</p>
+                      <p className="text-sm text-gray-700">{(isKn && member.nameKn) || member.name}</p>
+                      <p className="mt-0.5 text-sm font-medium text-brand-primary">{(isKn && member.roleKn) || member.role}</p>
                     </div>
                   </li>
                 ))}
@@ -370,7 +371,7 @@ function Connector() {
   )
 }
 
-function OrgNode({ member, highlight = false }) {
+function OrgNode({ member, isKn = false, highlight = false }) {
   return (
     <div
       className={`group flex w-56 flex-col items-center gap-2 rounded-2xl border p-5 text-center shadow-[0_6px_18px_rgba(15,40,80,0.08)] transition-all hover:-translate-y-1 hover:shadow-[0_12px_28px_rgba(15,40,80,0.14)] ${
@@ -390,8 +391,8 @@ function OrgNode({ member, highlight = false }) {
           <UserRound size={highlight ? 30 : 26} aria-hidden="true" />
         )}
       </span>
-      <p className="text-sm font-bold text-brand-navy-dark">{member.name}</p>
-      <p className="whitespace-pre-line text-xs leading-snug text-gray-600">{member.role}</p>
+      <p className="text-sm font-bold text-brand-navy-dark">{(isKn && member.nameKn) || member.name}</p>
+      <p className="whitespace-pre-line text-xs leading-snug text-gray-600">{(isKn && member.roleKn) || member.role}</p>
     </div>
   )
 }

@@ -1,8 +1,7 @@
 // The slugs here must exactly match the `data-district` values baked into
 // src/assets/karnataka-districts-map.svg — that's how map clicks and admin
 // records line up. Names match the real site's district-panel headings
-// (which occasionally differ from the SVG's own `title` attribute spelling
-// — e.g. "Kalaburagi" vs the SVG title "Kalburgi").
+// (the SVG `title` attributes are kept in step with them, since the map labels use them).
 export const KARNATAKA_DISTRICTS = [
   { slug: 'bidar', name: 'Bidar' },
   { slug: 'yadgir', name: 'Yadgir' },
@@ -13,7 +12,7 @@ export const KARNATAKA_DISTRICTS = [
   { slug: 'kolar', name: 'Kolar' },
   { slug: 'chikkamangaluru', name: 'Chikkamangaluru', marketName: 'Chikkamagaluru' },
   { slug: 'hassan', name: 'Hassan' },
-  { slug: 'ramanagara', name: 'Bangalore South (Ramanagara)', marketName: 'Bangalore South (Ramanagara)' },
+  { slug: 'ramanagara', name: 'Bengaluru South (Ramanagara)', marketName: 'Bengaluru South (Ramanagara)' },
   { slug: 'bengaluru-rural', name: 'Bengaluru Rural' },
   { slug: 'bengaluru-urban', name: 'Bengaluru Urban' },
   { slug: 'mandya', name: 'Mandya' },

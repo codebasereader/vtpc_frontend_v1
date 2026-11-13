@@ -63,7 +63,7 @@ export const exporterCorner = {
     states: {
       title: {
         en: "How Karnataka compares with other leading states",
-        kn: "ಕರ್ನಾಟಕವು ಇತರ ಪ್ರಮುಖ ರಾಜ್ಯಗಳೊಂದಿಗೆ ಹೇಗೆ ಹೋಲಿಸುತ್ತದೆ",
+        kn: "ಇತರ ಪ್ರಮುಖ ರಾಜ್ಯಗಳೊಂದಿಗೆ ಕರ್ನಾಟಕದ ಹೋಲಿಕೆ ಹೇಗಿದೆ",
       },
       titleForSector: {
         en: "{sector}: Karnataka vs other leading states",
@@ -202,8 +202,8 @@ export const exporterCorner = {
     grid: {
       title: { en: "Every sector, every state", kn: "ಪ್ರತಿ ವಲಯ, ಪ್ರತಿ ರಾಜ್ಯ" },
       hint: {
-        en: "The darker a cell, the bigger that state is within the sector. The leading state in each row is in bold.",
-        kn: "ಕೋಶ ಗಾಢವಾದಷ್ಟೂ ಆ ವಲಯದಲ್ಲಿ ರಾಜ್ಯ ದೊಡ್ಡದು. ಪ್ರತಿ ಸಾಲಿನಲ್ಲಿ ಮುಂಚೂಣಿಯಲ್ಲಿರುವ ರಾಜ್ಯವನ್ನು ದಪ್ಪ ಅಕ್ಷರಗಳಲ್ಲಿ ತೋರಿಸಲಾಗಿದೆ.",
+        en: "The darker a cell, the bigger that state is within the sector. The leading state in each row is in bold. Karnataka is shown in green.",
+        kn: "ಕೋಶ ಗಾಢವಾದಷ್ಟೂ ಆ ವಲಯದಲ್ಲಿ ರಾಜ್ಯ ದೊಡ್ಡದು. ಪ್ರತಿ ಸಾಲಿನಲ್ಲಿ ಮುಂಚೂಣಿಯಲ್ಲಿರುವ ರಾಜ್ಯವನ್ನು ದಪ್ಪ ಅಕ್ಷರಗಳಲ್ಲಿ ತೋರಿಸಲಾಗಿದೆ. ಕರ್ನಾಟಕದ ಅಂಕಿಅಂಶಗಳನ್ನು ಹಸಿರು ಬಣ್ಣದಲ್ಲಿ ತೋರಿಸಲಾಗಿದೆ.",
       },
       viewLabel: { en: "Show", kn: "ತೋರಿಸಿ" },
       viewValue: { en: "US$ million", kn: "ಮಿಲಿಯನ್ US$" },
@@ -274,9 +274,11 @@ export const exporterCorner = {
     heading: { en: "Warehouse Facilities", kn: "ಗೋದಾಮು ಸೌಲಭ್ಯಗಳು" },
     description: {
       en: "Locate bonded and export warehouse facilities across Karnataka by district and taluk.",
-      kn: "ಜಿಲ್ಲೆ ಮತ್ತು ತಾಲ್ಲೂಕಿನ ಮೂಲಕ ಕರ್ನಾಟಕದಾದ್ಯಂತ ಬಾಂಡೆಡ್ ಮತ್ತು ರಫ್ತು ಗೋದಾಮು ಸೌಲಭ್ಯಗಳನ್ನು ಪತ್ತೆ ಮಾಡಿ.",
+      kn: "ಕರ್ನಾಟಕದಾದ್ಯಂತ ಜಿಲ್ಲೆ ಮತ್ತು ತಾಲೂಕುವಾರು ಬಾಂಡೆಡ್ (ಸುಂಕ ರಹಿತ) ಮತ್ತು ರಫ್ತು ಗೋದಾಮು ಸೌಲಭ್ಯಗಳನ್ನು ಗುರುತಿಸಿ.",
     },
     search: { en: "Search warehouses", kn: "ಗೋದಾಮುಗಳನ್ನು ಹುಡುಕಿ" },
+    allTypes: { en: "All Types", kn: "ಎಲ್ಲಾ ವಿಧಗಳು" },
+    selectType: { en: "Select Type", kn: "ವಿಧ ಆಯ್ಕೆಮಾಡಿ" },
     allDistricts: { en: "All Districts", kn: "ಎಲ್ಲಾ ಜಿಲ್ಲೆಗಳು" },
     allTaluks: { en: "All Taluks", kn: "ಎಲ್ಲಾ ತಾಲ್ಲೂಕುಗಳು" },
     selectDistrict: { en: "Select District", kn: "ಜಿಲ್ಲೆ ಆಯ್ಕೆಮಾಡಿ" },

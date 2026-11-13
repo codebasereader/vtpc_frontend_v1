@@ -9,6 +9,7 @@ import ExploreTradeProspects from '../../../sections/ExploreTradeProspects'
 import KeyDriversGrowth from '../../../sections/KeyDriversGrowth'
 import DistrictExplorer from '../../../sections/DistrictExplorer'
 import EventsTeaser from '../../../sections/EventsTeaser'
+import SocialMedia from '../../../sections/SocialMedia'
 
 export default function Home() {
   const language = useSelector(selectLanguage)
@@ -32,6 +33,7 @@ export default function Home() {
       <KeyDriversGrowth />
       <DistrictExplorer />
       <EventsTeaser />
+      <SocialMedia />
     </>
   )
 }

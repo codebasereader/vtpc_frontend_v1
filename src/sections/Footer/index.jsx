@@ -7,6 +7,7 @@ import { selectLanguage } from '../../redux/slices/localeSlice'
 import { common } from '../../language/common'
 import { getOffices } from '../../api/officesApi'
 import { subscribeToNewsletter } from '../../api/newsletterApi'
+import { SOCIAL_LINKS } from '../../constants/socialLinks'
 import { getVisitsSummary, getLastUpdated, trackVisit } from '../../api/visitsApi'
 
 
@@ -155,6 +156,24 @@ export default function Footer() {
               <Eye size={20} className="text-brand-gold" aria-hidden="true" />
               {visitsTotal != null ? visitsTotal.toLocaleString() : '—'}
             </p>
+            <h3 className="mt-6 text-sm font-bold tracking-wide text-brand-gold uppercase">
+              {common.footer.followUs[language]}
+            </h3>
+            <div className="mt-3 flex items-center gap-3">
+              {SOCIAL_LINKS.map((social) => (
+                <a
+                  key={social.key}
+                  href={social.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label={`${social.name} — ${social.handle}`}
+                  title={social.name}
+                  className="flex h-10 w-10 items-center justify-center rounded-full bg-white/10 p-1.5 transition-transform hover:scale-110"
+                >
+                  <img src={social.icon} alt="" className="h-full w-full object-contain" />
+                </a>
+              ))}
+            </div>
             {lastUpdated && (
               <p className="mt-4 flex items-center gap-2 text-xs text-white/60">
                 <Clock size={13} className="shrink-0" aria-hidden="true" />

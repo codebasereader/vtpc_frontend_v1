@@ -2,7 +2,7 @@ import { useMemo } from 'react'
 import { exporterCorner as t } from '../../language/exporterCorner'
 import BarList, { ChangeChip } from './BarList'
 import { fill, formatShare, formatUsd } from './format'
-import { namedStates, sectorRows, servicesSummary } from './derive'
+import { sectorRows, servicesSummary } from './derive'
 import { EmptyNote, TabIntro } from './ui'
 
 const mi = t.marketIntelligence
@@ -25,27 +25,11 @@ export default function SectorsTab({ release, language }) {
     [release, language],
   )
 
-  const leaders = rows.filter((row) => row.standing?.rank === 1 && !/^others?$/i.test(row.label))
   const services = useMemo(() => servicesSummary(release), [release])
-  const otherStatesCount = Math.max(namedStates(release).length - 1, 0)
 
   return (
     <div>
       <TabIntro title={mi.sectors.title[language]} hint={mi.sectors.hint[language]} />
-
-      {leaders.length > 0 && (
-        <div className="mt-5 rounded-xl border border-brand-gold/50 bg-brand-gold/10 p-4">
-          <p className="text-sm font-bold text-brand-navy-dark">{mi.sectors.leadsTitle[language]}</p>
-          <p className="mt-1 text-sm text-gray-600">{fill(mi.sectors.leadsBody[language], { others: otherStatesCount })}</p>
-          <ul className="mt-3 flex flex-wrap gap-2">
-            {leaders.map((row) => (
-              <li key={row.key} className="rounded-full bg-white px-3 py-1 text-sm font-semibold text-brand-navy-dark shadow-sm">
-                {row.label}
-              </li>
-            ))}
-          </ul>
-        </div>
-      )}
 
       {rows.length === 0 ? (
         <EmptyNote>{mi.noData[language]}</EmptyNote>

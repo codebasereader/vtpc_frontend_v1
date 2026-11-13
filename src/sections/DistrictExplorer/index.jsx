@@ -30,7 +30,7 @@ export default function DistrictExplorer() {
 
   return (
     <section className="bg-brand-surface px-4 py-14 md:px-8 md:py-16">
-      <div className="mx-auto max-w-6xl">
+      <div className="mx-auto max-w-[88rem]">
         <div className="flex flex-col items-center text-center">
           <h2 className="text-3xl font-bold text-brand-navy-dark md:text-4xl lg:text-[2.75rem] lg:leading-tight">
             {t.title[language]}
@@ -44,7 +44,7 @@ export default function DistrictExplorer() {
         {listError && <p className="mt-10 text-center text-red-600">{t.loadFailed[language]}</p>}
 
         {!isListLoading && !listError && (
-          <div className="mt-10 grid gap-6 lg:grid-cols-[1.1fr_0.9fr] lg:items-stretch">
+          <div className="mt-10 grid gap-6 lg:grid-cols-[1.45fr_0.8fr] lg:items-stretch">
             <Suspense fallback={<p className="text-center">{t.loadingMap[language]}</p>}>
               <KarnatakaMap selectedId={selectedId} onSelect={setSelectedId} />
             </Suspense>

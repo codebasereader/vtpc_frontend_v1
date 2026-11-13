@@ -5,7 +5,7 @@ import { FolderOpen, FileText, ChevronDown, Eye, Download as DownloadIcon } from
 import { getDownloadCategories } from '../../../api/downloadCategoriesApi'
 import { getDownloads } from '../../../api/downloadsApi'
 import { selectLanguage } from '../../../redux/slices/localeSlice'
-import { getBilingualText } from '../../../lib/bilingual'
+import { getBilingualTextOrEnglish } from '../../../lib/bilingual'
 import { safeUrl } from '../../../lib/safeUrl'
 import { downloads as t } from '../../../language/downloads'
 
@@ -108,7 +108,7 @@ function CategoryCard({ category, documents, language }) {
         <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-brand-primary text-white">
           <FolderOpen size={18} aria-hidden="true" />
         </span>
-        <h2 className="text-lg font-bold text-brand-navy-dark md:text-xl">{getBilingualText(category.name, language)}</h2>
+        <h2 className="text-lg font-bold text-brand-navy-dark md:text-xl">{getBilingualTextOrEnglish(category.name, language)}</h2>
       </div>
 
       {topLevel.length === 0 ? (
@@ -141,7 +141,7 @@ function DocumentRow({ doc, children, language }) {
           </span>
           <span className="min-w-0">
             <span className="block truncate font-semibold text-brand-dark">
-              {getBilingualText(doc.title, language)}
+              {getBilingualTextOrEnglish(doc.title, language)}
             </span>
           </span>
         </button>
@@ -174,7 +174,7 @@ function DocumentRow({ doc, children, language }) {
           {children.map((child) => (
             <div key={child.id} className="flex flex-col gap-3 py-3 pr-6 pl-9 sm:flex-row sm:items-center sm:justify-between">
               <span className="min-w-0 truncate text-sm font-medium text-brand-dark">
-                {getBilingualText(child.title, language)}
+                {getBilingualTextOrEnglish(child.title, language)}
               </span>
               {child.fileUrl && <DocumentActions fileUrl={child.fileUrl} language={language} compact />}
             </div>

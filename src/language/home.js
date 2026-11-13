@@ -17,7 +17,7 @@ export const home = {
     },
     tagline: {
       en: "Your practical roadmap to exporting from Karnataka to the world.",
-      kn: "ಕರ್ನಾಟಕದಿಂದ ಜಗತ್ತಿಗೆ ರಫ್ತು ಮಾಡಲು ನಿಮಗಾಗಿರುವ ಪ್ರಾಯೋಗಿಕ ಮಾರ್ಗಸೂಚಿ.",
+      kn: "ಕರ್ನಾಟಕದಿಂದ ಜಾಗತಿಕ ಮಾರುಕಟ್ಟೆಗೆ ರಫ್ತು ಮಾಡಲು ನಿಮಗೊಂದು ಸರಳ ಮಾರ್ಗಸೂಚಿ",
     },
     description: {
       en: "The Exporters Guide provides detailed steps, practical advice and key resources to help your business navigate the export process and unlock new global opportunities.",
@@ -230,6 +230,15 @@ export const home = {
     country: { en: "Country", kn: "ದೇಶ" },
     products: { en: "Products", kn: "ಉತ್ಪನ್ನಗಳು" },
     sector: { en: "Sector", kn: "ವಲಯ" },
+  },
+
+  socialMedia: {
+    title: { en: "Follow Us on Social Media", kn: "ಸಾಮಾಜಿಕ ಜಾಲತಾಣಗಳಲ್ಲಿ ನಮ್ಮನ್ನು ಅನುಸರಿಸಿ" },
+    description: {
+      en: "Stay up to date with VTPC's events, announcements and export opportunities.",
+      kn: "ವಿಟಿಪಿಸಿಯ ಕಾರ್ಯಕ್ರಮಗಳು, ಪ್ರಕಟಣೆಗಳು ಮತ್ತು ರಫ್ತು ಅವಕಾಶಗಳ ಬಗ್ಗೆ ಇತ್ತೀಚಿನ ಮಾಹಿತಿ ಪಡೆಯಿರಿ.",
+    },
+    follow: { en: "Follow", kn: "ಅನುಸರಿಸಿ" },
   },
 
   eventsTeaser: {

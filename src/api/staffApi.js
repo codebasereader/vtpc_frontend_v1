@@ -4,10 +4,12 @@ export function getStaff() {
   return axiosClient.get('/staff').then((res) => res.data)
 }
 
-function buildStaffFormData({ name, role, group, order, photoFile }) {
+function buildStaffFormData({ name, role, nameKn = '', roleKn = '', group, order, photoFile }) {
   const formData = new FormData()
   formData.append('name', name)
   formData.append('role', role)
+  formData.append('nameKn', nameKn)
+  formData.append('roleKn', roleKn)
   formData.append('group', group)
   formData.append('order', String(order))
   if (photoFile) {

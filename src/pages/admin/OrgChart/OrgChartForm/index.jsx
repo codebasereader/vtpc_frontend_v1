@@ -15,6 +15,8 @@ export default function OrgChartForm() {
 
   const [name, setName] = useState('')
   const [role, setRole] = useState('')
+  const [nameKn, setNameKn] = useState('')
+  const [roleKn, setRoleKn] = useState('')
   const [order, setOrder] = useState(1)
   const [photoFile, setPhotoFile] = useState(null)
   const [existingPhoto, setExistingPhoto] = useState('')
@@ -36,6 +38,8 @@ export default function OrgChartForm() {
         }
         setName(member.name || '')
         setRole(member.role || '')
+        setNameKn(member.nameKn || '')
+        setRoleKn(member.roleKn || '')
         setOrder(member.order ?? 1)
         setExistingPhoto(member.photo || '')
       })
@@ -55,7 +59,7 @@ export default function OrgChartForm() {
     setError('')
     setIsSubmitting(true)
     try {
-      const payload = { name, role, group: 'org-chart', order, photoFile }
+      const payload = { name, role, nameKn, roleKn, group: 'org-chart', order, photoFile }
       if (isEditMode) {
         await updateStaff(id, payload)
       } else {
@@ -122,6 +126,27 @@ export default function OrgChartForm() {
         </label>
 
         <label className="flex flex-col gap-1.5 text-sm font-medium text-brand-dark">
+          Name in Kannada (ಕನ್ನಡ)
+          <input
+            type="text"
+            value={nameKn}
+            onChange={(e) => setNameKn(e.target.value)}
+            className={inputClass}
+          />
+        </label>
+
+        <label className="flex flex-col gap-1.5 text-sm font-medium text-brand-dark">
+          Role / designation in Kannada (ಕನ್ನಡ)
+          <textarea
+            value={roleKn}
+            onChange={(e) => setRoleKn(e.target.value)}
+            rows={3}
+            className={inputClass}
+          />
+          <span className="text-xs font-normal text-gray-500">Optional — English is shown if left empty.</span>
+        </label>
+
+        <label className="flex flex-col gap-1.5 text-sm font-medium text-brand-dark">
           Order
           <input
             type="number"
@@ -132,7 +157,7 @@ export default function OrgChartForm() {
             className={inputClass}
           />
           <span className="text-xs font-normal text-gray-500">
-            1 = Chairman, 2 = Managing Director, 3 = Joint Director, 4+ = siblings under the Joint Director.
+            1 = Chairman, 2 = Director (Exports), 3 = Joint Director, 4 = Deputy Director, 5 = Assistant Director, 6+ = siblings under the Assistant Director.
           </span>
         </label>
 

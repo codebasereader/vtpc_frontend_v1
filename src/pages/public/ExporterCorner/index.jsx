@@ -9,8 +9,8 @@ import { getSectors } from '../../../api/sectorsApi'
 import { selectLanguage } from '../../../redux/slices/localeSlice'
 import { exporterCorner as t } from '../../../language/exporterCorner'
 import { getSectorIcon, sortSectors } from '../../../constants/sectorIcons'
-import { getBilingualText } from '../../../lib/bilingual'
-import WarehouseMap from '../../../components/WarehouseMap'
+import { getBilingualTextOrEnglish } from '../../../lib/bilingual'
+import { WAREHOUSE_TYPES, warehouseTypeLabel } from '../../../constants/warehouseTypes'
 import MarketIntelligence from '../../../sections/MarketIntelligence'
 
 const HERO_IMAGE = '/assets/images/exporter-corner/exporter-hero.png'
@@ -27,6 +27,7 @@ export default function ExporterCorner() {
   const [search, setSearch] = useState('')
   const [districtFilter, setDistrictFilter] = useState('')
   const [talukFilter, setTalukFilter] = useState('')
+  const [typeFilter, setTypeFilter] = useState('')
   const [activeSectorId, setActiveSectorId] = useState(null)
 
   useEffect(() => {
@@ -82,8 +83,9 @@ export default function ExporterCorner() {
     return warehouses
       .filter((w) => !districtFilter || w.district === districtFilter)
       .filter((w) => !talukFilter || w.taluk === talukFilter)
+      .filter((w) => !typeFilter || w.type === typeFilter)
       .filter((w) => !query || w.name.toLowerCase().includes(query))
-  }, [warehouses, search, districtFilter, talukFilter])
+  }, [warehouses, search, districtFilter, talukFilter, typeFilter])
 
   const activeSector = useMemo(
     () => sectors.find((s) => s.id === activeSectorId) ?? null,
@@ -129,7 +131,7 @@ export default function ExporterCorner() {
             {t.warehouses.description[language]}
           </p>
 
-          <div className="mt-8 grid grid-cols-1 gap-3 rounded-2xl bg-white p-4 shadow-[0_8px_24px_rgba(15,40,80,0.06)] sm:grid-cols-3">
+          <div className="mt-8 grid grid-cols-1 gap-3 rounded-2xl bg-white p-4 shadow-[0_8px_24px_rgba(15,40,80,0.06)] sm:grid-cols-2 lg:grid-cols-4">
             <div className="relative">
               <Search size={16} className="pointer-events-none absolute top-1/2 left-3 -translate-y-1/2 text-gray-400" />
               <input
@@ -140,6 +142,20 @@ export default function ExporterCorner() {
                 className="w-full rounded-lg border border-brand-divider bg-white py-2.5 pr-3 pl-9 text-sm text-brand-dark outline-none transition-colors focus:border-brand-primary focus:ring-2 focus:ring-brand-primary/15"
               />
             </div>
+
+            <select
+              value={typeFilter}
+              onChange={(e) => setTypeFilter(e.target.value)}
+              className="rounded-lg border border-brand-divider bg-white px-3 py-2.5 text-sm text-brand-dark outline-none transition-colors focus:border-brand-primary focus:ring-2 focus:ring-brand-primary/15"
+              aria-label={t.warehouses.selectType[language]}
+            >
+              <option value="">{t.warehouses.allTypes[language]}</option>
+              {WAREHOUSE_TYPES.map((item) => (
+                <option key={item.id} value={item.id}>
+                  {item.label}
+                </option>
+              ))}
+            </select>
 
             <select
               value={districtFilter}
@@ -170,28 +186,7 @@ export default function ExporterCorner() {
             </select>
           </div>
 
-          <div className="mt-6 h-[420px] overflow-hidden rounded-2xl shadow-[0_8px_24px_rgba(15,40,80,0.08)]">
-            {isLoading ? (
-              <div className="flex h-full items-center justify-center bg-white text-gray-500">
-                {t.warehouses.loading[language]}
-              </div>
-            ) : (
-              <WarehouseMap
-                warehouses={filteredWarehouses}
-                renderPopup={(w) => (
-                  <div className="text-sm">
-                    <p className="font-semibold">{w.name}</p>
-                    <p className="text-gray-600">
-                      {[districtName(w.district), talukName(w.taluk)].filter(Boolean).join(', ')}
-                    </p>
-                    <p className="mt-1 text-gray-600">
-                      {t.warehouses.capacity[language]}: {w.capacityMt?.toLocaleString('en-IN')} MT
-                    </p>
-                  </div>
-                )}
-              />
-            )}
-          </div>
+          {isLoading && <p className="mt-6 text-center text-gray-500">{t.warehouses.loading[language]}</p>}
 
           {!isLoading && (
             <>
@@ -216,6 +211,11 @@ export default function ExporterCorner() {
                           <WarehouseIcon size={18} aria-hidden="true" />
                         </span>
                         <div className="min-w-0">
+                          {warehouse.type && (
+                            <span className="mb-1 inline-block rounded-full bg-brand-surface px-2 py-0.5 text-[11px] font-semibold text-brand-primary">
+                              {warehouseTypeLabel(warehouse.type)}
+                            </span>
+                          )}
                           <h3 className="font-bold text-brand-navy-dark">{warehouse.name}</h3>
                           <p className="flex items-center gap-1 text-sm text-gray-600">
                             <MapPin size={13} className="shrink-0 text-brand-primary" aria-hidden="true" />
@@ -225,14 +225,14 @@ export default function ExporterCorner() {
                           </p>
                         </div>
                       </div>
-                      <div className="mt-1 flex items-center justify-between rounded-lg bg-brand-page px-3 py-2 text-sm">
-                        <span className="text-gray-600">{t.warehouses.capacity[language]}</span>
-                        <span className="font-bold text-brand-navy-dark">
-                          {warehouse.capacityMt?.toLocaleString('en-IN')} MT
-                        </span>
-                      </div>
-                      {(warehouse.lat == null || warehouse.lng == null) && (
-                        <p className="text-xs text-amber-600">{t.warehouses.noLocation[language]}</p>
+                      {warehouse.address && <p className="text-sm text-gray-600">{warehouse.address}</p>}
+                      {warehouse.capacityMt > 0 && (
+                        <div className="mt-1 flex items-center justify-between rounded-lg bg-brand-page px-3 py-2 text-sm">
+                          <span className="text-gray-600">{t.warehouses.capacity[language]}</span>
+                          <span className="font-bold text-brand-navy-dark">
+                            {warehouse.capacityMt.toLocaleString('en-IN')} MT
+                          </span>
+                        </div>
                       )}
                     </article>
                   ))}
@@ -287,7 +287,7 @@ export default function ExporterCorner() {
                         >
                           <Icon size={20} className={isActive ? 'text-white' : ''} aria-hidden="true" />
                         </span>
-                        <span className="leading-snug">{getBilingualText(sector.name, language)}</span>
+                        <span className="leading-snug">{getBilingualTextOrEnglish(sector.name, language)}</span>
                       </button>
                     )
                   })}
@@ -307,7 +307,7 @@ export default function ExporterCorner() {
 
                     <div className="flex flex-col gap-5 p-6 md:p-8">
                       <p className="text-base leading-relaxed text-gray-600">
-                        {getBilingualText(activeSector.description, language)}
+                        {getBilingualTextOrEnglish(activeSector.description, language)}
                       </p>
 
                       {activeSector.statBoxes?.length > 0 && (
@@ -316,7 +316,7 @@ export default function ExporterCorner() {
                             <div key={index} className="rounded-xl bg-brand-page p-3 text-center">
                               <p className="text-xl font-extrabold text-brand-primary">{stat.value}</p>
                               <p className="mt-1 text-xs leading-snug text-gray-600">
-                                {getBilingualText(stat.label, language)}
+                                {getBilingualTextOrEnglish(stat.label, language)}
                               </p>
                             </div>
                           ))}
@@ -349,7 +349,7 @@ export default function ExporterCorner() {
                         </div>
                       )}
 
-                      {activeSector.keyInsights && getBilingualText(activeSector.keyInsights, language) && (
+                      {activeSector.keyInsights && getBilingualTextOrEnglish(activeSector.keyInsights, language) && (
                         <div className="flex gap-3 rounded-xl border-l-4 border-brand-gold bg-brand-page/60 p-4">
                           <TrendingUp size={18} className="mt-0.5 shrink-0 text-brand-gold" aria-hidden="true" />
                           <div>
@@ -357,7 +357,7 @@ export default function ExporterCorner() {
                               {t.focusSectors.keyInsights[language]}
                             </p>
                             <p className="mt-1 text-sm leading-relaxed text-gray-600">
-                              {getBilingualText(activeSector.keyInsights, language)}
+                              {getBilingualTextOrEnglish(activeSector.keyInsights, language)}
                             </p>
                           </div>
                         </div>

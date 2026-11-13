@@ -23,13 +23,16 @@ const DISTRICT_COLORS = [
 const MIN_LABEL_AREA = 900
 
 // The three Bengaluru-area districts are packed tightly (Urban sits inside Rural, South is
-// directly below), so their labels use a shorter name, a smaller font and a nudge from the
-// centre of the shape so they stay inside their own district and don't collide.
-// dx / dy are in the SVG's own units.
+// directly below), so their labels use a smaller font and a nudge from the centre of the shape
+// so they stay inside their own district and don't collide. Davangere's label is nudged up so
+// it doesn't run into Chitradurga.
+// dx / dy are in the SVG's own units; `text` falls back to the SVG's title.
+const LABEL_FONT_SIZE = 7
 const LABEL_OVERRIDES = {
   'bengaluru-rural': { text: 'Bengaluru Rural', dx: 0, dy: -12, fontSize: 5.5 },
   'bengaluru-urban': { text: 'Bengaluru Urban', dx: 0, dy: 2, fontSize: 5.5 },
-  ramanagara: { text: 'Bangalore South\n(Ramanagara)', dx: 16, dy: 18, fontSize: 5.5 },
+  ramanagara: { text: 'Bengaluru South\n(Ramanagara)', dx: 16, dy: 18, fontSize: 5.5 },
+  davangere: { dx: 1.5, dy: -12 },
 }
 
 function fillableParts(anchor) {
@@ -86,7 +89,7 @@ export default function KarnatakaMap({ selectedId, onSelect }) {
         const label = document.createElementNS('http://www.w3.org/2000/svg', 'text')
         // A line break in a name starts a new line (centred on the same point).
         const lines = name.split('\n')
-        const fontSize = override?.fontSize ?? 7
+        const fontSize = override?.fontSize ?? LABEL_FONT_SIZE
         lines.forEach((line, i) => {
           const span = document.createElementNS('http://www.w3.org/2000/svg', 'tspan')
           span.textContent = line
@@ -98,7 +101,7 @@ export default function KarnatakaMap({ selectedId, onSelect }) {
         label.setAttribute('y', String(box.y + box.height / 2 + (override?.dy ?? 0)))
         label.setAttribute('text-anchor', 'middle')
         label.setAttribute('dominant-baseline', 'middle')
-        label.setAttribute('font-size', String(override?.fontSize ?? 7))
+        label.setAttribute('font-size', String(override?.fontSize ?? LABEL_FONT_SIZE))
         label.setAttribute('font-weight', '600')
         label.setAttribute('fill', '#2d2d2d')
         label.setAttribute('stroke', 'white')

@@ -11,11 +11,11 @@ export const events = {
   typeDomestic: { en: "Domestic Trade Fairs", kn: "ದೇಶೀಯ ವ್ಯಾಪಾರ ಮೇಳಗಳು" },
   typeInternational: {
     en: "International Trade Fairs",
-    kn: "ಅಂತಾರಾಷ್ಟ್ರೀಯ ವ್ಯಾಪಾರ ಮೇಳಗಳು",
+    kn: "ಅಂತರರಾಷ್ಟ್ರೀಯ ವ್ಯಾಪಾರ ಮೇಳಗಳು",
   },
 
   filters: {
-    heading: { en: "Filter Events", kn: "ಕಾರ್ಯಕ್ರಮಗಳನ್ನು ಫಿಲ್ಟರ್ ಮಾಡಿ" },
+    heading: { en: "Filter Events", kn: "ಕಾರ್ಯಕ್ರಮಗಳನ್ನು ಶೋಧಿಸಿ" },
     city: { en: "Select a City", kn: "ನಗರ ಆಯ್ಕೆಮಾಡಿ" },
     allCities: { en: "All Cities", kn: "ಎಲ್ಲಾ ನಗರಗಳು" },
     search: { en: "Search events", kn: "ಕಾರ್ಯಕ್ರಮಗಳನ್ನು ಹುಡುಕಿ" },

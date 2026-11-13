@@ -5,6 +5,7 @@ import { getWarehouses, createWarehouse, updateWarehouse } from '../../../../api
 import { getDistricts } from '../../../../api/districtsApi'
 import { getTaluks } from '../../../../api/taluksApi'
 import { ROUTES } from '../../../../constants/routes'
+import { WAREHOUSE_TYPES } from '../../../../constants/warehouseTypes'
 import Button from '../../../../components/Button'
 
 const inputClass =
@@ -16,6 +17,7 @@ export default function WarehouseForm() {
   const navigate = useNavigate()
 
   const [name, setName] = useState('')
+  const [type, setType] = useState('')
   const [district, setDistrict] = useState('')
   const [taluk, setTaluk] = useState('')
   const [capacityMt, setCapacityMt] = useState('')
@@ -49,6 +51,7 @@ export default function WarehouseForm() {
           return
         }
         setName(warehouse.name || '')
+        setType(warehouse.type || '')
         setDistrict(warehouse.district || '')
         setTaluk(warehouse.taluk || '')
         setCapacityMt(warehouse.capacityMt ?? '')
@@ -82,7 +85,7 @@ export default function WarehouseForm() {
     setError('')
     setIsSubmitting(true)
     try {
-      const payload = { name, district, taluk, capacityMt, lat, lng, address }
+      const payload = { name, type, district, taluk, capacityMt, lat, lng, address }
       if (isEditMode) {
         await updateWarehouse(id, payload)
       } else {
@@ -133,6 +136,18 @@ export default function WarehouseForm() {
           />
         </label>
 
+        <label className="flex flex-col gap-1.5 text-sm font-medium text-brand-dark">
+          Facility type
+          <select value={type} onChange={(e) => setType(e.target.value)} required className={inputClass}>
+            <option value="">— Select type —</option>
+            {WAREHOUSE_TYPES.map((item) => (
+              <option key={item.id} value={item.id}>
+                {item.label}
+              </option>
+            ))}
+          </select>
+        </label>
+
         <div className="grid grid-cols-2 gap-4">
           <label className="flex flex-col gap-1.5 text-sm font-medium text-brand-dark">
             District
@@ -164,12 +179,11 @@ export default function WarehouseForm() {
         </div>
 
         <label className="flex flex-col gap-1.5 text-sm font-medium text-brand-dark">
-          Capacity (MT)
+          Capacity (MT) (optional)
           <input
             type="number"
             value={capacityMt}
             onChange={(e) => setCapacityMt(e.target.value)}
-            required
             min={0}
             placeholder="e.g. 5000"
             className={inputClass}

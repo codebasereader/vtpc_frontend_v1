@@ -4,9 +4,10 @@ export function getWarehouses() {
   return axiosClient.get('/warehouses').then((res) => res.data)
 }
 
-function buildWarehousePayload({ name, district, taluk, capacityMt, lat, lng, address }) {
+function buildWarehousePayload({ name, type, district, taluk, capacityMt, lat, lng, address }) {
   return {
     name,
+    type: type || '',
     district,
     taluk,
     capacityMt: Number(capacityMt) || 0,
