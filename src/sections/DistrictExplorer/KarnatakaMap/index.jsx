@@ -23,15 +23,15 @@ const DISTRICT_COLORS = [
 const MIN_LABEL_AREA = 900
 
 // The three Bengaluru-area districts are packed tightly (Urban sits inside Rural, South is
-// directly below), so their labels use a smaller font and a nudge from the centre of the shape
+// directly below), so their labels are stacked on two lines (same font size as every other district) with a nudge from the centre of the shape
 // so they stay inside their own district and don't collide. Davangere's label is nudged up so
 // it doesn't run into Chitradurga.
 // dx / dy are in the SVG's own units; `text` falls back to the SVG's title.
 const LABEL_FONT_SIZE = 7
 const LABEL_OVERRIDES = {
-  'bengaluru-rural': { text: 'Bengaluru Rural', dx: 0, dy: -12, fontSize: 5.5 },
-  'bengaluru-urban': { text: 'Bengaluru Urban', dx: 0, dy: 2, fontSize: 5.5 },
-  ramanagara: { text: 'Bengaluru South\n(Ramanagara)', dx: 16, dy: 18, fontSize: 5.5 },
+  'bengaluru-rural': { text: 'Bengaluru\nRural', dx: 0, dy: -14 },
+  'bengaluru-urban': { text: 'Bengaluru\nUrban', dx: 0, dy: 2 },
+  ramanagara: { text: 'Bengaluru South\n(Ramanagara)', dx: 24, dy: 12 },
   davangere: { dx: 1.5, dy: -12 },
 }
 

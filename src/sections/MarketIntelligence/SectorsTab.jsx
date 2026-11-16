@@ -19,7 +19,6 @@ export default function SectorsTab({ release, language }) {
         return {
           ...row,
           sub: parts.join(' · '),
-          badge: row.standing?.rank === 1 ? mi.sectors.leads[language] : '',
         }
       }),
     [release, language],

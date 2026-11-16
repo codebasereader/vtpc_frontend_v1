@@ -1,7 +1,7 @@
 import { useEffect, useMemo, useState } from 'react'
 import { Helmet } from 'react-helmet-async'
 import { useSelector } from 'react-redux'
-import { Search, MapPin, Warehouse as WarehouseIcon, TrendingUp, Globe2 } from 'lucide-react'
+import { TrendingUp, Globe2 } from 'lucide-react'
 import { getWarehouses } from '../../../api/warehousesApi'
 import { getDistricts } from '../../../api/districtsApi'
 import { getTaluks } from '../../../api/taluksApi'
@@ -10,8 +10,8 @@ import { selectLanguage } from '../../../redux/slices/localeSlice'
 import { exporterCorner as t } from '../../../language/exporterCorner'
 import { getSectorIcon, sortSectors } from '../../../constants/sectorIcons'
 import { getBilingualTextOrEnglish } from '../../../lib/bilingual'
-import { WAREHOUSE_TYPES, warehouseTypeLabel } from '../../../constants/warehouseTypes'
 import MarketIntelligence from '../../../sections/MarketIntelligence'
+import WarehouseExplorer from '../../../sections/WarehouseExplorer'
 
 const HERO_IMAGE = '/assets/images/exporter-corner/exporter-hero.png'
 
@@ -24,10 +24,6 @@ export default function ExporterCorner() {
   const [sectors, setSectors] = useState([])
   const [isLoading, setIsLoading] = useState(true)
 
-  const [search, setSearch] = useState('')
-  const [districtFilter, setDistrictFilter] = useState('')
-  const [talukFilter, setTalukFilter] = useState('')
-  const [typeFilter, setTypeFilter] = useState('')
   const [activeSectorId, setActiveSectorId] = useState(null)
 
   useEffect(() => {
@@ -58,35 +54,6 @@ export default function ExporterCorner() {
     }
   }, [])
 
-  const districtName = useMemo(() => {
-    const map = new Map(districts.map((d) => [d.id, d.name]))
-    return (slug) => map.get(slug) || slug
-  }, [districts])
-
-  const talukName = useMemo(() => {
-    const map = new Map(taluks.map((tk) => [tk.id, tk.name]))
-    return (id) => map.get(id) || ''
-  }, [taluks])
-
-  const talukOptions = useMemo(
-    () => (districtFilter ? taluks.filter((tk) => tk.district === districtFilter) : taluks),
-    [taluks, districtFilter],
-  )
-
-  function handleDistrictFilterChange(value) {
-    setDistrictFilter(value)
-    setTalukFilter('')
-  }
-
-  const filteredWarehouses = useMemo(() => {
-    const query = search.trim().toLowerCase()
-    return warehouses
-      .filter((w) => !districtFilter || w.district === districtFilter)
-      .filter((w) => !talukFilter || w.taluk === talukFilter)
-      .filter((w) => !typeFilter || w.type === typeFilter)
-      .filter((w) => !query || w.name.toLowerCase().includes(query))
-  }, [warehouses, search, districtFilter, talukFilter, typeFilter])
-
   const activeSector = useMemo(
     () => sectors.find((s) => s.id === activeSectorId) ?? null,
     [sectors, activeSectorId],
@@ -104,7 +71,7 @@ export default function ExporterCorner() {
         className="relative bg-cover bg-center px-4 py-16 md:px-8 md:py-24"
         style={{ backgroundImage: `url(${HERO_IMAGE})` }}
       >
-        <div className="absolute inset-0 bg-gradient-to-r from-brand-navy-dark/92 via-brand-navy-dark/75 to-brand-navy-dark/35" />
+        <div className="absolute inset-0 bg-gradient-to-r from-brand-navy-dark/80 via-brand-navy-dark/45 to-transparent" />
         <div className="relative mx-auto max-w-6xl">
           <span className="text-xs font-bold tracking-[0.2em] text-brand-gold uppercase">
             {t.hero.eyebrow[language]}
@@ -121,127 +88,13 @@ export default function ExporterCorner() {
       <MarketIntelligence />
 
       {/* Warehouse Facilities */}
-      <section className="bg-brand-page px-4 py-16 md:px-8 md:py-20">
-        <div className="mx-auto max-w-6xl">
-          <div className="flex items-center gap-3">
-            <span className="h-8 w-1.5 rounded-full bg-brand-primary" />
-            <h2 className="text-2xl font-bold text-brand-navy-dark md:text-3xl">{t.warehouses.heading[language]}</h2>
-          </div>
-          <p className="mt-3 max-w-2xl text-base leading-relaxed text-gray-600">
-            {t.warehouses.description[language]}
-          </p>
-
-          <div className="mt-8 grid grid-cols-1 gap-3 rounded-2xl bg-white p-4 shadow-[0_8px_24px_rgba(15,40,80,0.06)] sm:grid-cols-2 lg:grid-cols-4">
-            <div className="relative">
-              <Search size={16} className="pointer-events-none absolute top-1/2 left-3 -translate-y-1/2 text-gray-400" />
-              <input
-                type="text"
-                value={search}
-                onChange={(e) => setSearch(e.target.value)}
-                placeholder={t.warehouses.search[language]}
-                className="w-full rounded-lg border border-brand-divider bg-white py-2.5 pr-3 pl-9 text-sm text-brand-dark outline-none transition-colors focus:border-brand-primary focus:ring-2 focus:ring-brand-primary/15"
-              />
-            </div>
-
-            <select
-              value={typeFilter}
-              onChange={(e) => setTypeFilter(e.target.value)}
-              className="rounded-lg border border-brand-divider bg-white px-3 py-2.5 text-sm text-brand-dark outline-none transition-colors focus:border-brand-primary focus:ring-2 focus:ring-brand-primary/15"
-              aria-label={t.warehouses.selectType[language]}
-            >
-              <option value="">{t.warehouses.allTypes[language]}</option>
-              {WAREHOUSE_TYPES.map((item) => (
-                <option key={item.id} value={item.id}>
-                  {item.label}
-                </option>
-              ))}
-            </select>
-
-            <select
-              value={districtFilter}
-              onChange={(e) => handleDistrictFilterChange(e.target.value)}
-              className="rounded-lg border border-brand-divider bg-white px-3 py-2.5 text-sm text-brand-dark outline-none transition-colors focus:border-brand-primary focus:ring-2 focus:ring-brand-primary/15"
-              aria-label={t.warehouses.selectDistrict[language]}
-            >
-              <option value="">{t.warehouses.allDistricts[language]}</option>
-              {districts.map((d) => (
-                <option key={d.id} value={d.id}>
-                  {d.name}
-                </option>
-              ))}
-            </select>
-
-            <select
-              value={talukFilter}
-              onChange={(e) => setTalukFilter(e.target.value)}
-              className="rounded-lg border border-brand-divider bg-white px-3 py-2.5 text-sm text-brand-dark outline-none transition-colors focus:border-brand-primary focus:ring-2 focus:ring-brand-primary/15"
-              aria-label={t.warehouses.selectTaluk[language]}
-            >
-              <option value="">{t.warehouses.allTaluks[language]}</option>
-              {talukOptions.map((tk) => (
-                <option key={tk.id} value={tk.id}>
-                  {tk.name}
-                </option>
-              ))}
-            </select>
-          </div>
-
-          {isLoading && <p className="mt-6 text-center text-gray-500">{t.warehouses.loading[language]}</p>}
-
-          {!isLoading && (
-            <>
-              <p className="mt-6 text-sm text-gray-500">
-                {t.warehouses.resultsCount[language].replace('{count}', filteredWarehouses.length)}
-              </p>
-
-              {filteredWarehouses.length === 0 ? (
-                <div className="mt-3 flex flex-col items-center gap-3 rounded-2xl border border-dashed border-brand-divider bg-white/60 p-10 text-center text-gray-600">
-                  <WarehouseIcon size={28} className="text-gray-400" aria-hidden="true" />
-                  <p>{t.warehouses.noResults[language]}</p>
-                </div>
-              ) : (
-                <div className="mt-3 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
-                  {filteredWarehouses.map((warehouse) => (
-                    <article
-                      key={warehouse.id}
-                      className="flex flex-col gap-2 rounded-2xl border border-brand-divider bg-white p-5 shadow-[0_6px_18px_rgba(15,40,80,0.05)] transition-all hover:-translate-y-1 hover:shadow-[0_12px_28px_rgba(15,40,80,0.1)]"
-                    >
-                      <div className="flex items-start gap-3">
-                        <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-brand-surface text-brand-primary">
-                          <WarehouseIcon size={18} aria-hidden="true" />
-                        </span>
-                        <div className="min-w-0">
-                          {warehouse.type && (
-                            <span className="mb-1 inline-block rounded-full bg-brand-surface px-2 py-0.5 text-[11px] font-semibold text-brand-primary">
-                              {warehouseTypeLabel(warehouse.type)}
-                            </span>
-                          )}
-                          <h3 className="font-bold text-brand-navy-dark">{warehouse.name}</h3>
-                          <p className="flex items-center gap-1 text-sm text-gray-600">
-                            <MapPin size={13} className="shrink-0 text-brand-primary" aria-hidden="true" />
-                            {[districtName(warehouse.district), talukName(warehouse.taluk)]
-                              .filter(Boolean)
-                              .join(', ')}
-                          </p>
-                        </div>
-                      </div>
-                      {warehouse.address && <p className="text-sm text-gray-600">{warehouse.address}</p>}
-                      {warehouse.capacityMt > 0 && (
-                        <div className="mt-1 flex items-center justify-between rounded-lg bg-brand-page px-3 py-2 text-sm">
-                          <span className="text-gray-600">{t.warehouses.capacity[language]}</span>
-                          <span className="font-bold text-brand-navy-dark">
-                            {warehouse.capacityMt.toLocaleString('en-IN')} MT
-                          </span>
-                        </div>
-                      )}
-                    </article>
-                  ))}
-                </div>
-              )}
-            </>
-          )}
-        </div>
-      </section>
+      <WarehouseExplorer
+        warehouses={warehouses}
+        districts={districts}
+        taluks={taluks}
+        language={language}
+        isLoading={isLoading}
+      />
 
       {/* Focus Sectors of Karnataka */}
       <section className="bg-white px-4 py-16 md:px-8 md:py-20">
@@ -302,7 +155,7 @@ export default function ExporterCorner() {
                   <div className="grid grid-cols-1 lg:grid-cols-[1.1fr_1fr]">
                     <div className="relative h-56 lg:h-full">
                       <img src={activeSector.image} alt="" className="h-full w-full object-cover" />
-                      <div className="absolute inset-0 bg-gradient-to-t from-brand-navy-dark/70 via-transparent to-transparent lg:bg-gradient-to-r" />
+                      <div className="absolute inset-0 bg-gradient-to-t from-brand-navy-dark/55 via-transparent to-transparent lg:bg-gradient-to-r" />
                     </div>
 
                     <div className="flex flex-col gap-5 p-6 md:p-8">

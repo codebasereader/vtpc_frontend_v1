@@ -106,8 +106,8 @@ export default function GeographicalIndications() {
             aria-hidden="true"
           />
         ))}
-        <div className="absolute inset-0 bg-gradient-to-r from-brand-navy-dark/95 via-brand-navy-dark/75 to-brand-navy-dark/20" />
-        <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent" />
+        <div className="absolute inset-0 bg-gradient-to-r from-brand-navy-dark/80 via-brand-navy-dark/40 to-transparent" />
+        <div className="absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-transparent" />
 
         <div className="relative z-10 mx-auto w-full max-w-6xl px-4 py-16 md:px-8">
           <h1 className="max-w-2xl text-3xl leading-tight font-extrabold text-white md:text-4xl lg:text-[2.85rem]">
@@ -264,8 +264,8 @@ function ForefrontSection({ language }) {
       className="relative overflow-hidden bg-brand-navy-dark bg-cover bg-center px-4 py-16 md:px-8 md:py-20"
       style={{ backgroundImage: `url(${encodeURI(FOREFRONT_IMAGE)})` }}
     >
-      <div className="absolute inset-0 bg-gradient-to-r from-brand-primary/90 via-brand-primary-dark/80 to-brand-navy-dark/85" />
-      <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-black/10" />
+      <div className="absolute inset-0 bg-gradient-to-r from-brand-primary/80 via-brand-primary-dark/55 to-brand-navy-dark/55" />
+      <div className="absolute inset-0 bg-gradient-to-t from-black/25 via-transparent to-transparent" />
 
       <div className="relative mx-auto max-w-6xl">
         <h2 className="max-w-2xl text-2xl leading-tight font-bold text-white md:text-3xl lg:text-[2.1rem]">

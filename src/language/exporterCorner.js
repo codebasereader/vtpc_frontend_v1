@@ -74,8 +74,8 @@ export const exporterCorner = {
         kn: "ಒಟ್ಟು ರಫ್ತು (ಸರಕು + ಸೇವೆಗಳು): ಕರ್ನಾಟಕ vs ಇತರ ಪ್ರಮುಖ ರಾಜ್ಯಗಳು",
       },
       hint: {
-        en: "Karnataka is shown in red.",
-        kn: "ಕರ್ನಾಟಕವನ್ನು ಕೆಂಪು ಬಣ್ಣದಲ್ಲಿ ತೋರಿಸಲಾಗಿದೆ.",
+        en: "Karnataka is shown in green.",
+        kn: "ಕರ್ನಾಟಕದ ಅಂಕಿಅಂಶಗಳನ್ನು ಹಸಿರು ಬಣ್ಣದಲ್ಲಿ ತೋರಿಸಲಾಗಿದೆ.",
       },
       servicesHint: {
         en: "Software & services figures are RBI estimates.",
@@ -121,7 +121,6 @@ export const exporterCorner = {
         en: "Rank {rank} of {total} states",
         kn: "{total} ರಾಜ್ಯಗಳಲ್ಲಿ {rank}ನೇ ಸ್ಥಾನ",
       },
-      leads: { en: "Leads", kn: "ಮುಂಚೂಣಿ" },
       leadsTitle: {
         en: "Where Karnataka leads",
         kn: "ಕರ್ನಾಟಕ ಮುಂಚೂಣಿಯಲ್ಲಿರುವ ವಲಯಗಳು",
@@ -296,6 +295,17 @@ export const exporterCorner = {
       en: "Location not mapped yet",
       kn: "ಸ್ಥಳ ಇನ್ನೂ ನಕ್ಷೆಯಲ್ಲಿಲ್ಲ",
     },
+    all: { en: "All", kn: "ಎಲ್ಲಾ" },
+    typesLabel: { en: "Facility types", kn: "ಸೌಲಭ್ಯದ ವಿಧಗಳು" },
+    mapLabel: {
+      en: "Map of Karnataka showing districts with warehouse facilities",
+      kn: "ಗೋದಾಮು ಸೌಲಭ್ಯಗಳಿರುವ ಜಿಲ್ಲೆಗಳನ್ನು ತೋರಿಸುವ ಕರ್ನಾಟಕ ನಕ್ಷೆ",
+    },
+    mapHint: {
+      en: "Pins show the district (approximate location). Click a district to filter.",
+      kn: "ಪಿನ್‌ಗಳು ಜಿಲ್ಲೆಯನ್ನು (ಅಂದಾಜು ಸ್ಥಳ) ತೋರಿಸುತ್ತವೆ. ಫಿಲ್ಟರ್ ಮಾಡಲು ಜಿಲ್ಲೆಯ ಮೇಲೆ ಕ್ಲಿಕ್ ಮಾಡಿ.",
+    },
+    clearDistrict: { en: "Clear district", kn: "ಜಿಲ್ಲೆ ತೆರವುಗೊಳಿಸಿ" },
     loading: { en: "Loading warehouses…", kn: "ಗೋದಾಮುಗಳು ಲೋಡ್ ಆಗುತ್ತಿವೆ…" },
   },
 

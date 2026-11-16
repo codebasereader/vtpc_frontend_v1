@@ -17,7 +17,7 @@ export default function AuthLayout() {
         fetchPriority="high"
         className="absolute inset-0 h-full w-full object-cover"
       />
-      <div className="absolute inset-0 bg-gradient-to-br from-brand-navy-dark/90 via-brand-navy-dark/55 to-brand-primary/25" />
+      <div className="absolute inset-0 bg-gradient-to-br from-brand-navy-dark/75 via-brand-navy-dark/35 to-brand-primary/10" />
 
       <div className="relative z-10 mx-auto grid min-h-screen w-full max-w-6xl items-center gap-12 px-4 py-10 sm:px-8 lg:grid-cols-[1.1fr_0.9fr]">
         <aside className="hidden text-white lg:block">

@@ -9,7 +9,7 @@
   --color-brand-navy: #234c86;
   --color-brand-navy-dark: #163a6d;
   --color-brand-dark: #2d2d2d;
-  --color-brand-page: #f6f3f3;
+  --color-brand-page: #f8f5f5;
   --color-brand-surface: #f7e2e4;
   --color-brand-rose: #f7d1d1;
   --color-brand-rose-dark: #e4a4aa;
@@ -172,4 +172,13 @@ body {
   .forms-marquee-track > div[aria-hidden='true'] {
     display: none;
   }
+}
+
+/* Photo clarity: slight lift in contrast/saturation so photographs
+   don't read flat, plus crisper downscaling. Icons/logos are untouched
+   (they're not object-cover). Admin UI is excluded. */
+img.object-cover,
+.photo-boost {
+  filter: saturate(1.12) contrast(1.06) brightness(1.03);
+  image-rendering: auto;
 }

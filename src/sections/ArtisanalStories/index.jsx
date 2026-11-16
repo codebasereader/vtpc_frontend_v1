@@ -18,8 +18,8 @@ export default function ArtisanalStories({ products, isLoading }) {
     >
       {/* Light enough that the background photo actually reads, while
           keeping the white copy legible. */}
-      <div className="absolute inset-0 bg-brand-navy-dark/45" />
-      <div className="absolute inset-0 bg-gradient-to-t from-brand-navy-dark/80 via-transparent to-brand-navy-dark/30" />
+      <div className="absolute inset-0 bg-brand-navy-dark/25" />
+      <div className="absolute inset-0 bg-gradient-to-t from-brand-navy-dark/70 via-transparent to-brand-navy-dark/10" />
 
       <div className="relative mx-auto max-w-6xl">
         <h2 className="text-2xl font-bold text-white md:text-3xl lg:text-[2rem]">
@@ -86,7 +86,7 @@ function StoryCard({ story, language, onOpen }) {
         ) : (
           <div className="h-full w-full bg-gradient-to-br from-brand-navy to-brand-navy-dark" />
         )}
-        <div className="absolute inset-0 bg-black/25 transition-colors group-hover:bg-black/35" />
+        <div className="absolute inset-0 bg-black/10 transition-colors group-hover:bg-black/25" />
         <span className="absolute inset-0 flex items-center justify-center">
           <span className="flex h-14 w-14 items-center justify-center rounded-full bg-white/20 text-white transition-transform group-hover:scale-110 group-hover:bg-brand-primary">
             <Play size={22} className="ml-0.5 fill-current" aria-hidden="true" />

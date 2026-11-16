@@ -69,7 +69,7 @@ export default function KalalokaIntro() {
           loading="lazy"
           className="absolute inset-0 h-full w-full object-cover"
         />
-        <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/35 to-black/70" aria-hidden="true" />
+        <div className="absolute inset-0 bg-gradient-to-b from-black/45 via-black/15 to-black/55" aria-hidden="true" />
 
         <div className="relative mx-auto max-w-3xl">
           <h2 className="text-center text-2xl font-bold text-white [text-shadow:0_2px_12px_rgba(0,0,0,0.6)] md:text-3xl">

@@ -112,7 +112,7 @@ export default function AboutUs() {
         className="relative bg-cover bg-center px-4 py-16 md:px-8 md:py-24"
         style={{ backgroundImage: `url(${HERO_IMAGE})` }}
       >
-        <div className="absolute inset-0 bg-gradient-to-r from-brand-navy-dark/90 via-brand-navy-dark/70 to-brand-navy-dark/30" />
+        <div className="absolute inset-0 bg-gradient-to-r from-brand-navy-dark/80 via-brand-navy-dark/45 to-transparent" />
         <div className="relative mx-auto max-w-6xl">
           <h1 className="max-w-2xl text-3xl font-extrabold text-white md:text-4xl lg:text-[2.75rem] lg:leading-tight">
             {t.hero.heading[language]}
