@@ -46,7 +46,7 @@ export const common = {
     followUs: { en: "Follow us", kn: "ನಮ್ಮನ್ನು ಅನುಸರಿಸಿ" },
     copyright: {
       en: "Visvesvaraya Trade Promotion Centre, Government of Karnataka.",
-      kn: "ವಿಶ್ವೇಶ್ವರಯ್ಯ ವ್ಯಾಪಾರ ಪ್ರಚಾರ ಕೇಂದ್ರ, ಕರ್ನಾಟಕ ಸರ್ಕಾರ.",
+      kn: "ವಿಶ್ವೇಶ್ವರಯ್ಯ ವ್ಯಾಪಾರ ಉತ್ತೇಜನ ಕೇಂದ್ರ, ಕರ್ನಾಟಕ ಸರ್ಕಾರ.",
     },
     newsletter: {
       heading: {

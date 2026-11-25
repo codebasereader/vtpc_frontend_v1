@@ -3,17 +3,17 @@ import mapMarkup from '../../../assets/karnataka-districts-map.svg?raw'
 
 const SELECTED_COLOR = '#c83744'
 
-// Soft, brand-adjacent tints so the map reads as colorful without
+// Vivid but still friendly tints so the map pops against the white card, without
 // competing with the solid crimson used for the selected district.
 const DISTRICT_COLORS = [
-  '#f2b6bd',
-  '#a7c4e6',
-  '#f4cf8a',
-  '#f0b592',
-  '#a8d5cd',
-  '#c9b8e8',
-  '#b9dba0',
-  '#f0a8c4',
+  '#f58ea0',
+  '#6fa8ec',
+  '#f8c24e',
+  '#f7a05f',
+  '#55c6b2',
+  '#a98cee',
+  '#8fd45f',
+  '#f56fae',
 ]
 
 // Below this area (in the SVG's own viewBox units) a district's shape is
@@ -75,6 +75,9 @@ export default function KarnatakaMap({ selectedId, onSelect }) {
       anchor.dataset.baseColor = color
       fillableParts(anchor).forEach((path) => {
         path.style.fill = color
+        // Crisp white borders between districts instead of the SVG's muted pink outline.
+        path.style.stroke = '#ffffff'
+        path.style.strokeWidth = '0.9'
       })
 
       const override = LABEL_OVERRIDES[anchor.getAttribute('data-district')]
@@ -135,7 +138,7 @@ export default function KarnatakaMap({ selectedId, onSelect }) {
   return (
     <div
       ref={containerRef}
-      className="[&_.map-a]:cursor-pointer [&_.map-a]:outline-none [&_.map-a]:transition-[filter] [&_.map-a:hover]:brightness-95 [&_.map-a-selected]:brightness-100"
+      className="rounded-3xl bg-white p-4 shadow-[0_10px_30px_rgba(15,40,80,0.10)] ring-1 ring-brand-divider/60 md:p-6 [&_.map-a]:cursor-pointer [&_.map-a]:outline-none [&_.map-a]:transition-[filter] [&_.map-a:hover]:brightness-95 [&_.map-a-selected]:brightness-100"
       role="img"
       aria-label="Map of Karnataka districts — select a district to view its export data"
       dangerouslySetInnerHTML={{ __html: mapMarkup }}

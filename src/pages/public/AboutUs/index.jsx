@@ -10,7 +10,6 @@ import {
   Target,
   Compass,
   ShipWheel,
-  Handshake,
   Building2,
   ClipboardList,
   Scale,
@@ -39,7 +38,6 @@ const HERO_CARD_ICONS = {
 
 const WHAT_WE_DO_ICONS = {
   promoteExportsSez: ShipWheel,
-  coordinateStrategy: Handshake,
   developExportHubs: Building2,
   implementTies: ClipboardList,
   giPolicy: ShieldCheck,
@@ -178,13 +176,13 @@ export default function AboutUs() {
             <h2 className="text-2xl font-bold text-white md:text-3xl">{t.whatWeDo.heading[language]}</h2>
           </div>
 
-          <div className="mt-8 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+          <div className="mt-8 flex flex-wrap justify-center gap-5">
             {t.whatWeDo.cards.map((card) => {
               const Icon = WHAT_WE_DO_ICONS[card.key]
               return (
                 <div
                   key={card.key}
-                  className="group flex flex-col gap-3 rounded-2xl bg-white/95 p-6 shadow-[0_10px_28px_rgba(0,0,0,0.18)] ring-1 ring-white/40 transition-all hover:-translate-y-1 hover:shadow-[0_16px_36px_rgba(0,0,0,0.24)]"
+                  className="group flex w-full flex-col sm:w-[calc((100%-1.25rem)/2)] lg:w-[calc((100%-2.5rem)/3)] gap-3 rounded-2xl bg-white/95 p-6 shadow-[0_10px_28px_rgba(0,0,0,0.18)] ring-1 ring-white/40 transition-all hover:-translate-y-1 hover:shadow-[0_16px_36px_rgba(0,0,0,0.24)]"
                 >
                   <span className="flex h-11 w-11 items-center justify-center rounded-xl bg-brand-surface text-brand-primary transition-colors group-hover:bg-brand-primary group-hover:text-white">
                     <Icon size={20} aria-hidden="true" />

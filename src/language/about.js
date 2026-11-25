@@ -8,7 +8,7 @@ export const about = {
     },
     description: {
       en: "The Visvesvaraya Trade Promotion Centre (VTPC), established in 1971 as the Visvesvaraya Industrial Trade Centre (VITC) and renamed in 2014, is Karnataka’s designated Nodal Agency for international trade promotion. Operating under the Department of Industries & Commerce, Government of Karnataka, it is named after Bharat Ratna Sir M. Visvesvaraya, a key figure in the state’s industrialization.",
-      kn: "ವಿಶ್ವೇಶ್ವರಯ್ಯ ವ್ಯಾಪಾರ ಉತ್ತೇಜನ ಕೇಂದ್ರ (VTPC), 1971ರಲ್ಲಿ ವಿಶ್ವೇಶ್ವರಯ್ಯ ಕೈಗಾರಿಕಾ ವ್ಯಾಪಾರ ಕೇಂದ್ರ (VITC) ಎಂದು ಸ್ಥಾಪಿಸಲ್ಪಟ್ಟು 2014ರಲ್ಲಿ ಮರುನಾಮಕರಣಗೊಂಡಿತು. ಇದು ಅಂತಾರಾಷ್ಟ್ರೀಯ ವ್ಯಾಪಾರ ಉತ್ತೇಜನಕ್ಕಾಗಿ ಕರ್ನಾಟಕದ ನಿಯೋಜಿತ ನೋಡಲ್ ಏಜೆನ್ಸಿಯಾಗಿದೆ. ಕರ್ನಾಟಕ ಸರ್ಕಾರದ ಕೈಗಾರಿಕೆ ಮತ್ತು ವಾಣಿಜ್ಯ ಇಲಾಖೆಯ ಅಡಿಯಲ್ಲಿ ಕಾರ್ಯನಿರ್ವಹಿಸುವ ಇದಕ್ಕೆ ರಾಜ್ಯದ ಕೈಗಾರಿಕೀಕರಣದ ಪ್ರಮುಖ ವ್ಯಕ್ತಿ ಭಾರತ ರತ್ನ ಸರ್ ಎಂ. ವಿಶ್ವೇಶ್ವರಯ್ಯನವರ ಹೆಸರನ್ನು ಇಡಲಾಗಿದೆ.",
+      kn: "ವಿಶ್ವೇಶ್ವರಯ್ಯ ವ್ಯಾಪಾರ ಉತ್ತೇಜನ ಕೇಂದ್ರ (VTPC), 1971ರಲ್ಲಿ ವಿಶ್ವೇಶ್ವರಯ್ಯ ಕೈಗಾರಿಕಾ ವ್ಯಾಪಾರ ಕೇಂದ್ರ (VITC) ಎಂದು ಸ್ಥಾಪಿಸಲ್ಪಟ್ಟು 2014ರಲ್ಲಿ ಮರುನಾಮಕರಣಗೊಂಡಿತು. ಇದು ಅಂತಾರಾಷ್ಟ್ರೀಯ ವ್ಯಾಪಾರ ಉತ್ತೇಜನಕ್ಕಾಗಿ ಕರ್ನಾಟಕದ ನಿಯೋಜಿತ ನೋಡಲ್ ಏಜೆನ್ಸಿಯಾಗಿದೆ. ಕರ್ನಾಟಕ ಸರ್ಕಾರದ ಕೈಗಾರಿಕೆ ಮತ್ತು ವಾಣಿಜ್ಯ ಇಲಾಖೆಯ ಅಡಿಯಲ್ಲಿ ಕಾರ್ಯನಿರ್ವಹಿಸುವ ಈ ರಾಜ್ಯದ ಕೈಗಾರಿಕೀಕರಣದ ಪ್ರಮುಖ ವ್ಯಕ್ತಿ ಭಾರತ ರತ್ನ ಸರ್ ಎಂ. ವಿಶ್ವೇಶ್ವರಯ್ಯನವರ ಹೆಸರನ್ನು ಇಡಲಾಗಿದೆ.",
     },
     cards: [
       {
@@ -69,14 +69,6 @@ export const about = {
         description: {
           en: "Support exporters through market intelligence, trade fairs, and buyer-seller meets, while promoting SEZs and EOUs.",
           kn: "ಮಾರುಕಟ್ಟೆ ಮಾಹಿತಿ, ವ್ಯಾಪಾರ ಮೇಳಗಳು ಮತ್ತು ಖರೀದಿದಾರ-ಮಾರಾಟಗಾರ ಸಭೆಗಳ ಮೂಲಕ ರಫ್ತುದಾರರಿಗೆ ಬೆಂಬಲ, ಜೊತೆಗೆ SEZ ಮತ್ತು EOUಗಳ ಪ್ರೋತ್ಸಾಹ.",
-        },
-      },
-      {
-        key: "coordinateStrategy",
-        title: { en: "Coordinate Strategy", kn: "ತಂತ್ರ ಸಮನ್ವಯ" },
-        description: {
-          en: "Coordinate Service and Sector Strategy across government agencies and trade bodies.",
-          kn: "ಸರ್ಕಾರಿ ಸಂಸ್ಥೆಗಳು ಮತ್ತು ವ್ಯಾಪಾರ ಸಂಸ್ಥೆಗಳ ನಡುವೆ ಸೇವೆ ಮತ್ತು ವಲಯ ತಂತ್ರವನ್ನು ಸಮನ್ವಯಗೊಳಿಸುವುದು.",
         },
       },
       {

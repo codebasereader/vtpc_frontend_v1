@@ -9,9 +9,7 @@ import {
   Shirt,
   Landmark,
   Trophy,
-  ChevronRight,
   ArrowRight,
-  X,
   Leaf,
   Hammer,
   Award,
@@ -53,10 +51,14 @@ const STAT_ICONS = {
 
 const HERO_INTERVAL_MS = 5000
 
+// "What is GI?" opens this PDF in a new tab. Leave empty until the PDF is
+// supplied — the button is hidden while this is empty. Put the file under
+// public/assets/pdf/ and set e.g. '/assets/pdf/What-is-GI.pdf'.
+const WHAT_IS_GI_PDF_URL = ''
+
 export default function GeographicalIndications() {
   const language = useSelector(selectLanguage)
   const [activeSlide, setActiveSlide] = useState(0)
-  const [isGiModalOpen, setIsGiModalOpen] = useState(false)
   const [giProducts, setGiProducts] = useState([])
   const [isLoadingProducts, setIsLoadingProducts] = useState(true)
 
@@ -120,13 +122,25 @@ export default function GeographicalIndications() {
             {t.hero.description[language]}
           </p>
 
-          <a
-            href="#gi-coffee-hub"
-            className="mt-8 inline-flex items-center gap-2 rounded-lg bg-brand-primary px-6 py-3 text-sm font-bold text-white shadow-[0_10px_24px_rgba(200,55,68,0.35)] transition-all hover:-translate-y-0.5 hover:bg-brand-primary-dark hover:shadow-[0_14px_30px_rgba(200,55,68,0.45)]"
-          >
-            {t.hero.cta[language]}
-            <ArrowRight size={16} aria-hidden="true" />
-          </a>
+          <div className="mt-8 flex flex-wrap items-center gap-3">
+            {WHAT_IS_GI_PDF_URL && (
+              <a
+                href={WHAT_IS_GI_PDF_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 rounded-lg border-2 border-white/80 px-6 py-[10px] text-sm font-bold text-white transition-colors hover:bg-white hover:text-brand-navy-dark"
+              >
+                {t.coffeeHub.whatIsGi[language]}
+              </a>
+            )}
+            <a
+              href="#gi-coffee-hub"
+              className="inline-flex items-center gap-2 rounded-lg bg-brand-primary px-6 py-3 text-sm font-bold text-white shadow-[0_10px_24px_rgba(200,55,68,0.35)] transition-all hover:-translate-y-0.5 hover:bg-brand-primary-dark hover:shadow-[0_14px_30px_rgba(200,55,68,0.45)]"
+            >
+              {t.hero.cta[language]}
+              <ArrowRight size={16} aria-hidden="true" />
+            </a>
+          </div>
 
           {/* Slide indicators */}
           <div className="mt-12 flex items-center gap-2">
@@ -157,14 +171,6 @@ export default function GeographicalIndications() {
               {t.coffeeHub.heading[language]}
             </h2>
             <p className="mt-4 text-base leading-relaxed text-gray-600">{t.coffeeHub.description[language]}</p>
-            <button
-              type="button"
-              onClick={() => setIsGiModalOpen(true)}
-              className="mt-6 inline-flex items-center gap-2 rounded-lg border-2 border-brand-primary px-5 py-2.5 text-sm font-bold text-brand-primary transition-colors hover:bg-brand-primary hover:text-white"
-            >
-              {t.coffeeHub.whatIsGi[language]}
-              <ArrowRight size={15} aria-hidden="true" />
-            </button>
           </div>
 
           <div className="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
@@ -185,46 +191,12 @@ export default function GeographicalIndications() {
                     <h3 className="text-sm font-bold text-brand-navy-dark">{card.title[language]}</h3>
                     <p className="mt-1.5 text-sm leading-relaxed text-gray-600">{card.description[language]}</p>
                   </div>
-                  <ChevronRight
-                    size={18}
-                    className="mt-1 shrink-0 text-brand-divider transition-all group-hover:translate-x-1 group-hover:text-brand-primary"
-                    aria-hidden="true"
-                  />
                 </div>
               )
             })}
           </div>
         </div>
       </section>
-
-      {/* What is GI? modal */}
-      {isGiModalOpen && (
-        <div
-          className="fixed inset-0 z-50 flex items-center justify-center bg-black/60 px-4"
-          role="dialog"
-          aria-modal="true"
-          aria-labelledby="gi-modal-title"
-          onClick={() => setIsGiModalOpen(false)}
-        >
-          <div
-            className="relative w-full max-w-md rounded-2xl bg-white p-7 shadow-[0_24px_60px_rgba(0,0,0,0.3)]"
-            onClick={(event) => event.stopPropagation()}
-          >
-            <button
-              type="button"
-              onClick={() => setIsGiModalOpen(false)}
-              aria-label="Close"
-              className="absolute top-4 right-4 flex h-8 w-8 items-center justify-center rounded-full text-gray-400 transition-colors hover:bg-brand-page hover:text-brand-navy-dark"
-            >
-              <X size={18} aria-hidden="true" />
-            </button>
-            <h3 id="gi-modal-title" className="pr-8 text-lg font-bold text-brand-navy-dark">
-              {t.coffeeHub.whatIsGi[language]}
-            </h3>
-            <p className="mt-3 text-sm leading-relaxed text-gray-600">{t.coffeeHub.whatIsGiText[language]}</p>
-          </div>
-        </div>
-      )}
 
       {/* At the Forefront */}
       <ForefrontSection language={language} />
@@ -268,10 +240,9 @@ function ForefrontSection({ language }) {
       <div className="absolute inset-0 bg-gradient-to-t from-black/25 via-transparent to-transparent" />
 
       <div className="relative mx-auto max-w-6xl">
-        <h2 className="max-w-2xl text-2xl leading-tight font-bold text-white md:text-3xl lg:text-[2.1rem]">
+        <h2 className="max-w-3xl text-2xl leading-tight font-bold text-white md:text-3xl lg:text-[2.1rem]">
           {t.forefront.heading[language]}
         </h2>
-        <p className="mt-2 max-w-xl text-base text-white/90">{t.forefront.description[language]}</p>
 
         <div className="mt-10 grid grid-cols-2 gap-3 sm:grid-cols-3 lg:grid-cols-5">
           {t.forefront.stats.map((stat) => (

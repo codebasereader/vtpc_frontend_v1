@@ -21,10 +21,6 @@ export const geographicalIndications = {
       kn: 'ಭೌಗೋಳಿಕ ಸೂಚನೆ (GI) ಮುದ್ರೆ ಪಡೆದ ಉತ್ಪನ್ನಗಳೆಂದು ಕರೆಯಲ್ಪಡುವ ರಾಜ್ಯದ ಸಾಂಪ್ರದಾಯಿಕ ಪರಂಪರೆ ಮತ್ತು ಕರಕುಶಲ ಉತ್ಪನ್ನಗಳ ಪ್ರವಾಸ ಕೈಗೊಳ್ಳಿ.',
     },
     whatIsGi: { en: 'What is GI?', kn: 'GI ಎಂದರೇನು?' },
-    whatIsGiText: {
-      en: 'GI identifies goods with unique qualities linked to their geographic origin, influenced by factors like soil, climate, and local skills. India’s GI Act, enacted in 1999 and amended in 2020, governs these protections.',
-      kn: 'GI ಎಂಬುದು ಮಣ್ಣು, ಹವಾಮಾನ ಮತ್ತು ಸ್ಥಳೀಯ ಕೌಶಲ್ಯಗಳಂತಹ ಅಂಶಗಳಿಂದ ಪ್ರಭಾವಿತವಾದ, ತಮ್ಮ ಭೌಗೋಳಿಕ ಮೂಲಕ್ಕೆ ಸಂಬಂಧಿಸಿದ ವಿಶಿಷ್ಟ ಗುಣಗಳನ್ನು ಹೊಂದಿರುವ ಸರಕುಗಳನ್ನು ಗುರುತಿಸುತ್ತದೆ. 1999ರಲ್ಲಿ ಜಾರಿಗೆ ಬಂದು 2020ರಲ್ಲಿ ತಿದ್ದುಪಡಿಯಾದ ಭಾರತದ GI ಕಾಯ್ದೆ ಈ ರಕ್ಷಣೆಗಳನ್ನು ನಿಯಂತ್ರಿಸುತ್ತದೆ.',
-    },
     cards: [
       {
         key: 'exquisiteProducts',
@@ -88,12 +84,8 @@ export const geographicalIndications = {
   forefront: {
     eyebrow: { en: 'At the Forefront', kn: 'ಮುಂಚೂಣಿಯಲ್ಲಿ' },
     heading: {
-      en: 'Karnataka has established itself as a premier exporter in India,',
-      kn: 'ಕರ್ನಾಟಕ ಭಾರತದಲ್ಲಿ ಪ್ರಮುಖ ರಫ್ತುದಾರನಾಗಿ ತನ್ನನ್ನು ಸ್ಥಾಪಿಸಿಕೊಂಡಿದೆ,',
-    },
-    description: {
-      en: 'attracting investments from international stakeholders.',
-      kn: 'ಅಂತಾರಾಷ್ಟ್ರೀಯ ಹೂಡಿಕೆದಾರರಿಂದ ಹೂಡಿಕೆಗಳನ್ನು ಆಕರ್ಷಿಸುತ್ತಿದೆ.',
+      en: 'Karnataka is home to unique and exquisite GI tags across the handicrafts, agriculture, manufactured goods and food segments.',
+      kn: 'ಕರ್ನಾಟಕವು ಕರಕುಶಲ, ಕೃಷಿ, ತಯಾರಿಕಾ ಸರಕುಗಳು ಮತ್ತು ಆಹಾರ ವಿಭಾಗಗಳಾದ್ಯಂತ ವಿಶಿಷ್ಟ ಮತ್ತು ಅಪೂರ್ವ GI ಮುದ್ರೆಗಳ ತವರಾಗಿದೆ.',
     },
     stats: [
       { key: 'agriculturalGis', value: 24, label: { en: 'Agricultural GIs', kn: 'ಕೃಷಿ GIಗಳು' } },
@@ -108,8 +100,8 @@ export const geographicalIndications = {
     eyebrow: { en: 'GI Treasures', kn: 'GI ನಿಧಿಗಳು' },
     heading: { en: "Karnataka's GI Treasures", kn: 'ಕರ್ನಾಟಕದ GI ನಿಧಿಗಳು' },
     description: {
-      en: 'Browse by category to discover the artisans, farms and factories behind each GI tag.',
-      kn: 'ಪ್ರತಿ GI ಮುದ್ರೆಯ ಹಿಂದಿನ ಕುಶಲಕರ್ಮಿಗಳು, ಕೃಷಿ ಮತ್ತು ಕಾರ್ಖಾನೆಗಳನ್ನು ಕಂಡುಹಿಡಿಯಲು ವರ್ಗದ ಮೂಲಕ ಬ್ರೌಸ್ ಮಾಡಿ.',
+      en: 'Browse by category to learn more about each GI',
+      kn: 'ಪ್ರತಿ GI ಬಗ್ಗೆ ಹೆಚ್ಚು ತಿಳಿಯಲು ವರ್ಗದ ಮೂಲಕ ಬ್ರೌಸ್ ಮಾಡಿ',
     },
     loading: { en: 'Loading GI products…', kn: 'GI ಉತ್ಪನ್ನಗಳನ್ನು ಲೋಡ್ ಮಾಡಲಾಗುತ್ತಿದೆ…' },
     empty: {
