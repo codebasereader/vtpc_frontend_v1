@@ -48,9 +48,6 @@ const DownloadsList = lazy(() => import('../pages/admin/Downloads/DownloadsList'
 const DownloadForm = lazy(() => import('../pages/admin/Downloads/DownloadForm'))
 const PagesList = lazy(() => import('../pages/admin/Pages/PagesList'))
 const PageForm = lazy(() => import('../pages/admin/Pages/PageForm'))
-const NewsletterSubscribers = lazy(() => import('../pages/admin/Newsletter/NewsletterSubscribers'))
-const NewsletterIssues = lazy(() => import('../pages/admin/Newsletter/NewsletterIssues'))
-const SentNewsletters = lazy(() => import('../pages/admin/Newsletter/SentNewsletters'))
 const VisitorAnalytics = lazy(() => import('../pages/admin/VisitorAnalytics'))
 const MarketData = lazy(() => import('../pages/admin/MarketData'))
 
@@ -76,9 +73,6 @@ const BUILT_SECTIONS = [
   'downloadCategories',
   'downloads',
   'pages',
-  'newsletterSubscribers',
-  'newsletterIssues',
-  'newslettersSent',
   'visitorAnalytics',
   'marketData',
 ]
@@ -553,30 +547,6 @@ export default function AdminRoutes() {
             element={
               <ProtectedRoute>
                 <PageForm />
-              </ProtectedRoute>
-            }
-          />
-          <Route
-            path="newsletter-subscribers"
-            element={
-              <ProtectedRoute>
-                <NewsletterSubscribers />
-              </ProtectedRoute>
-            }
-          />
-          <Route
-            path="newsletter-issues"
-            element={
-              <ProtectedRoute>
-                <NewsletterIssues />
-              </ProtectedRoute>
-            }
-          />
-          <Route
-            path="newsletters-sent"
-            element={
-              <ProtectedRoute>
-                <SentNewsletters />
               </ProtectedRoute>
             }
           />

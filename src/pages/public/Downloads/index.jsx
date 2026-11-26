@@ -124,6 +124,26 @@ function CategoryCard({ category, documents, language }) {
   )
 }
 
+const MONTHS = ['january', 'february', 'march', 'april', 'may', 'june', 'july', 'august', 'september', 'october', 'november', 'december']
+
+// Reads the period from a title such as "Newsletter April - June 2026".
+function periodOf(doc) {
+  const title = (doc.title?.en || '').toLowerCase()
+  const year = Number(title.match(/\b20\d{2}\b/)?.[0])
+  const month = title.split(/[^a-z]+/).map((word) => MONTHS.indexOf(word)).find((index) => index >= 0)
+  return year && month !== undefined ? { year, month } : null
+}
+
+// Periodical documents (every title carries a month and year) are listed newest first under year
+// headings, whatever their order numbers. Any other set keeps the order chosen in the admin.
+function groupByYear(documents) {
+  const dated = documents.map((doc) => ({ doc, period: periodOf(doc) }))
+  if (dated.some((item) => !item.period)) return [{ year: null, documents }]
+  dated.sort((a, b) => b.period.year - a.period.year || b.period.month - a.period.month)
+  const years = [...new Set(dated.map((item) => item.period.year))]
+  return years.map((year) => ({ year, documents: dated.filter((item) => item.period.year === year).map((item) => item.doc) }))
+}
+
 function DocumentRow({ doc, children, language }) {
   const [isExpanded, setIsExpanded] = useState(false)
   const hasChildren = children.length > 0
@@ -171,12 +191,17 @@ function DocumentRow({ doc, children, language }) {
 
       {hasChildren && isExpanded && (
         <div className="animate-fade-slide-up flex flex-col divide-y divide-brand-divider bg-brand-page/40 pl-6">
-          {children.map((child) => (
-            <div key={child.id} className="flex flex-col gap-3 py-3 pr-6 pl-9 sm:flex-row sm:items-center sm:justify-between">
-              <span className="min-w-0 truncate text-sm font-medium text-brand-dark">
-                {getBilingualTextOrEnglish(child.title, language)}
-              </span>
-              {child.fileUrl && <DocumentActions fileUrl={child.fileUrl} language={language} compact />}
+          {groupByYear(children).map((group) => (
+            <div key={group.year ?? 'all'} className="flex flex-col divide-y divide-brand-divider">
+              {group.year && <h3 className="py-2.5 pl-9 text-sm font-bold text-brand-primary">{group.year}</h3>}
+              {group.documents.map((child) => (
+                <div key={child.id} className="flex flex-col gap-3 py-3 pr-6 pl-9 sm:flex-row sm:items-center sm:justify-between">
+                  <span className="min-w-0 truncate text-sm font-medium text-brand-dark">
+                    {getBilingualTextOrEnglish(child.title, language)}
+                  </span>
+                  {child.fileUrl && <DocumentActions fileUrl={child.fileUrl} language={language} compact />}
+                </div>
+              ))}
             </div>
           ))}
         </div>

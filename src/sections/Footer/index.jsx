@@ -1,12 +1,11 @@
 import { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 import { useSelector } from 'react-redux'
-import { Mail, Send, MapPin, Phone, Eye, Clock, CheckCircle2 } from 'lucide-react'
+import { Mail, MapPin, Phone, Eye, Clock } from 'lucide-react'
 import { ROUTES } from '../../constants/routes'
 import { selectLanguage } from '../../redux/slices/localeSlice'
 import { common } from '../../language/common'
 import { getOffices } from '../../api/officesApi'
-import { subscribeToNewsletter } from '../../api/newsletterApi'
 import { SOCIAL_LINKS } from '../../constants/socialLinks'
 import { getVisitsSummary, getLastUpdated, trackVisit } from '../../api/visitsApi'
 
@@ -81,8 +80,6 @@ export default function Footer() {
 
   return (
     <footer className="bg-brand-navy-dark text-white">
-      <NewsletterBand language={language} />
-
       <div className="border-t border-white/10 px-4 py-14 md:px-8">
         <div className="mx-auto grid max-w-6xl gap-10 sm:grid-cols-2 lg:grid-cols-4">
           <div>
@@ -235,65 +232,6 @@ function FooterLogos() {
           </a>
         ))}
       </div>
-    </div>
-  )
-}
-
-function NewsletterBand({ language }) {
-  const [email, setEmail] = useState('')
-  const [status, setStatus] = useState('idle') // idle | submitting | success | error
-
-  async function handleSubmit(event) {
-    event.preventDefault()
-    setStatus('submitting')
-    try {
-      await subscribeToNewsletter(email)
-      setStatus('success')
-      setEmail('')
-    } catch {
-      setStatus('error')
-    }
-  }
-
-  return (
-    <div className="bg-gradient-to-r from-brand-primary to-brand-primary-dark px-4 py-10 md:px-8">
-      <div className="mx-auto flex max-w-6xl flex-col items-start justify-between gap-6 lg:flex-row lg:items-center">
-        <div>
-          <h2 className="text-xl font-extrabold text-white md:text-2xl">{common.footer.newsletter.heading[language]}</h2>
-          <p className="mt-1 text-sm text-white/85">{common.footer.newsletter.description[language]}</p>
-        </div>
-
-        <form onSubmit={handleSubmit} className="flex w-full max-w-md flex-col gap-2 sm:flex-row">
-          <input
-            type="email"
-            required
-            value={email}
-            onChange={(e) => {
-              setEmail(e.target.value)
-              if (status === 'success' || status === 'error') setStatus('idle')
-            }}
-            placeholder={common.footer.newsletter.placeholder[language]}
-            className="w-full rounded-lg border-0 bg-white px-4 py-3 text-sm text-brand-dark outline-none ring-2 ring-transparent placeholder:text-gray-400 focus:ring-brand-gold"
-          />
-          <button
-            type="submit"
-            disabled={status === 'submitting'}
-            className="flex shrink-0 items-center justify-center gap-2 rounded-lg bg-brand-navy-dark px-5 py-3 text-sm font-bold text-white transition-colors hover:bg-brand-navy disabled:opacity-60"
-          >
-            {status === 'success' ? <CheckCircle2 size={16} aria-hidden="true" /> : <Send size={15} aria-hidden="true" />}
-            {status === 'submitting'
-              ? common.footer.newsletter.submitting[language]
-              : status === 'success'
-                ? common.footer.newsletter.success[language]
-                : common.footer.newsletter.submit[language]}
-          </button>
-        </form>
-      </div>
-      {status === 'error' && (
-        <p role="alert" className="mx-auto mt-2 max-w-6xl text-sm text-white">
-          {common.footer.newsletter.error[language]}
-        </p>
-      )}
     </div>
   )
 }
