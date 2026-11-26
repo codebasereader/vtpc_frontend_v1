@@ -19,6 +19,7 @@ import {
 import { selectLanguage } from '../../../redux/slices/localeSlice'
 import { geographicalIndications as t } from '../../../language/geographicalIndications'
 import { getGiProducts } from '../../../api/giProductsApi'
+import { GI_CATEGORIES } from '../../../constants/giCategories'
 import GITreasures from '../../../sections/GITreasures'
 import ArtisanalStories from '../../../sections/ArtisanalStories'
 
@@ -51,10 +52,8 @@ const STAT_ICONS = {
 
 const HERO_INTERVAL_MS = 5000
 
-// "What is GI?" opens this PDF in a new tab. Leave empty until the PDF is
-// supplied — the button is hidden while this is empty. Put the file under
-// public/assets/pdf/ and set e.g. '/assets/pdf/What-is-GI.pdf'.
-const WHAT_IS_GI_PDF_URL = ''
+// "What is GI?" opens this PDF in a new tab.
+const WHAT_IS_GI_PDF_URL = '/assets/pdf/What-is-GI.pdf'
 
 export default function GeographicalIndications() {
   const language = useSelector(selectLanguage)
@@ -199,7 +198,7 @@ export default function GeographicalIndications() {
       </section>
 
       {/* At the Forefront */}
-      <ForefrontSection language={language} />
+      <ForefrontSection language={language} products={giProducts} />
 
       {/* Karnataka's GI Treasures */}
       <GITreasures products={giProducts} isLoading={isLoadingProducts} />
@@ -210,7 +209,24 @@ export default function GeographicalIndications() {
   )
 }
 
-function ForefrontSection({ language }) {
+// Which product category each counter reflects. Counters without an entry (GI Logos) are not
+// derived from products and keep the fixed value from the language file.
+const STAT_CATEGORY_IDS = {
+  agriculturalGis: 'agricultural',
+  handicraftGis: 'handicrafts',
+  manufacturedGoods: 'manufactured',
+  foodStuff: 'food',
+}
+
+// Live count from the product list; falls back to the fixed value while products are still
+// loading or if they could not be loaded, so the counters never flash zero.
+function withLiveValue(stat, products) {
+  const category = GI_CATEGORIES.find((c) => c.id === STAT_CATEGORY_IDS[stat.key])
+  if (!category || products.length === 0) return stat
+  return { ...stat, value: products.filter((product) => product.category === category.en).length }
+}
+
+function ForefrontSection({ language, products }) {
   const sectionRef = useRef(null)
   const [hasAnimated, setHasAnimated] = useState(false)
 
@@ -246,7 +262,12 @@ function ForefrontSection({ language }) {
 
         <div className="mt-10 grid grid-cols-2 gap-3 sm:grid-cols-3 lg:grid-cols-5">
           {t.forefront.stats.map((stat) => (
-            <StatCard key={stat.key} stat={stat} language={language} animate={hasAnimated} />
+            <StatCard
+              key={stat.key}
+              stat={withLiveValue(stat, products)}
+              language={language}
+              animate={hasAnimated}
+            />
           ))}
         </div>
       </div>
