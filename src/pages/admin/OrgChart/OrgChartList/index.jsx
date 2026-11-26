@@ -55,8 +55,9 @@ export default function OrgChartList() {
         <div>
           <h1 className="text-2xl font-bold text-brand-dark">Org Chart</h1>
           <p className="mt-1 text-sm text-gray-600">
-            Shown on the About Us Organization Chart. Order 1–3 form the vertical chain (Chairman → Managing
-            Director → Joint Director); order 4 and above render as siblings under the Joint Director.
+            Shown on the About Us Organization Chart. Order 1–5 form the vertical chain (Chairman → Director (Exports) →
+            Joint Director → Deputy Director → Assistant Director); order 6 and above sit side by side under the
+            Assistant Director.
           </p>
         </div>
         <Link

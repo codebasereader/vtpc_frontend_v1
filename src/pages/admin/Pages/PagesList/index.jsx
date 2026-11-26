@@ -104,12 +104,12 @@ export default function PagesList() {
                   <p className="font-semibold text-brand-dark">{titleEn}</p>
                   {titleKn && <p className="truncate text-sm text-gray-600">{titleKn}</p>}
                   <a
-                    href={`/${page.id}`}
+                    href={`/${page.slug || page.id}`}
                     target="_blank"
                     rel="noreferrer"
                     className="mt-0.5 inline-flex items-center gap-1 text-xs text-brand-primary hover:underline"
                   >
-                    /{page.id}
+                    /{page.slug || page.id}
                     <ExternalLink size={11} aria-hidden="true" />
                   </a>
                 </div>

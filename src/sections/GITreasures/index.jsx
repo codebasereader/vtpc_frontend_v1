@@ -1,6 +1,6 @@
-import { useMemo, useState } from 'react'
+import { useEffect, useMemo, useState } from 'react'
 import { useSelector } from 'react-redux'
-import { ChevronRight, ImageOff, Mail, Send, X } from 'lucide-react'
+import { ImageOff, Mail, Send, X } from 'lucide-react'
 import { GI_CATEGORIES } from '../../constants/giCategories'
 import { submitEnquiry } from '../../api/enquiriesApi'
 import { selectLanguage } from '../../redux/slices/localeSlice'
@@ -13,10 +13,14 @@ import { geographicalIndications as t } from '../../language/geographicalIndicat
 const FEATURED_TAB_ID = '__featured__'
 const FEATURED_TAB = { id: FEATURED_TAB_ID, en: 'Featured Products', kn: 'ವಿಶೇಷ ಉತ್ಪನ್ನಗಳು' }
 
+// Cards shown per tab before the "Show more" button reveals the next batch.
+const PAGE_SIZE = 9
+
 export default function GITreasures({ products, isLoading }) {
   const language = useSelector(selectLanguage)
   const [selectedTabId, setSelectedTabId] = useState(null)
-  const [activeProductId, setActiveProductId] = useState(null)
+  const [visibleCount, setVisibleCount] = useState(PAGE_SIZE)
+  const [detailProduct, setDetailProduct] = useState(null)
   const [enquiryProduct, setEnquiryProduct] = useState(null)
 
   const categoryCounts = useMemo(() => {
@@ -57,14 +61,11 @@ export default function GITreasures({ products, isLoading }) {
     [products, activeTabId, activeTab],
   )
 
-  // Default to the first product of the active tab unless the visitor has
-  // explicitly picked a different one still in that tab.
-  const activeProduct =
-    categoryProducts.find((product) => product.id === activeProductId) ?? categoryProducts[0] ?? null
+  const visibleProducts = categoryProducts.slice(0, visibleCount)
 
   function handleSelectTab(tabId) {
     setSelectedTabId(tabId)
-    setActiveProductId(null)
+    setVisibleCount(PAGE_SIZE)
   }
 
   return (
@@ -100,10 +101,9 @@ export default function GITreasures({ products, isLoading }) {
           </div>
         </div>
 
-        {/* Smooth-expanding panel: product-name dropdown + detail card.
-            Fixed height so a large category (e.g. 16 Handicrafts) scrolls
-            internally instead of pushing the page's layout around. */}
-        <div className="mt-6 overflow-hidden rounded-2xl border border-brand-divider bg-brand-page/60">
+        {/* Product cards — every image sits in the same 4:3 frame (whole picture shown over a
+            soft blurred copy of itself) so differently-shaped photos never get awkwardly cropped. */}
+        <div className="mt-8">
           {isLoading && <p className="p-8 text-center text-gray-600">{t.treasures.loading[language]}</p>}
 
           {!isLoading && categoryProducts.length === 0 && (
@@ -111,86 +111,158 @@ export default function GITreasures({ products, isLoading }) {
           )}
 
           {!isLoading && categoryProducts.length > 0 && (
-            <div
-              key={activeTabId}
-              className="animate-fade-slide-up grid gap-0 lg:h-[600px] lg:grid-cols-[minmax(0,280px)_1fr]"
-            >
-              {/* Product name dropdown */}
-              <div className="flex max-h-72 flex-col gap-1.5 overflow-y-auto border-b border-brand-divider p-4 lg:max-h-none lg:border-r lg:border-b-0 lg:p-5">
-                {categoryProducts.map((product) => {
-                  const isActive = product.id === activeProduct?.id
-                  return (
-                    <button
-                      key={product.id}
-                      type="button"
-                      onClick={() => setActiveProductId(product.id)}
-                      className={`group flex shrink-0 items-center justify-between gap-2 rounded-xl px-4 py-3 text-left text-sm font-semibold transition-all duration-200 ${
-                        isActive
-                          ? 'bg-white text-brand-primary shadow-[0_4px_14px_rgba(15,40,80,0.08)]'
-                          : 'text-brand-dark hover:bg-white/70'
-                      }`}
-                    >
-                      {product.name?.[language] || product.name?.en}
-                      <ChevronRight
-                        size={16}
-                        className={`shrink-0 transition-transform duration-200 ${
-                          isActive ? 'translate-x-0.5 text-brand-primary' : 'text-gray-400'
-                        }`}
-                        aria-hidden="true"
-                      />
-                    </button>
-                  )
-                })}
+            <>
+              <div key={activeTabId} className="animate-fade-slide-up grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+                {visibleProducts.map((product) => (
+                  <ProductCard
+                    key={product.id}
+                    product={product}
+                    language={language}
+                    onOpen={() => setDetailProduct(product)}
+                  />
+                ))}
               </div>
 
-              {/* Selected product detail — big image pane + scrollable copy */}
-              <div className="min-h-0">
-                {activeProduct ? (
-                  <div key={activeProduct.id} className="animate-fade-slide-up flex h-full flex-col lg:flex-row">
-                    {activeProduct.image ? (
-                      <img
-                        src={activeProduct.image}
-                        alt={activeProduct.name?.en}
-                        className="h-72 w-full shrink-0 object-cover md:h-96 lg:h-full lg:w-[45%]"
-                      />
-                    ) : (
-                      <span className="flex h-72 w-full shrink-0 items-center justify-center bg-brand-surface text-gray-400 md:h-96 lg:h-full lg:w-[45%]">
-                        <ImageOff size={32} aria-hidden="true" />
-                      </span>
-                    )}
-                    <div className="flex min-h-0 min-w-0 flex-1 flex-col overflow-y-auto p-5 md:p-7">
-                      <span className="w-fit rounded-full bg-brand-surface px-3 py-1 text-xs font-semibold text-brand-primary">
-                        {activeProduct.category}
-                      </span>
-                      <h3 className="mt-3 text-xl font-bold text-brand-navy-dark md:text-2xl">
-                        {activeProduct.name?.[language] || activeProduct.name?.en}
-                      </h3>
-                      <p className="mt-3 flex-1 text-sm leading-relaxed text-gray-600 md:text-base">
-                        {activeProduct.summary?.[language] || activeProduct.summary?.en}
-                      </p>
-                      <button
-                        type="button"
-                        onClick={() => setEnquiryProduct(activeProduct)}
-                        className="mt-5 inline-flex w-fit items-center gap-2 rounded-lg bg-brand-primary px-5 py-2.5 text-sm font-bold text-white transition-all hover:-translate-y-0.5 hover:bg-brand-primary-dark hover:shadow-[0_10px_24px_rgba(200,55,68,0.35)]"
-                      >
-                        <Mail size={15} aria-hidden="true" />
-                        {t.treasures.enquireNow[language]}
-                      </button>
-                    </div>
-                  </div>
-                ) : (
-                  <p className="p-8 text-center text-gray-500">{t.treasures.selectPrompt[language]}</p>
-                )}
-              </div>
-            </div>
+              {visibleCount < categoryProducts.length && (
+                <div className="mt-10 flex justify-center">
+                  <button
+                    type="button"
+                    onClick={() => setVisibleCount((count) => count + PAGE_SIZE)}
+                    className="rounded-lg border-2 border-brand-primary px-6 py-2.5 text-sm font-bold text-brand-primary transition-colors hover:bg-brand-primary hover:text-white"
+                  >
+                    {t.treasures.showMore[language]} ({categoryProducts.length - visibleCount})
+                  </button>
+                </div>
+              )}
+            </>
           )}
         </div>
       </div>
+
+      {detailProduct && (
+        <ProductDetailModal
+          product={detailProduct}
+          language={language}
+          onClose={() => setDetailProduct(null)}
+          onEnquire={() => setEnquiryProduct(detailProduct)}
+        />
+      )}
 
       {enquiryProduct && (
         <EnquiryModal product={enquiryProduct} language={language} onClose={() => setEnquiryProduct(null)} />
       )}
     </section>
+  )
+}
+
+// Fixed 4:3 frame. The whole photo is shown (object-contain) on top of a blurred, zoomed copy of
+// itself, so portrait, landscape and square images all fill the frame without being cropped.
+function ProductImage({ product, className = '' }) {
+  if (!product.image) {
+    return (
+      <span className={`flex items-center justify-center bg-brand-surface text-gray-400 ${className}`}>
+        <ImageOff size={32} aria-hidden="true" />
+      </span>
+    )
+  }
+  return (
+    <div className={`relative overflow-hidden bg-brand-surface ${className}`}>
+      <img
+        src={product.image}
+        alt=""
+        aria-hidden="true"
+        loading="lazy"
+        className="absolute inset-0 h-full w-full scale-125 object-cover opacity-70 blur-2xl"
+      />
+      <img
+        src={product.image}
+        alt={product.name?.en}
+        loading="lazy"
+        className="relative h-full w-full object-contain"
+      />
+    </div>
+  )
+}
+
+function ProductCard({ product, language, onOpen }) {
+  const name = product.name?.[language] || product.name?.en
+  const summary = product.summary?.[language] || product.summary?.en
+  return (
+    <button
+      type="button"
+      onClick={onOpen}
+      className="group flex flex-col overflow-hidden rounded-2xl bg-white text-left shadow-[0_6px_18px_rgba(15,40,80,0.08)] ring-1 ring-brand-divider/60 transition-all duration-200 hover:-translate-y-1 hover:shadow-[0_14px_30px_rgba(15,40,80,0.14)] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-primary"
+    >
+      <ProductImage product={product} className="aspect-[4/3] w-full" />
+      <div className="flex flex-1 flex-col p-5">
+        <span className="w-fit rounded-full bg-brand-surface px-3 py-1 text-xs font-semibold text-brand-primary">
+          {product.category}
+        </span>
+        <h3 className="mt-3 text-lg font-bold text-brand-navy-dark">{name}</h3>
+        <p className="mt-2 line-clamp-3 flex-1 text-sm leading-relaxed text-gray-600">{summary}</p>
+        <span className="mt-4 text-sm font-bold text-brand-primary group-hover:underline">
+          {t.treasures.viewDetails[language]}
+        </span>
+      </div>
+    </button>
+  )
+}
+
+function ProductDetailModal({ product, language, onClose, onEnquire }) {
+  const name = product.name?.[language] || product.name?.en
+  const summary = product.summary?.[language] || product.summary?.en
+
+  useEffect(() => {
+    function handleKey(event) {
+      if (event.key === 'Escape') onClose()
+    }
+    document.addEventListener('keydown', handleKey)
+    return () => document.removeEventListener('keydown', handleKey)
+  }, [onClose])
+
+  return (
+    <div
+      className="fixed inset-0 z-50 flex items-center justify-center bg-black/60 p-4"
+      role="dialog"
+      aria-modal="true"
+      aria-labelledby="gi-detail-title"
+      onClick={onClose}
+    >
+      <div
+        className="relative flex max-h-[90vh] w-full max-w-3xl flex-col overflow-hidden rounded-2xl bg-white shadow-[0_24px_60px_rgba(0,0,0,0.3)]"
+        onClick={(event) => event.stopPropagation()}
+      >
+        <button
+          type="button"
+          onClick={onClose}
+          aria-label="Close"
+          className="absolute top-3 right-3 z-10 flex h-9 w-9 items-center justify-center rounded-full bg-white/90 text-gray-500 shadow transition-colors hover:text-brand-navy-dark"
+        >
+          <X size={18} aria-hidden="true" />
+        </button>
+
+        <div className="overflow-y-auto">
+          <ProductImage product={product} className="aspect-[16/10] w-full" />
+          <div className="p-6 md:p-8">
+            <span className="w-fit rounded-full bg-brand-surface px-3 py-1 text-xs font-semibold text-brand-primary">
+              {product.category}
+            </span>
+            <h3 id="gi-detail-title" className="mt-3 text-2xl font-bold text-brand-navy-dark">
+              {name}
+            </h3>
+            <p className="mt-3 text-sm leading-relaxed text-gray-600 md:text-base">{summary}</p>
+            <button
+              type="button"
+              onClick={onEnquire}
+              className="mt-6 inline-flex items-center gap-2 rounded-lg bg-brand-primary px-5 py-2.5 text-sm font-bold text-white transition-all hover:-translate-y-0.5 hover:bg-brand-primary-dark hover:shadow-[0_10px_24px_rgba(200,55,68,0.35)]"
+            >
+              <Mail size={15} aria-hidden="true" />
+              {t.treasures.enquireNow[language]}
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
   )
 }
 

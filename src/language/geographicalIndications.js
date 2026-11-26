@@ -110,6 +110,8 @@ export const geographicalIndications = {
     },
     selectPrompt: { en: 'Select a product', kn: 'ಒಂದು ಉತ್ಪನ್ನವನ್ನು ಆಯ್ಕೆಮಾಡಿ' },
     enquireNow: { en: 'Enquire Now', kn: 'ಈಗ ವಿಚಾರಿಸಿ' },
+    viewDetails: { en: 'View details', kn: 'ವಿವರಗಳನ್ನು ವೀಕ್ಷಿಸಿ' },
+    showMore: { en: 'Show more', kn: 'ಇನ್ನಷ್ಟು ತೋರಿಸಿ' },
     enquiryForm: {
       title: { en: 'Enquire about', kn: 'ಬಗ್ಗೆ ವಿಚಾರಿಸಿ' },
       name: { en: 'Your Name', kn: 'ನಿಮ್ಮ ಹೆಸರು' },
